@@ -1,0 +1,70 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amscd}
+\usepackage{graphicx}
+\usepackage{tkz-euclide}
+\usepackage{tikz}
+\author{Simon Crase}
+\title{General Relativity: Problem 2}
+\begin{document}
+\maketitle
+
+
+\section{Rotating Coordinates}
+
+\textit{Find the coordinate transformation and the stationary metric in the rotating reference system with the angular velocity $\omega$.}	
+
+The figure below shows the xy coordinates for the Minkowski space (assuming rotation around the z axis with angular velocity $\omega$), the rotating x'y' coordinates, and polar coordinates r $\theta$ as alternative coordinates in the rotating coordinate system.
+
+\begin{tikzpicture} \label{coordinates}
+\draw (0,0) -- (8,0) node[anchor=north west] {x};
+\draw (0,0) -- (0,8) node[anchor=south east] {y};
+\draw[dashed] (0,0) -- (7,2) node[anchor=north west] {x'};
+\draw[dashed] (0,0) -- (-2,7)  node[anchor=south east] {y'};
+\draw (3,0) arc (0:17:3cm)  node[anchor=north west] {$\omega$t};
+\draw[densely dotted] (0,0) -- (5,5)  node[anchor=south east] {r};
+\draw (3.5,1) arc (17:53:3cm)  node[anchor=north west] {$\theta$};
+\end{tikzpicture}
+
+If a point has coordinates r and $\theta$ in the rotating coordinate system, its coordinates in the xy plane of Minkowski space will be as follows.
+\begin{subequations}
+	\begin{align}
+	x &= r \cos(\theta+\omega t)\\
+	y &= r \sin(\theta+\omega t)
+	\end{align}
+\end{subequations}
+
+Using $dx = \frac{\partial x}{\partial r} dr + \frac{\partial x}{\partial \theta} d \theta + \frac{\partial x}{\partial t} dt$, we obtain:
+\begin{subequations}
+	\begin{align}
+	dx &= \cos(\theta + \omega t) dr -r sin(\theta + \omega t) d\theta - \omega r sin(\theta + \omega t) dt\\
+	dy &= \sin(\theta + \omega t) dr + r cos(\theta + \omega t) d\theta + \omega r cos(\theta + \omega t) dt
+	\end{align}
+\end{subequations}
+
+
+\begin{align}
+\begin{split}\label{eq:2}
+dx^{2}+dy^{2} ={}& \cos^{2}(\theta + \omega t) dr^{2}+r^{2}\sin^{2}(\theta + \omega t)d\theta^{2}+\omega^{2}r^{2}\sin^{2}(\theta + \omega t)dt^{2} \\
+&+ 2 \omega r^{2} \sin^{2}(\theta + \omega t)d \theta dt -2 \omega r \cos(\theta + \omega t)\sin(\theta + \omega t) dr dt\\
+&-2 r \cos(\theta + \omega t)\sin(\theta + \omega t) dr d\theta +\sin^{2}(\theta + \omega t) dr^{2} \\
+&+ r^{2}\cos^{2}(\theta + \omega t)d\theta^{2} + \omega^{2} r^{2} \cos^{2}(\theta + \omega t) dt^{2} \\
+&+ 2 \omega r^{2} \cos^{2}(\theta + \omega t)d \theta dt +2 \omega r \cos(\theta + \omega t)\sin(\theta + \omega t) dr dt\\
+&+2 r \cos(\theta + \omega t)\sin(\theta + \omega t) dr d\theta
+\end{split}
+\end{align}
+Simplifying using basic trigonometric identities and cancelling, we get:
+\begin{equation} \label{eq:2Dpolar}
+dx^{2}+dy^{2} = dr^{2} + r^{2}d\theta^{2} + \omega^{2}r^{2}dt^{2}+2 \omega r^{2} d\theta dt
+\end{equation}
+In Minkowski space, the metric is:
+\begin{align}
+	ds^{2}&=dt^{2}-dx^{2}-dy^{2}-dz^{2}\\
+	&=(1-\omega^{2}r^{2})dt^{2}-dr^{2} - r^{2}d\theta^{2} -2 \omega r^{2} d\theta dt
+\end{align}
+upon substituting \ref{eq:2Dpolar}
+\end{document}

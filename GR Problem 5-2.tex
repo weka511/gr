@@ -1,0 +1,122 @@
+\documentclass[]{article}
+\usepackage{tikz,url,float}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{arrows.meta}
+\tikzset{>={Latex[width=2mm,length=2mm]}}
+
+%opening
+\title{Introduction into General Relativity\\Assignment 5.2\\The black hole Penrose-–Carter diagram\\and Eddington–-Finkelstein coordinates}
+\author{Simon Crase}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Penrose-Carter diagram for Black Hole}
+Following the method sketched in \cite{diaz2013}, and using the notation of \cite{frolov2011}, we obtain the Penrose-Carter diagram Figure \ref{fig:pc}.
+\begin{figure}[H]
+	\begin{tikzpicture}
+	\node (I)    at ( 4,0)   {$R_+$};
+	\node (II)   at (-4,0)   {$R_-$};
+	\node (III)  at (0, 2.5) {$T_-$};
+	\node (IV)   at (0,-2.5) {$T_+$};
+	
+	\path  % Four corners of left diamond
+	(II) +(90:4)  coordinate[label=90:$I^+$]  (IItop)
+	+(-90:4) coordinate[label=-90:$I^-$] (IIbot)
+	+(0:4)   coordinate                  (IIright)
+	+(180:4) coordinate[label=180:$I^0$] (IIleft)
+	;
+	\path
+	(I) +(90:4)  coordinate[label=90:$I^+$]  (Itop)
+	+(-90:4) coordinate[label=-90:$I^-$] (Ibot)
+	+(0:4)   coordinate [label=180:$I^0$]  (Iright)
+	+(180:4) coordinate (Ileft)
+	;
+	
+	\draw[dashed,black, thin,->] (7,-1) -- (2,4);
+	\draw[dashed,black, thin,->] (3,-3) -- (7,1);
+	\draw (IIleft) -- 
+	node[midway, above left]    {$\cal{J}^+$}
+	(IItop) --
+	node[midway, below, sloped] {$r=r_g$}
+	(IIright) -- 
+	node[midway, below, sloped] {$r=r_g$}
+	(IIbot) --
+	node[midway, below left]    {$\cal{J}^-$}    
+	(IIleft) -- cycle;
+	
+	\draw (Ileft) -- 
+	node[midway, above left,sloped]    {$r=r_g$}
+	(Itop) --
+	node[midway, below, ] {$\cal{J}^+$}
+	(Iright) -- 
+	node[midway, below, ] {$\cal{J}^-$}
+	(Ibot) --
+	node[midway, below left,sloped]     {$r=r_g$}    
+	(Ileft) -- cycle;
+	
+
+	% No text this time in the next diagram
+	\draw  (Ileft) -- (Itop) -- (Iright) -- (Ibot) -- (Ileft) -- cycle;
+	
+	% Squiggly lines
+	\draw[decorate,decoration=zigzag] (IItop) -- (Itop)
+	node[midway, above, inner sep=2mm] {$r=0$};
+	
+	\draw[decorate,decoration=zigzag] (IIbot) -- (Ibot)
+	node[midway, below, inner sep=2mm] {$r=0$};
+	
+	\end{tikzpicture}
+	\caption{Penrose-Carter Diagram for Black Hole}
+	\label{fig:pc}
+\end{figure}
+
+The four labelled areas in Figure \ref{fig:pc} are as follows:
+\begin{itemize}
+	\item $T_-$  Black Hole Interior;
+	\item $R_+$  Black Hole Exterior;
+	\item $T_+$  White Hole Interior;
+	\item $R_-$  White Hole Exterior.
+\end{itemize}
+\section{Ingoing Eddington-–Finkelstein coordinates}
+The Ingoing Eddington-–Finkelstein coordinates cover $R_+\cup T_-$ in Figure \ref{fig:pc}.
+\begin{enumerate}
+	\item We saw in the Lecture, \cite[IV,Figure 8]{akhmedev2016} that the Ingoing Eddington–-Finkelstein coordinates cover the space outside $r=r_g$, and the space inside (the black hole), with the exception of the singularity at $r=0$.
+	\item We also saw, \cite[V,Figure 11]{akhmedev2016} that the space outside corresponds to Figure \ref{fig:pc}[$R_+$], and the space inside to Figure \ref{fig:pc}[$T_-$].
+	\begin{enumerate}
+		\item For there are light rays running through $R_+$, some going to infinity, others crossing $r=r_g$ into $T_-$
+		\item There are no light rays crossing from $T_-$ to $R_+$. Instead they all cross $r=0$.
+		\item In short, $T_-$ and $R_+$ behave exactly like the two regions in \cite[V,Figure 11]{akhmedev2016}
+	\end{enumerate}
+\end{enumerate}
+\section{Outgoing Eddington–-Finkelstein coordinates}
+The Outgoing Eddington-–Finkelstein coordinates cover $R_+ \cup T+$ in Figure \ref{fig:pc}.
+\begin{enumerate}
+	\item For the transformation $t\rightarrow -t$ transforms from Ingoing Eddington–-Finkelstein coordinates to Outgoing.
+	\item It also reflects \ref{fig:pc} about its horizontal axis, interchanging $T_-$ and $T_+$.
+\end{enumerate}
+\begin{thebibliography}{9}
+	\raggedright	
+	\bibitem{akhmedev2016}
+	Emil T. Akhmedev,
+	\emph{Lectures on General Theory of Relativity},
+	2016,
+	\url{https://arxiv.org/pdf/1601.04996v6.pdf}.
+	
+	\bibitem{frolov2011}
+	Valeri P. Frolov and Andrei Zelnikov
+	\emph{Introduction to Black Hole Physics},
+	2011,
+	\url{https://www.amazon.com/gp/search?index=books&linkCode=qs&keywords=9780191003226}
+	
+	\bibitem{diaz2013}
+	J L Diaz,
+	\emph{How to Draw Penrose Diagrams with TikZ},
+	2013,
+	\url{http://tex.stackexchange.com/questions/99124/how-to-draw-penrose-diagrams-with-tikz}
+\end{thebibliography}
+
+\end{document}

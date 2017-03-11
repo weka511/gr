@@ -1,0 +1,148 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{currfile}
+\usepackage{fancyhdr}
+
+\author{Simon Crase}
+\title{General Relativity Problem 2.1}
+
+\usepackage{fancyhdr}
+\pagestyle{plain}
+\renewcommand{\headrulewidth}{0pt}  %get rid of header
+\fancyfoot[L]{Generated from \LaTeX \space file \currfilename} %put current file in footer
+
+\begin{document}
+	\maketitle
+	\thispagestyle{fancy}% sets the current page style to 'fancy'
+	\emph{Calculate the expression in four-dimensional Minkowski space--time:}
+	\begin{equation}
+	\epsilon_{\mu\nu\alpha\beta}\epsilon^{\alpha\beta\gamma\sigma}\partial_{\gamma}\partial^{\nu}\frac{\lvert x \rvert}{(k.x)^{2}}
+	\end{equation}
+
+	\section{Coefficients of $\epsilon^{\alpha\beta\gamma\sigma}$.}
+		By definition:
+	\begin{align}
+		\epsilon_{\alpha\beta\gamma\delta} \overset{\Delta}{=} -1&\text{ if $\alpha'\beta'\gamma'\delta'$ is an even permutation of \{0123\}} \\
+		= +1&\text { if $\alpha'\beta'\gamma'\delta'$  is an odd permutation}\\
+		= 0&\text { otherwise}
+	\end{align}
+	We will start by showing that this remains true when the indices are raised.
+	
+	It is convenient to suspend Einstein's summation convention and write this sum explicitly.
+	\begin{align*}
+		\epsilon^{\alpha\beta\gamma\delta}&\overset{\Delta}{=}g^{\alpha\alpha'}g^{\beta\beta'}g^{\gamma\gamma'}g^{\delta\delta'}\epsilon_{\alpha'\beta'\gamma'\delta'}\\
+		&\overset{\Delta}{=}\sum_{\alpha'\beta'\gamma'\delta'}g^{\alpha\alpha'}g^{\beta\beta'}g^{\gamma\gamma'}g^{\delta\delta'}\epsilon_{\alpha'\beta'\gamma'\delta'} \\
+	 = &\underbrace{\sum_{\alpha'\beta'\gamma'\delta'}}_{\text{$\alpha'\beta'\gamma'\delta'$ all different}}g^{\alpha\alpha'}g^{\beta\beta'}g^{\gamma\gamma'}g^{\delta\delta'}\epsilon_{\alpha'\beta'\gamma'\delta'}\epsilon_{\alpha'\beta'\gamma'\delta'}\\
+	  &+ \underbrace{\sum_{\alpha'\beta'\gamma'\delta'}}_{\text{At least two of $\alpha'\beta'\gamma'\delta'$ the same}}g^{\alpha\alpha'}g^{\beta\beta'}g^{\gamma\gamma'}g^{\delta\delta'}\epsilon_{\alpha'\beta'\gamma'\delta'}\epsilon_{\alpha'\beta'\gamma'\delta'}\\
+	 &= \underbrace{\sum_{\alpha'\beta'\gamma'\delta'}}_{\text{$\alpha'\beta'\gamma'\delta'$ all different}}g^{\alpha\alpha'}g^{\beta\beta'}g^{\gamma\gamma'}g^{\delta\delta'}\epsilon_{\alpha'\beta'\gamma'\delta'} + \underbrace{0}_{\text{$\epsilon_{\alpha'\beta'\gamma'\delta'}=0$ unless all indices different}}
+	\end{align*}
+	But the sum will be zero except for terms where $\alpha=\alpha',\beta=\beta',\gamma=\gamma',\delta=\delta'$. Since $\alpha, \beta, \gamma, \text { and } \delta$ are all different they must be some permutation of \{0,1,2,3\}. Moreover, one of the $g^{..}$ must be +1, the others -1. Hence $g^{\alpha\alpha'}g^{\beta\beta'}g^{\gamma\gamma'}g^{\delta\delta'}=(+1)(-1)(-1)(-1)=-1$
+	and the equations above give 
+	\begin{align}
+	\epsilon^{\alpha\beta\gamma\delta} = -1&\text{ if $\alpha'\beta'\gamma'\delta'$ is an even permutation of \{0123\}} \\
+	= +1&\text { if $\alpha'\beta'\gamma'\delta'$  is an odd permutation}\\
+	= 0&\text { otherwise}
+	\end{align}
+
+	\section{Evaluation of $\epsilon_{\mu\nu\alpha\beta}\epsilon^{\alpha\beta\gamma\sigma}$}
+	Again is convenient to suspend Einstein's summation convention and write this sum explicitly.
+	$$
+	\epsilon_{\mu\nu\alpha\beta}\epsilon^{\alpha\beta\gamma\sigma}\overset{\Delta}{=}\sum_{\alpha\beta}\epsilon_{\mu\nu\alpha\beta}\epsilon^{\alpha\beta\gamma\sigma}
+	$$
+	The sum can be split as follows.
+	\begin{align*}
+	\sum_{\alpha\beta}\epsilon_{\mu\nu\alpha\beta}\epsilon^{\alpha\beta\gamma\sigma} &= \sum_{\alpha\beta: (\mu\nu\alpha\beta) even}\epsilon_{\mu\nu\alpha\beta}\epsilon^{\alpha\beta\gamma\sigma}
+	+ \sum_{\alpha\beta: (\mu\nu\alpha\beta) odd}\epsilon_{\mu\nu\alpha\beta}\epsilon^{\alpha\beta\gamma\sigma}
+	+ \underbrace{\sum_{\alpha\beta: otherwise}\epsilon_{\mu\nu\alpha\beta}\epsilon^{\alpha\beta\gamma\sigma}}_{zero}\\
+	&= \sum_{\alpha\beta: (\mu\nu\alpha\beta) even}\epsilon_{\mu\nu\alpha\beta}\epsilon^{\alpha\beta\gamma\sigma}
+	+ \sum_{\alpha\beta: (\mu\nu\alpha\beta) odd}\epsilon_{\mu\nu\alpha\beta}\epsilon^{\alpha\beta\gamma\sigma}
+	\end{align*}
+	Now if \{$\mu,\nu,\alpha,\beta$\} is a permutation of \{0123\}, $\mu$ and $\nu$ must be different from each other, and also from both $\alpha$ and  $\beta$. The same is true for $\gamma$ and $\sigma$. Moreover,  the permutation  \{$\mu,\nu,\alpha,\beta$\} has the \emph{same parity} as \{$\alpha,\beta,\mu,\nu$\}, i.e. they are either \emph{both odd} or \emph{both even}. There are therefore two cases:
+	\begin{enumerate}
+		\item $\mu=\gamma,\nu=\sigma$. Then \{$\mu,\nu,\alpha,\beta$\} and \{$\alpha\beta\gamma\sigma$\} have the same parity, $\epsilon_{\mu\nu\alpha\beta}$ and $\epsilon^{\alpha\beta\gamma\sigma}$ have opposite signs, so each term contributes -1 to the sum, and the total is -2.
+		\item $\nu=\gamma,\mu=\sigma$. Then \{$\mu,\nu,\alpha,\beta$\} and \{$\alpha\beta\gamma\sigma$\} have opposite parity, $\epsilon_{\mu\nu\alpha\beta}$ and $\epsilon^{\alpha\beta\gamma\sigma}$ have the same signs, so each term contributes +1 to the sum, and the total is +2 
+	\end{enumerate}
+	
+	\begin{align*}
+	\epsilon_{\mu\nu\alpha\beta}\epsilon^{\alpha\beta\gamma\sigma}&= &-2 \text{ if } \mu=\gamma,\nu=\sigma, \mu \neq \nu \\
+	&= &2 \text{ if }  \nu=\gamma,\mu=\sigma, \mu \neq \nu \\
+	&= &0 \text{ otherwise }
+	\end{align*}
+	More concisely\footnote{See Landau and Lifshitz, Volume 2 \S6}:
+	\begin{equation}
+	\epsilon_{\mu\nu\alpha\beta}\epsilon^{\alpha\beta\gamma\sigma}=2\delta_{\nu}^{\gamma}\delta_{\mu}^{\sigma} - 2 \delta_{\mu}^{\gamma}\delta_{\nu}^{\sigma}
+	\end{equation}
+	
+	Hence
+	\begin{align}
+	\epsilon_{\mu\nu\alpha\beta}\epsilon^{\alpha\beta\gamma\sigma}\partial_{\gamma}\partial^{\nu}&=2\delta_{\nu}^{\gamma}\delta_{\mu}^{\sigma}\partial_{\gamma}\partial^{\nu} - 2 \delta_{\mu}^{\gamma}\delta_{\nu}^{\sigma}\partial_{\gamma}\partial^{\nu}\\
+	&=2\delta_{\mu}^{\sigma}\partial_{\gamma}\partial^{\gamma}-2\partial_{\mu}\partial^{\sigma} \label{partials}
+	\end{align}
+
+	\section{Calculation of the derivatives of numerator and denominator}
+	\begin{align} 
+	\partial^{\nu} \lvert x \rvert &= g^{\nu\nu'}\partial_{\nu'}\sqrt{g_{\alpha\beta}x^{\alpha}x^{\beta}}\\
+	&=g^{\nu\nu'}\frac{2 g_{\alpha\nu'} x^{\alpha}}{2 \sqrt{g_{\alpha\beta}x^{\alpha}x^{\beta}}}\\
+	&=\frac{x^{\nu}}{\sqrt{g_{\alpha\beta}x^{\alpha}x^{\beta}}} \text {, since } g^{\nu\nu'}g_{\alpha\nu'}=\delta^{\nu}_{\alpha}\\
+	&=\frac{x^{\nu}}{\lvert x \rvert}\label{numerator}
+	\end{align}
+	
+	\begin{align}
+	\partial^{\nu}(k_{\alpha}x^{\alpha})^{2} &= 2 (k_{\alpha}x^{\alpha}) \partial^{\nu} (k_{\alpha'}x^{\alpha'})\\
+	&= 2 (k_{\alpha}x^{\alpha}) g^{\nu\nu'}\partial_{\nu'}(k_{\alpha'}x^{\alpha'}) \\
+	&= 2 (k_{\alpha}x^{\alpha}) g^{\nu\nu'}k_{\nu'}\\
+	&= 2 (k_{\alpha}x^{\alpha}) k^{\nu} \\
+	&= 2(k.x)k^{\nu} \label{denominator}
+	\end{align}
+	\section{Calculation of the derivatives of the ratio}
+	We can calculate the first derivative from \ref{numerator} and  \ref{denominator}
+	\begin{align}
+	\partial^{\nu}\frac{\lvert x \rvert}{(k.x)^2} &=g^{\nu\nu'}\partial_{\nu'}\frac{\lvert x \rvert}{(k.x)^2}\\
+	&=g^{\nu\nu'}\frac{\frac{(k.x)^{2}x_{\nu'}}{\lvert x \rvert}
+		-\lvert x \rvert 2 (k.x)k_{\nu'}}{(k.x)^{4}} \\
+	&= g^{\nu\nu'}\frac{x_{\nu'}}{\lvert x \rvert (k.x)^{2}} - g^{\nu\nu'}\frac{2\lvert x \rvert k_{\nu'}}{(k.x)^3} \\
+	&= \frac{x^{\nu}}{\lvert x \rvert (k.x)^{2}} - \frac{2\lvert x \rvert k^{\nu}}{(k.x)^3}
+	\end{align}
+	We differentiate term by term to compute $\partial_{\gamma}\partial^{\nu}\frac{\lvert x \rvert}{(k.x)^{2}}$
+	\begin{align}
+	\partial_{\gamma}\partial^{\nu}\frac{\lvert x \rvert}{(k.x)^{2}} =&\partial_{\gamma}\frac{x^{\nu}}{\lvert x \rvert (k.x)^{2}} - \partial_{\gamma}\frac{2\lvert x \rvert k^{\nu}}{(k.x)^3}\\
+	=&\partial_{\gamma}\frac{x^{\nu}}{\lvert x \rvert (k.x)^{2}} - 2k^{\nu}\partial_{\gamma}\frac{\lvert x \rvert }{(k.x)^3} \label{terms}
+	\end{align}
+	\begin{align}
+		\partial_{\gamma}\frac{x^{\nu}}{\lvert x \rvert (k.x)^{2}}=& \frac{\lvert x \rvert (k.x)^{2}\delta_{\gamma}^{\nu}-x^{\nu}[\frac{x_{\gamma}(k.x)^{2}}{\lvert x \rvert}+ \lvert x \rvert 2 (k.x) k_{\gamma}]}{\lvert x \rvert^{2}(k.x)^{4}}\\
+		=&\frac{\delta_{\gamma}^{\nu}}{\lvert x \rvert (k.x)^{2}} -\frac{x^{\nu}x_{\gamma}}{\lvert x \rvert ^{3} (k.x)^3} -\frac{2 x^{\nu} k_{\gamma}}{\lvert x \rvert (k.x)^{3}} \label{term1}
+	\end{align}
+	\begin{align}
+	\partial_{\gamma}\frac{\lvert x \rvert }{(k.x)^3}=& \frac{(k.x)^{3}\partial_{\gamma}(\lvert x \rvert)-\lvert x \rvert  \partial_{\gamma}(k.x)^{3}}{(k.x)^{6}} \\
+	=& \frac{(k.x)^{3}\frac{k_{\gamma}}{\lvert x \rvert} -3 \lvert x \rvert (k.x)^{2} k_{\gamma}}{(k.x)^{6}}\\
+	=& \frac{k_{\gamma}}{\lvert x \rvert (k.x)^{3}}  - 3\frac{\lvert x \rvert k_{\gamma}}{(k.x)^{4}} \label{term2}
+	\end{align}
+	Combining \ref{terms}, \ref{term1} and \ref{term2}
+	
+	\begin{equation}
+		\partial_{\gamma}\partial^{\nu}\frac{\lvert x \rvert}{(k.x)^{2}}\\ =
+			\frac{\delta_{\gamma}^{\nu}}{\lvert x \rvert (k.x)^{2}} -\frac{x^{\nu}x_{\gamma}}{\lvert x \rvert ^{3} (k.x)^3} -\frac{2 x^{\nu} k_{\gamma}}{\lvert x \rvert (k.x)^{3}}-
+			2k^{\nu}\big[\frac{k_{\gamma}}{\lvert x \rvert (k.x)^{3}}  - 3\frac{\lvert x \rvert k_{\gamma}}{(k.x)^{4}}\big]\label{deriv2}
+	\end{equation}
+	\section{Final Result}
+	From \ref{partials} and \ref{deriv2} we see that
+	\begin{align*}
+		\epsilon_{\mu\nu\alpha\beta}\epsilon^{\alpha\beta\gamma\sigma}\partial_{\gamma}\partial^{\nu}\frac{\lvert x \rvert}{(k.x)^{2}}
+	=&2[\delta_{\mu}^{\sigma}\partial_{\gamma}\partial^{\gamma}-\partial_{\mu}\partial^{\sigma}]\frac{\lvert x \rvert}{(k.x)^{2}}\\
+	=&2\delta_{\mu}^{\sigma}\partial_{\gamma}\partial^{\gamma}\frac{\lvert x \rvert}{(k.x)^{2}}-2\partial_{\mu}\partial^{\sigma}\frac{\lvert x \rvert}{(k.x)^{2}}\\
+	=&2\delta_{\mu}^{\sigma}\bigg[\frac{\delta_{\gamma}^{\gamma}}{\lvert x \rvert (k.x)^{2}} -\frac{x^{\gamma}x_{\gamma}}{\lvert x \rvert ^{3} (k.x)^3} -\frac{2 x^{\gamma} k_{\gamma}}{\lvert x \rvert (k.x)^{3}}-
+2k^{\gamma}\big[\frac{k_{\gamma}}{\lvert x \rvert (k.x)^{3}}  - 3\frac{\lvert x \rvert k_{\gamma}}{(k.x)^{4}}\big]\bigg]\\&-2\bigg[\frac{\delta_{\mu}^{\sigma}}{\lvert x \rvert (k.x)^{2}} -\frac{x_{\mu}x^{\sigma}}{\lvert x \rvert ^{3} (k.x)^3} -\frac{2 x_{\mu} k^{\sigma}}{\lvert x \rvert (k.x)^{3}}-
+2k_{\mu}\big[\frac{k^{\sigma}}{\lvert x \rvert (k.x)^{3}}  - 3\frac{\lvert x \rvert k^{\sigma}}{(k.x)^{4}}\big]\bigg]\\
+	=&2\delta_{\mu}^{\sigma}\bigg[\frac{4}{\lvert x \rvert (k.x)^{2}} -\frac{\lvert x \rvert^{2}}{\lvert x \rvert ^{3} (k.x)^3} -\frac{2 (k.x)}{\lvert x \rvert (k.x)^{3}}-
+	2k^{\gamma}\big[\frac{k_{\gamma}}{\lvert x \rvert (k.x)^{3}}  - 3\frac{\lvert x \rvert k_{\gamma}}{(k.x)^{4}}\big]\bigg]\\&-2\bigg[\frac{\delta_{\mu}^{\sigma}}{\lvert x \rvert (k.x)^{2}} -\frac{x_{\mu}x^{\sigma}}{\lvert x \rvert ^{3} (k.x)^3} -\frac{2 x_{\mu} k^{\sigma}}{\lvert x \rvert (k.x)^{3}}-
+	2k_{\mu}\big[\frac{k^{\sigma}}{\lvert x \rvert (k.x)^{3}}  - 3\frac{\lvert x \rvert k^{\sigma}}{(k.x)^{4}}\big]\bigg]\\
+	=&2\bigg[\frac{3\delta_{\mu}^{\sigma}}{\lvert x \rvert (k.x)^{2}}+
+	\frac{x_{\mu}x^{\sigma}-\lvert x \rvert^{2}\delta_{\mu}^{\sigma}}{\lvert x \rvert ^{3} (k.x)^3}+
+	2\frac{x_{\mu}k^{\sigma}-(k.x)\delta_{\mu}^{\sigma}+2k_{\mu}k^{\sigma}- 2\lvert k \rvert^{2}\delta^{\sigma_{\mu}}}{\lvert x \rvert (k.x)^3}\\
+	&+6\frac{\lvert x \rvert \lvert k \rvert^{2}\delta_{\mu}^{\sigma}-\lvert x \rvert k_{\mu}k^{\sigma}}{(k.x)^{4}}\bigg]
+	\end{align*}
+\end{document}

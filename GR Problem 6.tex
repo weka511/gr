@@ -1,0 +1,73 @@
+\documentclass[]{article}
+
+\usepackage{mathtools,mathrsfs,url,float,amssymb,amsthm}
+
+
+%opening
+\title{Introduction into General Relativity\\Assignment 6\\There are circular light like orbits\\ in the Schwarzschild metric}
+\author{Simon Crase}
+
+\newtheorem{theorem}{Theorem}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+
+\begin{document}
+
+\maketitle
+
+\begin{theorem}[Circular Light-Like Orbits]
+	In the Schwarzschild metric there are circular light like orbits at $r=\frac{3r_g}{2}$
+\end{theorem}
+
+\begin{proof}[]
+	\begin{align*}
+	\text{{\cite[Lecture VI,(128)]{akhmedev2016}}}  & \land \theta = \frac{\pi}{2} \land d\theta=0\\
+	\implies &\\
+	\big(\frac{ds}{dq}\big)^2 = & (1-\frac{r_g}{r})\big(\frac{dt}{dq}\big)^2 - \frac{\big(\frac{dr}{dq}\big)^2}{1-\frac{r_g}{r}}-r^2 \big(\frac{d\phi}{dq}\big)^2 \numberthis \label{eq:metric}
+	\end{align*}
+	Where $q$ is some suitably chosen affine parameter. \emph{We cannot choose $s$ as the parameter, as it is zero for a time-like World line.}
+	
+	We introduce the notation that a single "dot" character represents differentiation by $q$, so $\dot r \triangleq \frac{dr}{dq}$, and set $ds^2=0$. Then (\ref{eq:metric}) becomes
+	\begin{align*}
+		(1-\frac{r_g}{r})\dot t^2 - \frac{\dot r^2}{1-\frac{r}{r_g}}-r^2 \dot \phi^2 =& 0 \numberthis \label{eq:timelike}
+	\end{align*}
+	From \cite[Lecture VI]{akhmedev2016} we have the Killing vectors $k^t\triangleq(1,0,0,0)$ and $k^\phi\triangleq(0,0,0,1)$, whence
+	\begin{align*}
+	\big(1-\frac{r_g}{r}\big)\dot t =& \bar{E} \text{, for some constant $\bar{E}$} \numberthis \label{eq:noether1}\\
+	r^2 \dot{\phi} =&\bar{L} \text{, for some constant $\bar{L}$} \numberthis \label{eq:noether2}
+	\end{align*}
+	Note that we cannot follow \cite[Lecture VI, (126) and (127)]{akhmedev2016} exactly, as $m=0$.
+	
+	Substituting (\ref{eq:noether1}) and (\ref{eq:noether2}) in (\ref{eq:timelike})
+	\begin{align*}
+	\frac{\big(1-\frac{r_g}{r}\big) \bar{E}^2}{\big(1-\frac{r_g}{r}\big)^2} - \frac{\dot{r}^2}{\big(1-\frac{r_g}{r}\big)} - \frac{r^2 \bar{L}^2}{r^4} =& 0\text{ , which simplifies to}\\
+	\frac{\dot{r}^2}{\big(1-\frac{r_g}{r}\big)} =& \frac{\bar{E}^2}{\big(1-\frac{r_g}{r}\big)} - \frac{\bar{L}}{r^2} \text{, and finally}\\
+	\dot{r}^2 =& \bar{E}^2 - \frac{\bar{L}^2 \big(1-\frac{r_g}{r}\big)}{r^2} \numberthis \label{eq:rdot}
+	\end{align*}
+	Now (\ref{eq:noether2}) $\implies \frac{dr}{dq} = \frac{dr}{d\phi} \frac{d\phi}{dq} = \frac{\bar{L}}{r^2} \frac{dr}{d\phi}$. We introduce new notation, where prime denotes differentiation with respect to $\phi$, giving $\dot{r}=\frac{\bar{L}}{r^2} r'$ Substituting in (\ref{eq:rdot}). 
+	\begin{align*}
+	\frac{L^2}{r^4}r'^2 =& \bar{E}^2 - \frac{\bar{L}^2 \big(1-\frac{r_g}{r}\big)}{r^2}\\
+	\bar{L}^2 u'^2=& \bar{E}^2 - \bar{L}^2 (1-r_g u) u^2 \text{, where $u\triangleq \frac{1}{r}$.}
+	\end{align*}
+	Differentiating the last equation
+	\begin{align*}
+	2 \bar{L}^2 u' u'' =& \bar{L}^2 r_g u' u^2 - 2 \bar{L}^2 (1-r_g u) u u' \\
+	\Longleftarrow\\
+	u'' =& \frac{r_g}{2} u^2 - (1 - r_g u) u\\
+	=& \big( \frac{r_g}{2} u - 1 + r_g u\big) u\\
+	=& \big( \frac{3 r_g}{2} u - 1 \big) u \numberthis \label{eq:ode}
+	\end{align*}
+	If initially $r=\frac{3 r_g}{2}$, then $u=\frac{2}{3 r_g} \land u''=0$, initially, provided $u'\neq 0$. Since $r=\frac{3 r_g}{2}$ is not a singularity of $ds^2$, we can argue that $u''=0$, even if $u'=0$. 
+	 Therefore if $r=\frac{3 r_g}{2} \land r'=0$ initially ($u'=0$), then $u''=0$, so $r(\phi)=\frac{3 r_g}{2} \forall \phi$ a solution to (\ref{eq:ode})
+\end{proof}
+
+\begin{thebibliography}{9}
+	
+	\bibitem{akhmedev2016}
+	Emil T. Akhmedev,
+	\emph{Lectures on General Theory of Relativity},
+	2016,
+	\url{https://arxiv.org/pdf/1601.04996v6.pdf}.
+	
+\end{thebibliography}
+
+\end{document}

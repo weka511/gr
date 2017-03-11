@@ -1,0 +1,110 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath,amscd,amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{currfile}
+\usepackage{fancyhdr}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\author{Simon Crase}
+\title{Problem 2.2}
+
+\pagestyle{plain}
+\renewcommand{\headrulewidth}{0pt}  %get rid of header
+\fancyfoot[L]{Generated from \LaTeX \space file \currfilename} %put current file in footer
+\begin{document}
+	\maketitle
+		\thispagestyle{fancy}% sets the current page style to 'fancy'
+		
+		Proof of the Bianchi and Ricci Identities.
+		
+		\begin{lemma}[\emph{Commutation}]\label{commutation_indices}
+			We can raise and lower indices in a tensor expression containing covariant derivatives, such as ${R^\mu}_{\nu\alpha\beta;\gamma} +	{R^\mu}_{\nu\gamma\alpha;\beta} +	{R^\mu}_{\nu\beta\gamma;\alpha} = 0$: in the language of category theory, the operations raise/lower and covariant differentiation \underline{commute}.  In the following diagram $\mathfrak{A}_{\mu}$ and  $\mathfrak{A}^{\mu}$ represent two sets of tensor expressions, which differ in that the index $\mu$ is lowered in the first set, raised in the second, $.^{\mu}$ represents the operation of raising $\mu$, $D_{\alpha}$ represents covariant differentiation.
+		
+		\begin{center}
+			$\begin{CD}
+			\mathfrak{A}_{\mu}     @>D_{\alpha}>>  \mathfrak{A}_{\mu}\\
+			@VV.^{\mu} V        @VV.^{\mu} V\\
+			\mathfrak{A}^{\mu}     @>D_{\alpha}>>   \mathfrak{A}^{\mu}
+			\end{CD}$
+		\end{center}
+		\end{lemma}
+		\begin{proof}
+			For the covariant derivatives of $g^{\mu\nu}$ and $g_{\mu\nu}$ are both zero, so, by Leibnitz's rule, the operations raise (lower) and covariant differentiation both commute: e.g.:
+			\begin{align*}
+			D_{\sigma}(g^{\mu\nu}R_{\mu\alpha\beta\gamma})=&(D_{\sigma}g^{\mu\nu})R_{\mu\alpha\beta\gamma}+g^{\mu\nu}(D_{\sigma}R_{\mu\alpha\beta\gamma})\\
+			=&0+g^{\mu\nu}(D_{\sigma}R_{\mu\alpha\beta\gamma})\\
+			=&g^{\mu\nu}(D_{\sigma}R_{\mu\alpha\beta\gamma})
+			\end{align*}
+		\end{proof}
+		\begin{lemma}[Locally Minkowskian Reference System]\label{lmrs}
+				In a Riemannian manifold, can always create a Locally Minkowskian Reference System (LMRS).
+		\end{lemma}
+		\begin{proof}
+			In a Riemannian manifold, the torsion is zero. As explained in the lecture, a torsion of zero allows the construction of an LMRS.
+		\end{proof}
+		\begin{theorem}[Bianchi Identity]\label{bianci_identity}
+			
+			In a Riemannian manifold:
+				\begin{equation}
+			{R^\mu}_{\nu\alpha\beta;\gamma} +	{R^\mu}_{\nu\gamma\alpha;\beta} +	{R^\mu}_{\nu\beta\gamma;\alpha} = 0 \label{bianchi}
+			\end{equation}
+		\end{theorem}
+		\begin{proof}
+					\begin{align}
+			{R^\mu}_{\nu\alpha\beta;\gamma} \overset{\Delta}{=}& \partial_{\gamma}{R^\mu}_{\nu\alpha\beta}+{\Gamma^\mu}_{\rho\gamma}{R^\rho}_{\nu\alpha\beta}-{\Gamma^\rho}_{\nu\gamma}{R^\mu}_{\rho\alpha\beta}-{\Gamma^\rho}_{\alpha\gamma}{R^\mu}_{\nu\rho\beta}-{\Gamma^\rho}_{\beta\gamma}{R^\mu}_{\nu\alpha\rho}\\
+			=& \partial_{\gamma}{R^\mu}_{\nu\alpha\beta} \tag{we can use an LMRS from Lemma  \ref{lmrs}, in which ${\Gamma^{\rho}}_{\sigma\tau}=0$} \label{drop_gamma}
+			\end{align}
+			
+			\begin{align}
+			{R^\mu}_{\nu\alpha\beta}\overset{\Delta}{=}&\partial_{\alpha}{\Gamma^\mu}_{\nu\beta}-\partial_{\beta}{\Gamma^\mu}_{\nu\alpha}+{\Gamma^\mu}_{\gamma\alpha}{\Gamma^\gamma}_{\nu\beta}-{\Gamma^\mu}_{\gamma\beta}{\Gamma^\gamma}_{\nu\alpha} \\
+			\partial_{\gamma}{R^\mu}_{\nu\alpha\beta} =& \partial_{\gamma}\partial_{\alpha}{\Gamma^\mu}_{\nu\beta}-\partial_{\gamma}\partial_{\beta}{\Gamma^\mu}_{\nu\alpha}+\partial_{\gamma}({\Gamma^\mu}_{\gamma\alpha}{\Gamma^\gamma}_{\nu\beta})-\partial_{\gamma}({\Gamma^\mu}_{\gamma\beta}{\Gamma^\gamma}_{\nu\alpha})\\
+			=&\partial_{\gamma}\partial_{\alpha}{\Gamma^\mu}_{\nu\beta}-\partial_{\gamma}\partial_{\beta}{\Gamma^\mu}_{\nu\alpha} \tag{in an LMRS, since the remaining terms contain factors ${\Gamma^{\rho}}_{\sigma\tau}=0$}
+			\end{align}
+			Combining these two sets of equations:
+			\begin{align}
+			{R^\mu}_{\nu\alpha\beta;\gamma} =& \partial_{\gamma}\partial_{\alpha}{\Gamma^\mu}_{\nu\beta}-\partial_{\gamma}\partial_{\beta}{\Gamma^\mu}_{\nu\alpha} \\
+			{R^\mu}_{\nu\gamma\alpha;\beta} =& \partial_{\beta}\partial_{\gamma}{\Gamma^\mu}_{\nu\alpha}-\partial_{\beta}\partial_{\alpha}{\Gamma^\mu}_{\nu\gamma} \\
+			{R^\mu}_{\nu\beta\gamma;\alpha} =& \partial_{\alpha}\partial_{\beta}{\Gamma^\mu}_{\nu\gamma}-\partial_{\alpha}\partial_{\gamma}{\Gamma^\mu}_{\nu\beta}
+			\end{align}
+			Adding these three equations, and using $\partial_{\gamma}\partial_{\beta}=\partial_{\beta}\partial_{\gamma}$ (for sufficiently differentiable functions)
+			\begin{align}
+			{R^\mu}_{\nu\alpha\beta;\gamma} + {R^\mu}_{\nu\gamma\alpha;\beta} +  {R^\mu}_{\nu\beta\gamma;\alpha} =& \partial_{\gamma}\partial_{\alpha}{\Gamma^\mu}_{\nu\beta}-\partial_{\gamma}\partial_{\beta}{\Gamma^\mu}_{\nu\alpha} \\
+			+& \partial_{\beta}\partial_{\gamma}{\Gamma^\mu}_{\nu\alpha}-\partial_{\beta}\partial_{\alpha}{\Gamma^\mu}_{\nu\gamma} \\
+			+&
+			\partial_{\alpha}\partial_{\beta}{\Gamma^\mu}_{\nu\gamma}-\partial_{\alpha}\partial_{\gamma}{\Gamma^\mu}_{\nu\beta} \\
+			=& 0
+			\end{align}
+			Which is just equation \ref{bianchi}. Since this is a tensor equation, it is true in all coordinates, not just an LMRS.
+		\end{proof}
+
+
+		\begin{theorem}[Ricci]\label{ricci}
+			In a Riemannian  manifold:
+				\begin{equation}
+			{R^\nu}_{\mu;\nu}=\frac{1}{2}\partial_{\mu}R \label{ricci}
+			\end{equation}
+		\end{theorem}
+		\begin{proof}
+				By definition:
+			\begin{align}
+			R_{\mu\nu}\overset{\Delta}{=}&{R^\alpha}_{\mu\alpha\nu}\\
+			R\overset{\Delta}{=}&R_{\mu\nu}g^{\mu\nu}
+			\end{align}
+			
+			\begin{align*}
+			{R^\mu}_{\nu\alpha\beta;\gamma} +	{R^\mu}_{\nu\gamma\alpha;\beta} +	{R^\mu}_{\nu\beta\gamma;\alpha} =& 0  \tag{From Theorem \ref{bianci_identity}} \\
+			{R^\mu}_{\nu\mu\beta;\gamma} +	\underbrace{{R^\mu}_{\nu\gamma\mu;\beta}}_{={-R^\mu}_{\nu\mu\gamma;\beta}} +	{R^\mu}_{\nu\beta\gamma;\mu} =& 0  \tag{Lemma \ref{commutation_indices}}\\
+			R_{\nu\beta;\gamma} -	R_{\nu\gamma;\beta} +	{R^\mu}_{\nu\beta\gamma;\mu} =& 0 \tag{contracting $\mu$ and $\beta$} \\
+			R_{\nu\beta;\gamma}  +	{R^\mu}_{\nu\beta\gamma;\mu} =& 	R_{\nu\gamma;\beta}\\
+			{R^\nu}_{\beta;\gamma}  +	\underbrace{{R^{\mu\nu}}_{\beta\gamma;\mu}}_{-{R^{\nu\mu}}_{\beta\gamma;\mu}} =& {R^\nu}_{\gamma;\beta}	\tag{Lemma \ref{commutation_indices}}\\
+			R_{;\gamma} - {R^\mu}_{\gamma;\mu} =& {R^\nu}_{\gamma;\nu} \tag{Contracting $\nu$ and $\beta$} \\
+			R_{;\gamma}  =& 2{R^\mu}_{\gamma;\mu} \tag{Changing dummy index} \\
+			{R^\nu}_{\mu;\nu} = \frac{1}{2} R_{;\mu} =&  \frac{1}{2} \partial_{\mu} R \tag{Covariant derivative of scalar is partial derivative}
+			\end{align*}
+			The last equation is, of course, the required result.
+		\end{proof}
+
+\end{document}

@@ -1,0 +1,47 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing}
+
+\begin{document}
+\begin{tikzpicture}
+\node (I)    at ( 4,0)   {I};
+\node (II)   at (-4,0)   {II};
+\node (III)  at (0, 2.5) {III};
+\node (IV)   at (0,-2.5) {IV};
+
+\path  % Four corners of left diamond
+  (II) +(90:4)  coordinate[label=90:$i^+$]  (IItop)
+       +(-90:4) coordinate[label=-90:$i^-$] (IIbot)
+       +(0:4)   coordinate                  (IIright)
+       +(180:4) coordinate[label=180:$i^0$] (IIleft)
+       ;
+\draw (IIleft) -- 
+          node[midway, above left]    {$\cal{J}^+$}
+          node[midway, below, sloped] {$\bar{u}=\infty$}
+      (IItop) --
+          node[midway, below, sloped] {$\bar{u}=0$}
+      (IIright) -- 
+          node[midway, below, sloped] {$\bar{u}=0$}
+      (IIbot) --
+          node[midway, above, sloped] {$\bar{v}=-\infty$}
+          node[midway, below left]    {$\cal{J}^-$}    
+      (IIleft) -- cycle;
+
+\path % Four conners of the right diamond (no labels this time)
+   (I) +(90:4)  coordinate (Itop)
+       +(-90:4) coordinate (Ibot)
+       +(180:4) coordinate (Ileft)
+       +(0:4)   coordinate (Iright)
+       ;
+% No text this time in the next diagram
+\draw  (Ileft) -- (Itop) -- (Iright) -- (Ibot) -- (Ileft) -- cycle;
+
+% Squiggly lines
+\draw[decorate,decoration=zigzag] (IItop) -- (Itop)
+      node[midway, above, inner sep=2mm] {$r=0$};
+
+\draw[decorate,decoration=zigzag] (IIbot) -- (Ibot)
+      node[midway, below, inner sep=2mm] {$r=0$};
+
+\end{tikzpicture}
+\end{document}

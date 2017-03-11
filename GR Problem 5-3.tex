@@ -1,0 +1,69 @@
+\documentclass[]{article}
+
+\usepackage{tikz,url,float}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{arrows.meta}
+\tikzset{>={Latex[width=2mm,length=2mm]}}
+
+%opening
+\title{Introduction into General Relativity\\Assignment 5.3\\Penrose--Carter diagram\\ for Minkowskian space--time}
+\author{Simon Crase}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Draw the Penrose--Carter diagram for (t,r) part of the Minkowskian space--time in the spherical coordinates
+
+The Penrose--Carter diagram is correct
+
+\end{abstract}
+
+\section{The Penrose--Carter diagram}
+
+The metric is given by $ds^2=dt^2-dr^2-r^2d\Omega^2$.  The mapping to Penrose--Carter is defined by $t\pm r=\tan(\frac{(\psi+\xi)}{2})$. Since $r\ge 0$, it should be clear that the Penrose--Carter digram is similar to that given by \cite[V, Figure 9]{akhmedev2016}, except that the left portion, for $x<0$, is not used. Figure \ref{fig:pc} shows the diagram, with dashed lines representing null geodesics.
+
+
+\begin{figure}[H]
+	\begin{tikzpicture}
+	\draw[black, very thick] (0,5) -- (0,-5);
+	\draw[black, thin] (0,4) -- (4,0);
+	\draw[black, thin] (0,-4) -- (4,0);
+	\draw[black, very thick] (-2,0) -- (6,0);
+	\draw[dashed,black, thin,->] (0,1) -- (1.5,2.5);
+	\draw[dashed,black, thin,->] (0,2) -- (1,3);
+	\draw[dashed,black, thin,->] (0,0) -- (2,2);
+	\draw[dashed,black, thin,->] (0,-1) -- (2.5,1.5);
+	\draw[dashed,black, thin,->] (0,-2) -- (3,1);
+	\draw[dashed,black, thin,->] (2.5,-1.5) -- (0,1);
+	\draw[dashed,black, thin,->] (3,-1) -- (0,2);
+	\draw[dashed,black, thin,->] (2,-2) -- (0,0);
+	\draw[dashed,black, thin,->] (1.5,-2.5) -- (0,-1);
+	\draw[dashed,black, thin,->] (1,-3) -- (0,-2);
+	\node[] at (0,5.2) {$\psi$};
+	\node[] at (6.2,0) {$\xi$};
+	\node[] at (2.1,2.1) {$\cal{J}^+$};
+	\node[] at (2.1,-2.1) {$\cal{J}^-$};
+	\node[] at (4.2,0.2) {$I^0$};
+	\node[] at (4.2,-0.2) {$\pi$};
+	\node[] at (0.2,4) {$\pi$};
+	\node[] at (0.2,-4) {$\pi$};
+
+	\end{tikzpicture}
+		\caption{Penrose-Carter diagram for Spherical Polar Coordinates in Minkowski Space}
+	\label{fig:pc}
+\end{figure}
+
+
+\begin{thebibliography}{9}
+	
+	\bibitem{akhmedev2016}
+	Emil T. Akhmedev,
+	\emph{Lectures on General Theory of Relativity},
+	2016,
+	\url{https://arxiv.org/pdf/1601.04996v6.pdf}.
+	
+\end{thebibliography}
+
+\end{document}

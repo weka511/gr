@@ -1,0 +1,103 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amscd}
+\usepackage{graphicx}
+\usepackage{tkz-euclide}
+\usepackage{tikz}
+\author{Simon Crase}
+\title{General Relativity: Problem 1}
+\begin{document}
+\maketitle
+
+\section{Uniform Gravitational Field}
+
+\textit{Show that the metric $ds^{2}=(1+ah)^{2}d\tau^{2}-dh^{2}-dy^{2}-dz^{2}$ covers the Rindler space--time. In the non--relativistic limit, when $a\ll1$, this metric represents the homogeneous gravitational field. Find the coordinate change from this metric to the one used in the lecture.} \\[12pt]
+The metric under discussion is:
+\begin{equation} \label{eq:target}
+ ds^{2}=(1+ah)^{2}d\tau'^{2}-dh^{2}-dy'^{2}-dz'^{2} 
+\end{equation}
+Where the coordinates have been relabelled for clarity. We wish to show that \eqref{eq:target} covers the same space as the Rindler metric, \eqref{eq:rindler}.
+\begin{equation} \label{eq:rindler}
+\rho^{2}d\tau^{2}-d\rho^{2}-dy^{2}-dz^{2}
+\end{equation}
+There are obvious parallels between the two metrics.
+\begin{align}
+\rho^{2}d\tau^{2}-d\rho^{2}-dy^{2}-dz^{2} & \leftrightarrow ds^{2}=(1+ah)^{2}d\tau^{2}-dh^{2}-dy^{2}-dz^{2} \\
+\rho & \leftrightarrow 1+ah \label{eq:rho} \\
+y & \leftrightarrow y \\
+z & \leftrightarrow z
+\end{align}
+However \eqref{eq:rho} would  give $ d\rho^{2} \leftrightarrow a^{2}dh^{2}$, which isn't quite what we want. We also observe that this won't work if $a=0$, as (\ref{eq:target}) reduces to the Minkowski metric: as we saw in Lecture 1, the Rindler coordinates cover only a quarter of Minkowski space.
+
+\newtheorem{thm:isomorphism}{Proposition}
+\begin{thm:isomorphism}
+	Let $\mathfrak{R}$ denote the space of all ($\tau$,$\rho$,y,z) for which (\ref{eq:rindler}) is well defined, and $\mathfrak{G}$ denote the space of ($\tau'$,h,y',z') where (\ref{eq:target}) is well defined. If $a\neq0$, there exists a bijection\footnote{A mapping that is 1 to 1 and onto} between $\mathfrak{R}$ and $\mathfrak{G}$ which preserves the value of the metric. 
+\end{thm:isomorphism}
+
+
+\begin{proof} The commutative diagram (\ref{eq:cd}) illustrates the approach. We will construct two injective\footnote{1 to 1} mappings, (\ref{eq:trans}) and (\ref{eq:snart}), between $\mathfrak{G}$ and $\mathfrak{R}$, each of which preserves the value of the metric. We will show that each of (\ref{eq:trans}) and (\ref{eq:snart}) are the other's inverse, hence both mappings are bijective; every point in $\mathfrak{G}$ corresponds to exactly one point in $\mathfrak{R}$ and vice versa. In (\ref{eq:cd}), $\mathbb{R}$ represents the set of real numbers.
+	
+\begin{equation} \label{eq:cd}
+\begin{CD}
+\mathbb{R}     @=  \mathbb{R}  @=  \mathbb{R}\\
+@AA(\ref{eq:rindler})A    @AA(\ref{eq:target})A    @AA(\ref{eq:rindler})A\\
+\mathfrak{R}     @>(\ref{eq:snart})>>   \mathfrak{G}  @>(\ref{eq:trans})>>   \mathfrak{R}
+\end{CD}
+\end{equation}	
+
+We define the following transformation from ($\tau'$,h,y',z') to ($\tau$,$\rho$,y,z). It is clearly well defined and non-singular if $a\neq0$.
+\begin{subequations} \label{eq:trans}
+\begin{align}
+\tau&=a\tau' \\
+\rho&=h+\frac{1}{a} \\
+y&=y' \\
+z&=z'
+\end{align}
+\end{subequations}
+Assuming still that $a\neq0$, (\ref{eq:trans}) can be inverted easily:
+\begin{subequations} \label{eq:snart}
+	\begin{align}
+	\tau&=\frac{\tau'}{a} \\
+	h&=\rho-\frac{1}{a}  \\
+	y'&=y \\
+	z'&=z
+	\end{align}
+\end{subequations}
+
+\eqref{eq:trans} and \eqref{eq:snart} can be summarized thus (the lower line of \ref{eq:cd}).
+\begin{equation} \label{eq:morphisms}
+\mathfrak{R}\leftrightarrow\mathfrak{G}
+\end{equation}
+
+Equations \eqref{eq:trans} and \eqref{eq:snart} are linear and non-singular. This means that the mappings are injective: each point in  $\mathfrak{R}$ is mapped to one and only one point in  $\mathfrak{G}$ and vice versa. Since each mapping is the other's inverse, each mapping is a bijection.
+
+\textit{We still need to prove that \eqref{eq:trans} transforms \eqref{eq:rindler} to \eqref{eq:target}, and that \eqref{eq:snart} transforms back.}
+
+Substituting \eqref{eq:trans} in \eqref{eq:rindler} gives:
+\begin{equation*}
+ds^{2}=(h+\frac{1}{a})^{2}a^{2}d\tau'^{2}-dh^{2}-dy'^{2}-dz'^{2}
+\end{equation*}
+Which reduces to:
+\begin{equation*}
+ds^{2}=(1+ah)^{2}d\tau^{2}-dh^{2}-dy'^{2}-dz'^{2} 
+\end{equation*}
+i.e. to \eqref{eq:target}, with y and z replaced by y' and z'.\\[12pt]
+For completeness, we show the reverse mapping, by substituting \eqref{eq:snart} in \eqref{eq:target}.
+
+\begin{align*}
+ds^{2}&=[1+a(\rho-\frac{1}{a})^{2}d(\tau/a)^{2}]-d\rho^{2}-dy^{2}-dz^{2}\\
+&=(a\rho)^{2}(\frac{d\tau}{a})^{2}-d\rho^{2}-dy^{2}-dz^{2}
+\end{align*}
+Which reduces to \eqref{eq:rindler}. We therefore see that:
+\begin{enumerate}
+	\item \eqref{eq:trans} maps each point in $\mathfrak{G}$ to one point in $\mathfrak{R}$, preserving the metric (if we apply \eqref{eq:rindler} to the points transformed by \eqref{eq:trans}, we get the same result is if we had applied \eqref{eq:target}).
+	\item \eqref{eq:snart} maps each point in $\mathfrak{R}$ to one point in $\mathfrak{G}$, preserving the metric (if we apply \eqref{eq:target} to the points transformed by \eqref{eq:snart}, we get the same result is if we had applied \eqref{eq:rindler}).
+\end{enumerate}.
+\end{proof}
+
+
+\end{document}
