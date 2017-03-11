@@ -14,4 +14,4 @@ General Relativity calcs and documents
  * GR Problem 6.tex Week 6 problems
  * GR Problem 7.tex Week 7 problems
  * penrose-carter.tex Sampleode to generate Penrose-Carter diagrams
- * perms.py Used to generate off and even permutations
+ * perms.py Used to generate odd and even permutations
