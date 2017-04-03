@@ -43,38 +43,38 @@ S_M &= - \sum_{q=1}^N m_q \, \int d\tau_q \, \sqrt{g_{\mu\nu}[z_q(\tau_q)] \, \d
 
 \section{The Energy Momentum Tensor $T_{\mu\nu}$}
 
-\begin{align}
-T_{\mu\nu}&\triangleq 2 \frac{\partial \Lagr}{\partial g^{\mu\nu}} - \Lagr g_{\mu\nu} \label{eq:T}\\
-&= -2 \frac{\partial }{\partial g^{\mu\nu}}\sum_{q=1}^N \sqrt{g^{\mu\nu}(z) p_{q,\mu} p_{q,\nu}}+\sum_{q=1}^N \sqrt{ p^{\sigma}_q p_{q,\sigma}} g_{\mu\nu} \\
-&= - \sum_{q=1}^N \frac{2 p_{q,\mu} p_{q,\nu}}{2 \sqrt{ p^{\sigma}_q p_{q,\sigma}} }  +\sum_{q=1}^N \sqrt{ p^{\sigma}_q p_{q,\sigma}} g_{\mu\nu} \\
-&= - \sum_{q=1}^N \frac{p_{q,\mu} p_{q,\nu}}{ m_{q,0} c }  +c\sum_{q=1}^N   m_{q,0} g_{\mu\nu} 
-\end{align}
-The last step follows from \cite{wiki_momentum}, where $m_q,0$ is the mass of the qth point in its co-moving frame. \emph{The minus sign looks dodgy!}
 
 
-In the comoving frame of the $qth$ particle,
-\begin{align}
-\frac{p_{q,\mu} p_{q,\nu}}{ m_{q,0} c } =& \frac{m_{q,0}}{c}  u_{\mu}(z_q) u_{\nu}(z_q)\\
-=& \frac{m_{q}}{\sqrt(|g|)}  u_{\mu}(z_q) u_{\nu}(z_q) \label{eq:PP}
-\end{align}
-Where $u_{\nu}(z)$ is the velocity field at a general position $z$, and $z_q$ is the position of the $qth$ particle. Now (\ref{eq:PP}) is a tensor equation, so we can use it in any frame to derive.
-\begin{align}
-T_{\mu\nu} &= - \sum_{q=1}^N  \frac{m_{q}}{\sqrt(|g|)}  u_{\mu}(z_q) u_{\nu}(z_q)  +c\sum_{q=1}^N   m_{q,0} g_{\mu\nu}\\
-T^{\mu\nu} &= - \sum_{q=1}^N  \frac{m_{q}}{\sqrt(|g|)}  u^{\mu}(z_q) u^{\nu}(z_q)  +c\sum_{q=1}^N   m_{q,0} g^{\mu\nu}
-\end{align}
-
-From the lecture we know that:
-
-$$\delta_g S_M = \frac{1}{2} \int d^4 x \sqrt{|g(x)|} T_{\mu\nu} \delta g^{\mu\nu}$$
-
-
-Using the relation $\delta g_{\mu\nu} = − g_{\mu\alpha} \delta g ^{\alpha\beta} g_{\beta\nu}$, which was proved in the lecture, one can show that $T^{\mu\nu} \delta g_{\mu\nu} = - T_{\mu\nu} \delta g^{\mu\nu}$
-
-Then for $T^{\alpha\beta}$ we have
+From the \cite[(73)]{akhmedev2016} we know that:
 
 \begin{align*}
-T^{\alpha\beta} =& \frac{1}{\sqrt{|g(x)|}} \sum_{q=1}^{N} \int d\tau \delta^{(4)} \big[x-z_q(\tau)\big]\frac{\dot{z_q^\alpha} \dot{z_q^\beta}}{\sqrt{g_{\mu\nu}(z)\dot{z_q^\mu}\dot{z_q^\nu}}} \\
-=& \frac{1}{\sqrt{|g(x)|}} \sum_{q=1}^{N} \int d\tau \delta^{(3)} \frac{\big[\vv{x}-\vv{z}_q(\tau)\big]}{\dot{z}_q^0}\frac{\dot{z_q^\alpha}  \dot{z_q^\beta}}{\sqrt{g_{\mu\nu}(z)\dot{z_q^\mu}\dot{z_q^\nu}}}
+\delta_g S_M =& \frac{1}{2} \int d^4 x \sqrt{|g|} T_{\mu\nu} \delta g^{\mu\nu} \numberthis \label {eq:T_def} \\
+\text{Now}&\\
+g_{\mu\rho}g^{\rho\sigma} =& \delta_{\mu}^{\sigma} \text{, where $\delta$ is the Kronecker delta}\\
+\delta g_{\mu\rho}g^{\rho\sigma} + g_{\mu\rho}\delta g^{\rho\sigma} =& 0 \text{, using $\delta$ to represent variation}\\
+\delta g_{\mu\rho}g^{\rho\sigma} =& - g_{\mu\rho}\delta g^{\rho\sigma}\\
+\delta g_{\mu\rho}g^{\rho\sigma} g_{\sigma\nu} =& - g_{\mu\rho}\delta g^{\rho\sigma} g_{\sigma\nu} \\
+\delta g_{\mu\nu} =& - g_{\mu\rho}\delta g^{\rho\sigma} g_{\sigma\nu} \numberthis \label {eq:useful_1}
+\end{align*}
+
+Combining (\ref{eq:T_def}) and (\ref{eq:useful_1}):
+\begin{align*}
+T^{\mu\nu}\delta g_{\mu\nu} =& - T^{\mu\nu} g_{\mu\rho}\delta g^{\rho\sigma} g_{\sigma\nu}\\
+=& - T^{\mu\nu} g_{\mu\rho} g_{\sigma\nu} \delta g^{\rho\sigma}\\
+=& -T_{\rho\sigma}\delta g^{\rho\sigma} \numberthis \label {eq:useful_2}
+\end{align*}
+Combining (\ref{eq:T_def}) and (\ref{eq:useful_2}):
+
+\begin{align*}
+\delta_g S_M =& - \frac{1}{2} \int d^4 x \sqrt{|g|} T^{\mu\nu} \delta g_{\mu\nu}\\
+=& - \frac{1}{2} \int d^4 x \sum_{q=1}^N m_q \int d \tau \delta^{(4)} \big[x - z_q(\tau)\big] \frac{ \dot{z}_q^\alpha(\tau) \dot{z}_q^\beta(\tau) \delta g_{\alpha\beta}}{ \sqrt{g_{\mu\nu}[z_q(\tau)] \, \dot{z}_q^\mu(\tau)\, \dot{z}_q^\nu(\tau)}} \text{, from (\ref{eq:variation_of_action})}
+\end{align*}
+Comparing these two expressions for $\delta_g S_M$, they match \emph{iff}:
+
+\begin{align*}
+\sqrt{|g|} T^{\alpha\beta} =&  \sum_{q=1}^{N} m_q \int d\tau \delta^{(4)} \big[x-z_q(\tau)\big]\frac{\dot{z_q^\alpha} \dot{z_q^\beta}}{\sqrt{g_{\mu\nu}(z)\dot{z_q^\mu}\dot{z_q^\nu}}} \text{, whence} \\
+T^{\alpha\beta} =& \frac{1}{\sqrt{|g|}} \sum_{q=1}^{N} m_q \int d\tau \delta^{(4)} \big[x-z_q(\tau)\big]\frac{\dot{z_q^\alpha} \dot{z_q^\beta}}{\sqrt{g_{\mu\nu}(z)\dot{z_q^\mu}\dot{z_q^\nu}}} \\
+=& \frac{1}{\sqrt{|g|}} \sum_{q=1}^{N} m_q \int d\tau \delta^{(3)} \frac{\big[\vv{x}-\vv{z}_q(\tau)\big]}{\dot{z}_q^0}\frac{\dot{z_q^\alpha}  \dot{z_q^\beta}}{\sqrt{g_{\mu\nu}(z)\dot{z_q^\mu}\dot{z_q^\nu}}}
 \end{align*}
 
 
