@@ -74,17 +74,26 @@ Comparing these two expressions for $\delta_g S_M$, they match \emph{iff}:
 \begin{align*}
 \sqrt{|g|} T^{\alpha\beta} =&  \sum_{q=1}^{N} m_q \int d\tau \delta^{(4)} \big[x-z_q(\tau)\big]\frac{\dot{z_q^\alpha} \dot{z_q^\beta}}{\sqrt{g_{\mu\nu}(z)\dot{z_q^\mu}\dot{z_q^\nu}}} \text{, whence} \\
 T^{\alpha\beta} =& \frac{1}{\sqrt{|g|}} \sum_{q=1}^{N} m_q \int d\tau \delta^{(4)} \big[x-z_q(\tau)\big]\frac{\dot{z_q^\alpha} \dot{z_q^\beta}}{\sqrt{g_{\mu\nu}(z)\dot{z_q^\mu}\dot{z_q^\nu}}} \\
-=& \frac{1}{\sqrt{|g|}} \sum_{q=1}^{N} m_q \int d\tau \delta^{(3)} \frac{\big[\vv{x}-\vv{z}_q(\tau)\big]}{\dot{z}_q^0}\frac{\dot{z_q^\alpha}  \dot{z_q^\beta}}{\sqrt{g_{\mu\nu}(z)\dot{z_q^\mu}\dot{z_q^\nu}}}
+=& \frac{1}{\sqrt{|g|}} \sum_{q=1}^{N} m_q \int d\tau \delta^{(1)} \big[x^0-z^0_q(\tau)\big]\delta^{(3)} \big[\vv{x}-\vv{z_q}(\tau)\big]\frac{\dot{z_q^\alpha} \dot{z_q^\beta}}{\sqrt{g_{\mu\nu}(z)\dot{z_q^\mu}\dot{z_q^\nu}}} \numberthis \label{eq:T_penult}
+\end{align*}
+
+We know from \cite{wiki_delta} that:
+\begin{align*}
+\int_{-\infty}^{\infty} \delta(g(x)) f(x) dx  =& \sum_{x_i} \frac{f(x_i)}{|g'(x_i)|} \text{, summed $ \forall x_i$ such that $g(x_i)=0$}\\
+&\text{so (\ref{eq:T_penult}) can be written}\\
+ T^{\alpha\beta} =& \frac{1}{\sqrt{|g|}} \sum_{q=1}^{N} m_q \int d\tau \delta^{(3)} \frac{\big[\vv{x}-\vv{z}_q(\tau)\big]}{\dot{z}_q^0}\frac{\dot{z_q^\alpha}  \dot{z_q^\beta}}{\sqrt{g_{\mu\nu}(z)\dot{z_q^\mu}\dot{z_q^\nu}}}
 \end{align*}
 
 
-where in the last line we have taken the $d\tau$ integral with the use of one of the $\delta-$ functions.
+Now $\sqrt{g_{\mu\nu}(z)\dot{z_q^\mu}\dot{z_q^\nu}}=s$, where s is the proper time.
 
-Using that $\sqrt{g_{\mu\nu}(z)\dot{z_q^\mu}\dot{z_q^\nu}}=s$, where s is the proper time, we arrive at:
+\begin{align*}
+T^{\alpha\beta}(x) =& \frac{1}{\sqrt{|g(x)|}} \sum_{q=1}^{N} \int d\tau \delta^{(3)} \frac{\big[\vv{x}-\vv{z}_q(s)\big]}{u_q^0 (s)} u_q^\alpha (s) u_q^\beta (s)  \numberthis \label{eq:T}\\
+&\text{Where $u^{\mu} = \dot{z^\mu} = \frac{d z^\mu}{d s}$}
+\end{align*}
 
-$T^{\alpha\beta}(x) = \frac{1}{\sqrt{|g(x)|}} \sum_{q=1}^{N} \int d\tau \delta^{(3)} \frac{\big[\vv{x}-\vv{z}_q(s)\big]}{u_q^0 (s)} u_q^\alpha (s) u_q^\beta (s)$
 
-Here now $u^{\mu} = \dot{z^\mu} = \frac{d z^\mu}{d s}$
+
 
 
 \section{The Energy Density $\rho$}
