@@ -8,6 +8,7 @@
 	\includegraphics[width=2cm]{weka.png}
 }
 
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 
 \graphicspath{ {images/} }
 \newcommand{\Lagr}{\mathscr{L}}
@@ -21,43 +22,21 @@
 
 \maketitle
 \thispagestyle{fancy}
-\begin{abstract}
-I haven't made a lot of headway this week, but I've decided to submit what little I have and move on, as the lectures in the next few weeks are what I'm really looking for.
 
-
-\end{abstract}
 
 \section{Variation of the Action}
 
-For the dust, \cite{akhmedev2016} gives the following.
-\begin{align}
-S_M &= - \sum_{q=1}^N m_q \, \int d\tau \, \sqrt{g_{\mu\nu}[z_q(\tau)] \, \dot{z}_q^\mu(\tau)\, \dot{z}_q^\nu(\tau)}\\
-&=- \sum_{q=1}^N \int d^{4}(x) \sqrt{|g(x)|} \int d\tau\frac{\delta^{(4)}(x-z(\tau))}{ \sqrt{|g(z)|}} m_{q} \sqrt{ g_{\mu\nu}(z) \dot{z}_{q}^{\mu} \dot{z}_{q}^{\nu}}\\
-&= \int d^{4}(x) \sqrt{|g(x)|} \int d\tau\frac{\delta^{(4)}(x-z(\tau))}{ \sqrt{|g(z)|}} \Big\{ - \sum_{q=1}^N m_{q} \sqrt{ g_{\mu\nu}(z) \dot{z}_{q}^{\mu} \dot{z}_{q}^{\nu}}\Big\}\\
-&= \int d^{4}(x) \sqrt{|g(x)|} \Lagr  \text{   where $\Lagr$ is defined by (\ref{eq:L})}
-\end{align}
+For the dust, \cite[(90)]{akhmedev2016} gives the following.
+\begin{align*}
+S_M &= - \sum_{q=1}^N m_q \, \int d\tau_q \, \sqrt{g_{\mu\nu}[z_q(\tau_q)] \, \dot{z}_q^\mu(\tau_q)\, \dot{z}_q^\nu(\tau_q)}\\
+&= - \int d^4 x \sum_{q=1}^N m_q \underbrace{\int d \tau_q \delta^{(4)} \big[x - z_q(\tau_q)\big]}_\text{As in \cite[(72)]{akhmedev2016}} \sqrt{g_{\mu\nu}[z_q(\tau_q)] \, \dot{z}_q^\mu(\tau_q)\, \dot{z}_q^\nu(\tau_q)} \\
+&= - \int d^4 x \sum_{q=1}^N m_q \underbrace{\int d \tau \delta^{(4)} \big[x - z_q(\tau)\big] \sqrt{g_{\mu\nu}[z_q(\tau)] \, \dot{z}_q^\mu(\tau)\, \dot{z}_q^\nu(\tau)}}_\text{We can suppress the index on $\tau_q$ without confusion} \\
+&\text{hence}\\
+\delta_{g} S_M &= - \int d^4 x \sum_{q=1}^N m_q \int d \tau \delta^{(4)} \big[x - z_q(\tau)\big] \delta_{g} \big[\sqrt{g_{\mu\nu}[z_q(\tau)] \, \dot{z}_q^\mu(\tau)\, \dot{z}_q^\nu(\tau)}\big] \\
+&= - \int d^4 x \sum_{q=1}^N m_q \int d \tau \delta^{(4)} \big[x - z_q(\tau)\big] \frac{ \dot{z}_q^\alpha(\tau) \dot{z}_q^\beta(\tau) \delta g_{\alpha\beta}}{2 \sqrt{g_{\mu\nu}[z_q(\tau)] \, \dot{z}_q^\mu(\tau)\, \dot{z}_q^\nu(\tau)}} \\
+&= - \frac{1}{2} \int d^4 x \sum_{q=1}^N m_q \int d \tau \delta^{(4)} \big[x - z_q(\tau)\big] \frac{ \dot{z}_q^\alpha(\tau) \dot{z}_q^\beta(\tau) \delta g_{\alpha\beta}}{ \sqrt{g_{\mu\nu}[z_q(\tau)] \, \dot{z}_q^\mu(\tau)\, \dot{z}_q^\nu(\tau)}} \numberthis \label{eq:variation_of_action}
+\end{align*}
 
-\begin{align}
-\Lagr &\triangleq \int d\tau\frac{\delta^{(4)}(x-z(\tau))}{ \sqrt{|g(z)|}} \Big\{ - \sum_{q=1}^N m_{q} \sqrt{ g_{\mu\nu}(z) \dot{z}_{q}^{\mu} \dot{z}_{q}^{\nu}}\Big\} \label{eq:L}\\
-&= -\sum_{q=1}^N \sqrt{g_{\mu\nu}(z)\frac{m_q}{ \sqrt{|g(z)|}} \dot{z}_{q}^{\mu} \frac{m_q}{ \sqrt{|g(z)|}} \dot{z}_{q}^{\nu}}  \label{eq:L2}
-\end{align}
-(\ref{eq:L2}) follows from the integral form of the Dirac delta function given in \cite{wiki_delta}.  $\Lagr$ can be expressed more concisely by using the momentum $p^{\nu}\triangleq\frac{m_q}{ \sqrt{|g(z)|}} \dot{z}_{q}^{\nu}$
-\begin{align}
-\Lagr &= -\sum_{q=1}^N \sqrt{g_{\mu\nu}(z) p^{\mu}_q p^{\nu}_q} \\
-&= -\sum_{q=1}^N \sqrt{g^{\mu\nu}(z) p_{q,\mu} p_{q,\nu}} \\
-&= -\sum_{q=1}^N \sqrt{ p^{\mu}_q p_{q,\mu}}
-\end{align}
-Hence
-\begin{align}
-\delta_{g}S_m &= \delta_{g}  \int d^{4}(x) \sqrt{|g(x)|} \Lagr\\
-&= \int d^{4}(x) \sqrt{|g(x)|} \Big[ \frac{\partial \Lagr}{\partial g^{\mu\nu}}-\frac{1}{2}\Lagr g_{\mu\nu}\Big] \delta_{g^{\mu\nu}}\\
-&= \int d^{4}(x) \sqrt{|g(x)|} T_{\mu\nu} \delta_{g^{\mu\nu}} 
-\end{align}
-Where $T_{\mu\nu}$ is given by (\ref{eq:T}). 
-
-Actually, we are looking for this expression:
-
-$\delta_{g}S_M = -\frac{1}{2} \int d^4 x \sum_{q=1}^{N} m_q \int d\tau \delta^{(4)}[x-z_q(\tau)]\frac{\dot{z_q^\alpha}\dot{z_q^\beta}\delta {g^{\alpha\beta}}}{\sqrt{g_{\mu\nu}(z)\dot{z_q^\mu}\dot{z_q^\nu}}}$
 
 
 
