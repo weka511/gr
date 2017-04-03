@@ -26,7 +26,7 @@
 
 \section{Variation of the Action}
 
-For the dust, \cite[(90)]{akhmedev2016} gives the following.
+The Lecture Notes, \cite[(90)]{akhmedev2016}, give the following expression for the action of the dust.
 \begin{align*}
 S_M &= - \sum_{q=1}^N m_q \, \int d\tau_q \, \sqrt{g_{\mu\nu}[z_q(\tau_q)] \, \dot{z}_q^\mu(\tau_q)\, \dot{z}_q^\nu(\tau_q)}\\
 &= - \int d^4 x \sum_{q=1}^N m_q \underbrace{\int d \tau_q \delta^{(4)} \big[x - z_q(\tau_q)\big]}_\text{As in \cite[(72)]{akhmedev2016}} \sqrt{g_{\mu\nu}[z_q(\tau_q)] \, \dot{z}_q^\mu(\tau_q)\, \dot{z}_q^\nu(\tau_q)} \\
@@ -45,7 +45,7 @@ S_M &= - \sum_{q=1}^N m_q \, \int d\tau_q \, \sqrt{g_{\mu\nu}[z_q(\tau_q)] \, \d
 
 
 
-From \cite[(73)]{akhmedev2016} we know that:
+From the Lecture, \cite[(73)]{akhmedev2016}, we know that:
 
 \begin{align*}
 \delta_g S_M =& \frac{1}{2} \int d^4 x \sqrt{|g|} T_{\mu\nu} \delta g^{\mu\nu} \numberthis \label {eq:T_def} \\
@@ -81,14 +81,16 @@ We know from \cite{wiki_delta} that:
 \begin{align*}
 \int_{-\infty}^{\infty} \delta(g(x)) f(x) dx  =& \sum_{x_i} \frac{f(x_i)}{|g'(x_i)|} \text{, summed $ \forall x_i$ such that $g(x_i)=0$}\\
 &\text{so (\ref{eq:T_penult}) can be written}\\
+ T^{\alpha\beta} =& \frac{1}{\sqrt{|g|}} \sum_{q=1}^{N} m_q  \delta^{(3)} \frac{\big[\vv{x}-\vv{z}_q(\tau)\big]}{|\dot{z}_q^0|}\frac{\dot{z_q^\alpha}  \dot{z_q^\beta}}{\sqrt{g_{\mu\nu}(z)\dot{z_q^\mu}\dot{z_q^\nu}}} \\
  T^{\alpha\beta} =& \frac{1}{\sqrt{|g|}} \sum_{q=1}^{N} m_q  \delta^{(3)} \frac{\big[\vv{x}-\vv{z}_q(\tau)\big]}{\dot{z}_q^0}\frac{\dot{z_q^\alpha}  \dot{z_q^\beta}}{\sqrt{g_{\mu\nu}(z)\dot{z_q^\mu}\dot{z_q^\nu}}}
 \end{align*}
+In the last step, we have used the fact that time $z^0$ increases with $\tau$ to replace $|\dot{z}_q^0|$ with $\dot{z}_q^0$.
 
 
 Now $\sqrt{g_{\mu\nu}(z)\dot{z_q^\mu}\dot{z_q^\nu}}=s$, where s is the proper time.
 
 \begin{align*}
-T^{\alpha\beta}(x) =& \frac{1}{\sqrt{|g(x)|}} \sum_{q=1}^{N} m_q \delta^{(3)} \frac{\big[\vv{x}-\vv{z}_q(s)\big]}{u_q^0 (s)} u_q^\alpha (s) u_q^\beta (s)  \numberthis \label{eq:T}\\
+T^{\alpha\beta}(x) =& \frac{1}{\sqrt{|g|}} \sum_{q=1}^{N} m_q \delta^{(3)} \frac{\big[\vv{x}-\vv{z}_q(s)\big]}{u_q^0 (s)} u_q^\alpha (s) u_q^\beta (s)  \numberthis \label{eq:T}\\
 &\text{Where $u^{\mu} = \dot{z^\mu} = \frac{d z^\mu}{d s}$}
 \end{align*}
 
@@ -99,7 +101,7 @@ T^{\alpha\beta}(x) =& \frac{1}{\sqrt{|g(x)|}} \sum_{q=1}^{N} m_q \delta^{(3)} \f
 \section{The Energy Density $\rho$}
 
 \begin{align*}
-\rho(x) =& T^{\mu\nu}(x) \, u_\mu(x) \, u_\nu(x)\\
+\rho(x) =& T^{\mu\nu}(x) \, u_\mu(x) \, u_\nu(x) \text{, from \cite{wiki_dust}}\\
 =& \frac{1}{\sqrt{|g(x)|}} \sum_{q=1}^{N} m_q \delta^{(3)} \frac{\big[\vv{x}-\vv{z}_q(s)\big]}{u_q^0 (s)} u_q^\mu (s) u_q^\nu (s) u_\mu(x) u_\nu(x)\\
 =&\frac{1}{\sqrt{|g|}} \sum_{q=1}^{N} m_q \frac{d z^0_q}{d s} \delta^{(3)} \big[\vv{x}-\vv{z}_q(s)\big] \numberthis \label{eq:density} \\
 \frac{d z^0_q}{d s}=&\gamma \text{, relativistic correction}
@@ -116,11 +118,15 @@ T^{\alpha\beta}(x) =& \frac{1}{\sqrt{|g(x)|}} \sum_{q=1}^{N} m_q \delta^{(3)} \f
 	
 	\bibitem{wiki_delta}
 	Wikipedia,
-	\emph{The Dirac Delta Function}
+	\emph{The Dirac Delta Function},
 	\url{https://en.wikipedia.org/wiki/Dirac_delta_function#Composition_with_a_function},
 	Retrieved: 4 April 2017
 	
-
+	\bibitem{wiki_dust}
+	Wikipedia,
+	\emph{Dust Solution},
+	\url{https://en.wikipedia.org/wiki/Dust_solution#Mathematical_definition},
+	Retrieved: 4 April 2017
 \end{thebibliography}
 
 \end{document}
