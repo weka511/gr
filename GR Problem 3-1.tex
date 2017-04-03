@@ -1,6 +1,6 @@
 \documentclass[]{article}
 
-\usepackage{mathtools,mathrsfs,url,fancyhdr, graphicx,amssymb}
+\usepackage{mathtools,mathrsfs,url,fancyhdr, graphicx,amssymb,esvect}
 
 \renewcommand{\headrulewidth}{0pt}
 \fancyhead[L]{}
@@ -54,6 +54,14 @@ Hence
 &= \int d^{4}(x) \sqrt{|g(x)|} T_{\mu\nu} \delta_{g^{\mu\nu}} 
 \end{align}
 Where $T_{\mu\nu}$ is given by (\ref{eq:T}). 
+
+Actually, we are looking for this expression:
+
+$\delta_{g}S_M = -\frac{1}{2} \int d^4 x \sum_{q=1}^{N} m_q \int d\tau \delta^{(4)}[x-z_q(\tau)]\frac{\dot{z_q^\alpha}\dot{z_q^\beta}\delta {g^{\alpha\beta}}}{\sqrt{g_{\mu\nu}(z)\dot{z_q^\mu}\dot{z_q^\nu}}}$
+
+
+
+
 \section{The Energy Momentum Tensor $T_{\mu\nu}$}
 
 \begin{align}
@@ -75,11 +83,42 @@ Where $u_{\nu}(z)$ is the velocity field at a general position $z$, and $z_q$ is
 T_{\mu\nu} &= - \sum_{q=1}^N  \frac{m_{q}}{\sqrt(|g|)}  u_{\mu}(z_q) u_{\nu}(z_q)  +c\sum_{q=1}^N   m_{q,0} g_{\mu\nu}\\
 T^{\mu\nu} &= - \sum_{q=1}^N  \frac{m_{q}}{\sqrt(|g|)}  u^{\mu}(z_q) u^{\nu}(z_q)  +c\sum_{q=1}^N   m_{q,0} g^{\mu\nu}
 \end{align}
+
+From the lecture we know that:
+
+$$\delta_g S_M = \frac{1}{2} \int d^4 x \sqrt{|g(x)|} T_{\mu\nu} \delta g^{\mu\nu}$$
+
+
+Using the relation $\delta g_{\mu\nu} = − g_{\mu\alpha} \delta g ^{\alpha\beta} g_{\beta\nu}$, which was proved in the lecture, one can show that $T^{\mu\nu} \delta g_{\mu\nu} = - T_{\mu\nu} \delta g^{\mu\nu}$
+
+Then for $T^{\alpha\beta}$ we have
+
+\begin{align*}
+T^{\alpha\beta} =& \frac{1}{\sqrt{|g(x)|}} \sum_{q=1}^{N} \int d\tau \delta^{(4)} \big[x-z_q(\tau)\big]\frac{\dot{z_q^\alpha} \dot{z_q^\beta}}{\sqrt{g_{\mu\nu}(z)\dot{z_q^\mu}\dot{z_q^\nu}}} \\
+=& \frac{1}{\sqrt{|g(x)|}} \sum_{q=1}^{N} \int d\tau \delta^{(3)} \frac{\big[\vv{x}-\vv{z}_q(\tau)\big]}{\dot{z}_q^0}\frac{\dot{z_q^\alpha}  \dot{z_q^\beta}}{\sqrt{g_{\mu\nu}(z)\dot{z_q^\mu}\dot{z_q^\nu}}}
+\end{align*}
+
+
+where in the last line we have taken the $d\tau$ integral with the use of one of the $\delta-$ functions.
+
+Using that $\sqrt{g_{\mu\nu}(z)\dot{z_q^\mu}\dot{z_q^\nu}}=s$, where s is the proper time, we arrive at:
+
+$T^{\alpha\beta}(x) = \frac{1}{\sqrt{|g(x)|}} \sum_{q=1}^{N} \int d\tau \delta^{(3)} \frac{\big[\vv{x}-\vv{z}_q(s)\big]}{u_q^0 (s)} u_q^\alpha (s) u_q^\beta (s)$
+
+Here now $u^{\mu} = \dot{z^\mu} = \frac{d z^\mu}{d s}$
+
+
 \section{The Energy Density $\rho$}
 
 \begin{align}
 \rho(x) &= T^{\mu\nu}(x) \, u_\mu(x) \, u_\nu(x)
 \end{align}
+
+
+$\rho = \frac{1}{\sqrt{|g|}} \sum_{q=1}^{N} m_q \frac{d z^0_q}{d s} \delta^{(3)} \big[\vv{x}-\vv{z}_q(s)\big]$ 
+
+$\frac{d z^0_q}{d s}=\gamma$
+
 \begin{thebibliography}{9}
 	
 	\bibitem{akhmedev2016}
@@ -96,7 +135,7 @@ T^{\mu\nu} &= - \sum_{q=1}^N  \frac{m_{q}}{\sqrt(|g|)}  u^{\mu}(z_q) u^{\nu}(z_q
 	
 	\bibitem{wiki_momentum}
 	Wikipedia,
-	\emph{Energy–momentum relation}
+	\emph{Energy Momentum Relation}
 	\url{https://en.wikipedia.org/wiki/Energy%E2%80%93momentum_relation#General_relativity}
 		Retrieved: 19 February 2017
 \end{thebibliography}
