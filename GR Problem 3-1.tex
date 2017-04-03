@@ -81,14 +81,14 @@ We know from \cite{wiki_delta} that:
 \begin{align*}
 \int_{-\infty}^{\infty} \delta(g(x)) f(x) dx  =& \sum_{x_i} \frac{f(x_i)}{|g'(x_i)|} \text{, summed $ \forall x_i$ such that $g(x_i)=0$}\\
 &\text{so (\ref{eq:T_penult}) can be written}\\
- T^{\alpha\beta} =& \frac{1}{\sqrt{|g|}} \sum_{q=1}^{N} m_q \int d\tau \delta^{(3)} \frac{\big[\vv{x}-\vv{z}_q(\tau)\big]}{\dot{z}_q^0}\frac{\dot{z_q^\alpha}  \dot{z_q^\beta}}{\sqrt{g_{\mu\nu}(z)\dot{z_q^\mu}\dot{z_q^\nu}}}
+ T^{\alpha\beta} =& \frac{1}{\sqrt{|g|}} \sum_{q=1}^{N} m_q  \delta^{(3)} \frac{\big[\vv{x}-\vv{z}_q(\tau)\big]}{\dot{z}_q^0}\frac{\dot{z_q^\alpha}  \dot{z_q^\beta}}{\sqrt{g_{\mu\nu}(z)\dot{z_q^\mu}\dot{z_q^\nu}}}
 \end{align*}
 
 
 Now $\sqrt{g_{\mu\nu}(z)\dot{z_q^\mu}\dot{z_q^\nu}}=s$, where s is the proper time.
 
 \begin{align*}
-T^{\alpha\beta}(x) =& \frac{1}{\sqrt{|g(x)|}} \sum_{q=1}^{N} \int d\tau \delta^{(3)} \frac{\big[\vv{x}-\vv{z}_q(s)\big]}{u_q^0 (s)} u_q^\alpha (s) u_q^\beta (s)  \numberthis \label{eq:T}\\
+T^{\alpha\beta}(x) =& \frac{1}{\sqrt{|g(x)|}} \sum_{q=1}^{N} m_q \delta^{(3)} \frac{\big[\vv{x}-\vv{z}_q(s)\big]}{u_q^0 (s)} u_q^\alpha (s) u_q^\beta (s)  \numberthis \label{eq:T}\\
 &\text{Where $u^{\mu} = \dot{z^\mu} = \frac{d z^\mu}{d s}$}
 \end{align*}
 
@@ -98,14 +98,13 @@ T^{\alpha\beta}(x) =& \frac{1}{\sqrt{|g(x)|}} \sum_{q=1}^{N} \int d\tau \delta^{
 
 \section{The Energy Density $\rho$}
 
-\begin{align}
-\rho(x) &= T^{\mu\nu}(x) \, u_\mu(x) \, u_\nu(x)
-\end{align}
+\begin{align*}
+\rho(x) =& T^{\mu\nu}(x) \, u_\mu(x) \, u_\nu(x)\\
+=& \frac{1}{\sqrt{|g(x)|}} \sum_{q=1}^{N} m_q \delta^{(3)} \frac{\big[\vv{x}-\vv{z}_q(s)\big]}{u_q^0 (s)} u_q^\mu (s) u_q^\nu (s) u_\mu(x) u_\nu(x)\\
+=&\frac{1}{\sqrt{|g|}} \sum_{q=1}^{N} m_q \frac{d z^0_q}{d s} \delta^{(3)} \big[\vv{x}-\vv{z}_q(s)\big] \numberthis \label{eq:density} \\
+\frac{d z^0_q}{d s}=&\gamma \text{, releatistic correction}
+\end{align*}
 
-
-$\rho = \frac{1}{\sqrt{|g|}} \sum_{q=1}^{N} m_q \frac{d z^0_q}{d s} \delta^{(3)} \big[\vv{x}-\vv{z}_q(s)\big]$ 
-
-$\frac{d z^0_q}{d s}=\gamma$
 
 \begin{thebibliography}{9}
 	
