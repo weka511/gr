@@ -29,9 +29,16 @@ Ran out of time.
 
 \section{$S_M = \int d^4x \, \sqrt{|g|} \, \left[\frac12 \, g^{\mu\nu} \, \partial_\mu \phi \, \partial_\nu \phi - V(\phi)\right]$}
 \subsection{Variation}
-TBP
+\begin{align*}
+\delta_{\phi} S_M =& \delta_{\phi} \int d^4x \, \sqrt{|g|} \, \left[\frac{1}{2} \, g^{\mu\nu} \, \partial_\mu \phi \, \partial_\nu \phi - V(\phi)\right]\\
+=&  \int d^4x \, \sqrt{|g|} \, \left[ \, g^{\mu\nu} \, \partial_\mu \phi \, \partial_\nu \delta \phi - V'(\phi) \delta_{\phi} \right]\\
+=& \int d^4x \big[ -\partial_\nu \big(\sqrt{|g|} g^{\mu\nu} \partial_\mu \phi\big) - \sqrt{(|g|)} V'(\phi)\big] \text{, why?}
+\end{align*}
 \subsection{Equations of motion}
-TBP
+\begin{align*}
+-\partial_\nu \big(\sqrt{|g|} g^{\mu\nu} \partial_\mu \phi\big) - \sqrt{(|g|)} V'(\phi)=&0\\
+\frac{1}{\sqrt{(|g|)}} \partial_\nu \big(\sqrt{|g|} g^{\mu\nu} \partial_\mu \phi\big) =& -  V'(\phi)
+\end{align*}
 \subsection{Stress Tensor} \label{subseq:StressTensor}
 From (\ref{eq:a}) and Lecture Notes \cite[Lecture III, Section 3]{akhmedev2016}:
 \begin{equation}
