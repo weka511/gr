@@ -10,6 +10,7 @@
 \graphicspath{ {images/} }
 
 \newcommand{\Lagr}{\mathscr{L}}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 \pagestyle{plain}
 
 \title{Introduction into General Relativity\\Assignment 3\\Problem 2}
@@ -20,27 +21,25 @@
 \maketitle
 \thispagestyle{fancy}
 
-\begin{abstract}
-Ran out of time.
-\end{abstract}
-
-
  
 
 \section{$S_M = \int d^4x \, \sqrt{|g|} \, \left[\frac12 \, g^{\mu\nu} \, \partial_\mu \phi \, \partial_\nu \phi - V(\phi)\right]$}
 \subsection{Variation}
 \begin{align*}
 \delta_{\phi} S_M =& \delta_{\phi} \int d^4x \, \sqrt{|g|} \, \left[\frac{1}{2} \, g^{\mu\nu} \, \partial_\mu \phi \, \partial_\nu \phi - V(\phi)\right]\\
-=&  \int d^4x \, \sqrt{|g|} \, \left[ \, g^{\mu\nu} \, \partial_\mu \phi \, \partial_\nu \delta \phi - V'(\phi) \delta_{\phi} \right]\\
-=& \int d^4x \big[ -\partial_\nu \big(\sqrt{|g|} g^{\mu\nu} \partial_\mu \phi\big) - \sqrt{(|g|)} V'(\phi)\big] \text{, why?}
+=&  \int d^4x \, \sqrt{|g|} \, \left[ \, g^{\mu\nu} \, \partial_\mu \phi \, \partial_\nu \delta \phi - V'(\phi) \delta \right] \text{, since $g^{\mu\nu} \, \partial_\mu (\delta_{\phi} \phi) \, \partial_\nu \phi = g^{\mu\nu} \, \partial_\mu  \phi \, \partial_\nu \delta_{\phi} \phi$}\\
+=&  \int d^4x \,  \, \left[ \sqrt{|g|} \, g^{\mu\nu} \, \partial_\mu \phi \, \partial_\nu \delta \phi - \sqrt{|g|} V'(\phi) \delta \phi \right] \\
+=& \int d^4x \big[ -\partial_\nu \big(\sqrt{|g|} g^{\mu\nu} \partial_\mu \phi\big) - \sqrt{|g|} V'(\phi)\big] \delta \phi \text{, why?} \numberthis \label{eq:variation1}
 \end{align*}
 \subsection{Equations of motion}
+Since $\delta_{\phi} S_M=0$ for all sufficiently small $\delta \phi$, (\ref{eq:variation1}) gives the following equation of motion.
 \begin{align*}
 -\partial_\nu \big(\sqrt{|g|} g^{\mu\nu} \partial_\mu \phi\big) - \sqrt{(|g|)} V'(\phi)=&0\\
+\text{or}&\\
 \frac{1}{\sqrt{(|g|)}} \partial_\nu \big(\sqrt{|g|} g^{\mu\nu} \partial_\mu \phi\big) =& -  V'(\phi)
 \end{align*}
 \subsection{Stress Tensor} \label{subseq:StressTensor}
-From (\ref{eq:a}) and Lecture Notes \cite[Lecture III, Section 3]{akhmedev2016}:
+From the Lecture Notes \cite[Lecture III, Section 3]{akhmedev2016}:
 \begin{equation}
 S_M = \int d^4x \, \sqrt{|g|} \underbrace{\left[\frac12 \, g^{\mu\nu} \, \partial_\mu \phi \, \partial_\nu \phi - V(\phi)\right]}_{\text{Lagrangian}\overset{\Delta}{=}\Lagr}
 \end{equation}
@@ -53,7 +52,7 @@ From the Lecture Notes \cite[(64)]{akhmedev2016}:
 T_{\mu\nu}&\overset{\Delta}{=}2 \frac{\partial \Lagr}{\partial g^{\mu\nu}} - \Lagr g_{\mu\nu} \nonumber \\
 &=\frac{\partial [g^{\sigma\tau}\partial_\sigma \phi \partial_\tau \phi]}{\partial g^{\mu\nu}}-[\frac12 \, g^{\sigma\tau} \, \partial_\sigma \phi \, \partial_\tau \phi - V(\phi)] g_{\mu\nu} \nonumber \\
 &=\frac{\partial g^{\sigma\tau}}{\partial g^{\mu\nu}}\partial_\sigma \phi \partial_\tau \phi-[\frac12 \, g^{\sigma\tau} \, \partial_\sigma \phi \, \partial_\tau \phi - V(\phi)] g_{\mu\nu} \nonumber \\
-&=\partial_\mu \phi \partial_\nu \phi - \frac12 \, g^{\sigma\tau} \, \partial_\sigma \phi \, \partial_\tau \phi + V(\phi) g_{\mu\nu} 
+&=\partial_\mu \phi \partial_\nu \phi - \frac12 \, g_{\mu\nu} \, \partial_\sigma \phi \, \partial^\sigma \phi  + V(\phi) g_{\mu\nu} 
 \end{align}
 
 \section{$S_M = \int d^4x \sqrt{|g|} \, F_{\mu\nu}\, F_{\alpha\beta} \, g^{\mu\alpha} \, g^{\nu\beta}.$}
