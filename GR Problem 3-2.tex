@@ -1,6 +1,6 @@
 \documentclass[]{article}
 
-\usepackage{mathtools,mathrsfs,url,fancyhdr, graphicx,amsthm}
+\usepackage{mathtools,mathrsfs,url,fancyhdr, graphicx,amsthm,tensor}
 
 \renewcommand{\headrulewidth}{0pt}
 \fancyhead[L]{}
@@ -109,12 +109,20 @@ By a similar argument to Section \ref{subseq:StressTensor}:
 \end{equation}
 
 and
-\begin{align}
+\begin{align*}
 T_{\mu\nu}&\overset{\Delta}{=}2 \frac{\partial \Lagr}{\partial g^{\mu\nu}} - \Lagr g_{\mu\nu}\\
-&=2\frac{\partial F_{\sigma\tau}\, F_{\alpha\beta} \, g^{\sigma\alpha} \, g^{\tau\beta}}{\partial g^{\mu\nu}} - F_{\sigma\tau}\, F_{\alpha\beta} \, g^{\sigma\alpha} \, g^{\tau\beta} g_{\mu\nu}
-\end{align}
-We want:
-$$T_{\mu\nu} = 4\big[F_{\mu\alpha} F^\alpha_\nu - \frac{1}{4}g_{\mu\nu} F_{\alpha\beta} F^{\alpha\beta}\big]$$
+&=2\frac{\partial F_{\sigma\tau}\, F_{\alpha\beta} \, g^{\sigma\alpha} \, g^{\tau\beta}}{\partial g^{\mu\nu}} - F_{\sigma\tau}\, F_{\alpha\beta} \, g^{\sigma\alpha} \, g^{\tau\beta} g_{\mu\nu} \\
+&=2\frac{\partial F_{\sigma\tau}\, F_{\alpha\beta} \, g^{\sigma\alpha} \, g^{\tau\beta}}{\partial g^{\mu\nu}} - g_{\mu\nu} F^{\alpha\beta}\, F_{\alpha\beta} \numberthis \label {eg:stress}
+\end{align*}
+We can simplify the first term of (\ref{eg:stress}) by noting that the tensor $F$ does not depend on $g$, and that the components of $g$ are independent, so we can treat the partial derivative as a selection operator. Hence:
+\begin{align*}
+\frac{\partial \big(F_{\sigma\tau}\, F_{\alpha\beta} \, g^{\sigma\alpha} \, g^{\tau\beta}\big)}{\partial g^{\mu\nu}} =& \underbrace{F_{\mu\tau}\, F_{\nu\beta} \,  g^{\tau\beta}}_{\mu=\sigma \land \nu=\alpha} \: + \; \underbrace{F_{\sigma\mu}\, F_{\alpha\nu} \, g^{\sigma\alpha}}_{\mu=\tau \land \nu=\beta} \\
+=& F_{\mu\tau}\, F\indices{_\nu^\tau} \; + \; \underbrace{F_{\mu\sigma}\, F_{\nu\alpha} g^{\sigma\alpha}}_\text{$F$ is antisymmetric, so if we swap indices twice, sign changes cancel} \\
+=& F_{\mu\tau}\, F\indices{_\nu^\tau} \; + \; F_{\mu\sigma}\, F\indices{_\nu^\sigma} \\
+=& 2 F_{\mu\tau}\, F\indices{_\nu^\tau} 
+\end{align*}
+Combining the last equation with (\ref{eg:stress}), we see:
+$$T_{\mu\nu} = 4\big[F_{\mu\alpha} F\indices{_\nu^\alpha} - \frac{1}{4}g_{\mu\nu} F_{\alpha\beta} F^{\alpha\beta}\big]$$
 
 \begin{thebibliography}{9}
 
