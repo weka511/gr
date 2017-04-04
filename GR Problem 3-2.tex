@@ -13,7 +13,7 @@
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 \pagestyle{plain}
 
-\title{Introduction into General Relativity\\Assignment 3\\Problem 2}
+\title{Introduction into General Relativity\\Assignment 3\\Problem 2\\Equations of Motion \& Stress Energy Tensor}
 \author{Simon Crase}
 
 \begin{document}
@@ -23,13 +23,16 @@
 
  
 
-\section{$S_M = \int d^4x \, \sqrt{|g|} \, \left[\frac12 \, g^{\mu\nu} \, \partial_\mu \phi \, \partial_\nu \phi - V(\phi)\right]$}
+\section{Scalar Field}
 \subsection{Variation}
 \begin{align*}
+\text{We are given}&\\
+S_M =& \int d^4x \, \sqrt{|g|} \, \left[\frac12 \, g^{\mu\nu} \, \partial_\mu \phi \, \partial_\nu \phi - V(\phi)\right] \numberthis \label{eq:action1}\\
+\text{hence}&\\	
 \delta_{\phi} S_M =& \delta_{\phi} \int d^4x \, \sqrt{|g|} \, \left[\frac{1}{2} \, g^{\mu\nu} \, \partial_\mu \phi \, \partial_\nu \phi - V(\phi)\right]\\
-=&  \int d^4x \, \sqrt{|g|} \, \left[ \, g^{\mu\nu} \, \partial_\mu \phi \, \partial_\nu \delta \phi - V'(\phi) \delta \right] \text{, since $g^{\mu\nu} \, \partial_\mu (\delta_{\phi} \phi) \, \partial_\nu \phi = g^{\mu\nu} \, \partial_\mu  \phi \, \partial_\nu \delta_{\phi} \phi$}\\
-=&  \int d^4x \,  \, \left[ \sqrt{|g|} \, g^{\mu\nu} \, \partial_\mu \phi \, \partial_\nu \delta \phi - \sqrt{|g|} V'(\phi) \delta \phi \right] \\
-=& \int d^4x \big[ -\partial_\nu \big(\sqrt{|g|} g^{\mu\nu} \partial_\mu \phi\big) - \sqrt{|g|} V'(\phi)\big] \delta \phi \text{, why?} \numberthis \label{eq:variation1}
+=&  \int d^4x \, \sqrt{|g|} \, \left[ \, g^{\mu\nu} \, \partial_\mu \phi \, \partial_\nu \delta \phi - V'(\phi) \delta \phi \right] \text{, since $g^{\mu\nu} \, \partial_\mu (\delta \phi) \, \partial_\nu \phi = g^{\mu\nu} \, \partial_\mu  \phi \, \partial_\nu \delta \phi$}\\
+=&  \int d^4x \,  \, \left[ \underbrace{\big(\sqrt{|g|} \, g^{\mu\nu} \, \partial_\mu \phi \,\big) \big(\partial_\nu \delta \phi\big)}_\text{Integrate by parts, and use $\delta_{\phi}=0$ on boundary} - \sqrt{|g|} V'(\phi) \delta \phi \right] \\
+=& \int d^4x \big[ -\partial_\nu \big(\sqrt{|g|} g^{\mu\nu} \partial_\mu \phi\big) - \sqrt{|g|} V'(\phi)\big] \delta \phi \numberthis \label{eq:variation1}
 \end{align*}
 \subsection{Equations of motion}
 Since $\delta_{\phi} S_M=0$ for all sufficiently small $\delta \phi$, (\ref{eq:variation1}) gives the following equation of motion.
@@ -39,7 +42,7 @@ Since $\delta_{\phi} S_M=0$ for all sufficiently small $\delta \phi$, (\ref{eq:v
 \frac{1}{\sqrt{(|g|)}} \partial_\nu \big(\sqrt{|g|} g^{\mu\nu} \partial_\mu \phi\big) =& -  V'(\phi)
 \end{align*}
 \subsection{Stress Tensor} \label{subseq:StressTensor}
-From the Lecture Notes \cite[Lecture III, Section 3]{akhmedev2016}:
+In the Lecture Notes, \cite[Lecture III, Section 3]{akhmedev2016}, the Lagrangian, $\Lagr$, is defined by the expression $S_M = \int d^4x \, \sqrt{|g|} \Lagr$. Therefore, from \ref{eq:action1}. 
 \begin{equation}
 S_M = \int d^4x \, \sqrt{|g|} \underbrace{\left[\frac12 \, g^{\mu\nu} \, \partial_\mu \phi \, \partial_\nu \phi - V(\phi)\right]}_{\text{Lagrangian}\overset{\Delta}{=}\Lagr}
 \end{equation}
@@ -47,31 +50,37 @@ So $\Lagr$ is given by
 \begin{equation}
 \Lagr=\frac12 \, g^{\mu\nu} \, \partial_\mu \phi \, \partial_\nu \phi - V(\phi)
 \end{equation}
-From the Lecture Notes \cite[(64)]{akhmedev2016}:
+From the Lecture Notes \cite[(74)]{akhmedev2016}:
 \begin{align}
 T_{\mu\nu}&\overset{\Delta}{=}2 \frac{\partial \Lagr}{\partial g^{\mu\nu}} - \Lagr g_{\mu\nu} \nonumber \\
 &=\frac{\partial [g^{\sigma\tau}\partial_\sigma \phi \partial_\tau \phi]}{\partial g^{\mu\nu}}-[\frac12 \, g^{\sigma\tau} \, \partial_\sigma \phi \, \partial_\tau \phi - V(\phi)] g_{\mu\nu} \nonumber \\
+&=\frac{\partial [g^{\sigma\tau}\partial_\sigma \phi \partial_\tau \phi]}{\partial g^{\mu\nu}}-[\frac12 \, g^{\sigma\tau} \, \partial_\sigma \phi \, \partial_\tau \phi - V(\phi)] g_{\mu\nu} \nonumber\\
 &=\frac{\partial g^{\sigma\tau}}{\partial g^{\mu\nu}}\partial_\sigma \phi \partial_\tau \phi-[\frac12 \, g^{\sigma\tau} \, \partial_\sigma \phi \, \partial_\tau \phi - V(\phi)] g_{\mu\nu} \nonumber \\
 &=\partial_\mu \phi \partial_\nu \phi - \frac12 \, g_{\mu\nu} \, \partial_\sigma \phi \, \partial^\sigma \phi  + V(\phi) g_{\mu\nu} 
 \end{align}
 
-\section{$S_M = \int d^4x \sqrt{|g|} \, F_{\mu\nu}\, F_{\alpha\beta} \, g^{\mu\alpha} \, g^{\nu\beta}.$}
+\section{Vector Potential}
 \subsection{Variation}
+We are given:
 \begin{align*}
+S_M =& \int d^4x \sqrt{|g|} \, F_{\mu\nu}\, F_{\alpha\beta} \, g^{\mu\alpha} \, g^{\nu\beta}\\
+\text{whence}&\\
 \delta_A S_M =& \delta_A \int d^4x \sqrt{|g|} \, F_{\mu\nu}\, F_{\alpha\beta} \, g^{\mu\alpha} \, g^{\nu\beta} \\
-=& 2 \int d^4x \sqrt{|g|} \, F_{\mu\nu} \, g^{\mu\alpha} \, g^{\nu\beta} \, \delta_A F_{\alpha\beta}\\
-=& 2 \int d^4x \sqrt{|g|} \, F_{\mu\nu} \, g^{\mu\alpha} \, g^{\nu\beta} \, \delta_A \big(\partial_\alpha A_\beta - \partial_\beta A_\alpha\big)\\
-=& 4 \int d^4x \sqrt{|g|} \, F_{\mu\nu} \, g^{\mu\alpha} \, g^{\nu\beta} \, \delta \big(\partial_\alpha A_\beta \big)\\
-=& -4 \int d^4x \partial_\alpha \big(\sqrt{|g|} \, F_{\mu\nu} \, g^{\mu\alpha} \, g^{\nu\beta} \,\big) \delta A_\beta\\
+=&  \int d^4x \sqrt{|g|} \, F_{\mu\nu} \, g^{\mu\alpha} \, g^{\nu\beta} \, \delta_A F_{\alpha\beta} + \int d^4x \sqrt{|g|} \, (\delta_A F_{\mu\nu}) \, g^{\mu\alpha} \, g^{\nu\beta} \,  F_{\alpha\beta}\\
+\text{We permute indices: }& (\mu\nu\alpha\beta)\rightarrow(\alpha\beta\mu\nu)\\
+\delta_A S_M=& 2 \int d^4x \sqrt{|g|} \, F_{\mu\nu} \, g^{\mu\alpha} \, g^{\nu\beta} \, \delta_A F_{\alpha\beta} \\
+=& 2 \int d^4x \sqrt{|g|} \, F_{\mu\nu} \, g^{\mu\alpha} \, g^{\nu\beta} \, \delta_A \big(\partial_\alpha A_\beta - \partial_\beta A_\alpha\big) \text{,  using \cite[(88)]{akhmedev2016}}\\
+=& 4 \int d^4x \underbrace{\big(\sqrt{|g|} \, F_{\mu\nu} \, g^{\mu\alpha} \, g^{\nu\beta}\big) \, \delta \big(\partial_\alpha A_\beta \big)}_\text{Itegrate by parts}\\
+=& -4 \int d^4x \, \partial_\alpha \big(\sqrt{|g|} \, F_{\mu\nu} \, g^{\mu\alpha} \, g^{\nu\beta} \,\big) \delta A_\beta\\
 =& -4 \int d^4x \partial_\alpha \big(\sqrt{|g|} \, F^{\alpha\beta}  \,\big) \delta A_\beta
 \end{align*}
 \subsection{Equations of motion}
 \begin{align*}
-\partial_\alpha \big(\sqrt{|g|} \, F_{\mu\nu} \, g^{\mu\alpha} \, g^{\nu\beta} \,\big) &= 0\\
+\partial_\alpha \big(\sqrt{|g|} \, F_{\mu\nu} \, g^{\mu\alpha} \, g^{\nu\beta} \,\big) &= 0 \numberthis \label{eq:eom} \\
  D_\alpha F^{\alpha\beta} &= 0
 \end{align*}
 \subsection{Stress Tensor}
-By the same argument as in Section \ref{subseq:StressTensor}:
+By a similar argument to Section \ref{subseq:StressTensor}:
 \begin{equation}
 \Lagr= F_{\mu\nu}\, F_{\alpha\beta} \, g^{\mu\alpha} \, g^{\nu\beta}.
 \label {eq:a}
