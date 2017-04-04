@@ -1,6 +1,6 @@
 \documentclass[]{article}
 
-\usepackage{mathtools,mathrsfs,url,fancyhdr, graphicx}
+\usepackage{mathtools,mathrsfs,url,fancyhdr, graphicx,amsthm}
 
 \renewcommand{\headrulewidth}{0pt}
 \fancyhead[L]{}
@@ -11,6 +11,7 @@
 
 \newcommand{\Lagr}{\mathscr{L}}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\newtheorem{theorem}{Theorem}
 \pagestyle{plain}
 
 \title{Introduction into General Relativity\\Assignment 3\\Problem 2\\Equations of Motion \& Stress Energy Tensor}
@@ -31,7 +32,8 @@ S_M =& \int d^4x \, \sqrt{|g|} \, \left[\frac12 \, g^{\mu\nu} \, \partial_\mu \p
 \text{hence}&\\	
 \delta_{\phi} S_M =& \delta_{\phi} \int d^4x \, \sqrt{|g|} \, \left[\frac{1}{2} \, g^{\mu\nu} \, \partial_\mu \phi \, \partial_\nu \phi - V(\phi)\right]\\
 =&  \int d^4x \, \sqrt{|g|} \, \left[ \, g^{\mu\nu} \, \partial_\mu \phi \, \partial_\nu \delta \phi - V'(\phi) \delta \phi \right] \text{, since $g^{\mu\nu} \, \partial_\mu (\delta \phi) \, \partial_\nu \phi = g^{\mu\nu} \, \partial_\mu  \phi \, \partial_\nu \delta \phi$}\\
-=&  \int d^4x \,  \, \left[ \underbrace{\big(\sqrt{|g|} \, g^{\mu\nu} \, \partial_\mu \phi \,\big) \big(\partial_\nu \delta \phi\big)}_\text{Integrate by parts, and use $\delta_{\phi}=0$ on boundary} - \sqrt{|g|} V'(\phi) \delta \phi \right] \\
+=&  \int d^4x \,  \, \left[ \underbrace{\big(\sqrt{|g|} \, g^{\mu\nu} \, \partial_\mu \phi \,\big) \big(\partial_\nu \delta \phi\big)}_\text{Integrate by parts} - \sqrt{|g|} V'(\phi) \delta \phi \right] \\
+&\text{\{$\delta$ doesn't change integrand at boundary\}} \\
 =& \int d^4x \big[ -\partial_\nu \big(\sqrt{|g|} g^{\mu\nu} \partial_\mu \phi\big) - \sqrt{|g|} V'(\phi)\big] \delta \phi \numberthis \label{eq:variation1}
 \end{align*}
 \subsection{Equations of motion}
@@ -76,9 +78,29 @@ S_M =& \int d^4x \sqrt{|g|} \, F_{\mu\nu}\, F_{\alpha\beta} \, g^{\mu\alpha} \, 
 \end{align*}
 \subsection{Equations of motion}
 \begin{align*}
-\partial_\alpha \big(\sqrt{|g|} \, F_{\mu\nu} \, g^{\mu\alpha} \, g^{\nu\beta} \,\big) &= 0 \numberthis \label{eq:eom} \\
- D_\alpha F^{\alpha\beta} &= 0
+\partial_\alpha \big(\sqrt{|g|} \, F_{\mu\nu} \, g^{\mu\alpha} \, g^{\nu\beta} \,\big) &= 0 \numberthis \label{eq:eom} 
 \end{align*}
+
+\begin{theorem}
+	Equation (\ref{eq:eom}) is equivalent to: $D_\alpha F^{\alpha\beta} = 0$.
+\end{theorem}
+\begin{proof}
+	\begin{align*}
+	D_\alpha F^{\alpha\beta} =& \partial_\alpha F^{\alpha\beta} \, + \, \Gamma^{\alpha}_{\rho\alpha}F^{\rho\beta}\,+\,\underbrace{\Gamma^\beta_{\rho\alpha}F^{\alpha\rho}}_{=0}\\
+	&\text{\{Since $\Gamma$ is symmetric, and F antisymmetric\}} \\
+	=& \partial_\alpha F^{\alpha\beta} \, + \, \Gamma^{\alpha}_{\rho\alpha}F^{\rho\beta}\\
+	=& \partial_\alpha F^{\alpha\beta} \, + \, \frac{1}{2|g|}\big(\partial_\rho \, |g|\big)F^{\rho\beta} \numberthis \label{eq:eom_tem}
+	\end{align*}
+	Where we have used a well known result (e.g. \cite[equation (3.11)]{abs1965}), $\Gamma^{\alpha}_{\rho\alpha}=\frac{1}{2|g|}\big(\partial_\rho \, |g|\big)$.
+	
+	Now (\ref{eq:eom}) gives:
+	\begin{align*}
+	0 =& \partial_\alpha \big(\sqrt{|g|} \, F^{\alpha\beta} \big)\\
+	=& \frac{1}{2\sqrt{|g|}} \big(\partial_\alpha g\big) F^{\alpha\beta} \, + \, \sqrt{|g|} \, \partial_\alpha F^{\alpha\beta}\\
+	=& \sqrt{|g|} \big[\frac{1}{2|g|} \big(\partial_\alpha g\big) F^{\alpha\beta} \, + \, \, \partial_\alpha F^{\alpha\beta}\big]
+	\end{align*}
+	Comparing with (\ref{eq:eom_tem}),  $D_\alpha F^{\alpha\beta} = 0$.
+\end{proof}
 \subsection{Stress Tensor}
 By a similar argument to Section \ref{subseq:StressTensor}:
 \begin{equation}
@@ -102,6 +124,11 @@ Emil T. Akhmedev,
 2016,
 \url{https://arxiv.org/pdf/1601.04996v6.pdf}.
 
+\bibitem{abs1965}
+Ronald Adler, Maurice Bazin, \& Menahem Schiffer,
+\emph{Introduction to General Relativity},
+McGraw-Hill Book Company, New York,
+1965.
 \end{thebibliography}
 
 \end{document}
