@@ -46,13 +46,13 @@ S_M &= - \sum_{q=1}^N m_q \, \int d\tau_q \, \sqrt{g_{\mu\nu}[z_q(\tau_q)] \, \d
 
 
 
-From the Lecture, \cite[(73)]{akhmedev2016}, we know that:
+From the Lecture, \cite[(73)]{akhmedev2016}, $T_{\mu\nu}$ has the following definition:
 
 \begin{align*}
 \delta_g S_M =& \frac{1}{2} \int d^4 x \sqrt{|g|} T_{\mu\nu} \delta g^{\mu\nu} \numberthis \label {eq:T_def} \\
 \text{Now}&\\
-g_{\mu\rho}g^{\rho\sigma} =& \delta_{\mu}^{\sigma} \text{, where $\delta$ is the Kronecker delta}\\
-\delta g_{\mu\rho}g^{\rho\sigma} + g_{\mu\rho}\delta g^{\rho\sigma} =& 0 \text{, using $\delta$ to represent variation}\\
+g_{\mu\rho}g^{\rho\sigma} =& \delta_{\mu}^{\sigma} \text{, where $\delta$ is the \emph{Kronecker} delta}\\
+\delta g_{\mu\rho}g^{\rho\sigma} + g_{\mu\rho}\delta g^{\rho\sigma} =& 0 \text{, using $\delta$ to represent \emph{variation}}\\
 \delta g_{\mu\rho}g^{\rho\sigma} =& - g_{\mu\rho}\delta g^{\rho\sigma}\\
 \delta g_{\mu\rho}g^{\rho\sigma} g_{\sigma\nu} =& - g_{\mu\rho}\delta g^{\rho\sigma} g_{\sigma\nu} \\
 \delta g_{\mu\nu} =& - g_{\mu\rho}\delta g^{\rho\sigma} g_{\sigma\nu} \numberthis \label {eq:useful_1}
@@ -103,7 +103,7 @@ T^{\alpha\beta}(x) =& \frac{1}{\sqrt{|g|}} \sum_{q=1}^{N} m_q \delta^{(3)} \frac
 
 \begin{align*}
 \rho(x) =& T^{\mu\nu}(x) \, u_\mu(x) \, u_\nu(x) \text{, from \cite{wiki_dust}}\\
-=& \frac{1}{\sqrt{|g(x)|}} \sum_{q=1}^{N} m_q \delta^{(3)} \frac{\big[\vv{x}-\vv{z}_q(s)\big]}{u_q^0 (s)} u_q^\mu (s) u_q^\nu (s) u_\mu(x) u_\nu(x)\\
+=& \frac{1}{\sqrt{|g|}} \sum_{q=1}^{N} m_q \delta^{(3)} \frac{\big[\vv{x}-\vv{z}_q(s)\big]}{u_q^0 (s)} u_q^\mu (s) u_q^\nu (s) u_\mu(x) u_\nu(x) \text{, from (\ref{eq:T})}\\
 =&\frac{1}{\sqrt{|g|}} \sum_{q=1}^{N} m_q \frac{d z^0_q}{d s} \delta^{(3)} \big[\vv{x}-\vv{z}_q(s)\big] \numberthis \label{eq:density} \\
 \frac{d z^0_q}{d s}=&\gamma \text{, relativistic correction}
 \end{align*}
