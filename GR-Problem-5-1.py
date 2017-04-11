@@ -24,10 +24,8 @@ def create_steady_acceleration(a=1.5,s0=-2,s1=2,step=0.1):
 
 # Convert (t,x) style coordinates for Minkowski space to 
 # Coordinates suitable for a Penrose Carter diagram
-def convert_to_penrose_carter(z):
-     (t,x)=zip(*z)    
-     atans=[(m.atan(tt+xx),m.atan(tt-xx)) for (tt,xx) in z]
-     return [(a+b,a-b) for (a,b) in atans]
+def convert_to_penrose_carter(z): 
+     return [(a+b,a-b) for (a,b) in [(m.atan(t+x),m.atan(t-x)) for (t,x) in z]]
 
 # Plot a list of points, assuming Minkowski coordinates
 def minkowski_plot(z,figure=1,a=1.5,
@@ -52,20 +50,18 @@ def minkowski_plot(z,figure=1,a=1.5,
 
 # Plot a list of points, assuming
 # Penrose-Carter coordinates     
-def penrose_carter_plot(pc,gap=0.25,figure=1,
+def penrose_carter_plot(penrose_carter,gap=0.25,figure=1,
                         title='Penrose Carter Diagram'):
      # Function used to represent a light ray from one
      # boundary to another
      def light_ray():
-          # Function used to retrict a list to 
+          # Function used to restrict a list to 
           # being within boundafry
           def filter(zs):
-               return [(t,x) for (t,x) in zs
-                       if abs(x+t)<m.pi] 
-          t_last,x_last=pc[-1]
-          return filter([(x+t_last-x_last,x)
-                         for x in drange(-2.5,2.5,0.1)])
-     (t,x)=zip(*pc)
+               return [(t,x) for (t,x) in zs if abs(x+t)<m.pi] 
+          t_last,x_last=penrose_carter[-1]
+          return filter([(x+t_last-x_last,x) for x in drange(-2.5,2.5,0.1)])
+     (t,x)=zip(*penrose_carter)
      # Generate data for boundary and axes
      boundary_minus=list(drange(-m.pi,0))
      boundary_plus=list(drange(0,m.pi))
@@ -77,10 +73,10 @@ def penrose_carter_plot(pc,gap=0.25,figure=1,
      ax.set_aspect('equal')
      plt.rc('text', usetex=True)
      plt.plot(x,t,'r',
-              boundary_minus,boundary_plus,'b--',
-              boundary_plus,boundary_plus[::-1],'b--',
-              boundary_minus,boundary_minus[::-1],'b--',
-              boundary_plus,boundary_minus,'b--',
+              boundary_minus,boundary_plus,'m--',
+              boundary_plus,boundary_plus[::-1],'g--',
+              boundary_minus,boundary_minus[::-1],'c--',
+              boundary_plus,boundary_minus,'y--',
               i0,zeroes,'b',
               zeroes,i0,'b',
               x_light,t_light,'k:')
@@ -99,15 +95,14 @@ def penrose_carter_plot(pc,gap=0.25,figure=1,
      plt.xlabel(r'$\xi$')
      plt.ylabel(r'$\psi$')
      plt.title(title)
-     plt.savefig('images/GR-Problem-5-1-{0}.png'
-                 .format(figure))
+     plt.savefig('images/GR-Problem-5-1-{0}.png'.format(figure))
 
 if __name__=='__main__': 
      # We will do a Minkowski plot over a shorter range 
      # then the Penrose Carter, as otherwise scaling will
      # lose much of the detail from the plot
      
-     a=1.5
+     a=1
      minkowski_plot(
           create_steady_acceleration(a),
           figure=1,
@@ -116,7 +111,7 @@ if __name__=='__main__':
      penrose_carter_plot(
           convert_to_penrose_carter(
                create_steady_acceleration(
-                    1.5,s0=-20, s1=20)),
+                    a,s0=-2, s1=2)),
           figure=2,
           title='Penrose Carter Diagram for a={0}'
           .format(a) )
