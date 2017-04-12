@@ -24,7 +24,10 @@ def create_steady_acceleration(a=1.5,s0=-2,s1=2,step=0.1):
 
 # Convert (t,x) style coordinates for Minkowski space to 
 # Coordinates suitable for a Penrose Carter diagram
-def convert_to_penrose_carter(z): 
+def convert_to_penrose_carter(z):
+     def pp(x):
+          print (x)
+          return x
      return [(a+b,a-b) for (a,b) in [(m.atan(t+x),m.atan(t-x)) for (t,x) in z]]
 
 # Plot a list of points, assuming Minkowski coordinates
@@ -108,10 +111,13 @@ if __name__=='__main__':
           figure=1,
           title='Minkowski Diagram for acceleration={0}'
           .format(a) )
-     penrose_carter_plot(
-          convert_to_penrose_carter(
+     pc = convert_to_penrose_carter(
                create_steady_acceleration(
-                    a,s0=-2, s1=2)),
+                    a,s0=-20, s1=40))
+     for p in pc:
+          print (p)
+     penrose_carter_plot(
+          pc,
           figure=2,
           title='Penrose Carter Diagram for a={0}'
           .format(a) )
