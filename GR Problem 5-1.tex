@@ -58,6 +58,10 @@ From (\ref{eq:asymptote}), as $s \rightarrow \infty$, $(\psi,\xi) \rightarrow \c
 	\filldraw[black] (4,0) circle (0pt) node[anchor=north] {$\pi$};
 	\filldraw[black] (4,0) circle (0pt) node[anchor=south] {$I^-$};
 	\filldraw[black] (-4,0) circle (0pt) node[anchor=north] {$-\pi$};
+	 \pgfmathsetmacro{\e}{1.44022}   % eccentricity
+	\pgfmathsetmacro{\a}{1}
+	\pgfmathsetmacro{\b}{(\a*sqrt((\e)^2-1)} 
+	\draw plot[domain=-1.38:1.38] ({\a*cosh(\x)},{\b*sinh(\x)});
 	\end{tikzpicture}
 \end{figure}
 
