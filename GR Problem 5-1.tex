@@ -40,7 +40,7 @@ From (\ref{eq:steadily_accelerating_particle})
 	\frac{\psi + \xi}{2} &\simeq \frac{\pi}{2} \land \frac{\psi - \xi}{2} \simeq \frac{\pi}{4} \numberthis\label{eq:asymptote}
 \end{align*}
 
-From (\ref{eq:asymptote}), as $s \rightarrow \infty$, $(\psi,\xi) \rightarrow \cal{J}^+$ along an asymptote given by $\psi-\xi=\frac{\pi}{2}$, which is perpendicular to $\cal{J}^+$. Similarly, as $s \rightarrow -\infty$, $(\psi,\xi) \rightarrow \cal{J}^-$ along an asymptote which is perpendicular.
+From (\ref{eq:asymptote}), as $s \rightarrow \infty$, $(\psi,\xi) \rightarrow \cal{J}^+$ along an asymptote given by $\psi-\xi=\frac{\pi}{2}$, which is perpendicular to $\cal{J}^+$. Similarly, as $s \rightarrow -\infty$, $(\psi,\xi) \rightarrow \cal{J}^-$ along an asymptote which is perpendicular -- Figure \ref{eq:steadily_accelerating_particle}.
 
 \begin{figure}[H]
 	\begin{tikzpicture}
@@ -64,7 +64,10 @@ From (\ref{eq:asymptote}), as $s \rightarrow \infty$, $(\psi,\xi) \rightarrow \c
 	\pgfmathsetmacro{\a}{1}
 	\pgfmathsetmacro{\b}{(\a*sqrt((\e)^2-1)} 
 	\draw plot[domain=-1.38:1.38] ({\a*cosh(\x)},{\b*sinh(\x)});
+	\node [draw,text width=5cm] at (6,3) {The curve should be read as intersecting $\cal{J}^\pm$ at a right angle. In addition, it should \emph{not} be interpreted as an hyperbola, even though I used one to generate the graph.};
 	\end{tikzpicture}
+	\caption{Penrose-Carter Diagram for Steady Acceleration}
+	\label{fig:pc}
 \end{figure}
 
 

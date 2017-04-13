@@ -82,7 +82,7 @@ The four labelled areas in Figure \ref{fig:pc} are as follows:
 	\item $R_-$  White Hole Exterior.
 \end{itemize}
 \section{Ingoing Eddington-–Finkelstein coordinates}
-The Ingoing Eddington-–Finkelstein coordinates cover $R_+\cup T_-$ in Figure \ref{fig:pc}.
+The Ingoing Eddington-–Finkelstein coordinates cover $R_+\cup T_-$ in Figure \ref{fig:pc_in}.
 \begin{enumerate}
 	\item We saw in the Lecture, \cite[IV,Figure 8]{akhmedev2016} that the Ingoing Eddington–-Finkelstein coordinates cover the space outside $r=r_g$, and the space inside (the black hole), with the exception of the singularity at $r=0$.
 	\item We also saw, \cite[V,Figure 11]{akhmedev2016} that the space outside corresponds to Figure \ref{fig:pc}[$R_+$], and the space inside to Figure \ref{fig:pc}[$T_-$].
@@ -91,13 +91,125 @@ The Ingoing Eddington-–Finkelstein coordinates cover $R_+\cup T_-$ in Figure \
 		\item There are no light rays crossing from $T_-$ to $R_+$. Instead they all cross $r=0$.
 		\item In short, $T_-$ and $R_+$ behave exactly like the two regions in \cite[V,Figure 11]{akhmedev2016}
 	\end{enumerate}
+\begin{figure}[H]
+	\begin{tikzpicture}
+	\node (I)    at ( 4,0)   {$R_+$};
+	\node (II)   at (-4,0)   {};
+	\node (III)  at (0, 2.5) {$T_-$};
+	\node (IV)   at (0,-2.5) {};
+	
+	\path  % Four corners of left diamond
+	(II) +(90:4)  coordinate[label=90:$I^+$]  (IItop)
+	+(-90:4) coordinate[label=-90:$I^-$] (IIbot)
+	+(0:4)   coordinate                  (IIright)
+	+(180:4) coordinate[label=180:$$] (IIleft)
+	;
+	\path
+	(I) +(90:4)  coordinate[label=90:$I^+$]  (Itop)
+	+(-90:4) coordinate[label=-90:$I^-$] (Ibot)
+	+(0:4)   coordinate [label=180:$I^0$]  (Iright)
+	+(180:4) coordinate (Ileft)
+	;
+	
+	\draw (IIleft) -- 
+	node[midway, above left]    {}
+	(IItop) --
+	node[midway, below, sloped] {$r=r_g$}
+	(IIright) -- 
+	node[midway, below, sloped] {$r=r_g$}
+	(IIbot) --
+	node[midway, below left]    {}    
+	(IIleft) -- cycle;
+	
+	\draw (Ileft) -- 
+	node[midway, above left,sloped]    {$r=r_g$}
+	(Itop) --
+	node[midway, below, ] {$\cal{J}^+$}
+	(Iright) -- 
+	node[midway, below, ] {$\cal{J}^-$}
+	(Ibot) --
+	node[midway, below left,sloped]     {$r=r_g$}    
+	(Ileft) -- cycle;
+	
+	
+	% No text this time in the next diagram
+	\draw  (Ileft) -- (Itop) -- (Iright) -- (Ibot) -- (Ileft) -- cycle;
+	
+	% Squiggly lines
+	\draw[decorate,decoration=zigzag] (IItop) -- (Itop)
+	node[midway, above, inner sep=2mm] {$r=0$};
+	
+	\draw[decorate,decoration=zigzag] (IIbot) -- (Ibot)
+	node[midway, below, inner sep=2mm] {$r=0$};
+	
+	\end{tikzpicture}
+	\caption{Ingoing Eddington–-Finkelstein coordinates}
+	\label{fig:pc_in}
+	\end{figure}
 \end{enumerate}
+
 \section{Outgoing Eddington–-Finkelstein coordinates}
-The Outgoing Eddington-–Finkelstein coordinates cover $R_+ \cup T+$ in Figure \ref{fig:pc}.
+The Outgoing Eddington-–Finkelstein coordinates cover $R_- \cup T_+$ in Figure \ref{fig:pc_out}.
 \begin{enumerate}
 	\item For the transformation $t\rightarrow -t$ transforms from Ingoing Eddington–-Finkelstein coordinates to Outgoing.
 	\item It also reflects \ref{fig:pc} about its horizontal axis, interchanging $T_-$ and $T_+$.
 \end{enumerate}
+\begin{figure}[H]
+\begin{tikzpicture}
+\node (I)    at ( 4,0)   {};
+\node (II)   at (-4,0)   {$R_-$};
+\node (III)  at (0, 2.5) {$T_-$};
+\node (IV)   at (0,-2.5) {};
+
+\path  % Four corners of left diamond
+(II) +(90:4)  coordinate[label=90:$I^+$]  (IItop)
++(-90:4) coordinate[label=-90:$I^-$] (IIbot)
++(0:4)   coordinate                  (IIright)
++(180:4) coordinate[label=180:$I^0$] (IIleft)
+;
+\path
+(I) +(90:4)  coordinate[label=90:$I^+$]  (Itop)
++(-90:4) coordinate[label=-90:$I^-$] (Ibot)
++(0:4)   coordinate [label=180:$$]  (Iright)
++(180:4) coordinate (Ileft)
+;
+
+\draw (IIleft) -- 
+node[midway, above left]    {$\cal{J}^+$}
+(IItop) --
+node[midway, below, sloped] {$r=r_g$}
+(IIright) -- 
+node[midway, below, sloped] {$r=r_g$}
+(IIbot) --
+node[midway, below left]    {$\cal{J}^-$}    
+(IIleft) -- cycle;
+
+\draw (Ileft) -- 
+node[midway, above left,sloped]    {$r=r_g$}
+(Itop) --
+node[midway, below, ] {}
+(Iright) -- 
+node[midway, below, ] {}
+(Ibot) --
+node[midway, below left,sloped]     {$r=r_g$}    
+(Ileft) -- cycle;
+
+
+% No text this time in the next diagram
+\draw  (Ileft) -- (Itop) -- (Iright) -- (Ibot) -- (Ileft) -- cycle;
+
+% Squiggly lines
+\draw[decorate,decoration=zigzag] (IItop) -- (Itop)
+node[midway, above, inner sep=2mm] {$r=0$};
+
+\draw[decorate,decoration=zigzag] (IIbot) -- (Ibot)
+node[midway, below, inner sep=2mm] {$r=0$};
+
+\end{tikzpicture}
+\caption{Penrose-Carter Diagram Outgoing Eddington–-Finkelstein coordinates}
+\label{fig:pc_out}
+\end{figure}
+
 \begin{thebibliography}{9}
 	\raggedright	
 	\bibitem{akhmedev2016}
