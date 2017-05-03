@@ -16,5 +16,6 @@ General Relativity calcs and documents
 | GR Problem 5-3.tex |  Week 5 problem 3 - Penrose Carter diagrams | 
 | GR Problem 6.tex | Week 6 assignment - Circular Lightlike orbits for Schwartzchild Metric | 
 | GR Problem 7.tex | Week 7 assignment - Kerr Black Hole | 
+| GR Problem 8.tex | Week 8 assignment - Collapse into Black Hole | 
 | penrose-carter.tex | Sample code to generate Penrose-Carter diagrams | 
 | perms.py |  Used to generate odd and even permutations | 
