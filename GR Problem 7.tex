@@ -4,30 +4,87 @@
 
 
 %opening
-\title{Introduction into General Relativity\\Assignment 7\\Show that for the Kerr solution\\the normal vector to the surface $r=r_+$\\is light--like.}
+\title{Introduction into General Relativity\\Assignment 7\\The normal to the surface $r=r_+$\\is light--like}
 \author{Simon Crase}
 
 \newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
-
 \begin{document}
 
 \maketitle
 
-\begin{theorem}[Kerr]
-	For the Kerr solution the normal vector to the surface $r=r_+$ is light--like.
+\begin{theorem}
+	For the Kerr solution, the normal vector to the surface $r=r_+$ is light--like.
 \end{theorem}
 
 \begin{proof}
 	From \cite[Lecture VII,5,(174)]{akhmedev2016}, the metric is given by the following equations.
 	\begin{align*}
-	ds^2 = \frac{\Delta-a^2 (\sin{\theta})^2}{\rho^2}dt^2 +& \frac{4 \kappa M a}{\rho^2}(\sin{theta})^2 d\phi dt - \frac{\rho^2}{\Delta} dr^2\\
-	-&\rho^2 d\theta^2 - \frac{A (\sin{theta}^2)}{\rho^2} d\phi^2\ \numberthis\\
-	\text{where } \Delta =& r^2 = 2 \kappa M + a^2\\
+	ds^2 = \frac{\Delta-a^2 (\sin{\theta})^2}{\rho^2}dt^2 +& \frac{4 \kappa M a}{\rho^2}(\sin{\theta})^2 d\phi dt - \frac{\rho^2}{\Delta} dr^2\\
+	-&\rho^2 d\theta^2 - \frac{A (\sin{\theta})^2}{\rho^2} d\phi^2 \numberthis \label{eq:metric}\\ 
+	\text{where } \Delta =& r^2 - 2 \kappa M + a^2\\
 	\rho^2 =& r^2 + a^2 (\cos{\theta})^2\\
 	A =& (r^2+a^2)^2 - a^2 \Delta (\sin{\theta})^2 \\
-	\text{Moreover } r_{+} = & \kappa M + \sqrt{(\kappa M)^2 - a^2} \numberthis
+	\text{Moreover } r_{\pm} = & \kappa M \pm \sqrt{(\kappa M)^2 - a^2} \numberthis \label{eq:rpm}
 	\end{align*}
+	
+	Now a unit normal to any surface of constant $r$ is given by the covariant vector $n=(0,1,0,0)$, and we know that $n$ is light-like $\iff n_{\mu}n^{\mu}=0 \iff g^{\mu\nu}n_{\mu}n_{\nu}=0$. Given the particular form of $n^{\mu}$, we can recast the desired result as:
+	
+	\begin{align*}
+	r=r_+ \implies g^{rr}=0 \numberthis \label{eq:demonstrandum}
+	\end{align*}.
+
+\begin{remark}
+	We need to be careful, as the metric is singular when $r=r_+$. We shall develop the argument for general $r$, and take the limit as $r\rightarrow r_+$.
+\end{remark}
+ The following Lemma will be useful for computing $g^{\mu\nu}$ from $g_{\mu\nu}$.
+\begin{lemma}\label{lemma:inverse}
+	The inverse of a non-singular matrix  
+	$A=\begin{pmatrix}
+		\alpha & 0 & 0 & \epsilon \\
+		0 & \beta & 0 & 0 \\
+		0 & 0 & \gamma & 0 \\
+		\epsilon & 0 & 0 & \delta
+	\end{pmatrix}$ is given by  $A^{-1}=\frac{1}{(\alpha\delta-\epsilon^2)\beta\gamma}\begin{pmatrix}
+	\beta\gamma\delta & 0 & 0 & -\epsilon\beta\gamma\\
+	0 & \alpha\gamma\delta - \gamma \epsilon^2 & 0 & 0\\
+	0 & 0 & \alpha\beta\delta - \beta \epsilon^2 & 0 \\
+	-\epsilon\beta\gamma & 0 & 0 & \alpha\beta\gamma
+	\end{pmatrix}
+	$
+\end{lemma}
+
+\begin{proof}
+	I used the well known result (e.g. \cite[Theorem 5.2]{finkbeiner1960}) that $A^{-1} = \frac{1}{|A|} adj(A)$, where $adj(A)$ is the matrix of cofactors of A, i.e. $|A|=\sum_{i} A_{ij}$ for fixed j. The Lemma may also be verified by multiplying A by its putative inverse.
+\end{proof}	
+
+Comparing with (\ref{eq:metric})
+\begin{align*}
+\alpha =g^{tt}=& \frac{\Delta-a^2 (\sin{\theta})^2}{\rho^2}\\
+\beta=g^{rr}=& - \frac{\rho^2}{\Delta} \\
+\gamma =g^{\theta\theta}=& -\rho^2\\
+\delta=g^{\phi\phi}=& - \frac{A (\sin{\theta})^2}{\rho^2} \\ 
+\epsilon =g^{\phi t}=g^{t\phi}=&\frac{2 \kappa M a}{\rho^2}(\sin{\theta})^2 
+\end{align*}
+
+Lemma \ref{lemma:inverse} gives:
+\begin{align*}
+g^{rr}=& \frac{ \alpha\gamma\delta - \gamma \epsilon^2}{(\alpha\delta-\epsilon^2)\beta\gamma}\\
+=& \frac{ \gamma(\alpha\delta -  \epsilon^2)}{(\alpha\delta-\epsilon^2)\beta\gamma}\\
+=& \frac{ \alpha\delta -  \epsilon^2}{(\alpha\delta-\epsilon^2)\beta}\\
+=& \frac{1}{\beta}\\
+=& -\frac{\Delta}{\rho^2}
+\end{align*}
+
+Now the definition of $r_{\pm}$ is given by (\ref{eq:rpm}), so:
+
+\begin{align*}
+r=r_{\pm} \implies& \Delta = 0 \\
+\implies& g^{rr} = 0 \\
+\implies& n^{\mu}n_{\mu}=0 \text{, which is what we wanted to prove--(\ref{eq:demonstrandum})}
+\end{align*}
 \end{proof}
 
 
@@ -38,6 +95,11 @@
 	\emph{Lectures on General Theory of Relativity},
 	2016,
 	\url{https://arxiv.org/pdf/1601.04996v6.pdf}.
+	
+	\bibitem{finkbeiner1960}
+	Daniel T Finkbeiner II.
+	\emph{Introduction to Matrices and Linear Transformations},
+	\url{http://store.doverpublications.com/048648159x.html}
 	
 \end{thebibliography}
 
