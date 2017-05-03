@@ -1,6 +1,6 @@
 \documentclass[]{article}
 
-\usepackage{mathtools,mathrsfs,url,float,amssymb,amsthm}
+\usepackage{mathtools,mathrsfs,url,float,amssymb,amsthm,eufrak}
 
 
 %opening
@@ -22,15 +22,16 @@
 \begin{proof}
 	From \cite[Lecture VII,5,(174)]{akhmedev2016}, the metric is given by the following equations.
 	\begin{align*}
-	ds^2 = \frac{\Delta-a^2 (\sin{\theta})^2}{\rho^2}dt^2 +& \frac{4 \kappa M a}{\rho^2}(\sin{\theta})^2 d\phi dt - \frac{\rho^2}{\Delta} dr^2\\
+	ds^2 = \frac{\Delta-a^2 (\sin{\theta})^2}{\rho^2}dt^2 +& \frac{4 \kappa M a}{\rho^2}r(\sin{\theta})^2 d\phi dt - \frac{\rho^2}{\Delta} dr^2\\
 	-&\rho^2 d\theta^2 - \frac{A (\sin{\theta})^2}{\rho^2} d\phi^2 \numberthis \label{eq:metric}\\ 
 	\text{where } \Delta =& r^2 - 2 \kappa M + a^2\\
 	\rho^2 =& r^2 + a^2 (\cos{\theta})^2\\
 	A =& (r^2+a^2)^2 - a^2 \Delta (\sin{\theta})^2 \\
-	\text{Moreover } r_{\pm} = & \kappa M \pm \sqrt{(\kappa M)^2 - a^2} \numberthis \label{eq:rpm}
+	\text{Moreover } r_{\pm} =& \kappa M \pm \sqrt{(\kappa M)^2 - a^2} \\
+	\implies& \Delta(r_{\pm})= 0\numberthis \label{eq:rpm}
 	\end{align*}
 	
-	Now a unit normal to any surface of constant $r$ is given by the covariant vector $n=(0,1,0,0)$, and we know that $n$ is light-like $\iff n_{\mu}n^{\mu}=0 \iff g^{\mu\nu}n_{\mu}n_{\nu}=0$. Given the particular form of $n^{\mu}$, we can recast the desired result as:
+	Now a unit normal to any surface of constant $r$ is given by the covariant vector $\mathfrak{n}=(0,1,0,0)$, and we know that $\mathfrak{n}$ \emph{is light-like} $\iff n_{\mu}n^{\mu}=0 \iff g^{\mu\nu}n_{\mu}n_{\nu}=0$. Given the particular form of $n^{\mu}$, we can recast the desired result as:
 	
 	\begin{align*}
 	r=r_+ \implies g^{rr}=0 \numberthis \label{eq:demonstrandum}
@@ -66,7 +67,7 @@ Comparing with (\ref{eq:metric})
 \beta=g^{rr}=& - \frac{\rho^2}{\Delta} \\
 \gamma =g^{\theta\theta}=& -\rho^2\\
 \delta=g^{\phi\phi}=& - \frac{A (\sin{\theta})^2}{\rho^2} \\ 
-\epsilon =g^{\phi t}=g^{t\phi}=&\frac{2 \kappa M a}{\rho^2}(\sin{\theta})^2 
+\epsilon =g^{\phi t}=g^{t\phi}=&\frac{2 \kappa M a}{\rho^2} r (\sin{\theta})^2 
 \end{align*}
 
 Lemma \ref{lemma:inverse} gives:
@@ -78,12 +79,12 @@ g^{rr}=& \frac{ \alpha\gamma\delta - \gamma \epsilon^2}{(\alpha\delta-\epsilon^2
 =& -\frac{\Delta}{\rho^2}
 \end{align*}
 
-Now the definition of $r_{\pm}$ is given by (\ref{eq:rpm}), so:
+Now the definition of $r_{\pm}$ is given by (\ref{eq:rpm}), and the definition of $\rho$ following (\ref{eq:metric}) $\implies \rho>0$, so, taking limits:
 
 \begin{align*}
-r=r_{\pm} \implies& \Delta = 0 \\
-\implies& g^{rr} = 0 \\
-\implies& n^{\mu}n_{\mu}=0 \text{, which is what we wanted to prove--(\ref{eq:demonstrandum})}
+r\rightarrow r_{\pm} \implies& \Delta \rightarrow 0 \\
+\implies& g^{rr} \rightarrow 0 \\
+\implies& n^{\mu}n_{\mu} \rightarrow 0 \text{, which is what we wanted to prove--(\ref{eq:demonstrandum})}
 \end{align*}
 \end{proof}
 
