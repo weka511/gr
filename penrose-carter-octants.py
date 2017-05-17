@@ -11,15 +11,22 @@ def frange(start,nsteps,stepsize, limit=math.pi/4):
         if abs(x)<limit:
             yield(x)
             
-def quad(name,xi_step,upsilon_step):
-    print (name)
+def octant(index,xi_step,upsilon_step,xi_may_dominate):
+    dominance='Xi Dominates' if xi_may_dominate else 'Upsilon dominates'
+    print ('Octant {0}: {1}'.format(index, dominance))
     for xi in frange(0,5,xi_step):
         for upsilon in frange(0,5,upsilon_step):
-            t,x=pc(xi,upsilon)
-            print ('({0:6.3f},{1:6.3f})->({2:6.3f},{3:6.3f})'.format(xi,upsilon,t,x))
+            xi_dominates = abs(xi)>abs(upsilon)
+            if (xi_may_dominate and xi_dominates) or ((not xi_may_dominate) and (not xi_dominates)):           
+                t,x=pc(xi,upsilon)
+                print ('({0:6.3f},{1:6.3f})->({2:6.3f},{3:6.3f})'.format(xi,upsilon,t,x))
         
 if __name__=='__main__':
-    quad("1st Quadrant",math.pi/20,math.pi/20)
-    quad("2nd Quadrant",-math.pi/20,math.pi/20)
-    quad("3rd Quadrant",-math.pi/20,-math.pi/20)
-    quad("4th Quadrant",math.pi/20,-math.pi/20)
+    octant('I',math.pi/20,math.pi/20,True)
+    octant('II',math.pi/20,math.pi/20,False)
+    octant('III',-math.pi/20,math.pi/20,False)
+    octant('IV',-math.pi/20,math.pi/20,True)
+    octant('V',-math.pi/20,-math.pi/20,True)
+    octant('VI',-math.pi/20,-math.pi/20,False)
+    octant('VII',math.pi/20,-math.pi/20,False)
+    octant('VIII',math.pi/20,-math.pi/20,True)
