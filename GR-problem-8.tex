@@ -1,20 +1,40 @@
 \documentclass[]{article}
-\usepackage{amssymb}
+\usepackage{mathtools,amssymb,amsthm,url}
 
 %opening
-\title{}
-\author{}
+\title{Introduction into General Relativity\\Assignment 8\\The d'Alembert operator}
+\author{Simon Crase}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 
 \begin{document}
 
 \maketitle
 
-\begin{abstract}
+
+\begin{theorem}
+\begin{align*}
+	\hbar^2 \Box e^{-i\frac{\Psi}{\hbar}}=&0 \numberthis \label{eq:hypothesis}\\ \text{ where } \Box \triangleq& \frac{1}{\sqrt(|g|)} \partial_{\mu} g^{\mu\nu}\sqrt(|g|)\partial_{\nu}\numberthis\label{eq:dlambert}\\ \Rightarrow&\\ g^{\mu\nu}\partial_{\mu}\Psi \partial_{\nu}\Psi=&0 \text{ as }\hbar \rightarrow 0.
+\end{align*}
+\end{theorem}
+
+\begin{proof}
 	
-Show that $\hbar^2 \Box e^{-i\frac{\Psi}{hbar}}=0$ reduces to $g^{\mu\nu}\partial_{\mu}\Psi \partial_{\nu}\Psi=0$ as $\hbar \rightarrow 0$, where $\Box = \frac{1}{\sqrt(|g|)} \partial_{\mu} g^{\mu\nu}\sqrt(|g|)\partial_{\nu}$.
 
-\end{abstract}
+\end{proof}
 
-\section{}
+\begin{thebibliography}{9}
+	
+	\bibitem{akhmedev2016}
+	Emil T. Akhmedev,
+	\emph{Lectures on General Theory of Relativity},
+	2016,
+	\url{https://arxiv.org/pdf/1601.04996v6.pdf}.
+	
+
+\end{thebibliography}
 
 \end{document}
