@@ -24,7 +24,11 @@
 \begin{proof}
 \begin{align*}
 	\text{(\ref{eq:hypothesis}) \& (\ref{eq:dlambert})} \Rightarrow&\\
-	\hbar^2 \frac{1}{\sqrt(|g|)} \partial_{\mu}\big[ g^{\mu\nu}\sqrt(|g|)\partial_{\nu}\big(e^{-i\frac{\Psi}{\hbar}}\big)\big]=&0
+	\hbar^2 \frac{1}{\sqrt(|g|)} \partial_{\mu}\big[ g^{\mu\nu}\sqrt(|g|)\partial_{\nu}\big(e^{-i\frac{\Psi}{\hbar}}\big)\big]=&0\\
+	\Rightarrow&\\
+	\hbar^2 \frac{1}{\sqrt(|g|)} \partial_{\mu}\big[ g^{\mu\nu}\sqrt(|g|)e^{-i\frac{\Psi}{\hbar}}\big(-\frac{i}{\hbar}\partial_{\nu}\Psi\big)\big]=&0\\
+	\Rightarrow&\\
+	-i \hbar \frac{1}{\sqrt(|g|)} \partial_{\mu}\big[ g^{\mu\nu}\sqrt(|g|)e^{-i\frac{\Psi}{\hbar}}\big(\partial_{\nu}\Psi\big)\big]=&0
 \end{align*}	
 
 \end{proof}
