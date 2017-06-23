@@ -31,20 +31,20 @@
 	-i \hbar& \frac{1}{\sqrt(|g|)} \partial_{\mu}\big[ g^{\mu\nu}\sqrt(|g|)e^{-i\frac{\Psi}{\hbar}}\big(\partial_{\nu}\Psi\big)\big]=0\\
 	\Rightarrow&\\
 	-i \hbar& \frac{1}{\sqrt(|g|)} \partial_{\mu}\bigg[\big[g^{\mu\nu}\sqrt(|g|)\big(\partial_{\nu}\Psi\big)\big] e^{-i\frac{\Psi}{\hbar}}\bigg]=0 \\
-	\Rightarrow&\\
+	\Rightarrow& \text{ \{by Leibniz' rule\}}\\
 	-i \hbar& \frac{1}{\sqrt(|g|)} \bigg[\partial_{\mu}\big[g^{\mu\nu}\sqrt(|g|)\big(\partial_{\nu}\Psi\big)\big] e^{-i\frac{\Psi}{\hbar}} + \big[g^{\mu\nu}\sqrt(|g|)\big(\partial_{\nu}\Psi\big)\big] \partial_{\mu}e^{-i\frac{\Psi}{\hbar}}\bigg]=0 \\
 	\Rightarrow&\\
 	-i \hbar& \frac{1}{\sqrt(|g|)} \bigg[\partial_{\mu}\big[g^{\mu\nu}\sqrt(|g|)\big(\partial_{\nu}\Psi\big)\big]  + \big[g^{\mu\nu}\sqrt(|g|)\big(\partial_{\nu}\Psi\big)\big](\frac{-i}{\hbar}) \partial_{\mu}\Psi\bigg]e^{-i\frac{\Psi}{\hbar}}=0
 \end{align*}	
 
-Now $e^{-i\frac{\Psi}{\hbar}}\neq0$, hence the forgoing simplifies to:
+Now $e^{-i\frac{\Psi}{\hbar}}\neq0$, hence the foregoing simplifies to:
 \begin{align*}
 		\text{(\ref{eq:hypothesis}) \& (\ref{eq:dlambert})} \Rightarrow&\\
 			-i \hbar& \frac{1}{\sqrt(|g|)} \bigg[\partial_{\mu}\big[g^{\mu\nu}\sqrt(|g|)\big(\partial_{\nu}\Psi\big)\big]  + \big[g^{\mu\nu}\sqrt(|g|)\big(\partial_{\nu}\Psi\big)\big](\frac{-i}{\hbar}) \partial_{\mu}\Psi\bigg]=0\\
-			 \Rightarrow&\\
+			 \Rightarrow& \text{\{since $i\neq0$\}}\\
 			\hbar& \frac{1}{\sqrt(|g|)} \bigg[\partial_{\mu}\big[g^{\mu\nu}\sqrt(|g|)\big(\partial_{\nu}\Psi\big)\big]  + \big[g^{\mu\nu}\sqrt(|g|)\big(\partial_{\nu}\Psi\big)\big](\frac{-i}{\hbar}) \partial_{\mu}\Psi\bigg]=0 \\
 			\Rightarrow&\\
-			 &\hbar \frac{1}{\sqrt(|g|)}\partial_{\mu}\big[g^{\mu\nu}\sqrt(|g|)\big(\partial_{\nu}\Psi\big)\big]  + \hbar \frac{1}{\sqrt(|g|)}\big[g^{\mu\nu}\sqrt(|g|)\big(\partial_{\nu}\Psi\big)\big](\frac{-i}{\hbar}) \partial_{\mu}\Psi=0 \\
+			 &\hbar \frac{1}{\sqrt(|g|)}\partial_{\mu}\big[g^{\mu\nu}\sqrt(|g|)\big(\partial_{\nu}\Psi\big)\big]  + \cancel{\hbar} \frac{1}{\sqrt(|g|)}\big[g^{\mu\nu}\sqrt(|g|)\big(\partial_{\nu}\Psi\big)\big](\frac{-i}{\cancel{\hbar}}) \partial_{\mu}\Psi=0 \\
 			 \Rightarrow&\\
 			 &\hbar \frac{1}{\sqrt(|g|)}\partial_{\mu}\big[g^{\mu\nu}\sqrt(|g|)\big(\partial_{\nu}\Psi\big)\big]  -i  \frac{1}{\cancel{\sqrt(|g|)}}\big[g^{\mu\nu}\cancel{\sqrt(|g|)}\big(\partial_{\nu}\Psi\big)\big] \partial_{\mu}\Psi=0\\
 			 \Rightarrow&\\
@@ -53,7 +53,8 @@ Now $e^{-i\frac{\Psi}{\hbar}}\neq0$, hence the forgoing simplifies to:
 If we now let $\hbar \rightarrow 0$, (\ref{eq:2nd}), becomes:
 \begin{align*}
 	\text{(\ref{eq:hypothesis}) \& (\ref{eq:dlambert}) \& } \hbar \rightarrow 0 \Rightarrow&\\
-	-i  g^{\mu\nu}\partial_{\nu}\Psi \partial_{\mu}\Psi\rightarrow&0 \text{ or}\\
+	-i  g^{\mu\nu}\partial_{\nu}\Psi \partial_{\mu}\Psi\rightarrow&0\\
+	 \Rightarrow&\\
 	g^{\mu\nu}\partial_{\nu}\Psi \partial_{\mu}\Psi\rightarrow&0 
 \end{align*}
 \end{proof}
