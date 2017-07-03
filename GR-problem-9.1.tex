@@ -1,0 +1,30 @@
+\documentclass[]{article}
+\usepackage{mathtools,amssymb,amsthm,url,cancel}
+\newtheorem{theorem}{Theorem}
+% Title Page
+\title{Introduction in to General Relativity\\Assignment 9.1}
+\author{Simon Crase}
+
+
+\begin{document}
+\maketitle
+
+
+\begin{theorem}
+	\begin{align*}
+	0 =& D_{\mu} T^{\mu\nu} \\
+	\equiv & \partial_{\mu} T^{\mu\nu} + \Gamma^{\mu}_{\beta\mu}T^{\beta}_{\nu}-\Gamma^{\beta}_{\nu\mu}T^{\mu}_{\beta}\\
+	\equiv& \frac{1}{\sqrt(|g|)}\partial_{\mu}(T^{\mu}_{\nu}\sqrt{(|g|)}) - \frac{1}{2}(\partial_{\mu}g_{\mu\alpha})T^{\mu\alpha}
+	\end{align*}
+\end{theorem}
+
+\begin{theorem}
+	If we choose such a reference system at a point $x_0$ that $\partial_{\alpha}g_{\mu\nu}(x_0)=0$, but $\partial_{\alpha}\partial_{\beta}g_{\mu\nu}(x_0)\neq0$, then
+	\begin{align*}
+	R^{\mu\nu}(x_0) = & \frac{1}{2}g^{\mu\alpha}g^{\nu\gamma}g^{\sigma\delta}\big[\partial_{\alpha}\partial_{\delta}g_{\sigma\gamma} + \partial_{\sigma}\partial_{\gamma}g_{\alpha\delta} - \partial_{\alpha}\partial_{\gamma}g_{\sigma\delta} - \partial_{\sigma}\partial_{\delta}g_{\alpha\gamma}\big]\\
+	T^{\mu\nu} =& \partial_{\alpha}\bigg\{ \frac{1}{16\pi\kappa}\frac{1}{|g|}\partial_{\beta}\big[|g|(g^{\mu\nu}g^{\alpha\beta}-g^{\mu\alpha}g^{\nu\beta})\big]\bigg\}\\
+	\equiv& \frac{1}{|g|}\partial_{\alpha}\eta^{\mu\nu\alpha} \text{, where}\\
+	\eta^{\mu\nu\alpha} =& \frac{1}{16\pi\kappa} \partial_{\beta} \partial_{\beta}\big[|g|(g^{\mu\nu}g^{\alpha\beta}-g^{\mu\alpha}g^{\nu\beta})\big]
+	\end{align*}
+\end{theorem}
+\end{document}          
