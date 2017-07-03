@@ -2,21 +2,31 @@
 \usepackage{mathtools,amssymb,amsthm,url,cancel}
 \newtheorem{theorem}{Theorem}
 % Title Page
-\title{Introduction in to General Relativity\\Assignment 9.1}
+\title{Introduction in to General Relativity\\Assignment 9.2}
 \author{Simon Crase}
 
 
 \begin{document}
 \maketitle
 
-\begin{abstract}
-\end{abstract}
 
 \begin{theorem}
-	\begin{align*}
-	0 =& D_{\mu} T^{\mu\nu} \\
-	\equiv & \partial_{\mu} T^{\mu\nu} + \Gamma^{\mu}_{\beta\mu}T^{\beta}_{\nu}-\Gamma^{\beta}_{\nu\mu}T^{\mu}_{\beta}\\
-	\equiv& \frac{1}{\sqrt(|g|)}\partial_{\mu}(T^{\mu}_{\nu}\sqrt{(|g|)}) - \frac{1}{2}(\partial_{\mu}g_{\mu\alpha})T^{\mu\alpha}
-	\end{align*}
+Consider the metric tensor of the form: $g_{\mu\nu} \approx \eta_{\mu\nu} + h_{\mu\nu}$,where |$h_{\mu\nu}| \ll 1.$ Here $\eta_{\mu\nu}$ is the background Minkowskian metric tensor, while $h_{\mu\nu}$ is a small perturbation on top of it.
+
+Then that the Riemann tensor has the following form at the linear order in $h_{\mu\nu}$:
+
+\begin{align*}
+R^{(1)}_{\mu\nu\alpha\beta} =& \eta_{\mu\gamma}\big[\partial_{\alpha}\Gamma^{\gamma}_{\nu\beta} - \partial_{\beta}\Gamma^{\gamma}_{\nu\alpha}\big]\\
+\approx& \frac{1}{2}\big[\partial_{\nu}\partial_{\alpha}h_{\mu\beta} + \partial_{\mu}\partial_{\beta}h_{\nu\alpha} - \partial_{\mu}\partial_{\alpha}h_{\nu\beta} - \partial_{\nu}\partial_{\beta}h_{\mu\alpha}\big]
+\end{align*}
+
+Furthermore, in the gauge 
+\begin{align*}
+\partial_{\mu}(h^{\mu}_{\nu}-\frac{1}{2}\delta^{\mu}_{\nu}h)=&0\text{, the Ricci tensor is:}\\
+R^{(1)}_{\mu\nu} =& - \frac{1}{2} \Box h_{\mu_{\nu}} \text{. where:}\\
+\Box \triangleq & \eta^{\alpha\beta}\partial_{\alpha}\partial_{\beta}
+\end{align*}
+ 
+
 \end{theorem}
 \end{document}          
