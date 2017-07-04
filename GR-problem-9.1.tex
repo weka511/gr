@@ -1,8 +1,10 @@
 \documentclass[]{article}
 \usepackage{mathtools,amssymb,amsthm,url,cancel}
 \newtheorem{theorem}{Theorem}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+
 % Title Page
-\title{Introduction in to General Relativity\\Assignment 9.1}
+\title{Introduction in to General Relativity\\Assignment 9.1\\Gravitational Waves I}
 \author{Simon Crase}
 
 
@@ -12,11 +14,27 @@
 
 \begin{theorem}
 	\begin{align*}
-	0 =& D_{\mu} T^{\mu\nu} \\
-	\equiv & \partial_{\mu} T^{\mu\nu} + \Gamma^{\mu}_{\beta\mu}T^{\beta}_{\nu}-\Gamma^{\beta}_{\nu\mu}T^{\mu}_{\beta}\\
-	\equiv& \frac{1}{\sqrt(|g|)}\partial_{\mu}(T^{\mu}_{\nu}\sqrt{(|g|)}) - \frac{1}{2}(\partial_{\mu}g_{\mu\alpha})T^{\mu\alpha}
+	0 =& D_{\mu} T^{\mu}_{\nu} \numberthis\label{eq:continuity} \\
+	\equiv & \partial_{\mu} T^{\mu}_{\nu} + \Gamma^{\mu}_{\beta\mu}T^{\beta}_{\nu}-\Gamma^{\beta}_{\nu\mu}T^{\mu}_{\beta} \numberthis\label{eq:covariant-derivative}\\
+	\equiv& \underbrace{\frac{1}{\sqrt(|g|)}\partial_{\mu}(T^{\mu}_{\nu}\sqrt{(|g|)})}_\text{First term} - \frac{1}{2}(\partial_{\mu}g_{\mu\alpha})T^{\mu\alpha} \numberthis\label{eq:final}
 	\end{align*}
 \end{theorem}
+
+\begin{proof}
+	\begin{align*}
+	D_{\alpha} T^{\mu}_{\nu} 
+	\equiv & \partial_{\alpha} T^{\mu}_{\nu} + \Gamma^{\mu}_{\beta\alpha}T^{\beta}_{\nu}-\Gamma^{\beta}_{\nu\alpha}T^{\mu}_{\beta} \text{, from \cite[(34)]{akhmedev2016}}\\
+	D_{\mu} T^{\mu}_{\nu}
+	\equiv & \partial_{\mu} T^{\mu}_{\nu} + \Gamma^{\mu}_{\beta\mu}T^{\beta}_{\nu}-\Gamma^{\beta}_{\nu\mu}T^{\mu}_{\beta}\text{, upon contracting $\mu$ and $\alpha$}
+	\end{align*}
+	Now (\ref{eq:continuity}) is merely the covariant conservation law, \cite[(80)]{akhmedev2016}, so we can rewrite the foregoing,
+	$\partial_{\mu} T^{\mu}_{\nu} + \Gamma^{\mu}_{\beta\mu}T^{\beta}_{\nu}-\Gamma^{\beta}_{\nu\mu}T^{\mu}_{\beta}=0$, which proves equation (\ref{eq:covariant-derivative}).
+	We now expand the first term in (\ref{eq:final})
+	\begin{align*}
+		\frac{1}{\sqrt(|g|)}\partial_{\mu}(T^{\mu}_{\nu}\sqrt{(|g|)}) =&\partial_{\mu}T^{\mu}_{\nu} + T^{\mu}_{\nu}\frac{\partial_{\mu}\sqrt(|g|)}{\sqrt(|g|)}
+	\end{align*}
+		Where we have used a well known result (e.g. \cite[equation (3.11)]{abs1965}), $\Gamma^{\alpha}_{\rho\alpha}=\frac{1}{2|g|}\big(\partial_\rho \, |g|\big)$.
+\end{proof}
 
 \begin{theorem}
 	If we choose such a reference system at a point $x_0$ that $\partial_{\alpha}g_{\mu\nu}(x_0)=0$, but $\partial_{\alpha}\partial_{\beta}g_{\mu\nu}(x_0)\neq0$, then
@@ -27,4 +45,23 @@
 	\eta^{\mu\nu\alpha} =& \frac{1}{16\pi\kappa} \partial_{\beta} \partial_{\beta}\big[|g|(g^{\mu\nu}g^{\alpha\beta}-g^{\mu\alpha}g^{\nu\beta})\big]
 	\end{align*}
 \end{theorem}
+
+
+
+\begin{thebibliography}{9}
+	
+	\bibitem{akhmedev2016}
+	Emil T. Akhmedev,
+	\emph{Lectures on General Theory of Relativity},
+	2016,
+	\url{https://arxiv.org/pdf/1601.04996v6.pdf}.
+	\bibitem{abs1965}
+	Ronald Adler, Maurice Bazin, \& Menahem Schiffer,
+	\emph{Introduction to General Relativity},
+	McGraw-Hill Book Company, New York,
+	1965.
+	
+	
+\end{thebibliography}
+
 \end{document}          
