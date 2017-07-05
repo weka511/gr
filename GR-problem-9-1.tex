@@ -16,7 +16,7 @@
 	\begin{align*}
 	0 =& D_{\mu} T^{\mu}_{\nu} \numberthis\label{eq:continuity} \\
 	\equiv & \partial_{\mu} T^{\mu}_{\nu} + \Gamma^{\mu}_{\beta\mu}T^{\beta}_{\nu}-\Gamma^{\beta}_{\nu\mu}T^{\mu}_{\beta} \numberthis\label{eq:covariant-derivative}\\
-	\equiv& \underbrace{\frac{1}{\sqrt(|g|)}\partial_{\mu}(T^{\mu}_{\nu}\sqrt{(|g|)})}_\text{First term} - \frac{1}{2}(\partial_{\nu}g_{\mu\alpha})T^{\mu\alpha} \numberthis\label{eq:final}
+	\equiv& \frac{1}{\sqrt(|g|)}\partial_{\mu}(T^{\mu}_{\nu}\sqrt{(|g|)}) - \frac{1}{2}(\partial_{\nu}g_{\mu\alpha})T^{\mu\alpha} \numberthis\label{eq:final}
 	\end{align*}
 \end{theorem}
 
@@ -28,12 +28,29 @@
 	\equiv & \partial_{\mu} T^{\mu}_{\nu} + \Gamma^{\mu}_{\beta\mu}T^{\beta}_{\nu}-\Gamma^{\beta}_{\nu\mu}T^{\mu}_{\beta}\text{, upon contracting $\mu$ and $\alpha$}
 	\end{align*}
 	Now (\ref{eq:continuity}) is merely the covariant conservation law, \cite[(80)]{akhmedev2016}, so we can rewrite the foregoing,
-	$\partial_{\mu} T^{\mu}_{\nu} + \Gamma^{\mu}_{\beta\mu}T^{\beta}_{\nu}-\Gamma^{\beta}_{\nu\mu}T^{\mu}_{\beta}=0$, which proves equation (\ref{eq:covariant-derivative}).
-	We now expand the first term in (\ref{eq:final})
+	$\partial_{\mu} T^{\mu}_{\nu} + \Gamma^{\mu}_{\beta\mu}T^{\beta}_{\nu}-\Gamma^{\beta}_{\nu\mu}T^{\mu}_{\beta}=0$, which proves equation (\ref{eq:covariant-derivative}). We will simplify this equation, which we repeat for convenience.
 	\begin{align*}
-		\frac{1}{\sqrt(|g|)}\partial_{\mu}(T^{\mu}_{\nu}\sqrt{(|g|)}) =&\partial_{\mu}T^{\mu}_{\nu} + T^{\mu}_{\nu}\frac{\partial_{\mu}\sqrt(|g|)}{\sqrt(|g|)}
+	0= & \underbrace{\partial_{\mu} T^{\mu}_{\nu} + \Gamma^{\mu}_{\beta\mu}T^{\beta}_{\nu}}_\text{I}-\underbrace{\Gamma^{\beta}_{\nu\mu}T^{\mu}_{\beta}}_\text{II}\numberthis\label{eq:restated}
 	\end{align*}
-		Where we have used a well known result (e.g. \cite[equation (3.11)]{abs1965}), $\Gamma^{\alpha}_{\rho\alpha}=\frac{1}{2|g|}\big(\partial_\rho \, |g|\big)$.
+	We now expand the first term in (\ref{eq:restated})
+	\begin{align*}
+		\frac{1}{\sqrt(|g|)}\partial_{\mu}(T^{\mu}_{\nu}\sqrt{(|g|)}) =&\partial_{\mu}T^{\mu}_{\nu} + T^{\mu}_{\nu}\frac{\partial_{\mu}\sqrt(|g|)}{\sqrt(|g|)} \numberthis\label{eq:term1}
+	\end{align*}
+	Where we have used a well known result (e.g. \cite[equation (3.11)]{abs1965}), $\Gamma^{\alpha}_{\rho\alpha}=\frac{1}{2|g|}\big(\partial_\rho \, |g|\big)$.
+	
+	We now expand the second term in (\ref{eq:restated})
+	\begin{align*}
+	\Gamma^{\beta}_{\nu\alpha}T^{\mu}_{\beta} =& \frac{1}{2} g^{\alpha\beta} \big( \partial_{\nu}g_{\alpha\mu} + \partial_{\mu}g_{\nu\alpha} - \partial_{\alpha}g_{\mu\nu}\big) T^{\mu}_{\beta}\\
+	=&\frac{1}{2} (\partial_{\nu}g_{\alpha\mu})T^{\mu\alpha} + \frac{1}{2}  (\partial_{\mu}g_{\nu\alpha})T^{\mu\alpha} - \frac{1}{2}  (\partial_{\alpha}g_{\mu\nu}) T^{\mu\alpha}\\
+	=&\frac{1}{2} (\partial_{\nu}g_{\alpha\mu})T^{\mu\alpha} + \frac{1}{2}  (\partial_{\mu}g_{\nu\alpha})T^{\mu\alpha} - \frac{1}{2}  (\partial_{\mu'}g_{\alpha'\nu}) T^{\alpha'\mu'}\\
+	=&\frac{1}{2} (\partial_{\nu}g_{\alpha\mu})T^{\mu\alpha} + \frac{1}{2}  (\partial_{\mu}g_{\nu\alpha})T^{\mu\alpha} - \frac{1}{2}  (\partial_{\mu}g_{\alpha\nu}) T^{\alpha\mu}\\
+	=&\frac{1}{2} (\partial_{\nu}g_{\alpha\mu})T^{\mu\alpha} + \cancel{\frac{1}{2}  (\partial_{\mu}g_{\nu\alpha})T^{\mu\alpha}} - \cancel{\frac{1}{2}  (\partial_{\mu}g_{\nu\alpha}) T^{\mu\alpha}}\\
+	=&\frac{1}{2} (\partial_{\nu}g_{\alpha\mu})T^{\mu\alpha} \numberthis\label{eq:term2}
+	\end{align*}
+	Substituting (\ref{eq:term1}) and (\ref{eq:term2}) in (\ref{eq:restated}), we have
+	\begin{equation*}
+	\frac{1}{\sqrt(|g|)}\partial_{\mu}(T^{\mu}_{\nu}\sqrt{(|g|)}) - \frac{1}{2}(\partial_{\nu}g_{\mu\alpha})T^{\mu\alpha}=0
+	\end{equation*}
 \end{proof}
 
 \begin{theorem}
