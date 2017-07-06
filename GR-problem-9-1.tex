@@ -73,7 +73,27 @@
 	\begin{align*}
 	R_{\mu\nu}(x_0) =&R\indices{^{\alpha}_{\mu\alpha\nu}}(x_0)\\
 	R^{\mu\nu}(x_0)=& g^{\mu\rho}(x_0)g^{\nu\sigma}(x_0) R\indices{^{\alpha}_{\rho\alpha\sigma}}(x_0)\\
-	=&g^{\mu\rho}(x_0)g^{\nu\sigma}(x_0)\big(\partial_{\alpha}\Gamma^{\alpha}_{\rho\sigma}(x_0) - \partial_{\sigma}\Gamma^{\alpha}_{\rho\alpha}(x_0) \big) \text{, from (\ref{eq:R})}
+	=&g^{\mu\rho}(x_0)g^{\nu\sigma}(x_0)\big(\partial_{\alpha}\Gamma^{\alpha}_{\rho\sigma}(x_0) - \partial_{\sigma}\Gamma^{\alpha}_{\rho\alpha}(x_0) \big) \text{, from (\ref{eq:R})} \numberthis\label{eq:RR}
+	\end{align*}
+	\begin{align*}
+	\partial_{\alpha}\Gamma^{\alpha}_{\rho\sigma}(x_0) =& \frac{1}{2}\partial_{\alpha}\big[g^{\alpha\beta}\big(\partial_{\sigma}g_{\beta\rho} + \partial_{\rho} g_{\sigma\beta} - \partial_{\beta} g_{\rho\sigma}\big)\big]\\
+	 =& \frac{1}{2}\big[ (\partial_{\alpha}g^{\alpha\beta})\big(\underbrace{\partial_{\sigma}g_{\beta\rho} + \partial_{\rho} g_{\sigma\beta} - \partial_{\beta}g_{\rho\sigma}}_\text{$=0$, for $x=x_0$}\big) + g^{\alpha\beta}\partial_{\alpha}\big(\partial_{\sigma}g_{\beta\rho} + \partial_{\rho} g_{\sigma\beta} - \partial_{\beta}g_{\rho\sigma}\big) \big]\\
+	 =& \frac{1}{2} g^{\alpha\beta}\big(\partial_{\alpha}\partial_{\sigma}g_{\beta\rho} + \partial_{\alpha}\partial_{\rho} g_{\sigma\beta} - \partial_{\alpha}\partial_{\beta}g_{\rho\sigma}\big) \numberthis\label{eq:D1}
+	 \end{align*}
+	 Similarly
+	 \begin{align*} \partial_{\sigma}\Gamma^{\alpha}_{\rho\alpha}(x_0) =& \frac{1}{2}\partial_{\sigma}\big[g^{\alpha\beta}\big(\partial_{\alpha}g_{\beta\rho} + \partial_{\rho}g_{\alpha\beta} - \partial_{\beta}g_{\rho\alpha}\big)\big]\\
+	 =& \frac{1}{2}\big[g^{\alpha\beta}\big(\partial_{\sigma}\partial_{\alpha}g_{\beta\rho} + \partial_{\sigma}\partial_{\rho}g_{\alpha\beta} - \partial_{\sigma}\partial_{\beta}g_{\rho\alpha}\big)\big] \numberthis\label{eq:D2}
+	\end{align*}
+	Substituting (\ref{eq:D1}) and (\ref{eq:D2}) in (\ref{eq:RR})
+	\begin{align*}
+	R^{\mu\nu}(x_0)=& \frac{1}{2} g^{\mu\rho}(x_0)g^{\nu\sigma}(x_0)g^{\alpha\beta}\big(\cancel{\partial_{\alpha}\partial_{\sigma}g_{\beta\rho}} + \partial_{\alpha}\partial_{\rho} g_{\sigma\beta} - \partial_{\alpha}\partial_{\beta}g_{\rho\sigma} - \cancel{\partial_{\sigma}\partial_{\alpha}g_{\beta\rho}} - \partial_{\sigma}\partial_{\rho}g_{\alpha\beta} + \partial_{\sigma}\partial_{\beta}g_{\rho\alpha}\big)\\
+	=& \frac{1}{2} g^{\mu\rho}(x_0)g^{\nu\sigma}(x_0)g^{\alpha\beta}\big( \partial_{\alpha}\partial_{\rho} g_{\sigma\beta} - \partial_{\alpha}\partial_{\beta}g_{\rho\sigma}  - \partial_{\sigma}\partial_{\rho}g_{\alpha\beta} + \partial_{\sigma}\partial_{\beta}g_{\rho\alpha}\big)\\
+	&\text{relabelling } \{\rho\rightarrow \alpha \text{, } \sigma\rightarrow\gamma \text{, } \alpha\rightarrow\delta\text{, } \beta\rightarrow\sigma\} \text{ and grouping positive terms together}\\
+	=& \frac{1}{2} g^{\mu\alpha}g^{\nu\gamma}g^{\delta\sigma} \big( \partial_{\delta}\partial_{\alpha}g_{\gamma\sigma} + \partial_{\gamma}\partial_{\sigma}g_{\alpha\delta} - \partial_{\delta}\partial_{\sigma}g_{\alpha\gamma} - \partial_{\gamma}\partial_{\alpha}g_{\delta\sigma}\big)\\
+	=& \frac{1}{2} g^{\mu\alpha}g^{\nu\gamma}g^{\delta\sigma} \big( \partial_{\alpha}\partial_{\delta}g_{\gamma\sigma} + \partial_{\sigma}\partial_{\gamma}g_{\alpha\delta} - \partial_{\sigma}\partial_{\delta}g_{\alpha\gamma} - \partial_{\alpha}\partial_{\gamma}g_{\delta\sigma}\big) \text{, symmetry of $\partial_{\alpha}\partial_{\delta}$} \\
+	=& \frac{1}{2} g^{\mu\alpha}g^{\nu\gamma}g^{\delta\sigma} \big( \partial_{\alpha}\partial_{\delta}g_{\sigma\gamma} + \partial_{\sigma}\partial_{\gamma}g_{\alpha\delta} - \partial_{\sigma}\partial_{\delta}g_{\alpha\gamma} - \partial_{\alpha}\partial_{\gamma}g_{\sigma\delta}\big) \text {, symmetry of $g_{\mu\nu}$}\\
+	= & \frac{1}{2}g^{\mu\alpha}g^{\nu\gamma}g^{\sigma\delta}\big[\partial_{\alpha}\partial_{\delta}g_{\sigma\gamma} + \partial_{\sigma}\partial_{\gamma}g_{\alpha\delta} - \partial_{\alpha}\partial_{\gamma}g_{\sigma\delta} - \partial_{\sigma}\partial_{\delta}g_{\alpha\gamma}\big] \text{, on rearranging terms}\\
+	&\text{which matches (\ref{eq:R}).}
 	\end{align*}
 \end{proof}
 
