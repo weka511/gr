@@ -1,5 +1,5 @@
 \documentclass[]{article}
-\usepackage{mathtools,amssymb,amsthm,url,cancel}
+\usepackage{mathtools,amssymb,amsthm,url,cancel,tensor}
 \newtheorem{theorem}{Theorem}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 
@@ -56,14 +56,26 @@
 \begin{theorem}
 	If we choose a reference system at a point $x_0$ such that $\partial_{\alpha}g_{\mu\nu}(x_0)=0$, but $\partial_{\alpha}\partial_{\beta}g_{\mu\nu}(x_0)\neq0$, then
 	\begin{align*}
-	R^{\mu\nu}(x_0) = & \frac{1}{2}g^{\mu\alpha}g^{\nu\gamma}g^{\sigma\delta}\big[\partial_{\alpha}\partial_{\delta}g_{\sigma\gamma} + \partial_{\sigma}\partial_{\gamma}g_{\alpha\delta} - \partial_{\alpha}\partial_{\gamma}g_{\sigma\delta} - \partial_{\sigma}\partial_{\delta}g_{\alpha\gamma}\big]\\
+	R^{\mu\nu}(x_0) = & \frac{1}{2}g^{\mu\alpha}g^{\nu\gamma}g^{\sigma\delta}\big[\partial_{\alpha}\partial_{\delta}g_{\sigma\gamma} + \partial_{\sigma}\partial_{\gamma}g_{\alpha\delta} - \partial_{\alpha}\partial_{\gamma}g_{\sigma\delta} - \partial_{\sigma}\partial_{\delta}g_{\alpha\gamma}\big] \numberthis\label{eq:R} \\
 	T^{\mu\nu} =& \partial_{\alpha}\bigg\{ \frac{1}{16\pi\kappa}\frac{1}{|g|}\partial_{\beta}\big[|g|(g^{\mu\nu}g^{\alpha\beta}-g^{\mu\alpha}g^{\nu\beta})\big]\bigg\}\\
 	\equiv& \frac{1}{|g|}\partial_{\alpha}\eta^{\mu\nu\alpha} \text{, where}\\
-	\eta^{\mu\nu\alpha} =& \frac{1}{16\pi\kappa} \partial_{\beta} \partial_{\beta}\big[|g|(g^{\mu\nu}g^{\alpha\beta}-g^{\mu\alpha}g^{\nu\beta})\big]
+	\eta^{\mu\nu\alpha} =& \frac{1}{16\pi\kappa} \partial_{\beta} \big[|g|(g^{\mu\nu}g^{\alpha\beta}-g^{\mu\alpha}g^{\nu\beta})\big]
 	\end{align*}
 \end{theorem}
 
-
+\begin{proof}
+	From \cite[(53)]{akhmedev2016}
+	\begin{align*}
+	R\indices{^{\mu}_{\nu\alpha\beta}}(x_0) =& \partial_{\alpha}\Gamma^{\mu}_{\nu\beta}(x_0) - \partial_{\beta}\Gamma^{\mu}_{\nu\alpha}(x_0) + \underbrace{\Gamma^{\mu}_{\gamma\alpha}(x_0)\Gamma^{\nu}_{\mu\beta}(x_0)-\Gamma^{\mu}_{\gamma\beta}(x_0) \Gamma^{\gamma}_{\nu\alpha}(x_0)}_\text{$=0$, since $\partial_{\alpha}g_{\mu\nu}(x_0)=0$}\\
+	=& \partial_{\alpha}\Gamma^{\mu}_{\nu\beta}(x_0) - \partial_{\beta}\Gamma^{\mu}_{\nu\alpha}(x_0) \numberthis\label{eq_rdef}
+	\end{align*}
+	Hence
+	\begin{align*}
+	R_{\mu\nu}(x_0) =&R\indices{^{\alpha}_{\mu\alpha\nu}}(x_0)\\
+	R^{\mu\nu}(x_0)=& g^{\mu\rho}(x_0)g^{\nu\sigma}(x_0) R\indices{^{\alpha}_{\rho\alpha\sigma}}(x_0)\\
+	=&g^{\mu\rho}(x_0)g^{\nu\sigma}(x_0)\big(\partial_{\alpha}\Gamma^{\alpha}_{\rho\sigma}(x_0) - \partial_{\sigma}\Gamma^{\alpha}_{\rho\alpha}(x_0) \big) \text{, from (\ref{eq:R})}
+	\end{align*}
+\end{proof}
 
 \begin{thebibliography}{9}
 	
