@@ -1,7 +1,17 @@
 \documentclass[]{article}
-\usepackage{mathtools,amssymb,amsthm,url,cancel,tensor}
+\usepackage{mathtools,amssymb,amsthm,url,cancel,tensor,fancyhdr,graphicx}
 \newtheorem{theorem}{Theorem}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\fancyhead[L]{}
+\fancyhead[C]{
+	\includegraphics[width=6cm]{kanagawa.jpg}
+}
+
+\setlength\headheight{60pt} 
+
+\graphicspath{ {images/} }
+
+\pagestyle{plain}
 
 % Title Page
 \title{Introduction into General Relativity\\Assignment 9.1\\Gravitational Waves I}
@@ -10,7 +20,8 @@
 
 \begin{document}
 \maketitle
-
+\thispagestyle{fancy}
+\raggedright
 
 \begin{theorem}
 	\begin{align*}
@@ -32,24 +43,24 @@
 	\begin{align*}
 	0= & \underbrace{\partial_{\mu} T^{\mu}_{\nu} + \Gamma^{\mu}_{\beta\mu}T^{\beta}_{\nu}}_\text{I}-\underbrace{\Gamma^{\beta}_{\nu\mu}T^{\mu}_{\beta}}_\text{II}\numberthis\label{eq:restated}
 	\end{align*}
-	We now expand the first term in (\ref{eq:restated})
+	We can rewrite the first term in (\ref{eq:restated})
 	\begin{align*}
 		\frac{1}{\sqrt(|g|)}\partial_{\mu}(T^{\mu}_{\nu}\sqrt{(|g|)}) =&\partial_{\mu}T^{\mu}_{\nu} + T^{\mu}_{\nu}\frac{\partial_{\mu}\sqrt(|g|)}{\sqrt(|g|)} \numberthis\label{eq:term1}
 	\end{align*}
 	Where we have used a well known result (e.g. \cite[equation (3.11)]{abs1965}), $\Gamma^{\alpha}_{\rho\alpha}=\frac{1}{2|g|}\big(\partial_\rho \, |g|\big)$.
 	
-	We next expand the second term in (\ref{eq:restated})
+	We next expand the second term in (\ref{eq:restated}) and use $g^{\alpha\beta}=g^{\beta\alpha}$ 
 	\begin{align*}
-	\Gamma^{\beta}_{\nu\alpha}T^{\mu}_{\beta} \triangleq& \frac{1}{2} g^{\alpha\beta} \big( \partial_{\nu}g_{\alpha\mu} + \partial_{\mu}g_{\nu\alpha} - \partial_{\alpha}g_{\mu\nu}\big) T^{\mu}_{\beta}\text{, \cite[(45)]{akhmedev2016}}\\
+	\Gamma^{\beta}_{\nu\mu}T^{\mu}_{\beta} \triangleq& \frac{1}{2} g^{\alpha\beta} \big( \partial_{\nu}g_{\alpha\mu} + \partial_{\mu}g_{\nu\alpha} - \partial_{\alpha}g_{\mu\nu}\big) T^{\mu}_{\beta}\text{, \cite[(46)]{akhmedev2016}}\\
 	=&\frac{1}{2} (\partial_{\nu}g_{\alpha\mu})T^{\mu\alpha} + \frac{1}{2}  (\partial_{\mu}g_{\nu\alpha})T^{\mu\alpha} - \frac{1}{2}  (\partial_{\alpha}g_{\mu\nu}) T^{\mu\alpha}\text{, raising index}\\
-	=&\frac{1}{2} (\partial_{\nu}g_{\alpha\mu})T^{\mu\alpha} + \frac{1}{2}  (\partial_{\mu}g_{\nu\alpha})T^{\mu\alpha} - \frac{1}{2}  (\partial_{\mu'}g_{\alpha'\nu}) T^{\alpha'\mu'}\text{, relabelling indices}\\
-	=&\frac{1}{2} (\partial_{\nu}g_{\alpha\mu})T^{\mu\alpha} + \frac{1}{2}  (\partial_{\mu}g_{\nu\alpha})T^{\mu\alpha} - \frac{1}{2}  (\partial_{\mu}g_{\alpha\nu}) T^{\alpha\mu}\\
+	=&\frac{1}{2} (\partial_{\nu}g_{\alpha\mu})T^{\mu\alpha} + \frac{1}{2}  (\partial_{\mu}g_{\nu\alpha})T^{\mu\alpha} - \frac{1}{2}  (\partial_{\mu'}g_{\alpha'\nu}) T^{\alpha'\mu'}\text{, relabelling indices } (\mu,\alpha)\rightarrow(\alpha',\mu')\\
+	=&\frac{1}{2} (\partial_{\nu}g_{\alpha\mu})T^{\mu\alpha} + \frac{1}{2}  (\partial_{\mu}g_{\nu\alpha})T^{\mu\alpha} - \frac{1}{2}  (\partial_{\mu}g_{\alpha\nu}) T^{\alpha\mu} \text{, dropping primes}\\
 	=&\frac{1}{2} (\partial_{\nu}g_{\alpha\mu})T^{\mu\alpha} + \cancel{\frac{1}{2}  (\partial_{\mu}g_{\nu\alpha})T^{\mu\alpha}} - \cancel{\frac{1}{2}  (\partial_{\mu}g_{\nu\alpha}) T^{\mu\alpha}}\text{, symmetry of $g_{\mu\alpha}$ and $T^{\mu\alpha}$}\\
 	=&\frac{1}{2} (\partial_{\nu}g_{\alpha\mu})T^{\mu\alpha} \numberthis\label{eq:term2}
 	\end{align*}
 	Substituting (\ref{eq:term1}) and (\ref{eq:term2}) in (\ref{eq:restated}), we have
 	\begin{equation*}
-	\frac{1}{\sqrt(|g|)}\partial_{\mu}(T^{\mu}_{\nu}\sqrt{(|g|)}) - \frac{1}{2}(\partial_{\nu}g_{\mu\alpha})T^{\mu\alpha}=0
+	\frac{1}{\sqrt(|g|)}\partial_{\mu}(T^{\mu}_{\nu}\sqrt{(|g|)}) - \frac{1}{2}(\partial_{\nu}g_{\mu\alpha})T^{\mu\alpha}=0\text{, matching equation (\ref{eq:final})}
 	\end{equation*}
 \end{proof}
 
@@ -57,9 +68,9 @@
 	If we choose a reference system at a point $x_0$ such that $\partial_{\alpha}g_{\mu\nu}(x_0)=0$, but $\partial_{\alpha}\partial_{\beta}g_{\mu\nu}(x_0)\neq0$, then
 	\begin{align*}
 	R^{\mu\nu}(x_0) = & \frac{1}{2}g^{\mu\alpha}g^{\nu\gamma}g^{\sigma\delta}\big[\partial_{\alpha}\partial_{\delta}g_{\sigma\gamma} + \partial_{\sigma}\partial_{\gamma}g_{\alpha\delta} - \partial_{\alpha}\partial_{\gamma}g_{\sigma\delta} - \partial_{\sigma}\partial_{\delta}g_{\alpha\gamma}\big] \numberthis\label{eq:R} \\
-	T^{\mu\nu} =& \partial_{\alpha}\bigg\{ \frac{1}{16\pi\kappa}\frac{1}{|g|}\partial_{\beta}\big[|g|(g^{\mu\nu}g^{\alpha\beta}-g^{\mu\alpha}g^{\nu\beta})\big]\bigg\} \numberthis  \label{eq:T} \\
-	\equiv& \frac{1}{|g|}\partial_{\alpha}\eta^{\mu\nu\alpha} \text{, where}\\
-	\eta^{\mu\nu\alpha} =& \frac{1}{16\pi\kappa} \partial_{\beta} \big[|g|(g^{\mu\nu}g^{\alpha\beta}-g^{\mu\alpha}g^{\nu\beta})\big]
+	T^{\mu\nu}(x_0) =& \partial_{\alpha}\bigg\{ \frac{1}{16\pi\kappa}\frac{1}{|g|}\partial_{\beta}\big[|g|(g^{\mu\nu}g^{\alpha\beta}-g^{\mu\alpha}g^{\nu\beta})\big]\bigg\} \numberthis  \label{eq:T} \\
+	\equiv& \frac{1}{|g|}\partial_{\alpha}\eta^{\mu\nu\alpha} \text{, where }
+	\eta^{\mu\nu\alpha} = \frac{1}{16\pi\kappa} \partial_{\beta} \big[|g|(g^{\mu\nu}g^{\alpha\beta}-g^{\mu\alpha}g^{\nu\beta})\big] \numberthis\label{eq:eta}
 	\end{align*}
 \end{theorem}
 
@@ -67,24 +78,25 @@
 	From \cite[(53)]{akhmedev2016}
 	\begin{align*}
 	R\indices{^{\mu}_{\nu\alpha\beta}}(x_0) =& \partial_{\alpha}\Gamma^{\mu}_{\nu\beta}(x_0) - \partial_{\beta}\Gamma^{\mu}_{\nu\alpha}(x_0) + \underbrace{\Gamma^{\mu}_{\gamma\alpha}(x_0)\Gamma^{\nu}_{\mu\beta}(x_0)-\Gamma^{\mu}_{\gamma\beta}(x_0) \Gamma^{\gamma}_{\nu\alpha}(x_0)}_\text{$=0$, since $\partial_{\alpha}g_{\mu\nu}(x_0)=0$}\\
-	=& \partial_{\alpha}\Gamma^{\mu}_{\nu\beta}(x_0) - \partial_{\beta}\Gamma^{\mu}_{\nu\alpha}(x_0) \numberthis\label{eq_rdef}
+	=& \partial_{\alpha}\Gamma^{\mu}_{\nu\beta}(x_0) - \partial_{\beta}\Gamma^{\mu}_{\nu\alpha}(x_0) \numberthis\label{eq:rdef}
 	\end{align*}
 	Hence
 	\begin{align*}
-	R_{\mu\nu}(x_0) =&R\indices{^{\alpha}_{\mu\alpha\nu}}(x_0)\\
+	R_{\mu\nu}(x_0) \triangleq&R\indices{^{\alpha}_{\mu\alpha\nu}}(x_0)\\
 	R^{\mu\nu}(x_0)=& g^{\mu\rho}(x_0)g^{\nu\sigma}(x_0) R\indices{^{\alpha}_{\rho\alpha\sigma}}(x_0)\\
-	=&g^{\mu\rho}(x_0)g^{\nu\sigma}(x_0)\big(\partial_{\alpha}\Gamma^{\alpha}_{\rho\sigma}(x_0) - \partial_{\sigma}\Gamma^{\alpha}_{\rho\alpha}(x_0) \big) \text{, from (\ref{eq:R})} \numberthis\label{eq:RR}
+	=&g^{\mu\rho}(x_0)g^{\nu\sigma}(x_0)\big(\underbrace{\partial_{\alpha}\Gamma^{\alpha}_{\rho\sigma}(x_0)}_\text{First term} -\underbrace{ \partial_{\sigma}\Gamma^{\alpha}_{\rho\alpha}(x_0)}_\text{Second term} \big) \text{, from (\ref{eq:rdef})} \numberthis\label{eq:RR}
 	\end{align*}
+	Expanding the first term from (\ref{eq:RR})
 	\begin{align*}
 	\partial_{\alpha}\Gamma^{\alpha}_{\rho\sigma}(x_0) =& \frac{1}{2}\partial_{\alpha}\big[g^{\alpha\beta}\big(\partial_{\sigma}g_{\beta\rho} + \partial_{\rho} g_{\sigma\beta} - \partial_{\beta} g_{\rho\sigma}\big)\big]\\
 	 =& \frac{1}{2}\big[ (\partial_{\alpha}g^{\alpha\beta})\big(\underbrace{\partial_{\sigma}g_{\beta\rho} + \partial_{\rho} g_{\sigma\beta} - \partial_{\beta}g_{\rho\sigma}}_\text{$=0$, for $x=x_0$}\big) + g^{\alpha\beta}\partial_{\alpha}\big(\partial_{\sigma}g_{\beta\rho} + \partial_{\rho} g_{\sigma\beta} - \partial_{\beta}g_{\rho\sigma}\big) \big]\\
 	 =& \frac{1}{2} g^{\alpha\beta}\big(\partial_{\alpha}\partial_{\sigma}g_{\beta\rho} + \partial_{\alpha}\partial_{\rho} g_{\sigma\beta} - \partial_{\alpha}\partial_{\beta}g_{\rho\sigma}\big) \numberthis\label{eq:D1}
 	 \end{align*}
-	 Similarly
+	 Similarly, expanding the second term from (\ref{eq:RR}),
 	 \begin{align*} \partial_{\sigma}\Gamma^{\alpha}_{\rho\alpha}(x_0) =& \frac{1}{2}\partial_{\sigma}\big[g^{\alpha\beta}\big(\partial_{\alpha}g_{\beta\rho} + \partial_{\rho}g_{\alpha\beta} - \partial_{\beta}g_{\rho\alpha}\big)\big]\\
 	 =& \frac{1}{2}\big[g^{\alpha\beta}\big(\partial_{\sigma}\partial_{\alpha}g_{\beta\rho} + \partial_{\sigma}\partial_{\rho}g_{\alpha\beta} - \partial_{\sigma}\partial_{\beta}g_{\rho\alpha}\big)\big] \numberthis\label{eq:D2}
 	\end{align*}
-	Substituting (\ref{eq:D1}) and (\ref{eq:D2}) in (\ref{eq:RR})
+	Substituting (\ref{eq:D1}) and (\ref{eq:D2}) in (\ref{eq:RR}), and using $\partial_{\alpha}\partial_{\sigma}g_{\beta\rho}=\partial_{\sigma}\partial_{\alpha}g_{\beta\rho},$
 	\begin{align*}
 	R^{\mu\nu}(x_0)=& \frac{1}{2} g^{\mu\rho}(x_0)g^{\nu\sigma}(x_0)g^{\alpha\beta}\big(\cancel{\partial_{\alpha}\partial_{\sigma}g_{\beta\rho}} + \partial_{\alpha}\partial_{\rho} g_{\sigma\beta} - \partial_{\alpha}\partial_{\beta}g_{\rho\sigma} - \cancel{\partial_{\sigma}\partial_{\alpha}g_{\beta\rho}} - \partial_{\sigma}\partial_{\rho}g_{\alpha\beta} + \partial_{\sigma}\partial_{\beta}g_{\rho\alpha}\big)\\
 	=& \frac{1}{2} g^{\mu\rho}(x_0)g^{\nu\sigma}(x_0)g^{\alpha\beta}\big( \partial_{\alpha}\partial_{\rho} g_{\sigma\beta} - \partial_{\alpha}\partial_{\beta}g_{\rho\sigma}  - \partial_{\sigma}\partial_{\rho}g_{\alpha\beta} + \partial_{\sigma}\partial_{\beta}g_{\rho\alpha}\big)\\
@@ -93,8 +105,11 @@
 	=& \frac{1}{2} g^{\mu\alpha}g^{\nu\gamma}g^{\delta\sigma} \big( \partial_{\alpha}\partial_{\delta}g_{\gamma\sigma} + \partial_{\sigma}\partial_{\gamma}g_{\alpha\delta} - \partial_{\sigma}\partial_{\delta}g_{\alpha\gamma} - \partial_{\alpha}\partial_{\gamma}g_{\delta\sigma}\big) \text{, symmetry of $\partial_{\alpha}\partial_{\delta}$} \\
 	=& \frac{1}{2} g^{\mu\alpha}g^{\nu\gamma}g^{\delta\sigma} \big( \partial_{\alpha}\partial_{\delta}g_{\sigma\gamma} + \partial_{\sigma}\partial_{\gamma}g_{\alpha\delta} - \partial_{\sigma}\partial_{\delta}g_{\alpha\gamma} - \partial_{\alpha}\partial_{\gamma}g_{\sigma\delta}\big) \text {, symmetry of $g_{\mu\nu}$}\\
 	= & \frac{1}{2}g^{\mu\alpha}g^{\nu\gamma}g^{\sigma\delta}\big[\partial_{\alpha}\partial_{\delta}g_{\sigma\gamma} + \partial_{\sigma}\partial_{\gamma}g_{\alpha\delta} - \partial_{\alpha}\partial_{\gamma}g_{\sigma\delta} - \partial_{\sigma}\partial_{\delta}g_{\alpha\gamma}\big] \text{, on rearranging terms}\\
-	&\text{which matches (\ref{eq:R}).}
 	\end{align*}
+	This matches (\ref{eq:R}).
+	
+	
+	(\ref{eq:eta}) is little more than a restatement of (\ref{eq:T}), so we will concentrate on the latter.
 \end{proof}
 
 \begin{thebibliography}{9}
