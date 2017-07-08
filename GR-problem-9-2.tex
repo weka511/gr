@@ -51,10 +51,10 @@ R^{(1)}_{\mu\nu} =& - \frac{1}{2} \Box h_{\mu_{\nu}} \text{. where:}\\
     \begin{proof}[Proof of Lemma]
     	\begin{align*}
     	\text{	\cite[(46)]{akhmedev2016}}\implies&\\
-    	\Gamma^{\alpha}_{\mu\nu} =& \frac{1}{2} \big(\eta^{\alpha\beta}+h^{\alpha\beta}\big)\big[\partial_{\nu}\big(\eta_{\beta\mu}+h_{\beta\mu}\big)+\partial_{\mu}\big(\eta_{\nu\beta}+h_{\nu\beta}\big)+\partial_{\beta}\big(\eta_{\mu\nu}+h_{\mu\nu}\big)\big] \\
-    	=& \frac{1}{2} \big(\eta^{\alpha\beta}+h^{\alpha\beta}\big)\big[\partial_{\nu}h_{\beta\mu}+\partial_{\mu}h_{\nu\beta}+\partial_{\beta}h_{\mu\nu}\big]\\
-    	=& \frac{1}{2} \eta^{\alpha\beta}\big[\partial_{\nu}h_{\beta\mu}+\partial_{\mu}h_{\nu\beta}+\partial_{\beta}h_{\mu\nu}\big] + \mathcal{O}(h^2)\\
-    	=& \frac{1}{2} \big[\partial_{\nu}h^{\alpha}_{\mu}+\partial_{\mu}h^{\alpha}_{\nu}+\eta^{\alpha\beta}\partial_{\beta}h_{\mu\nu}\big] + \mathcal{O}(h^2) \numberthis\label{eq:Gamma} \\
+    	\Gamma^{\alpha}_{\mu\nu} =& \frac{1}{2} \big(\eta^{\alpha\beta}+h^{\alpha\beta}\big)\big[\partial_{\nu}\big(\eta_{\beta\mu}+h_{\beta\mu}\big)+\partial_{\mu}\big(\eta_{\nu\beta}+h_{\nu\beta}\big)-\partial_{\beta}\big(\eta_{\mu\nu}+h_{\mu\nu}\big)\big] \\
+    	=& \frac{1}{2} \big(\eta^{\alpha\beta}+h^{\alpha\beta}\big)\big[\partial_{\nu}h_{\beta\mu}+\partial_{\mu}h_{\nu\beta}-\partial_{\beta}h_{\mu\nu}\big]\\
+    	=& \frac{1}{2} \eta^{\alpha\beta}\big[\partial_{\nu}h_{\beta\mu}+\partial_{\mu}h_{\nu\beta}-\partial_{\beta}h_{\mu\nu}\big] + \mathcal{O}(h^2)\\
+    	=& \frac{1}{2} \big[\partial_{\nu}h^{\alpha}_{\mu}+\partial_{\mu}h^{\alpha}_{\nu}-\eta^{\alpha\beta}\partial_{\beta}h_{\mu\nu}\big] + \mathcal{O}(h^2) \numberthis\label{eq:Gamma} \\
     	=& \mathcal{O}(h)
     	\end{align*}
     \end{proof}
@@ -73,9 +73,15 @@ R^{(1)}_{\mu\nu} =& - \frac{1}{2} \Box h_{\mu_{\nu}} \text{. where:}\\
 	We expand this expression using Lemma \ref{lemma:gamma} and (\ref{eq:Gamma}).
 	\begin{align*}
 	R_{\mu\nu\alpha\beta} =&\eta_{\mu\gamma}\big(\partial_{\alpha}\Gamma^{\gamma}_{\nu\beta} - \partial_{\beta}\Gamma^{\gamma}_{\nu\alpha} \big)+ \mathcal{O}(h^2)\\
-	=&\frac{1}{2}\eta_{\mu\gamma}\big(\partial_{\beta}h^{\gamma}_{\nu} + \partial_{\nu}h^{\gamma}_{\beta}+\partial^{\gamma}h_{\nu\beta}-\partial_{\alpha}h^{\gamma}_{\nu}-\partial_{\nu}h^{\gamma}_{\alpha}-\partial^{\gamma}h_{\nu\alpha}\big)+ \mathcal{O}(h^2)\\
-	\approxeq&\frac{1}{2}\eta_{\mu\gamma}\big(\partial_{\beta}h^{\gamma}_{\nu} + \partial_{\nu}h^{\gamma}_{\beta}+\partial^{\gamma}h_{\nu\beta}-\partial_{\alpha}h^{\gamma}_{\nu}-\partial_{\nu}h^{\gamma}_{\alpha}-\partial^{\gamma}h_{\nu\alpha}\big)
+	=&\frac{1}{2}\eta_{\mu\gamma}\big[\partial_{\alpha}\big( \partial_{\beta}h^{\gamma}_{\nu} + \partial_{\nu}h^{\gamma}_{\beta}-\partial^{\gamma}h_{\nu\beta}  \big) - \partial_{\beta}\big( \partial_{\alpha}h^{\gamma}_{\nu}+\partial_{\nu}h^{\gamma}_{\alpha}-\partial^{\gamma}h_{\nu\alpha}  \big)\big]+ \mathcal{O}(h^2)\\
+	\approxeq&\frac{1}{2}\eta_{\mu\gamma}\big[\cancel{\partial_{\alpha}\partial_{\beta}h^{\gamma}_{\nu}} + \partial_{\alpha}\partial_{\nu}h^{\gamma}_{\beta}-\partial_{\alpha}\partial^{\gamma}h_{\nu\beta}  -  \cancel{\partial_{\beta}\partial_{\alpha}h^{\gamma}_{\nu}}-\partial_{\beta}\partial_{\nu}h^{\gamma}_{\alpha}+\partial_{\beta}\partial^{\gamma}h_{\nu\alpha}  \big]+ \mathcal{O}(h^2)\\
+	\approxeq&\frac{1}{2}\eta_{\mu\gamma}\big[ \partial_{\alpha}\partial_{\nu}h^{\gamma}_{\beta}-\partial_{\alpha}\partial^{\gamma}h_{\nu\beta}  -\partial_{\beta}\partial_{\nu}h^{\gamma}_{\alpha}+\partial_{\beta}\partial^{\gamma}h_{\nu\alpha}  \big]+ \mathcal{O}(h^2)
+	\\
+	\approxeq&\frac{1}{2}\big[ \partial_{\alpha}\partial_{\nu}h_{\mu\beta}-\partial_{\alpha}\partial_{\mu}h_{\nu\beta}  -\partial_{\beta}\partial_{\nu}h_{\mu\alpha}+\partial_{\beta}\partial_{\mu}h_{\nu\alpha}  \big]+ \mathcal{O}(h^2)\\
+	\approxeq&\frac{1}{2}\big[\partial_{\nu}\partial_{\alpha}h_{\mu\beta} + \partial_{\mu}\partial_{\beta}h_{\nu\alpha} - \partial_{\mu}\partial_{\alpha}h_{\nu\beta} - \partial_{\nu}\partial_{\beta}h_{\mu\alpha}\big]+ \mathcal{O}(h^2) \numberthis\label{eq:R}\\
+	\text{using }& \partial_{\mu}\partial_{\beta}=\partial_{\beta}\partial_{\mu} \text{ etc, and rearranging terms.}
 	\end{align*}
+	This is the same as (\ref{eq:R2}).
 \end{proof}
 
 \begin{thebibliography}{9}
