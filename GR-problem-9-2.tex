@@ -38,7 +38,7 @@ Furthermore, in the gauge
 \begin{align*}
 \partial_{\mu}(h^{\mu}_{\nu}-\frac{1}{2}\delta^{\mu}_{\nu}h)=&0\text{, the Ricci tensor is:}\\
 R^{(1)}_{\mu\nu} =& - \frac{1}{2} \Box h_{\mu_{\nu}} \text{. where:}\\
-\Box \triangleq & \eta^{\alpha\beta}\partial_{\alpha}\partial_{\beta}
+\Box \triangleq & \eta^{\alpha\beta}\partial_{\alpha}\partial_{\beta} \numberthis\label{def:box}
 \end{align*}
  
 \end{theorem}
@@ -82,6 +82,13 @@ R^{(1)}_{\mu\nu} =& - \frac{1}{2} \Box h_{\mu_{\nu}} \text{. where:}\\
 	\text{using }& \partial_{\mu}\partial_{\beta}=\partial_{\beta}\partial_{\mu} \text{ etc, and rearranging terms.}
 	\end{align*}
 	This is the same as (\ref{eq:R2}).
+	\begin{align*}
+	R_{\mu\nu} =& R\indices{^\alpha_{\mu\alpha\nu}} = g^{\alpha\gamma}R_{\alpha\mu\gamma\nu}\\
+	\approx&\frac{1}{2} \big(\eta^{\alpha\gamma}- h^{\alpha\gamma}\big) \big[\partial_{\mu}\partial_{\gamma}h_{\alpha\nu} + \partial_{\alpha}\partial_{\nu}h_{\mu\gamma} - \partial_{\alpha}\partial_{\gamma}h_{\mu\nu} - \partial_{\mu}\partial_{\nu}h_{\alpha\gamma}\big]+ \mathcal{O}(h^2)\\
+	\approx&\frac{1}{2} \eta^{\alpha\gamma} \big[\partial_{\mu}\partial_{\gamma}h_{\alpha\nu} + \partial_{\alpha}\partial_{\nu}h_{\mu\gamma} - \partial_{\alpha}\partial_{\gamma}h_{\mu\nu} - \partial_{\mu}\partial_{\nu}h_{\alpha\gamma}\big]+ \mathcal{O}(h^2)\\
+	\approx& \frac{1}{2} \eta^{\alpha\gamma}\partial_{\mu}\partial_{\gamma}h_{\alpha\nu} + \frac{1}{2} \eta^{\alpha\gamma}\partial_{\alpha}\partial_{\nu}h_{\mu\gamma} \underbrace{- \frac{1}{2} \eta^{\alpha\gamma}\partial_{\alpha}\partial_{\gamma}h_{\mu\nu}}_{=-\Box h_{\mu\nu}} - \frac{1}{2} \eta^{\alpha\gamma}\partial_{\mu}\partial_{\nu}h_{\alpha\gamma}+ \mathcal{O}(h^2)
+	\end{align*}
+	Where the d'Alembertian, $\Box$, is defined in (\ref{def:box})	
 \end{proof}
 
 \begin{thebibliography}{9}
