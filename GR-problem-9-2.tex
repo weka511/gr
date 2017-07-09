@@ -44,15 +44,26 @@ R^{(1)}_{\mu\nu} =& - \frac{1}{2} \Box h_{\mu_{\nu}} \text{. where:}\\
 \end{theorem}
 
 \begin{proof}
-	We begin with a useful Lemma and Corollary.
+	We begin with a two Lemmas and Corollary.
+	\begin{lemma}\label{lemma:raise-indices}
+			For $g_{\mu\nu} \approx \eta_{\mu\nu} + h_{\mu\nu}$, where $|h_{\mu\nu}| \ll 1$,  $g^{\mu\nu} \approx \eta^{\mu\nu} - h^{\mu\nu} + \mathcal{O}(h^2)$
+	\end{lemma}
+	\begin{proof}[Proof of Lemma \ref{lemma:raise-indices}]
+		We can see this most easily by contacting the product of $\eta_{\mu\nu} + h_{\mu\nu}$ and $\eta^{\mu\nu} - h^{\mu\nu}$.
+		\begin{align*}
+		(\eta_{\mu\rho} + h_{\mu\rho})(\eta^{\rho\nu} - h^{\rho\nu})=&\eta_{\mu\rho}\eta^{\rho\nu} -\eta_{\mu\rho}h^{\rho\nu} + h_{\mu\rho}\eta^{\rho\nu} + h_{\mu\rho}h^{\rho\nu}\\
+		=& \delta_{\mu}^{\nu} - \cancel{h_{\mu}^{nu}} +\cancel{ h_{\mu}^{nu}} + \mathcal{O}(h^2)\\
+		=& \delta_{\mu}^{\nu}  + \mathcal{O}(h^2)
+		\end{align*}
+	\end{proof}
 	\begin{lemma}\label{lemma:gamma}
 		For $g_{\mu\nu} \approx \eta_{\mu\nu} + h_{\mu\nu}$, where $|h_{\mu\nu}| \ll 1,  \Gamma^{\alpha}_{\mu\nu}$ is $\mathcal{O}(h)$, i.e., is of linear order in the $h_{\mu\nu}$ .
 	\end{lemma}
-    \begin{proof}[Proof of Lemma]
+    \begin{proof}[Proof of Lemma \ref{lemma:gamma}]
     	\begin{align*}
     	\text{	\cite[(46)]{akhmedev2016}}\implies&\\
-    	\Gamma^{\alpha}_{\mu\nu} =& \frac{1}{2} \big(\eta^{\alpha\beta}+h^{\alpha\beta}\big)\big[\partial_{\nu}\big(\eta_{\beta\mu}+h_{\beta\mu}\big)+\partial_{\mu}\big(\eta_{\nu\beta}+h_{\nu\beta}\big)-\partial_{\beta}\big(\eta_{\mu\nu}+h_{\mu\nu}\big)\big] \\
-    	=& \frac{1}{2} \big(\eta^{\alpha\beta}+h^{\alpha\beta}\big)\big[\partial_{\nu}h_{\beta\mu}+\partial_{\mu}h_{\nu\beta}-\partial_{\beta}h_{\mu\nu}\big]\\
+    	\Gamma^{\alpha}_{\mu\nu} =& \frac{1}{2} \big(\eta^{\alpha\beta}-h^{\alpha\beta}\big)\big[\partial_{\nu}\big(\eta_{\beta\mu}+h_{\beta\mu}\big)+\partial_{\mu}\big(\eta_{\nu\beta}+h_{\nu\beta}\big)-\partial_{\beta}\big(\eta_{\mu\nu}+h_{\mu\nu}\big)\big] \\
+    	=& \frac{1}{2} \big(\eta^{\alpha\beta}-h^{\alpha\beta}\big)\big[\partial_{\nu}h_{\beta\mu}+\partial_{\mu}h_{\nu\beta}-\partial_{\beta}h_{\mu\nu}\big]\\
     	=& \frac{1}{2} \eta^{\alpha\beta}\big[\partial_{\nu}h_{\beta\mu}+\partial_{\mu}h_{\nu\beta}-\partial_{\beta}h_{\mu\nu}\big] + \mathcal{O}(h^2)\\
     	=& \frac{1}{2} \big[\partial_{\nu}h^{\alpha}_{\mu}+\partial_{\mu}h^{\alpha}_{\nu}-\eta^{\alpha\beta}\partial_{\beta}h_{\mu\nu}\big] + \mathcal{O}(h^2) \numberthis\label{eq:Gamma} \\
     	=& \mathcal{O}(h)
@@ -86,10 +97,24 @@ R^{(1)}_{\mu\nu} =& - \frac{1}{2} \Box h_{\mu_{\nu}} \text{. where:}\\
 	R_{\mu\nu} =& R\indices{^\alpha_{\mu\alpha\nu}} = g^{\alpha\gamma}R_{\alpha\mu\gamma\nu}\\
 	\approx&\frac{1}{2} \big(\eta^{\alpha\gamma}- h^{\alpha\gamma}\big) \big[\partial_{\mu}\partial_{\gamma}h_{\alpha\nu} + \partial_{\alpha}\partial_{\nu}h_{\mu\gamma} - \partial_{\alpha}\partial_{\gamma}h_{\mu\nu} - \partial_{\mu}\partial_{\nu}h_{\alpha\gamma}\big]+ \mathcal{O}(h^2)\\
 	\approx&\frac{1}{2} \eta^{\alpha\gamma} \big[\partial_{\mu}\partial_{\gamma}h_{\alpha\nu} + \partial_{\alpha}\partial_{\nu}h_{\mu\gamma} - \partial_{\alpha}\partial_{\gamma}h_{\mu\nu} - \partial_{\mu}\partial_{\nu}h_{\alpha\gamma}\big]+ \mathcal{O}(h^2)\\
-	\approx& \frac{1}{2} \underbrace{\eta^{\alpha\gamma}\partial_{\mu}\partial_{\gamma}h_{\alpha\nu}}_\text{$\partial_{\mu}\partial_{\gamma}h^{\gamma}_{\nu}$} + \frac{1}{2} \underbrace{\eta^{\alpha\gamma}\partial_{\alpha}\partial_{\nu}h_{\mu\gamma}}_\text{$\partial_{\alpha}\partial_{\nu}h^{\alpha}_{\mu}$}- \frac{1}{2}  \underbrace{\eta^{\alpha\gamma}\partial_{\alpha}\partial_{\gamma}h_{\mu\nu}}_{=\Box h_{\mu\nu}} - \frac{1}{2} \underbrace{\eta^{\alpha\gamma}\partial_{\mu}\partial_{\nu}h_{\alpha\gamma}}_\text{$=\partial_{\mu}\partial_{\nu}h$}+ \mathcal{O}(h^2)
+	\approx& \frac{1}{2} \eta^{\alpha\gamma}\partial_{\mu}\partial_{\gamma}h_{\alpha\nu} + \frac{1}{2} \eta^{\alpha\gamma}\partial_{\alpha}\partial_{\nu}h_{\mu\gamma}- \frac{1}{2}  \underbrace{\eta^{\alpha\gamma}\partial_{\alpha}\partial_{\gamma}h_{\mu\nu}}_{=\Box h_{\mu\nu}} - \frac{1}{2} \underbrace{\eta^{\alpha\gamma}\partial_{\mu}\partial_{\nu}h_{\alpha\gamma}}_\text{$=\partial_{\mu}\partial_{\nu}h$}+ \mathcal{O}(h^2)\\
+	&\text{	\{Where the d'Alembertian, $\Box$, is defined in (\ref{def:box})\}}\\
+	\approx& \frac{1}{2}\underbrace{\big(\eta^{\alpha\gamma}\partial_{\mu}\partial_{\gamma}h_{\alpha\nu} -\frac{1}{2}\partial_{\mu}\partial_{\nu}h\big)}_\text{A} + \frac{1}{2}\underbrace{\big(\eta^{\alpha\gamma}\partial_{\alpha}\partial_{\nu}h_{\mu\gamma}-\frac{1}{2}\partial_{\mu}\partial_{\nu}h\big)}_\text{B} -\frac{1}{2}\Box h_{\mu\nu} + \mathcal{O}(h^2)\numberthis\label{eq:gauge}
 	\end{align*}
-	Where the d'Alembertian, $\Box$, is defined in (\ref{def:box})	
+	Now we expand the terms A and B in (\ref{eq:gauge})
+	\begin{align*}
+	\eta^{\alpha\gamma}\partial_{\mu}\partial_{\gamma}h_{\alpha\nu} -\frac{1}{2}\partial_{\mu}\partial_{\nu}h=&\partial_{\mu}\big(	\eta^{\alpha\gamma}\partial_{\gamma}h_{\alpha\nu} -\frac{1}{2}\partial_{\nu}h\big)\\
+	=&\partial_{\mu}\big(\partial_{\gamma}h^{\gamma}_{\nu} -\frac{1}{2}\delta^{\gamma}_{\nu}\partial_{\gamma}h\big)\\
+	=&\partial_{\mu}\partial_{\gamma}\big(h^{\gamma}_{\nu} -\frac{1}{2}\delta^{\gamma}_{\nu}h\big)\numberthis\label{eq:term-a}
+	\end{align*}
+	\begin{align*}
+	\eta^{\alpha\gamma}\partial_{\alpha}\partial_{\nu}h_{\mu\gamma}-\frac{1}{2}\partial_{\mu}\partial_{\nu}h=&\partial_{\alpha}\partial_{\nu}h^{\alpha}_{\mu}-\frac{1}{2}\partial_{\mu}\partial_{\nu}h\\
+	=& \partial_{\nu}\big( \partial_{\alpha}h^{\alpha}_{\mu}-\frac{1}{2}\partial_{\mu}h  \big) \\
+	=& \partial_{\nu}\partial_{\alpha}\big( h^{\alpha}_{\mu}-\frac{1}{2}\delta^{\alpha}_{\mu}h  \big) \numberthis\label{eq:term-b}
+	\end{align*}
+	Now, if we choose a gauge where $\partial_{\mu}(h^{\mu}_{\nu}-\frac{1}{2}\delta^{\mu}_{\nu}h)=0$, the right hand sides of (\ref{eq:term-a}) and (\ref{eq:term-b}) both reduce to zero, whence (\ref{eq:gauge}) becomes $R_{\mu\nu} = -\frac{1}{2}\Box h_{\mu\nu} + \mathcal{O}(h^2)$.
 \end{proof}
+
 
 \begin{thebibliography}{9}
 	
