@@ -19,5 +19,6 @@ General Relativity calcs and documents
 | GR Problem 8.tex | Week 8 assignment - Collapse into Black Hole | 
 | GR Problem 9-1.tex | Week 9 problem 1 - Gravitational Waves | 
 | GR Problem 9-2.tex | Week 9 problem 2 - Gravitational Waves | 
-| penrose-carter.tex | Sample code to generate Penrose-Carter diagrams | 
+| penrose-carter.tex | Sample code to generate Penrose-Carter diagrams |
+| penrose-carter-octants.py | Investigate effect of t->-t on Penrose Carter for black hole |
 | perms.py |  Used to generate odd and even permutations | 
