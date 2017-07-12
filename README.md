@@ -18,7 +18,12 @@ General Relativity calcs and documents
 | GR Problem 7.tex | Week 7 assignment - Kerr Black Hole | 
 | GR Problem 8.tex | Week 8 assignment - Collapse into Black Hole | 
 | GR Problem 9-1.tex | Week 9 problem 1 - Gravitational Waves | 
-| GR Problem 9-2.tex | Week 9 problem 2 - Gravitational Waves | 
+| GR Problem 9-2.tex | Week 9 problem 2 - Gravitational Waves |
+| GR Problem 10-1.tex | Week 10 problem 1 - Gravitational Radiation | 
+| GR Problem 10-2.tex | Week 10 problem 2 - Gravitational Radiation |
+| GR Problem 11.tex | Week 11 assignment - Friedman-Robertson-Walker cosmology |
+| GR Problem 12-1.tex | Week 12 problem 1 - Cosmological solutions with non-zero cosmological constant |
+| GR Problem 12-1.tex | Week 12 problem 2 - Cosmological solutions with non-zero cosmological constant |
 | penrose-carter.tex | Sample code to generate Penrose-Carter diagrams |
 | penrose-carter-octants.py | Investigate effect of t->-t on Penrose Carter for black hole |
 | perms.py |  Used to generate odd and even permutations | 
