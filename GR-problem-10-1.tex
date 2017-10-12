@@ -24,23 +24,31 @@ where $\vec{a}$ is a fixed vector and $|\vec{r}|=R$ is also fixed.
 \end{abstract}
 
 \begin{align*}
-\vec{r}.\vec{a} =& \sum_{i=1}^{3}r_ia_i\numberthis\label{eq:ra}\\
+\vec{r}.\vec{a} \triangleq& \sum_{i=1}^{3}r_ia_i\numberthis\label{eq:ra}\\
 \big(\vec{r}.\vec{a}\big)\vec{r} =& \sum_{i=1}^{3}r_ia_i \vec{r} \numberthis\label{eq:rar}
 \end{align*}
+
+From (\ref{eq:rar}) it is clear that the desired expression is a linear transformation of $\vec{a}$, i.e. $\exists \mathfrak{R}$, a matrix, such that $\big(\vec{r}.\vec{a}\big)\vec{r} =\mathfrak{R}\vec{a}$ 
+
 Since $|r|=R$, we will use polar coordinates and write:
-$$\vec{r}=R\cos\theta\cos\phi\vec{i}+R\cos\theta\sin\phi\vec{j}+Rsin\theta\vec{k}$$
+$$\vec{r}=R\sin\theta\cos\phi\vec{i}+R\sin\theta\sin\phi\vec{j}+R\cos\theta\vec{k}$$
 so (\ref{eq:ra}) and (\ref{eq:rar})become:
 \begin{align*}
-\big(\vec{r}.\vec{a}\big)\vec{r} =& (\vec{r}.\vec{a}) R \cos\theta\cos\phi\ \vec{i} + (\vec{r}.\vec{a})R\cos\theta\sin\phi  \vec{j} + (\vec{r}.\vec{a}) R\sin\theta \vec{k}\\
-\vec{r}.\vec{a} =& Ra_1\cos\theta\cos\phi + Ra_2\cos\theta\sin\phi + Ra_3 \sin\theta\\
+\big(\vec{r}.\vec{a}\big)\vec{r} =& (\vec{r}.\vec{a}) R \sin\theta\cos\phi\ \vec{i} + (\vec{r}.\vec{a})R\sin\theta\sin\phi  \vec{j} + (\vec{r}.\vec{a}) R\cos\theta \vec{k}\\
+\vec{r}.\vec{a} =& Ra_1\sin\theta\cos\phi + Ra_2\sin\theta\sin\phi + Ra_3 \cos\theta\\
 \text{hence}&\\
-\big(\vec{r}.\vec{a}\big)\vec{r} = R^2 \bigg\{& \big[a_1\cos\theta\cos\phi + a_2\cos\theta\sin\phi + a_3 \sin\theta\big] \cos\theta\cos\phi\vec{i}\\ +& \big[a_1\cos\theta\cos\phi + a_2\cos\theta\sin\phi + a_3 \sin\theta\big]\cos\theta\sin\phi \vec{j}\\
- +& \big[a_1\cos\theta\cos\phi + a_2\cos\theta\sin\phi + a_3 \sin\theta\big] \sin\theta \vec{k}\bigg\}\numberthis \label{eq:rar_expanded}
+\big(\vec{r}.\vec{a}\big)\vec{r} = R^2 \bigg\{& \big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big] \sin\theta\cos\phi\vec{i}\\ +& \big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big]\sin\theta\sin\phi \vec{j}\\
+ +& \big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big] \cos\theta \vec{k}\bigg\}\numberthis \label{eq:rar_expanded}
 \end{align*}
 Now, by definition
 \begin{align*}
-\left\langle \big(\vec{r}.\vec{a}\big)\vec{r} \right\rangle \triangleq& \frac{1}{4\pi}\int_{\Omega}\big(\vec{r}.\vec{a}\big)\vec{r}\\
-=&  \frac{ R^2}{4\pi}\int_{\Omega} \bigg\{ \big[a_1\cos\theta\cos\phi + a_2\cos\theta\sin\phi + a_3 \sin\theta\big] \cos\theta\cos\phi\vec{i}\\ +& \big[a_1\cos\theta\cos\phi + a_2\cos\theta\sin\phi + a_3 \sin\theta\big]\cos\theta\sin\phi \vec{j}\\
-+& \big[a_1\cos\theta\cos\phi + a_2\cos\theta\sin\phi + a_3 \sin\theta\big] \sin\theta \vec{k}\bigg\}
+\left\langle \big(\vec{r}.\vec{a}\big)\vec{r} \right\rangle \triangleq& \frac{1}{4\pi}\int_{\Omega}\big(\vec{r}.\vec{a}\big)\vec{r} d\Omega \\
+=&  \frac{ R^2}{4\pi}\int_{\Omega} \bigg\{ \big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \sin\theta\big] \sin\theta\cos\phi\vec{i}\\ +& \big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big]\sin\theta\sin\phi \vec{j}\\
++& \big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big] \cos\theta \vec{k}\bigg\}d\Omega\\
+= \frac{ R^2}{4\pi} \bigg\{&\int_{\Omega}\big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big] \sin\theta\cos\phi\vec{i}d\Omega\\ +& \int_{\Omega}\big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big]\sin\theta\sin\phi \vec{j}d\Omega\\
++& \int_{\Omega}\big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big] \cos\theta \vec{k} d\Omega\bigg\}\\
+= \frac{ R^2}{4\pi} \bigg\{&\int_{\theta=-\pi}^{\pi}\int_{\phi=0}^{2\pi}\big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big] \sin\theta\cos\phi\sin\theta d\theta d\phi.\vec{i}\\
+ +& \int_{\theta=-\pi}^{\pi}\int_{\phi=0}^{2\pi}\big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big]\sin\theta\sin\phi \sin\theta d\theta d\phi.\vec{j}\\
++& \int_{\theta=-\pi}^{\pi}\int_{\phi=0}^{2\pi}\big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big] \cos\theta \sin\theta d\theta d\phi.\vec{k} \bigg\} \numberthis \label{eq:big-int}
 \end{align*}
 \end{document}
