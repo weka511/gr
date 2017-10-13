@@ -1,5 +1,5 @@
 \documentclass[]{article}
-\usepackage{esvect,mathtools,amssymb,amsthm,url}
+\usepackage{esvect,mathtools,amssymb,amsthm,url,tikz}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 \newtheorem{lemma}{Lemma}
 %opening
@@ -144,6 +144,20 @@ R_1 & 0 & 0 \\
 For otherwise at least two of the diagonal elements must be unequal. Without loss of generality we can suppose that $R_1 \neq R_2$. Hence if $\vec{a}$ were parallel to the 1-axis it would be stretched by a different amount compared to if it were parallel to the 2-axis; we could exploit this to \emph{define a privileged direction in space,} which minimizes the length of $\mathfrak{R}\vec{a}$. Assuming space is isotropic, then $R_1=R_2=R_3$, hence $\mathfrak{R}\vec{a}=\rho\vec{a}$, where $\rho$ represents the (degenerate) single eigenvalue of $\mathfrak{R}$. Inspection of (\ref{eq:rar}) shows that $\rho \propto R^2$, so we can write $\big(\vec{r}.\vec{a}\big)\vec{r}=\kappa R^2 \vec{a}$, where $\kappa$ is a constant of proportionately. Compare with (\ref{eq:final}).
 
 The foregoing allows us to dispense with all but one of equations (\ref{eq:a1-i}--\ref{eq:a3-k}). For example, we could use (\ref{eq:a1-i}) to show that $\kappa=\frac{1}{6}$, and discard the remaining 8 equations.
+
+\begin{lemma}
+	$\kappa=\frac{1}{6}$
+\end{lemma}
+\begin{proof}
+	The foregoing argument shows that we can choose $\vec{a}$ to simplify our calculations, since space is isotropic. We shall therefore choose $\vec{a}$ to be a unit vector at the "North Pole". Let $\vec{r}$ be an arbitrary vector that makes an angle $\theta$ with the North Pole.
+	\begin{align*}
+	\big(\vec{r}.\vec{a}\big)\vec{r}\Bigg|_\text{projected onto z}=&\frac{1}{4\pi}\int_{0}^{\pi}\underbrace{|\vec{a}||\vec{r}|\cos\theta}_{\vec{r}.\vec{a}}\underbrace{\cos \theta}_{\text{projection onto z}}\underbrace{2\pi R\sin\theta d\theta}_\text{annulus}\\
+	=& \frac{R^2}{2}\int_{0}^{2\pi}\cos^2 \theta \sin \theta d \theta\\
+	=& - \frac{R^2}{6} cos^3\theta\Bigg |_0^{\pi}\\
+	=& \frac{R^2}{6} \numberthis \label{eq:kappa}
+	\end{align*}
+\end{proof}
+(\ref{eq:kappa}) is essentially (\ref{eq:a3-k}).
 
 \begin{thebibliography}{9}
 	\raggedright
