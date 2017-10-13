@@ -34,7 +34,7 @@ From (\ref{eq:rar}) it is clear that the desired expression is a linear transfor
 \big(\vec{r}.\vec{a}\big)\vec{r} =\mathfrak{R}\vec{a} \numberthis \label{eq:linear}
 \end{align*} 
 
-Since $|r|=R$, a constant, we will use polar coordinates and write:
+Since $|r|=R$, a constant, we will use polar coordinates, following the \emph{physics convention}\cite{wiki-polar}, and write:
 $$\vec{r}=R\sin\theta\cos\phi\vec{i}+R\sin\theta\sin\phi\vec{j}+R\cos\theta\vec{k}$$
 so (\ref{eq:ra}) and (\ref{eq:rar}) become:
 \begin{align*}
@@ -58,7 +58,8 @@ Now, by definition
 
 If we extract products such as $a_1.\vec{i}$, we find nine integrals as follows.
 \begin{align*}
-\int_{\theta=0}^{\pi}\int_{\phi=0}^{2\pi}(\sin\theta)^3(\cos\phi)^2 d\theta d\phi=&\int_{\theta=0}^{\pi}(\sin\theta)^3d\theta\int_{\phi=0}^{2\pi}(\cos\phi)^2  d\phi\\
+\text{Coefficient of }a_1.\vec{i} =&\int_{\theta=0}^{\pi}\int_{\phi=0}^{2\pi}(\sin\theta)^3(\cos\phi)^2 d\theta d\phi\\
+=&\int_{\theta=0}^{\pi}(\sin\theta)^3d\theta\int_{\phi=0}^{2\pi}(\cos\phi)^2  d\phi\\
 =&\pi \int_{0}^{\pi}(\sin\theta)^3d\theta\text{, from Lemma \ref{lemma:i1}}\\
 =&\pi \int_{0}^{\pi} [1-(\cos \theta)^2] \sin\theta d\theta  \\
 =& \pi [-\cos\theta+\frac{1}{3}(\cos\theta)^3]\Bigg|_0^{\pi} \\
@@ -67,54 +68,64 @@ If we extract products such as $a_1.\vec{i}$, we find nine integrals as follows.
 \end{align*}
 
 \begin{align*}
-\int_{\theta=0}^{\pi}\int_{\phi=0}^{2\pi}(\sin\theta)^3\sin\phi\cos\phi\ d\theta d\phi=&\int_{\theta=0}^{\pi}(\sin\theta)^3d\theta\int_{\phi=0}^{2\pi}\sin\phi\cos\phi\  d\phi\\
+\text{Coefficient of }a_2.\vec{i} =&\int_{\theta=0}^{\pi}\int_{\phi=0}^{2\pi}(\sin\theta)^3\sin\phi\cos\phi\ d\theta d\phi\\=&\int_{\theta=0}^{\pi}(\sin\theta)^3d\theta\int_{\phi=0}^{2\pi}\sin\phi\cos\phi\  d\phi\\
 =&\int_{\theta=0}^{\pi}(\sin\theta)^3d\theta . \frac{1}{2} (\sin \phi)^2 \Big|_0^{2\pi} \\
 =&\int_{\theta=0}^{\pi}(\sin\theta)^3d\theta\times 0\\
 =&0 \numberthis \label{eq:a2-i}
 \end{align*}
 
 \begin{align*}
-\int_{\theta=0}^{\pi}\int_{\phi=0}^{2\pi}\cos\theta(\sin\theta)^2\cos\phi d\theta d\phi=&\int_{\theta=0}^{\pi}\cos\theta(\sin\theta)^2d\theta\int_{\phi=0}^{2\pi}\cos\phi  d\phi\\
+\text{Coefficient of }a_3.\vec{i} =&\int_{\theta=0}^{\pi}\int_{\phi=0}^{2\pi}\cos\theta(\sin\theta)^2\cos\phi d\theta d\phi\\=&\int_{\theta=0}^{\pi}\cos\theta(\sin\theta)^2d\theta\int_{\phi=0}^{2\pi}\cos\phi  d\phi\\
 =&\int_{\theta=0}^{\pi}\cos\theta(\sin\theta)^2d\theta . \sin\phi \Big|_0^{2\pi}\\
 =&\int_{\theta=0}^{\pi}\cos\theta(\sin\theta)^2d\theta \times 0\\
 =&0 \numberthis \label{eq:a3-i}
 \end{align*}
 
 \begin{align*}
-\int_{\theta=0}^{\pi}\int_{\phi=0}^{2\pi}(\sin\theta)^3\cos\phi\sin\phi d\theta d\phi=&\int_{\theta=0}^{\pi}(\sin\theta)^3d\theta\int_{\phi=0}^{2\pi}\cos\phi\sin\phi  d\phi\\
+\text{Coefficient of }a_1.\vec{j} =&\int_{\theta=0}^{\pi}\int_{\phi=0}^{2\pi}(\sin\theta)^3\cos\phi\sin\phi d\theta d\phi\\=&\int_{\theta=0}^{\pi}(\sin\theta)^3d\theta\int_{\phi=0}^{2\pi}\cos\phi\sin\phi  d\phi\\
 =&0 \text{, by a similar argument to (\ref{eq:a2-i})}\numberthis \label{eq:a1-j}
 \end{align*}
 
 \begin{align*}
-\int_{\theta=0}^{\pi}\int_{\phi=0}^{2\pi}(\sin\theta)^3(\sin\phi)^2 d\theta d\phi=&\int_{\theta=0}^{\pi}(\sin\theta)^3 d\theta \int_{\phi=0}^{2\pi}(\sin\phi)^2  d\phi\\
+\text{Coefficient of }a_2.\vec{j} =&\int_{\theta=0}^{\pi}\int_{\phi=0}^{2\pi}(\sin\theta)^3(\sin\phi)^2 d\theta d\phi\\=&\int_{\theta=0}^{\pi}(\sin\theta)^3 d\theta \int_{\phi=0}^{2\pi}(\sin\phi)^2  d\phi\\
 =& \frac{2\pi}{3} \text{, by a similar argument to (\ref{eq:a1-i})} \numberthis \label{eq:a2-j}
 \end{align*}
 
 \begin{align*}
-\int_{\theta=0}^{\pi}\int_{\phi=0}^{2\pi}\cos\theta(\sin\theta)^2\sin\phi  d\theta d\phi=&\int_{\theta=0}^{\pi}\cos\theta(\sin\theta)^2d\theta\int_{\phi=0}^{2\pi}\sin\phi   d\phi\\=&0 \text{, by a similar argument to (\ref{eq:a3-i})} \numberthis \label{eq:a3-j}
+\text{Coefficient of }a_3.\vec{j} =&\int_{\theta=0}^{\pi}\int_{\phi=0}^{2\pi}\cos\theta(\sin\theta)^2\sin\phi  d\theta d\phi\\=&\int_{\theta=0}^{\pi}\cos\theta(\sin\theta)^2d\theta\int_{\phi=0}^{2\pi}\sin\phi   d\phi\\=&0 \text{, by a similar argument to (\ref{eq:a3-i})} \numberthis \label{eq:a3-j}
 \end{align*}
 
 \begin{align*}
-\int_{\theta=0}^{\pi}\int_{\phi=0}^{2\pi}(\sin\theta)^2\cos\phi\cos\theta d\theta d\phi=&
+\text{Coefficient of }a_1.\vec{k} =&\int_{\theta=0}^{\pi}\int_{\phi=0}^{2\pi}(\sin\theta)^2\cos\phi\cos\theta d\theta d\phi\\=&
 \int_{\theta=0}^{\pi}  (\sin\theta)^2 cos\theta d\theta \int_{\phi=0}^{2\pi}\cos\phi\ d\phi\\
 =&0 \text{, by a similar argument to (\ref{eq:a3-i})} \numberthis \label{eq:a1-k}
 \end{align*}
 
 \begin{align*}
-\int_{\theta=0}^{\pi}\int_{\phi=0}^{2\pi}(\sin\theta)^2\sin\phi\cos\theta d\theta d\phi=&
+\text{Coefficient of }a_2.\vec{k} =&\int_{\theta=0}^{\pi}\int_{\phi=0}^{2\pi}(\sin\theta)^2\sin\phi\cos\theta d\theta d\phi\\=&
 \int_{\theta=0}^{\pi} (\sin\theta)^2 \cos\theta d\theta \int_{\phi=0}^{2\pi}\sin\phi d\phi\\=&0 \text{, by a similar argument to (\ref{eq:a2-i})} \numberthis \label{eq:a2-k}
 \end{align*}
 
 \begin{align*}
-\int_{\theta=0}^{\pi} \int_{\phi=0}^{2\pi} (\cos\theta)^2\sin\theta d\theta   d\phi &= \int_{\theta=0}^{\pi} (\cos\theta)^2\sin\theta d\theta  \int_{\phi=0}^{2\pi} d\phi \\ &= 2 \pi \int_{\theta=0}^{\pi} (\cos\theta)^2\sin\theta d\theta \\
+\text{Coefficient of }a_3.\vec{k} =&\int_{\theta=0}^{\pi} \int_{\phi=0}^{2\pi} (\cos\theta)^2\sin\theta d\theta   d\phi\\ &= \int_{\theta=0}^{\pi} (\cos\theta)^2\sin\theta d\theta  \int_{\phi=0}^{2\pi} d\phi \\ &= 2 \pi \int_{\theta=0}^{\pi} (\cos\theta)^2\sin\theta d\theta \\
 =& 2\pi[-\frac{1}{3}(\cos\theta)^3] \Bigg|_0^{\pi} \\
 =& \frac{2\pi}{3}\numberthis \label{eq:a3-k}
 \end{align*}
 
-Substituting (\ref{eq:a1-i}- \ref{eq:a3-k})  in (\ref{eq:big-int})
+Substituting (\ref{eq:a1-i}--\ref{eq:a3-k})  in (\ref{eq:big-int})
 \begin{align*}
 \left\langle \big(\vec{r}.\vec{a}\big)\vec{r} \right\rangle=&\frac{ R^2}{4\pi}\frac{2\pi}{3}\big[a_1.\vec{i}+a_2.\vec{j}+a_3.\vec{k}\big]\\
 =&\frac{R^2}{6}\vec{a} \numberthis \label{eq:final}
 \end{align*}
 Hence $\mathfrak{R}$ in (\ref{eq:linear}) is scalar multiplication, rather than a more general linear transformation.
+
+\begin{thebibliography}{9}
+	\raggedright
+	\bibitem{wiki-polar}
+	Wikipedia contributors. Spherical coordinate system. Wikipedia, The Free Encyclopedia. August 19, 2017, 21:40 UTC. Available at: 
+	\url{https://en.wikipedia.org/w/index.php?title=Spherical_coordinate_system&oldid=796300234}.
+	Accessed
+	October 13, 2017
+\end{thebibliography}
+
 \end{document}
