@@ -20,6 +20,8 @@
 
 \tableofcontents
 
+\section{Calculation of $\left\langle \big(\vec{r}.\vec{a}\big)\vec{r} \right\rangle$ by a multiple integral}\label{sect:long}
+\subsection{Preliminary Lemmata}
 \begin{lemma}\label{lemma:i1}
 	$\int_{0}^{2\pi}(\cos\phi)^2  d\phi = \int_{0}^{2\pi}(\sin\phi)^2  d\phi=\pi$
 \end{lemma}
@@ -46,7 +48,7 @@
 (\ref{eq:rar}) shows that the desired expression is a linear transformation of $\vec{a}$.
 \end{proof}
 
-\section{Calculation of $\left\langle \big(\vec{r}.\vec{a}\big)\vec{r} \right\rangle$ by a multiple integral}\label{sect:long}
+\subsection{Derivation}
 Since $|r|=R$, a constant, we will use polar coordinates, following the \emph{physics convention} \cite{schaum-basic} \cite{wiki-polar}, and write:
 $$\vec{r}=R\sin\theta\cos\phi\vec{i}+R\sin\theta\sin\phi\vec{j}+R\cos\theta\vec{k}$$
 so (\ref{eq:ra}) and (\ref{eq:rar}) become:
@@ -76,8 +78,8 @@ If we extract products such as $a_1.\vec{i}$, we find nine integrals as follows.
 =&\pi \int_{0}^{\pi}(\sin\theta)^3d\theta\text{, from Lemma \ref{lemma:i1}}\\
 =&\pi \int_{0}^{\pi} [1-(\cos \theta)^2] \sin\theta d\theta  \\
 =& \pi [-\cos\theta+\frac{1}{3}(\cos\theta)^3]\Bigg|_0^{\pi} \\
-=& \pi [1-\frac{1}{3}] \\
-=& \frac{2\pi}{3}\numberthis \label{eq:a1-i}
+=& \pi [1-(-1)-\frac{1} {3}-\frac{1} {3}] \\
+=& \frac{4\pi}{3}\numberthis \label{eq:a1-i}
 \end{align*}
 
 \begin{align*}
@@ -101,7 +103,7 @@ If we extract products such as $a_1.\vec{i}$, we find nine integrals as follows.
 
 \begin{align*}
 \text{Coefficient of }a_2.\vec{j} =&\int_{\theta=0}^{\pi}\int_{\phi=0}^{2\pi}(\sin\theta)^3(\sin\phi)^2 d\theta d\phi\\=&\int_{\theta=0}^{\pi}(\sin\theta)^3 d\theta \int_{\phi=0}^{2\pi}(\sin\phi)^2  d\phi\\
-=& \frac{2\pi}{3} \text{, by a similar argument to (\ref{eq:a1-i})} \numberthis \label{eq:a2-j}
+=& \frac{4\pi}{3} \text{, by a similar argument to (\ref{eq:a1-i})} \numberthis \label{eq:a2-j}
 \end{align*}
 
 \begin{align*}
@@ -122,15 +124,15 @@ If we extract products such as $a_1.\vec{i}$, we find nine integrals as follows.
 \begin{align*}
 \text{Coefficient of }a_3.\vec{k} =&\int_{\theta=0}^{\pi} \int_{\phi=0}^{2\pi} (\cos\theta)^2\sin\theta d\theta   d\phi\\ &= \int_{\theta=0}^{\pi} (\cos\theta)^2\sin\theta d\theta  \int_{\phi=0}^{2\pi} d\phi \\ &= 2 \pi \int_{\theta=0}^{\pi} (\cos\theta)^2\sin\theta d\theta \\
 =& 2\pi[-\frac{1}{3}(\cos\theta)^3] \Bigg|_0^{\pi} \\
-=& \frac{2\pi}{3}\numberthis \label{eq:a3-k}
+=& \frac{4\pi}{3}\numberthis \label{eq:a3-k}
 \end{align*}
 
 Substituting (\ref{eq:a1-i}--\ref{eq:a3-k})  in (\ref{eq:big-int})
 \begin{align*}
-\left\langle \big(\vec{r}.\vec{a}\big)\vec{r} \right\rangle=&\frac{ R^2}{4\pi}\frac{2\pi}{3}\big[a_1.\vec{i}+a_2.\vec{j}+a_3.\vec{k}\big]\\
-=&\frac{R^2}{6}\vec{a} \numberthis \label{eq:final}
+\left\langle \big(\vec{r}.\vec{a}\big)\vec{r} \right\rangle=&\frac{ R^2}{4\pi}\frac{4\pi}{3}\big[a_1.\vec{i}+a_2.\vec{j}+a_3.\vec{k}\big]\\
+=&\frac{R^2}{3}\vec{a} \numberthis \label{eq:final}
 \end{align*}
-Hence the linear transformation in Lemma \ref{lemma:linearity}  is scalar multiplication.
+Hence the linear transformation in Lemma \ref{lemma:linearity}  reduces to scalar multiplication.
 
 \section{Calculation by a symmetry argument}\label{sect:symmetry}
 The simple form of (\ref{eq:final}) suggest that a simpler derivation may be possible using symmetry. From (\ref{eq:rar}), $\mathfrak{R}$ is a real symmetric matrix. By the spectral theorem, \cite{spectral-theorem} \cite{bellman1970}, $\mathfrak{R}$ has real eigenvalues and we can find 3 orthonormal eigenvectors. If we adopt a set of 3 orthonormal eigenvectors as our basis, $\mathfrak{R}$ becomes a diagonal matrix: we assert that the three diagonal elements (the eigenvalues) are equal, hence $\mathfrak{R}$ is diagonal in any orthonormal basis, and we can write:
@@ -143,18 +145,19 @@ R_1 & 0 & 0 \\
 \]
 For otherwise at least two of the diagonal elements must be unequal. Without loss of generality we can suppose that $R_1 \neq R_2$. Hence if $\vec{a}$ were parallel to the 1-axis it would be stretched by a different amount compared to if it were parallel to the 2-axis; we could exploit this to \emph{define a privileged direction in space,} which minimizes the length of $\mathfrak{R}\vec{a}$. Assuming space is isotropic, then $R_1=R_2=R_3$, hence $\mathfrak{R}\vec{a}=\rho\vec{a}$, where $\rho$ represents the (degenerate) single eigenvalue of $\mathfrak{R}$. Inspection of (\ref{eq:rar}) shows that $\rho \propto R^2$, so we can write $\big(\vec{r}.\vec{a}\big)\vec{r}=\kappa R^2 \vec{a}$, where $\kappa$ is a constant of proportionately. Compare with (\ref{eq:final}).
 
-The foregoing allows us to dispense with all but one of equations (\ref{eq:a1-i}--\ref{eq:a3-k}). For example, we could use (\ref{eq:a1-i}) to show that $\kappa=\frac{1}{6}$, and discard the remaining 8 equations.
+The foregoing allows us to dispense with all but one of equations (\ref{eq:a1-i}--\ref{eq:a3-k}). For example, we could use (\ref{eq:a1-i}) to show that $\kappa=\frac{1}{3}$, and discard the remaining 8 equations.
 
 \begin{lemma}
-	$\kappa=\frac{1}{6}$
+	$\kappa=\frac{1}{3}$
 \end{lemma}
 \begin{proof}
-	The foregoing argument shows that we can choose $\vec{a}$ to simplify our calculations, since space is isotropic. We shall therefore choose $\vec{a}$ to be a unit vector at the "North Pole". Let $\vec{r}$ be an arbitrary vector that makes an angle $\theta$ with the North Pole.
+	The foregoing argument shows that we can choose $\vec{a}$ to simplify our calculations, since space is isotropic. We shall therefore choose $\vec{a}$ to be a unit vector at the "North Pole". Let $\vec{r}$ be an arbitrary vector that makes an angle $\theta$ with the North Pole. The symmetry of the configuration allows us to divide the surface of the sphere into annuli, centred on the North Pole, and perform the calculation as a single integral.
 	\begin{align*}
 	\big(\vec{r}.\vec{a}\big)\vec{r}\Bigg|_\text{projected onto z}=&\frac{1}{4\pi}\int_{0}^{\pi}\underbrace{|\vec{a}||\vec{r}|\cos\theta}_{\vec{r}.\vec{a}}\underbrace{\cos \theta}_{\text{projection onto z}}\underbrace{2\pi R\sin\theta d\theta}_\text{annulus}\\
 	=& \frac{R^2}{2}\int_{0}^{2\pi}\cos^2 \theta \sin \theta d \theta\\
 	=& - \frac{R^2}{6} cos^3\theta\Bigg |_0^{\pi}\\
-	=& \frac{R^2}{6} \numberthis \label{eq:kappa}
+	=& - \frac{R^2}{6} [-1-1]\\
+	=& \frac{R^2}{3} \numberthis \label{eq:kappa}
 	\end{align*}
 \end{proof}
 (\ref{eq:kappa}) is essentially (\ref{eq:a3-k}).
