@@ -1,6 +1,7 @@
 \documentclass[]{article}
 \usepackage{esvect,mathtools,amssymb,amsthm,url}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\newtheorem{lemma}{Lemma}
 %opening
 \title{Introduction into General Relativity\\Assignment 10.1\\Gravitational Radiation}
 \author{Simon Crase}
@@ -9,20 +10,20 @@
 
 \maketitle
 
-\begin{abstract}
 Calculate the average over all directions of $\vec{r}$:
 
 $$\left\langle \big(\vec{r}.\vec{a}\big)\vec{r} \right\rangle$$
 
 where $\vec{a}$ is a fixed vector and $|\vec{r}|=R$ is also fixed.
-\begin{enumerate}
-	\item correct calculation of the vector components of the average
-	\item the presence of the final answer in the vector form
+
+\begin{lemma}\label{lemma:i1}
+	$\int_{0}^{2\pi}(\cos\phi)^2  d\phi = \int_{0}^{2\pi}(\sin\phi)^2  d\phi=\pi$
+\end{lemma}
+\begin{proof}
+	$\int_{0}^{2\pi}(\cos\phi)^2  d\phi = \int_{0}^{2\pi}(\sin\phi)^2  d\phi$ follows from a change of variable $\phi\rightarrow\phi+\frac{\pi}{2}$, and exploiting the periodicity of $\sin$ and $\cos$. 
 	
-
-\end{enumerate}
-\end{abstract}
-
+	Moreover $\int_{0}^{2\pi}\big[(\cos\phi)^2  +(\sin\phi)^2\big] d\phi=\int_{0}^{2\pi}1. d\phi=2\pi$. Since the two integrals are equal and add to $2\pi$, each must be $\pi$.
+\end{proof}
 \begin{align*}
 \vec{r}.\vec{a} \triangleq& \sum_{i=1}^{3}r_ia_i\numberthis\label{eq:ra}\\
 \big(\vec{r}.\vec{a}\big)\vec{r} =& \sum_{i=1}^{3}r_ia_i \vec{r} \numberthis\label{eq:rar}
@@ -30,62 +31,75 @@ where $\vec{a}$ is a fixed vector and $|\vec{r}|=R$ is also fixed.
 
 From (\ref{eq:rar}) it is clear that the desired expression is a linear transformation of $\vec{a}$, i.e. $\exists \mathfrak{R}$, a matrix, such that $\big(\vec{r}.\vec{a}\big)\vec{r} =\mathfrak{R}\vec{a}$ 
 
-Since $|r|=R$, we will use polar coordinates and write:
+Since $|r|=R$, a constant, we will use polar coordinates and write:
 $$\vec{r}=R\sin\theta\cos\phi\vec{i}+R\sin\theta\sin\phi\vec{j}+R\cos\theta\vec{k}$$
-so (\ref{eq:ra}) and (\ref{eq:rar})become:
+so (\ref{eq:ra}) and (\ref{eq:rar}) become:
 \begin{align*}
-\big(\vec{r}.\vec{a}\big)\vec{r} =& (\vec{r}.\vec{a}) R \sin\theta\cos\phi\ \vec{i} + (\vec{r}.\vec{a})R\sin\theta\sin\phi  \vec{j} + (\vec{r}.\vec{a}) R\cos\theta \vec{k}\\
+\big(\vec{r}.\vec{a}\big)\vec{r} =& (\vec{r}.\vec{a}) R \sin\theta\cos\phi .\vec{i} + (\vec{r}.\vec{a})R\sin\theta\sin\phi . \vec{j} + (\vec{r}.\vec{a}) R\cos\theta. \vec{k}\\
 \vec{r}.\vec{a} =& Ra_1\sin\theta\cos\phi + Ra_2\sin\theta\sin\phi + Ra_3 \cos\theta\\
 \text{hence}&\\
-\big(\vec{r}.\vec{a}\big)\vec{r} = R^2 \bigg\{& \big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big] \sin\theta\cos\phi\vec{i}\\ +& \big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big]\sin\theta\sin\phi \vec{j}\\
- +& \big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big] \cos\theta \vec{k}\bigg\}\numberthis \label{eq:rar_expanded}
+\big(\vec{r}.\vec{a}\big)\vec{r} = R^2 \bigg\{& \big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big] \sin\theta\cos\phi.\vec{i}\\ +& \big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big]\sin\theta\sin\phi. \vec{j}\\
+ +& \big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big] \cos\theta. \vec{k}\bigg\}\numberthis \label{eq:rar_expanded}
 \end{align*}
 Now, by definition
 \begin{align*}
 \left\langle \big(\vec{r}.\vec{a}\big)\vec{r} \right\rangle \triangleq& \frac{1}{4\pi}\int_{\Omega}\big(\vec{r}.\vec{a}\big)\vec{r} d\Omega \\
-=&  \frac{ R^2}{4\pi}\int_{\Omega} \bigg\{ \big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \sin\theta\big] \sin\theta\cos\phi\vec{i}\\ +& \big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big]\sin\theta\sin\phi \vec{j}\\
-+& \big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big] \cos\theta \vec{k}\bigg\}d\Omega\\
-= \frac{ R^2}{4\pi} \bigg\{&\int_{\Omega}\big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big] \sin\theta\cos\phi\vec{i}d\Omega\\ +& \int_{\Omega}\big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big]\sin\theta\sin\phi \vec{j}d\Omega\\
-+& \int_{\Omega}\big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big] \cos\theta \vec{k} d\Omega\bigg\}\\
+=&  \frac{ R^2}{4\pi}\int_{\Omega} \bigg\{ \big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \sin\theta\big] \sin\theta\cos\phi.\vec{i}\\ +& \big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big]\sin\theta\sin\phi .\vec{j}\\
++& \big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big] \cos\theta. \vec{k}\bigg\}d\Omega\\
+= \frac{ R^2}{4\pi} \bigg\{&\int_{\Omega}\big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big] \sin\theta\cos\phi.\vec{i}d\Omega\\ +& \int_{\Omega}\big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big]\sin\theta\sin\phi .\vec{j}d\Omega\\
++& \int_{\Omega}\big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big] \cos\theta. \vec{k} d\Omega\bigg\}\\
 = \frac{ R^2}{4\pi} \bigg\{&\int_{\theta=-\pi}^{\pi}\int_{\phi=0}^{2\pi}\big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big] \sin\theta\cos\phi\sin\theta d\theta d\phi.\vec{i}\\
  +& \int_{\theta=-\pi}^{\pi}\int_{\phi=0}^{2\pi}\big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big]\sin\theta\sin\phi \sin\theta d\theta d\phi.\vec{j}\\
 +& \int_{\theta=-\pi}^{\pi}\int_{\phi=0}^{2\pi}\big[a_1\sin\theta\cos\phi + a_2\sin\theta\sin\phi + a_3 \cos\theta\big] \cos\theta \sin\theta d\theta d\phi.\vec{k}\\ \bigg\} \numberthis \label{eq:big-int}
 \end{align*}
 
+If we extract products such as $a_1.\vec{i}$, we find nine integrals as follows.
 \begin{align*}
-\int_{\theta=-\pi}^{\pi}\int_{\phi=0}^{2\pi}\sin\theta\cos\phi\sin\theta\cos\phi\sin\theta d\theta d\phi
+\int_{\theta=-\pi}^{\pi}\int_{\phi=0}^{2\pi}(\sin\theta)^3(\cos\phi)^2 d\theta d\phi=&\int_{\theta=-\pi}^{\pi}(\sin\theta)^3d\theta\int_{\phi=0}^{2\pi}(\cos\phi)^2  d\phi\\
+=&\pi \int_{\theta=-\pi}^{\pi}(\sin\theta)^3d\theta\text{, from Lemma \ref{lemma:i1}} \numberthis \label{eq:a1-i}
 \end{align*}
 
 \begin{align*}
-\int_{\theta=-\pi}^{\pi}\int_{\phi=0}^{2\pi}\sin\theta\sin\phi\sin\theta\cos\phi\sin\theta d\theta d\phi
+\int_{\theta=-\pi}^{\pi}\int_{\phi=0}^{2\pi}(\sin\theta)^3\sin\phi\cos\phi\ d\theta d\phi=&\int_{\theta=-\pi}^{\pi}(\sin\theta)^3d\theta\int_{\phi=0}^{2\pi}\sin\phi\cos\phi\  d\phi\\
+=&\int_{\theta=-\pi}^{\pi}(\sin\theta)^3d\theta . \frac{1}{2} (\sin \phi)^2 \Big|_0^{2\pi} \\
+=&\int_{\theta=-\pi}^{\pi}(\sin\theta)^3d\theta\times 0\\
+=&0 \numberthis \label{eq:a2-i}
 \end{align*}
 
 \begin{align*}
-\int_{\theta=-\pi}^{\pi}\int_{\phi=0}^{2\pi}\cos\theta\sin\theta\cos\phi\sin\theta d\theta d\phi
+\int_{\theta=-\pi}^{\pi}\int_{\phi=0}^{2\pi}\cos\theta(\sin\theta)^2\cos\phi d\theta d\phi=&\int_{\theta=-\pi}^{\pi}\cos\theta(\sin\theta)^2d\theta\int_{\phi=0}^{2\pi}\cos\phi  d\phi\\
+=&\int_{\theta=-\pi}^{\pi}\cos\theta(\sin\theta)^2d\theta . \sin\phi \Big|_0^{2\pi}\\
+=&\int_{\theta=-\pi}^{\pi}\cos\theta(\sin\theta)^2d\theta \times 0\\
+=&0 \numberthis \label{eq:a3-i}
 \end{align*}
 
 \begin{align*}
-\int_{\theta=-\pi}^{\pi}\int_{\phi=0}^{2\pi}\sin\theta\cos\phi\sin\theta\sin\phi \sin\theta d\theta d\phi
+\int_{\theta=-\pi}^{\pi}\int_{\phi=0}^{2\pi}(\sin\theta)^3\cos\phi\sin\phi d\theta d\phi=&\int_{\theta=-\pi}^{\pi}(\sin\theta)^3d\theta\int_{\phi=0}^{2\pi}\cos\phi\sin\phi  d\phi\\
+=&0 \text{, by a similar argument to (\ref{eq:a2-i})}\numberthis \label{eq:a1-j}
 \end{align*}
 
 \begin{align*}
-\int_{\theta=-\pi}^{\pi}\int_{\phi=0}^{2\pi}\sin\theta\sin\phi\sin\theta\sin\phi \sin\theta d\theta d\phi
+\int_{\theta=-\pi}^{\pi}\int_{\phi=0}^{2\pi}(\sin\theta)^3(\sin\phi)^2 d\theta d\phi=&\int_{\theta=-\pi}^{\pi}(\sin\theta)^3 d\theta \int_{\phi=0}^{2\pi}(\sin\phi)^2  d\phi \numberthis \label{eq:a2-j}
 \end{align*}
 
 \begin{align*}
-\int_{\theta=-\pi}^{\pi}\int_{\phi=0}^{2\pi}\cos\theta\sin\theta\sin\phi \sin\theta d\theta d\phi
+\int_{\theta=-\pi}^{\pi}\int_{\phi=0}^{2\pi}\cos\theta(\sin\theta)^2\sin\phi  d\theta d\phi=&\int_{\theta=-\pi}^{\pi}\cos\theta(\sin\theta)^2d\theta\int_{\phi=0}^{2\pi}\sin\phi   d\phi\\=&0 \text{, by a similar argument to (\ref{eq:a3-i})} \numberthis \label{eq:a3-j}
 \end{align*}
 
 \begin{align*}
-\int_{\theta=-\pi}^{\pi}\int_{\phi=0}^{2\pi}\sin\theta\cos\phi\cos\theta\sin\theta d\theta d\phi
+\int_{\theta=-\pi}^{\pi}\int_{\phi=0}^{2\pi}(\sin\theta)^2\cos\phi\cos\theta d\theta d\phi=&
+\int_{\theta=-\pi}^{\pi}  (\sin\theta)^2 cos\theta d\theta \int_{\phi=0}^{2\pi}\cos\phi\ d\phi\\
+=&0 \text{, by a similar argument to (\ref{eq:a3-i})} \numberthis \label{eq:a1-k}
 \end{align*}
 
 \begin{align*}
-\int_{\theta=-\pi}^{\pi}\int_{\phi=0}^{2\pi}\sin\theta\sin\phi\cos\theta\sin\theta d\theta d\phi
+\int_{\theta=-\pi}^{\pi}\int_{\phi=0}^{2\pi}(\sin\theta)^2\sin\phi\cos\theta d\theta d\phi=&
+\int_{\theta=-\pi}^{\pi} (\sin\theta)^2 \cos\theta d\theta \int_{\phi=0}^{2\pi}\sin\phi d\phi\\=&0 \text{, by a similar argument to (\ref{eq:a2-i})} \numberthis \label{eq:a2-k}
 \end{align*}
 
 \begin{align*}
-\int_{\theta=-\pi}^{\pi}\int_{\phi=0}^{2\pi}\cos\theta\cos\theta\sin\theta d\theta d\phi
+\int_{\theta=-\pi}^{\pi} \int_{\phi=0}^{2\pi} (\cos\theta)^2\sin\theta d\theta   d\phi &= \int_{\theta=-\pi}^{\pi} (\cos\theta)^2\sin\theta d\theta  \int_{\phi=0}^{2\pi} d\phi \\ &= 2 \pi \int_{\theta=-\pi}^{\pi} (\cos\theta)^2\sin\theta d\theta   \numberthis \label{eq:a3-k}
 \end{align*}
+
 
 \end{document}
