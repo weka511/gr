@@ -24,6 +24,11 @@ where $\vec{a}$ is a fixed vector and $|\vec{r}|=R$ is also fixed.
 	
 	Moreover $\int_{0}^{2\pi}\big[(\cos\phi)^2  +(\sin\phi)^2\big] d\phi=\int_{0}^{2\pi}1. d\phi=2\pi$. Since the two integrals are equal and sum to $2\pi$, each must be $\pi$.
 \end{proof}
+
+\begin{lemma}\label{lemma:linearity}
+	$\left\langle \big(\vec{r}.\vec{a}\big)\vec{r} \right\rangle$ is a linear transformation of $\vec{a}$
+\end{lemma}
+\begin{proof}
 \begin{align*}
 \vec{r}.\vec{a} \triangleq& \sum_{i=1}^{3}r_ia_i\numberthis\label{eq:ra}\\
 \big(\vec{r}.\vec{a}\big)\vec{r} =& \sum_{i=1}^{3}r_ia_i \vec{r}\\
@@ -34,11 +39,10 @@ where $\vec{a}$ is a fixed vector and $|\vec{r}|=R$ is also fixed.
 \numberthis\label{eq:rar}
 \end{align*}
 
-From (\ref{eq:rar}) it is clear that the desired expression is a linear transformation of $\vec{a}$, i.e. $\exists \mathfrak{R}$, a matrix, such that:
-\begin{align*}
-\big(\vec{r}.\vec{a}\big)\vec{r} =\mathfrak{R}\vec{a} \numberthis \label{eq:linear}
-\end{align*} 
+(\ref{eq:rar}) shows that the desired expression is a linear transformation of $\vec{a}$.
+\end{proof}
 
+\section{Calculation of $\left\langle \big(\vec{r}.\vec{a}\big)\vec{r} \right\rangle$ by a multiple integral}
 Since $|r|=R$, a constant, we will use polar coordinates, following the \emph{physics convention} \cite{schaum-basic} \cite{wiki-polar}, and write:
 $$\vec{r}=R\sin\theta\cos\phi\vec{i}+R\sin\theta\sin\phi\vec{j}+R\cos\theta\vec{k}$$
 so (\ref{eq:ra}) and (\ref{eq:rar}) become:
@@ -122,8 +126,10 @@ Substituting (\ref{eq:a1-i}--\ref{eq:a3-k})  in (\ref{eq:big-int})
 \left\langle \big(\vec{r}.\vec{a}\big)\vec{r} \right\rangle=&\frac{ R^2}{4\pi}\frac{2\pi}{3}\big[a_1.\vec{i}+a_2.\vec{j}+a_3.\vec{k}\big]\\
 =&\frac{R^2}{6}\vec{a} \numberthis \label{eq:final}
 \end{align*}
-Hence $\mathfrak{R}$ in (\ref{eq:linear}) is scalar multiplication, rather than a more general linear transformation.
+Hence the linear transformation in Lemma \ref{lemma:linearity}  is scalar multiplication.
 
+\section{A symmetry argument}
+The simple form of (\ref{eq:final}) suggest that a simpler derivation may be possible using symmetry.
 \begin{thebibliography}{9}
 	\raggedright
 	\bibitem{schaum-basic}
