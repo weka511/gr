@@ -1,6 +1,7 @@
 \documentclass[]{article}
 \usepackage{esvect,mathtools,amssymb,amsthm,url,tikz}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\usepackage[nottoc,numbib]{tocbibind}
 \newtheorem{lemma}{Lemma}
 %opening
 \title{Introduction into General Relativity\\Assignment 10.1\\Gravitational Radiation}
@@ -11,14 +12,13 @@
 \maketitle
 
 \begin{abstract}
-	Calculate the average over all directions of $\vec{r}$:
 	
-	$$\left\langle \big(\vec{r}.\vec{a}\big)\vec{r} \right\rangle$$
+	Calculate the average over all directions of $\vec{r}$: $\left\langle \big(\vec{r}.\vec{a}\big)\vec{r} \right\rangle$, where $\vec{a}$ is a fixed vector and $|\vec{r}|=R$ is also fixed.
 	
-	where $\vec{a}$ is a fixed vector and $|\vec{r}|=R$ is also fixed.
-	
-	We present two derivations. Section \ref{sect:long} is in the spirit of the assignment: \emph{"The first problem is just a test of how well one knows the methods of averaging over directions. This is a standard tool which is used in many areas of classical electrodynamics and general relativity: e.g. in the context of the radiation problem and in the context of particle motion in inhomogeneous electromagnetic fields."}. Section \ref{sect:symmetry}  exploits symmetries in the problem. At present it is incomplete, as it depends on part of the argument in Section \ref{sect:long}.
+	We present two derivations. Section \ref{sect:long} is in the spirit of the assignment: \emph{"The first problem is just a test of how well one knows the methods of averaging over directions. This is a standard tool which is used in many areas of classical electrodynamics and general relativity: e.g. in the context of the radiation problem and in the context of particle motion in inhomogeneous electromagnetic fields."}. Section \ref{sect:symmetry}  exploits symmetries in the problem.
 \end{abstract}
+
+\tableofcontents
 
 \begin{lemma}\label{lemma:i1}
 	$\int_{0}^{2\pi}(\cos\phi)^2  d\phi = \int_{0}^{2\pi}(\sin\phi)^2  d\phi=\pi$
@@ -132,7 +132,7 @@ Substituting (\ref{eq:a1-i}--\ref{eq:a3-k})  in (\ref{eq:big-int})
 \end{align*}
 Hence the linear transformation in Lemma \ref{lemma:linearity}  is scalar multiplication.
 
-\section{A symmetry argument}\label{sect:symmetry}
+\section{Calculation by a symmetry argument}\label{sect:symmetry}
 The simple form of (\ref{eq:final}) suggest that a simpler derivation may be possible using symmetry. From (\ref{eq:rar}), $\mathfrak{R}$ is a real symmetric matrix. By the spectral theorem, \cite{spectral-theorem} \cite{bellman1970}, $\mathfrak{R}$ has real eigenvalues and we can find 3 orthonormal eigenvectors. If we adopt a set of 3 orthonormal eigenvectors as our basis, $\mathfrak{R}$ becomes a diagonal matrix: we assert that the three diagonal elements (the eigenvalues) are equal, hence $\mathfrak{R}$ is diagonal in any orthonormal basis, and we can write:
 \[\mathfrak{R}= 
 \begin{pmatrix}
@@ -159,7 +159,7 @@ The foregoing allows us to dispense with all but one of equations (\ref{eq:a1-i}
 \end{proof}
 (\ref{eq:kappa}) is essentially (\ref{eq:a3-k}).
 
-\begin{thebibliography}{9}
+\begin{thebibliography}{9}\label{section:biblio}
 	\raggedright
 	\bibitem{schaum-basic}
 	William F. Hughes \& Eber W. Gaylord,
