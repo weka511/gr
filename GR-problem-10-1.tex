@@ -10,11 +10,15 @@
 
 \maketitle
 
-Calculate the average over all directions of $\vec{r}$:
-
-$$\left\langle \big(\vec{r}.\vec{a}\big)\vec{r} \right\rangle$$
-
-where $\vec{a}$ is a fixed vector and $|\vec{r}|=R$ is also fixed.
+\begin{abstract}
+	Calculate the average over all directions of $\vec{r}$:
+	
+	$$\left\langle \big(\vec{r}.\vec{a}\big)\vec{r} \right\rangle$$
+	
+	where $\vec{a}$ is a fixed vector and $|\vec{r}|=R$ is also fixed.
+	
+	We present two derivations. Section \ref{sect:long} is in the spirit of the assignment: \emph{"The first problem is just a test of how well one knows the methods of averaging over directions. This is a standard tool which is used in many areas of classical electrodynamics and general relativity: e.g. in the context of the radiation problem and in the context of particle motion in inhomogeneous electromagnetic fields."}. Section \ref{sect:symmetry}  exploits symmetries in the problem. At present it is incomplete, as it depends on part of the argument in Section \ref{sect:long}.
+\end{abstract}
 
 \begin{lemma}\label{lemma:i1}
 	$\int_{0}^{2\pi}(\cos\phi)^2  d\phi = \int_{0}^{2\pi}(\sin\phi)^2  d\phi=\pi$
@@ -35,14 +39,14 @@ where $\vec{a}$ is a fixed vector and $|\vec{r}|=R$ is also fixed.
 =& \sum_{i=1}^{3}r_ia_i \sum_{j=1}^{3}r_j\vec{i}_j \text{, where $i_j$ represents the 3 vectors $\vec{i},\vec{j},\vec{k}$}\\
 =& \sum_{i,j=1}^{3}r_i  r_j a_i \vec{i}_j \\
 \left\langle \big(\vec{r}.\vec{a}\big)\vec{r} \right\rangle=&\left\langle \sum_{i,j=1}^{3}r_i  r_j a_i \vec{i}_j\right\rangle\\
-=&\left\langle \sum_{i,j=1}^{3}r_i  r_j\right\rangle a_i \vec{i}_j
-\numberthis\label{eq:rar}
+=&\left\langle \sum_{i,j=1}^{3}r_i  r_j\right\rangle a_i \vec{i}_j\\
+=&\mathfrak{R} \vec{a}\text{, where } \mathfrak{R}_{ij}=\left\langle \sum_{i,j=1}^{3}r_i  r_j\right\rangle \numberthis\label{eq:rar}
 \end{align*}
 
 (\ref{eq:rar}) shows that the desired expression is a linear transformation of $\vec{a}$.
 \end{proof}
 
-\section{Calculation of $\left\langle \big(\vec{r}.\vec{a}\big)\vec{r} \right\rangle$ by a multiple integral}
+\section{Calculation of $\left\langle \big(\vec{r}.\vec{a}\big)\vec{r} \right\rangle$ by a multiple integral}\label{sect:long}
 Since $|r|=R$, a constant, we will use polar coordinates, following the \emph{physics convention} \cite{schaum-basic} \cite{wiki-polar}, and write:
 $$\vec{r}=R\sin\theta\cos\phi\vec{i}+R\sin\theta\sin\phi\vec{j}+R\cos\theta\vec{k}$$
 so (\ref{eq:ra}) and (\ref{eq:rar}) become:
@@ -128,8 +132,19 @@ Substituting (\ref{eq:a1-i}--\ref{eq:a3-k})  in (\ref{eq:big-int})
 \end{align*}
 Hence the linear transformation in Lemma \ref{lemma:linearity}  is scalar multiplication.
 
-\section{A symmetry argument}
-The simple form of (\ref{eq:final}) suggest that a simpler derivation may be possible using symmetry.
+\section{A symmetry argument}\label{sect:symmetry}
+The simple form of (\ref{eq:final}) suggest that a simpler derivation may be possible using symmetry. From (\ref{eq:rar}), $\mathfrak{R}$ is a real symmetric matrix. By the spectral theorem, \cite{spectral-theorem} \cite{bellman1970}, $\mathfrak{R}$ has real eigenvalues and we can find 3 orthonormal eigenvectors. If we adopt a set of 3 orthonormal eigenvectors as our basis, $\mathfrak{R}$ becomes a diagonal matrix: we assert that the three diagonal elements (the eigenvalues) are equal, hence $\mathfrak{R}$ is diagonal in any orthonormal basis, and we can write:
+\[\mathfrak{R}= 
+\begin{pmatrix}
+R_1 & 0 & 0 \\
+0 & R_2 & 0 \\
+0 & 0 & R_3
+\end{pmatrix}
+\]
+For otherwise at least two of the diagonal elements must be unequal. Without loss of generality we can suppose that $R_1 \neq R_2$. Hence if $\vec{a}$ were parallel to the 1-axis it would be stretched by a different amount compared to if it were parallel to the 2-axis; we could exploit this to \emph{define a privileged direction in space,} which minimizes the length of $\mathfrak{R}\vec{a}$. Assuming space is isotropic, then $R_1=R_2=R_3$, hence $\mathfrak{R}\vec{a}=\rho\vec{a}$, where $\rho$ represents the (degenerate) single eigenvalue of $\mathfrak{R}$. Inspection of (\ref{eq:rar}) shows that $\rho \propto R^2$, so we can write $\big(\vec{r}.\vec{a}\big)\vec{r}=\kappa R^2 \vec{a}$, where $\kappa$ is a constant of proportionately. Compare with (\ref{eq:final}).
+
+The foregoing allows us to dispense with all but one of equations (\ref{eq:a1-i}--\ref{eq:a3-k}). For example, we could use (\ref{eq:a1-i}) to show that $\kappa=\frac{1}{6}$, and discard the remaining 8 equations.
+
 \begin{thebibliography}{9}
 	\raggedright
 	\bibitem{schaum-basic}
@@ -143,6 +158,16 @@ The simple form of (\ref{eq:final}) suggest that a simpler derivation may be pos
 	\url{https://en.wikipedia.org/w/index.php?title=Spherical_coordinate_system&oldid=796300234}.
 	Accessed
 	October 13, 2017
+	\bibitem{spectral-theorem}
+	Daniel Jerison,
+	\emph{Math 2940: Symmetric matrices have real eigenvalues},
+	\url{http://www.math.cornell.edu/~jerison/math2940/real-eigenvalues.pdf},
+	Accessed 14 October 2017
+	\bibitem{bellman1970}
+	Richard Bellman,
+	\emph{Introduction to Matrix Analysis},
+	1960, republished 1997,
+	ISBN	0898713994, 9780898713992
 \end{thebibliography}
 
 \end{document}
