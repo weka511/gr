@@ -20,13 +20,18 @@ where $\vec{a}$ is a fixed vector and $|\vec{r}|=R$ is also fixed.
 	$\int_{0}^{2\pi}(\cos\phi)^2  d\phi = \int_{0}^{2\pi}(\sin\phi)^2  d\phi=\pi$
 \end{lemma}
 \begin{proof}
-	$\int_{0}^{2\pi}(\cos\phi)^2  d\phi = \int_{0}^{2\pi}(\sin\phi)^2  d\phi$ follows from a change of variable $\phi\rightarrow\phi+\frac{\pi}{2}$, and exploiting the periodicity of $\sin$ and $\cos$. 
+	That $\int_{0}^{2\pi}(\cos\phi)^2  d\phi = \int_{0}^{2\pi}(\sin\phi)^2  d\phi$ follows from changing the variable of integration, $\phi\rightarrow\phi+\frac{\pi}{2}$, and exploiting the periodicity of $\sin$ and $\cos$. 
 	
-	Moreover $\int_{0}^{2\pi}\big[(\cos\phi)^2  +(\sin\phi)^2\big] d\phi=\int_{0}^{2\pi}1. d\phi=2\pi$. Since the two integrals are equal and add to $2\pi$, each must be $\pi$.
+	Moreover $\int_{0}^{2\pi}\big[(\cos\phi)^2  +(\sin\phi)^2\big] d\phi=\int_{0}^{2\pi}1. d\phi=2\pi$. Since the two integrals are equal and sum to $2\pi$, each must be $\pi$.
 \end{proof}
 \begin{align*}
 \vec{r}.\vec{a} \triangleq& \sum_{i=1}^{3}r_ia_i\numberthis\label{eq:ra}\\
-\big(\vec{r}.\vec{a}\big)\vec{r} =& \sum_{i=1}^{3}r_ia_i \vec{r} \numberthis\label{eq:rar}
+\big(\vec{r}.\vec{a}\big)\vec{r} =& \sum_{i=1}^{3}r_ia_i \vec{r}\\
+=& \sum_{i=1}^{3}r_ia_i \sum_{j=1}^{3}r_j\vec{i}_j \text{, where $i_j$ represents the 3 vectors $\vec{i},\vec{j},\vec{k}$}\\
+=& \sum_{i,j=1}^{3}r_i  r_j a_i \vec{i}_j \\
+\left\langle \big(\vec{r}.\vec{a}\big)\vec{r} \right\rangle=&\left\langle \sum_{i,j=1}^{3}r_i  r_j a_i \vec{i}_j\right\rangle\\
+=&\left\langle \sum_{i,j=1}^{3}r_i  r_j\right\rangle a_i \vec{i}_j
+\numberthis\label{eq:rar}
 \end{align*}
 
 From (\ref{eq:rar}) it is clear that the desired expression is a linear transformation of $\vec{a}$, i.e. $\exists \mathfrak{R}$, a matrix, such that:
@@ -34,7 +39,7 @@ From (\ref{eq:rar}) it is clear that the desired expression is a linear transfor
 \big(\vec{r}.\vec{a}\big)\vec{r} =\mathfrak{R}\vec{a} \numberthis \label{eq:linear}
 \end{align*} 
 
-Since $|r|=R$, a constant, we will use polar coordinates, following the \emph{physics convention}\cite{wiki-polar}, and write:
+Since $|r|=R$, a constant, we will use polar coordinates, following the \emph{physics convention} \cite{schaum-basic} \cite{wiki-polar}, and write:
 $$\vec{r}=R\sin\theta\cos\phi\vec{i}+R\sin\theta\sin\phi\vec{j}+R\cos\theta\vec{k}$$
 so (\ref{eq:ra}) and (\ref{eq:rar}) become:
 \begin{align*}
@@ -121,6 +126,12 @@ Hence $\mathfrak{R}$ in (\ref{eq:linear}) is scalar multiplication, rather than 
 
 \begin{thebibliography}{9}
 	\raggedright
+	\bibitem{schaum-basic}
+	William F. Hughes \& Eber W. Gaylord,
+	\emph{Basic Equations of Engineering Science},
+	Schaum Publishing Company, New York,
+	ISBN-13: 978-0070311091
+	1964
 	\bibitem{wiki-polar}
 	Wikipedia contributors. Spherical coordinate system. Wikipedia, The Free Encyclopedia. August 19, 2017, 21:40 UTC. Available at: 
 	\url{https://en.wikipedia.org/w/index.php?title=Spherical_coordinate_system&oldid=796300234}.
