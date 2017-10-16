@@ -20,6 +20,18 @@
 
 \tableofcontents
 
+\section{Calculation from Lecture}
+Following \cite{akhmedov-averages},
+\begin{align*}
+\left\langle \big(\vec{r}.\vec{a}\big)\vec{r} \right\rangle =& \left\langle r_i a_i r_j \right\rangle\\
+=&a_i\left\langle r_i r_j\right\rangle\\
+=&a_i R^2 \left\langle \frac{r_i}{R} \frac{r_j}{R}\right\rangle\\
+=&a_i R^2 \left\langle n_i n_j\right\rangle\\
+=&a_i \frac{R^2}{3} \delta_{ij} \text{, from \cite{akhmedov-averages}}\\
+=&a_j \frac{R^2}{3}\\
+=& \frac{R^2}{3} \vec{a}
+\end{align*}
+
 \section{Calculation of $\left\langle \big(\vec{r}.\vec{a}\big)\vec{r} \right\rangle$ by a multiple integral}\label{sect:long}
 \subsection{Preliminary Lemmata}
 \begin{lemma}\label{lemma:i1}
@@ -150,7 +162,7 @@ R_1 & 0 & 0 \\
 0 & 0 & R_3
 \end{pmatrix}
 \]
-We assert that the three diagonal elements (the eigenvalues) are equal, hence $\mathfrak{R}$ is diagonal in any orthonormal basis. For otherwise at least two of the diagonal elements must be unequal. Without loss of generality we can suppose that $R_1 \neq R_2$. Hence if $\vec{a}$ were parallel to the 1-axis it would be stretched by a different amount compared to if it were parallel to the 2-axis; we could exploit this to \emph{define a privileged direction in space,} which minimizes the length of $\mathfrak{R}\vec{a}$. This violates the assumption that space is isotropic, hence there is no privileged definition and $R_1=R_2=R_3$; $\mathfrak{R}\vec{a}=\rho\vec{a}$, where $\rho$ represents the (degenerate) single eigenvalue of $\mathfrak{R}$. Inspection of (\ref{eq:rar}) shows that $\rho \propto R^2$, so we can write $\big(\vec{r}.\vec{a}\big)\vec{r}=\kappa R^2 \vec{a}$, where $\kappa$ is a constant of proportionately. Compare with (\ref{eq:final}).
+We assert that the three diagonal elements (the eigenvalues) are equal, hence $\mathfrak{R}$ is diagonal in any orthonormal basis. For otherwise at least two of the diagonal elements must be unequal. Without loss of generality we can suppose that $R_1 \neq R_2$. Hence if $\vec{a}$ were parallel to the 1-axis it would be stretched by a different amount compared to if it were parallel to the 2-axis; we could exploit this to \emph{define a privileged direction in space,} which minimizes the length of $\mathfrak{R}\vec{a}$. This violates the assumption that space is isotropic; hence there is no privileged direction. $R_1=R_2=R_3=\rho$, where $\rho$ represents the (degenerate) single eigenvalue of $\mathfrak{R}$, and $\mathfrak{R}\vec{a}=\rho\vec{a}$. Inspection of (\ref{eq:rar}) shows that $\rho \propto R^2$, so we can write $\big(\vec{r}.\vec{a}\big)\vec{r}=\kappa R^2 \vec{a}$, where $\kappa$ is a constant of proportionately. Compare with (\ref{eq:final}).
 
 The foregoing allows us to dispense with all but one of equations (\ref{eq:a1-i}--\ref{eq:a3-k}). For example, we could use (\ref{eq:a1-i}) to show that $\kappa=\frac{1}{3}$, and discard the remaining 8 equations.
 
@@ -192,6 +204,10 @@ Compare equation (\ref{eq:kappa}) with (\ref{eq:a3-k}).
 	\emph{Introduction to Matrix Analysis},
 	1960, republished 1997,
 	ISBN	0898713994, 9780898713992
+	\bibitem{akhmedov-averages}
+	Emil Akhmedov,
+	\emph{Additional Material - Averages},
+	\url{https://www.coursera.org/learn/general-relativity/lecture/Rfarf/averages}
 \end{thebibliography}
 
 \end{document}
