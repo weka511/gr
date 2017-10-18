@@ -17,10 +17,16 @@ Find the change in time of the radius of a double--star system due to the gravit
 
 \end{abstract}
 
+\section{Assumptions}
+\begin{enumerate}
+	\item Circular orbit
+	\item Decays to circular
+\end{enumerate}
+
 \section{The Quadrupole Tensor}
 For two classical stars orbiting each other in circular orbits with masses $m_1$ and $m_2$, at a distance of $2R$ and angular velocity $\omega$, it is well known (e.g. \cite{wiki:kepler}) that:
 \begin{align*}
-8R^3\omega^2=\kappa(m_1+m_2)
+8R^3\omega^2=\kappa(m_1+m_2) \numberthis \label{eq:kepler}
 \end{align*}
 Without loss of generality we shall suppose that the motion takes place in 0-1 plane, so there is no motion along the 3-axis. If we represents the two stars by vectors $y_(1)$ and $y_(2)$, we have:
 \begin{empheq}[left=\empheqlbrace]{align*}
@@ -50,6 +56,10 @@ m_1 |\vec{(y_{1})^2}| + m_2 |\vec{(y_{2})^2}|=&m1 r_{(1)}^2 + m_2r_{(2)}^2\\
 \end{empheq}
 
 \section{Radiation intensity}
+From \cite[X,(258)]{Akhmedov2017},
+\begin{equation}
+I\approxeq\frac{\kappa}{45}\dddot{Q}_ij\dddot{Q}_ij \label{eq:I}
+\end{equation}
 There are only 4 terms in \eqref{eq:Qs} that can have non-zero derivatives. Using well known trigonometric identities to simplify the derivation we have:
 \begin{empheq}[left=\empheqlbrace]{align*}
 Q_{11}=& \frac{6 m_1 m_2 R^2}{m_1 + m_2}\big(1+\cos (2\omega t)\big)-\frac{4 m_1 m_2}{m_1 + m_2}R^2\\
@@ -65,7 +75,31 @@ Q_{22}=&\,\frac{6 m_1 m_2 R^2}{m_1 + m_2}\big(1-\cos (2\omega t)\big)-\frac{4 m_
 \dddot{Q}_{22}=&-\,\frac{48 \omega^3 m_1 m_2 R^2}{m_1 + m_2}\sin (2\omega t)
 \end{empheq}
 
+So \eqref{eq:I} becomes:
+\begin{align*}
+- \dot{E}=&I\text{, where $E$ is the total energy of the system}\\
+\approxeq&\frac{\kappa}{45}\Big(\,\frac{48 \omega^3 m_1 m_2 R^2}{m_1 + m_2}\Big)^2\Big[\sin^2 (2\omega t)+\cos^2 (2\omega t)+\cos^2 (2\omega t)\sin^2 (2\omega t)\Big]\\
+\approxeq& 2 \frac{\kappa}{45}\Big(\,\frac{48 \omega^3 m_1 m_2 R^2}{m_1 + m_2}\Big)^2  \\
+\approxeq&\frac{512 \kappa \, \omega^6 m_1^2 m_2^2 R^4}{5\,(m_1 + m_2)^2}  \numberthis  \label{eq:I-derived}
+\end{align*}
+At this point I compared the result with \cite[\S 106]{landau-lifshitz-2}, which derives the same formula.
+
 \section{Velocity of the distance decrease}
+Now the energy of two stars in the orbit is 
+\begin{align*}
+E=& T + V\text{, where $T$ is the kinetic energy and $V$ the potential energy}\\
+T=&\frac{1}{2}\Big(m_1r_1^2+m_2r_2^2\Big) \omega^2\\
+=& \frac{1}{2}\Big(\frac{m_1 4m_2^2R^2}{(m_1+m_2)^2}+\frac{m_2 4m_1^2R^2}{(m_1+m_2)^2}\Big)\\
+=&\frac{2 m_1 m_2 r^2 \omega^2}{m_1 + m_2}\\
+=& \frac{2 m_1 m_2}{m_1 + m_2} \frac{\kappa (m_1 + m_2)}{8 R}\text{, from \eqref{eq:kepler}}\\
+=& \frac{\kappa m_1 m_2}{4R} \\
+V=& - \frac{\kappa m_1 m_2}{2 R} \text{, whence}\\
+E=&-\frac{\kappa m_1 m_2}{4R} \\
+\dot{E} =& \frac{\kappa m_1 m_2}{4R^2}\dot{R}\\
+\dot{R}=& \frac{4 R^2}{\kappa m_1 m_2} \dot{E} \\
+\approxeq& \frac{4 R^2}{\kappa m_1 m_2} \frac{512\kappa\, \omega^6 m_1^2 m_2^2 R^4}{5\,(m_1 + m_2)^2} \text{, from \eqref{eq:I-derived}}\\
+\approxeq&  \frac{2048 \omega^6 m_1 m_2 R^6}{5\,(m_1 + m_2)^2}
+\end{align*}
 \section{Time dependence of the distance}
 
 
@@ -75,6 +109,12 @@ Q_{22}=&\,\frac{6 m_1 m_2 R^2}{m_1 + m_2}\big(1-\cos (2\omega t)\big)-\frac{4 m_
 	\emph{Lectures on General Theory of Relativity},
  	arXiv:1601.04996,
  	\url{https://arxiv.org/abs/1601.04996}
+ 	\bibitem{landau-lifshitz-2}
+ 	L.D. Landau, E.M. Lifshitz,
+ 	\emph{The Classical Theory of Fields. Vol. 2 (3rd ed.).},
+ 	1971,
+ 	Pergamon Press.
+ 	ISBN 978-0-08-016019-1.
  	\bibitem{wiki:kepler}
  	Wikipedia contributors.
  	\emph{Kepler's laws of planetary motion. Wikipedia, The Free Encyclopedia.}  October 10, 2017, 01:47 UTC. Available at: 
