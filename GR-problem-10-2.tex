@@ -1,4 +1,7 @@
 \documentclass[]{article}
+\usepackage{esvect,mathtools,amssymb,amsthm,url,empheq}
+\usepackage[nottoc,numbib]{tocbibind}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 
 %opening
 \title{Introduction into General Relativity\\Assignment 10.2\\Gravitational Radiation}
@@ -7,19 +10,75 @@
 \begin{document}
 
 \maketitle
+\tableofcontents
 
 \begin{abstract}
 Find the change in time of the radius of a double--star system due to the gravitational radiation. Initial distance between the stars is $2R$ and their masses are $m_1$ and $m_2$.
 
-Solutions of these problems will be evaluated according to the presence of the following items in the report
-\begin{enumerate}
-	\item correct components of the quadruple tensor
-	\item correct expression for the radiation intensity
-	\item correct expression for the velocity of the distance decrease
-	\item time dependence of the distance
-\end{enumerate}
 \end{abstract}
 
-\section{Double Star System}
+\section{The Quadrupole Tensor}
+For two classical stars orbiting each other in circular orbits with masses $m_1$ and $m_2$, at a distance of $2R$ and angular velocity $\omega$, it is well known (e.g. \cite{wiki:kepler}) that:
+\begin{align*}
+8R^3\omega^2=\kappa(m_1+m_2)
+\end{align*}
+Without loss of generality we shall suppose that the motion takes place in 0-1 plane, so there is no motion along the 3-axis. If we represents the two stars by vectors $y_(1)$ and $y_(2)$, we have:
+\begin{empheq}[left=\empheqlbrace]{align*}
+\vec{y_{(1)}}=&\bigg(\frac{2 m_2 R}{m_1+m_2}\, \cos (\omega t),\frac{2 m_2 R}{m_1+m_2}\, \sin (\omega t),0\bigg) \numberthis \label{eq:y}\\
+\vec{y_{(2)}}=&\bigg(- \frac{2 m_1 R}{m_1+m_2}\, \cos (\omega t),- \frac{2 m_1 R}{m_1+m_2}\, \sin (\omega t),0\bigg) 
+\end{empheq}
+We know from \cite[Chapter X, Equation (250)]{Akhmedov2017} that:
+\begin{align*}
+Q_{ij}=& \int d^3 \vec{y}\,\rho(t-|\vec{x}|,\vec{y})\,(3y_iy_j-\delta_{ij}|\vec{(y)^2}|)\\
+\rho =& m_1 \delta(\vec{y}-\vec{y_{(1)}}) +  m_2 \delta(\vec{y}-\vec{y_{(2)}}) \text{, whence:}\\
+Q_{ij}=&m_1\,(3y_{(1)i}y_{(1)j}-\delta_{ij}|\vec{(y_{1})^2}|)+m_2\,(3y_{(2)i}y_{(2)j}-\delta_{ij}|\vec{(y_{2})^2}|)\text{, now }\\
+m_1 |\vec{(y_{1})^2}| + m_2 |\vec{(y_{2})^2}|=&m1 r_{(1)}^2 + m_2r_{(2)}^2\\
+=&\frac{4 m_1 m_2^2R^2+4 m_2 m_1^2 R^2}{(m_1+m_2)^2}\\
+=&\frac{4 m_1 m_2}{m_1 + m_2}R^2\numberthis \label{eq:delta}
+\end{align*}
+\begin{empheq}[left=\empheqlbrace]{align*}
+	Q_{11}=&\,\bigg[\frac{3(m_1 4 m_2^2 R^2)}{(m_1+m_2)^2}+\frac{3(m_2 4 m_1^2 R^2)}{(m_1+m_2)^2}\bigg]\cos^2 (\omega t)-\frac{4 m_1 m_2}{m_1 + m_2}R^2 \numberthis \label{eq:Qs}\\
+	=& \frac{12 m_1 m_2 R^2}{m_1 + m_2}\cos^2 (\omega t)-\frac{4 m_1 m_2}{m_1 + m_2}R^2\\
+	Q_{12}=&\,\frac{12 m_1 m_2 R^2}{m_1 + m_2}\cos (\omega t) \sin(\omega t)\\
+	Q_{13}=&\,0\\
+	Q_{21}=&\,\frac{12 m_1 m_2 R^2}{m_1 + m_2}\cos (\omega t) \sin(\omega t)\\
+	Q_{22}=&\,\frac{12 m_1 m_2 R^2}{m_1 + m_2}\sin^2 (\omega t)-\frac{4 m_1 m_2}{m_1 + m_2}R^2\\
+	Q_{23}=&\,0\\
+	Q_{31}=&\,0\\
+	Q_{32}=&\,0\\
+	Q_{33}=&\,-\frac{4 m_1 m_2}{m_1 + m_2}R^2\text{, from ref \eqref{eq:delta}}	
+\end{empheq}
 
+\section{Radiation intensity}
+There are only 4 terms in \eqref{eq:Qs} that can have non-zero derivatives. Using well known trigonometric identities to simplify the derivation we have:
+\begin{empheq}[left=\empheqlbrace]{align*}
+Q_{11}=& \frac{6 m_1 m_2 R^2}{m_1 + m_2}\big(1+\cos (2\omega t)\big)-\frac{4 m_1 m_2}{m_1 + m_2}R^2\\
+Q_{12}=&\,\frac{6 m_1 m_2 R^2}{m_1 + m_2} \sin(2\omega t)\\
+Q_{21}=&\,\frac{6 m_1 m_2 R^2}{m_1 + m_2} \sin(2\omega t)\\
+Q_{22}=&\,\frac{6 m_1 m_2 R^2}{m_1 + m_2}\big(1-\cos (2\omega t)\big)-\frac{4 m_1 m_2}{m_1 + m_2}R^2
+\end{empheq}
+
+\begin{empheq}[left=\empheqlbrace]{align*}
+\dddot{Q}_{11}=& \frac{48 \omega^3 m_1 m_2 R^2}{m_1 + m_2}\sin (2\omega t)\\
+\dddot{Q}_{12}=&-\,\frac{48 \omega^3 m_1 m_2 R^2}{m_1 + m_2} \cos(2\omega t)\\
+\dddot{Q}_{21}=&-\,\frac{48 \omega^3 m_1 m_2 R^2}{m_1 + m_2} \cos(2\omega t)\\
+\dddot{Q}_{22}=&-\,\frac{48 \omega^3 m_1 m_2 R^2}{m_1 + m_2}\sin (2\omega t)
+\end{empheq}
+
+\section{Velocity of the distance decrease}
+\section{Time dependence of the distance}
+
+
+\begin{thebibliography}{9}
+	\bibitem{Akhmedov2017}
+	Emil T. Akhmedov,
+	\emph{Lectures on General Theory of Relativity},
+ 	arXiv:1601.04996,
+ 	\url{https://arxiv.org/abs/1601.04996}
+ 	\bibitem{wiki:kepler}
+ 	Wikipedia contributors.
+ 	\emph{Kepler's laws of planetary motion. Wikipedia, The Free Encyclopedia.}  October 10, 2017, 01:47 UTC. Available at: 
+ 	\url{https://en.wikipedia.org/w/index.php?title=Kepler%27s_laws_of_planetary_motion&oldid=804602772.} Accessed
+ 	October 17, 2017
+\end{thebibliography}
 \end{document}
