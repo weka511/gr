@@ -20,8 +20,8 @@ Find the change in time of the radius of a double--star system due to the gravit
 \section{Assumptions}
 I have made two simplifying assumptions:
 \begin{enumerate}
-	\item The two stars begin in a circular orbit;
-	\item The orbits remains to circular.
+	\item \label{assumption:1} The two stars begin in a circular orbit (the problem speaks of a radius);
+	\item \label{assumption:2} The orbit remains circular (in reality the two stars spiral in, but we assume that the orbit can be treated instantaneously as a circle). 
 \end{enumerate}
 
 \section{The Quadrupole Tensor}
@@ -29,7 +29,7 @@ For two classical stars orbiting each other in circular orbits with masses $m_1$
 \begin{align*}
 8R^3\omega^2=\kappa(m_1+m_2) \numberthis \label{eq:kepler}
 \end{align*}
-Without loss of generality we shall suppose that the motion takes place in 1-2 plane, so there is no motion along the 3-axis. If we represents the two stars by vectors $\vec{y_{(1)}}$ and $\vec{y_{(2)}}$, we have:
+Without loss of generality, we can choose Cartesian coordinates so that the motion takes place in the 1-2 plane, so there is no motion along the 3-axis. If we represents the two stars by vectors $\vec{y_{(1)}}$ and $\vec{y_{(2)}}$, we have:
 \begin{empheq}[left=\empheqlbrace]{align*}
 \vec{y_{(1)}}=&\bigg(\frac{2 m_2 R}{m_1+m_2}\, \cos (\omega t),\frac{2 m_2 R}{m_1+m_2}\, \sin (\omega t),0\bigg) \numberthis \label{eq:y}\\
 \vec{y_{(2)}}=&\bigg(- \frac{2 m_1 R}{m_1+m_2}\, \cos (\omega t),- \frac{2 m_1 R}{m_1+m_2}\, \sin (\omega t),0\bigg) 
@@ -39,7 +39,7 @@ We know from \cite[Chapter X, Equation (250)]{Akhmedov2017} that:
 Q_{ij}=& \int d^3 \vec{y}\,\rho(t-|\vec{x}|,\vec{y})\,(3y_iy_j-\delta_{ij}|\vec{(y)^2}|)\text{, where $\rho$ represents density}\\
 \rho =& m_1 \delta(\vec{y}-\vec{y_{(1)}}) +  m_2 \delta(\vec{y}-\vec{y_{(2)}}) \text{, whence:}\\
 Q_{ij}=&m_1\,(3y_{(1)i}y_{(1)j}-\delta_{ij}|\vec{(y_{1})^2}|)+m_2\,(3y_{(2)i}y_{(2)j}-\delta_{ij}|\vec{(y_{2})^2}|)\text{. Now }\\
-m_1 |\vec{(y_{1})^2}| + m_2 |\vec{(y_{2})^2}|=&m1 r_{(1)}^2 + m_2r_{(2)}^2\\
+m_1 |\vec{(y_{1})^2}| + m_2 |\vec{(y_{2})^2}|=&m_1 r_{(1)}^2 + m_2r_{(2)}^2\\
 =&\frac{4 m_1 m_2^2R^2+4 m_2 m_1^2 R^2}{(m_1+m_2)^2}\\
 =&\frac{4 m_1 m_2}{m_1 + m_2}R^2\numberthis \label{eq:delta}
 \end{align*}
@@ -59,7 +59,7 @@ m_1 |\vec{(y_{1})^2}| + m_2 |\vec{(y_{2})^2}|=&m1 r_{(1)}^2 + m_2r_{(2)}^2\\
 \section{Radiation intensity}
 From \cite[X,(258)]{Akhmedov2017},
 \begin{equation}
-I\approxeq\frac{\kappa}{45}\dddot{Q}_ij\dddot{Q}_ij \label{eq:I}
+I\approxeq\frac{\kappa}{45}\dddot{Q}_{ij}\dddot{Q}_{ij} \label{eq:I}
 \end{equation}
 There are only four terms in \eqref{eq:Qs} that can have non-zero derivatives. Using well known trigonometric identities to simplify differentiation we have:
 \begin{empheq}[left=\empheqlbrace]{align*}
@@ -88,21 +88,22 @@ So \eqref{eq:I} becomes:
 \section{Velocity of the distance decrease}
 Now the energy of two stars in the orbit is (e.g. \cite{goldstein})
 \begin{align*}
-E=& T + V\text{, where $T$ is the kinetic energy and $V$ the potential energy}\\
+E=& T + V\text{, where $T$ is the kinetic energy and $V$ the potential energy} \numberthis \label{eq:E}\\
 T=&\frac{1}{2}\Big(m_1r_1^2+m_2r_2^2\Big) \omega^2\\
 =& \frac{1}{2}\Big(\frac{m_1 4m_2^2R^2}{(m_1+m_2)^2}+\frac{m_2 4m_1^2R^2}{(m_1+m_2)^2}\Big)\\
-=&\frac{2 m_1 m_2 r^2 \omega^2}{m_1 + m_2}\\
+=&\frac{2 m_1 m_2 R^2 \omega^2}{m_1 + m_2}\\
 =& \frac{2 m_1 m_2}{m_1 + m_2} \frac{\kappa (m_1 + m_2)}{8 R}\text{, from \eqref{eq:kepler}}\\
-=& \frac{\kappa m_1 m_2}{4R} \\
-V=& - \frac{\kappa m_1 m_2}{2 R} \text{, whence}\\
-E=&-\frac{\kappa m_1 m_2}{4R} \\
-\dot{E} =& \frac{\kappa m_1 m_2}{4R^2}\dot{R}\\
-\dot{R}=& \frac{4 R^2}{\kappa m_1 m_2} \dot{E} \\
+=& \frac{\kappa m_1 m_2}{4R} \numberthis \label{eq:T}\\
+V=& - \frac{\kappa m_1 m_2}{2 R} \text{(e.g. \cite{goldstein})} \numberthis \label{eq:V}\\
+E=&-\frac{\kappa m_1 m_2}{4R}\text{, using \eqref{eq:T}, \eqref{eq:V}, and \eqref{eq:E}. Differentiating and using Assumption \ref{assumption:2}:} \\
+\dot{E} =& \frac{\kappa m_1 m_2}{4R^2}\dot{R}\text{, whence}\\
+\dot{R}=& \frac{4 R^2}{\kappa m_1 m_2} \dot{E} \text{ and }\\
 \approxeq& - \frac{4 R^2}{\kappa m_1 m_2} \frac{512\kappa\, \omega^6 m_1^2 m_2^2 R^4}{5\,(m_1 + m_2)^2} \text{, from \eqref{eq:I-derived}}\\
 \approxeq& - \frac{2048 \omega^6 m_1 m_2 R^6}{5\,(m_1 + m_2)^2}
 \end{align*}
 \section{Time dependence of the distance}
 
+So, in time $\Delta t$ we expect $2R$ to reduce to $2R-\frac{2048 \omega^6 m_1 m_2 R^6}{5\,(m_1 + m_2)^2} \Delta t$.
 
 \begin{thebibliography}{9}
 	\bibitem{Akhmedov2017}
