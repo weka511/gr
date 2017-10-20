@@ -1,5 +1,6 @@
 \documentclass[]{article}
-\usepackage{amsmath}
+\usepackage{amsmath,amsthm,esvect,amssymb}
+\newtheorem{lemma}{Lemma}
 %opening
 \title{Introduction into General Relativity\\Assignment 11\\Friedman-Robertson-Walker cosmology}
 \author{Simon Crase}
@@ -14,16 +15,45 @@ Calculate the Ricci tensor for the following Euclidian metrics:
 dl^2\equiv&\gamma_{ij}dx^idx^j=\frac{dr^2}{1-r^2}+r^2\,d\Omega^2\\
 dl^2\equiv&d\chi^2+\sin^2 \chi\,d\Omega^2\\
 dl^2\equiv&\frac{dr^2}{1+r^2}+r^2\,d\Omega^2\\
-dl^2\equiv&d\chi^2+\sinh^2 \chi\,d\Omega^2
+dl^2\equiv&d\chi^2+\sinh^2 \chi\,d\Omega^2\text{, where}\\
+d\Omega^2\triangleq & d\theta^2 + r^2 d\phi^2
 \end{align*}
 Show that they solve 3d Einstein equations in Euclidean signature $R_{ij}(\gamma)=2k\gamma_{ij}$ for $k=\pm 1$ and $R_{ij}(\gamma)$ is the Ricci tensor for the metric $\gamma$.
 \end{abstract}
 
 \tableofcontents
 
-\section{$dl^2\equiv\frac{dr^2}{1-r^2}+r^2\,d\Omega^2$}
-\section{$dl^2\equiv d\chi^2+\sin^2 \chi\,d\Omega^2$}
-\section{$dl^2\equiv\frac{dr^2}{1+r^2}+r^2\,d\Omega^2$}
-\section{$dl^2\equiv d\chi^2+\sinh^2 \chi\,d\Omega^2$}
+\section{Metric: $dl^2\equiv\frac{dr^2}{1-r^2}+r^2\,d\Omega^2$}
+We will use the following well known result.
+\begin{lemma}\label{lemma:geodesic}
+	The following to methods of defining a geodesic are equivalent.
+	\begin{align*}
+	\ddot{z}_i + \Gamma^i_{jk}\dot{z}_j \dot{z}_k =& 0 \\
+	\frac{\partial}{\partial \tau}\Big(\frac{\partial L}{\partial \dot{z}^i}\Big)-\frac{\partial L}{\partial z^i}=&0.
+	\end{align*}
+	where the metric is defined by $ds^2\equiv L(\vec{z}) d\tau^2$ 
+\end{lemma}
+We can save some effort if we combine this metric with that of Section \ref{section:metric3} by writing:
+\begin{align*}
+L=&(1+\alpha r^2)^{-1}\dot{r}^2 + r^2(\dot\theta^2 + \sin^2 \theta \dot \phi^2)\text{, where $\alpha=\pm 1$}\\
+\frac{\partial}{\partial \tau}\Big(\frac{\partial L}{\partial \dot{r}}\Big)=&\frac{\partial}{\partial \tau}\Big(2(1+\alpha r^2)^{-1}\dot r\Big)\\
+=& \Big(2(1+\alpha r^2)^{-1}\ddot r\Big)-4 \alpha r (1+\alpha r^2)^{-2}\dot{r}^2\\
+\frac{\partial L}{\partial r}=&2r\big(\dot{\theta}^2 + \sin^2 \theta \dot \phi ^2\big)\\
+0=&\frac{\partial}{\partial \tau}\Big(\frac{\partial L}{\partial \dot{z}^i}\Big)-\frac{\partial L}{\partial z^i}\\
+\iff&\\
+0=&	\Big(2(1+\alpha r^2)^{-1}\ddot r\Big)-4 \alpha r (1+\alpha r^2)^{-2}\dot{r}^2-2r\big(\dot{\theta}^2 + \sin^2 \theta \dot \phi ^2\big)\\
+\iff&\\
+0=&\ddot r-2 \alpha r (1+\alpha r^2)^{-1}\dot{r}^2-r(1+\alpha r^2)\big(\dot{\theta}^2 + \sin^2 \theta \dot \phi ^2\big)
+\end{align*}
+We can use Lemma \ref{lemma:geodesic} to read off the $\Gamma^r_{ij}$
+\begin{align*}
+\Gamma^r_{rr}=&-2 \alpha r (1+\alpha r^2)^{-1}\\
+\Gamma^r_{\theta\theta}=&r(1+\alpha r^2)\\
+\Gamma^r_{\phi\phi}=&r(1+\alpha r^2)\sin^2 \theta\\
+\Gamma^r_{ij}=& 0\text{, for all other $ij$}
+\end{align*}
+\section{Metric: $dl^2\equiv d\chi^2+\sin^2 \chi\,d\Omega^2$}
+\section{Metric: $dl^2\equiv\frac{dr^2}{1+r^2}+r^2\,d\Omega^2$}  \label{section:metric3}
+\section{Metric: $dl^2\equiv d\chi^2+\sinh^2 \chi\,d\Omega^2$}
 
 \end{document}
