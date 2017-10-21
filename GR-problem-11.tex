@@ -25,23 +25,23 @@ Show that they solve 3d Einstein equations in Euclidean signature $R_{ij}(\gamma
 
 \tableofcontents
 
-\section{Metric: $dl^2\equiv\frac{dr^2}{1-r^2}+r^2\,d\Omega^2$}
+\section{Metric: $dl^2\equiv\frac{dr^2}{1-r^2}+r^2\,d\Omega^2$} \label{section:metric1}
 We will use the following well known result.
 \begin{lemma}\label{lemma:geodesic}
 	The following to methods of defining a geodesic are equivalent.
 	\begin{align*}
 	\ddot{z}_i + \Gamma^i_{jk}\dot{z}_j \dot{z}_k =& 0 \\
-	\frac{\partial}{\partial \tau}\Big(\frac{\partial L}{\partial \dot{z}^i}\Big)-\frac{\partial L}{\partial z^i}=&0.
+	\frac{d}{d \tau}\Big(\frac{\partial L}{\partial \dot{z}^i}\Big)-\frac{\partial L}{\partial z^i}=&0.
 	\end{align*}
 	where the metric is defined by $ds^2\equiv L(\vec{z}) d\tau^2$ 
 \end{lemma}
 We can save some effort if we combine this metric with that of Section \ref{section:metric3} by writing:
 \begin{align*}
 L=&(1+\alpha r^2)^{-1}\dot{r}^2 + r^2(\dot\theta^2 + \sin^2 \theta \dot \phi^2)\text{, where $\alpha=\pm 1$} \numberthis \label{eq:lagrangian1}\\
-\frac{\partial}{\partial \tau}\Big(\frac{\partial L}{\partial \dot{r}}\Big)=&\frac{\partial}{\partial \tau}\Big(2(1+\alpha r^2)^{-1}\dot r\Big)\\
+\frac{d}{d \tau}\Big(\frac{\partial L}{\partial \dot{r}}\Big)=&\frac{d}{d \tau}\Big(2(1+\alpha r^2)^{-1}\dot r\Big)\\
 =& \Big(2(1+\alpha r^2)^{-1}\ddot r\Big)-4 \alpha r (1+\alpha r^2)^{-2}\dot{r}^2\\
 \frac{\partial L}{\partial r}=&2r\big(\dot{\theta}^2 + \sin^2 \theta \dot \phi ^2\big)\\
-0=&\frac{\partial}{\partial \tau}\Big(\frac{\partial L}{\partial \dot{r}}\Big)-\frac{\partial L}{\partial r}\\
+0=&\frac{d}{d \tau}\Big(\frac{\partial L}{\partial \dot{r}}\Big)-\frac{\partial L}{\partial r}\\
 \iff&\\
 0=&	\Big(2(1+\alpha r^2)^{-1}\ddot r\Big)-4 \alpha r (1+\alpha r^2)^{-2}\dot{r}^2-2r\big(\dot{\theta}^2 + \sin^2 \theta \dot \phi ^2\big)\\
 \iff&\\
@@ -56,9 +56,9 @@ We can use Lemma \ref{lemma:geodesic} to read off the $\Gamma^r_{ij}$
 \end{align*}
 Similarly
 \begin{align*}
-0=&\frac{\partial}{\partial \tau}\Big(\frac{\partial L}{\partial \dot{\theta}}\Big)-\frac{\partial L}{\partial \theta}\\
+0=&\frac{d}{d \tau}\Big(\frac{\partial L}{\partial \dot{\theta}}\Big)-\frac{\partial L}{\partial \theta}\\
 \iff&\\
-0=&\frac{\partial}{\partial \tau}\Big(2r^2 \dot {\theta} \Big) -2 r^2 \sin \theta\cos \theta \dot{\phi}^2\\
+0=&\frac{d}{d \tau}\Big(2r^2 \dot {\theta} \Big) -2 r^2 \sin \theta\cos \theta \dot{\phi}^2\\
 =&4 r \dot r  \dot{\theta}  + 2 r^2 \ddot \theta -2 r^2 \sin \theta\cos \theta \dot{\phi}^2\\
 =& 2r^2\Big(\ddot{\theta}+\frac{2}{r}\dot{\theta}\dot{r} -\sin \theta\cos \theta \dot{\phi}^2\Big)\text{, whence, from Lemma \ref{lemma:geodesic}}\\
 \Gamma^{\theta}_{r\theta}=&-\frac{1}{r}\\
@@ -69,9 +69,9 @@ Similarly
 
 and
 \begin{align*}
-0=&\,\frac{\partial}{\partial \tau}\Big(\frac{\partial L}{\partial \dot{\phi}}\Big)-\frac{\partial L}{\partial \phi}\\
+0=&\,\frac{d}{d \tau}\Big(\frac{\partial L}{\partial \dot{\phi}}\Big)-\frac{\partial L}{\partial \phi}\\
 \iff&\\
-0=&\frac{\partial}{\partial \tau}\Big( 2 r^2 sin^2\theta \dot{\phi}\Big) - 0\\
+0=&\frac{d}{d \tau}\Big( 2 r^2 sin^2\theta \dot{\phi}\Big) - 0\\
 =&4 r \sin^2 \theta \dot {r} \dot{\phi}+ 4 r^2 sin\theta cos\theta \dot{\theta} \dot{\phi}+2 r^2 sin^2\theta \ddot{\phi}\\
 =& 2 r^2 sin^2\theta \Big(\ddot{\phi} + \frac{2}{r}\dot{r}\dot{\phi} + 2 \cot\theta\dot{\theta}\dot{\phi}\Big)\text{, whence, from Lemma \ref{lemma:geodesic}}\\
 \Gamma^{\phi}_{r\phi}=&\frac{1}{r}\\
@@ -97,11 +97,51 @@ From \eqref{eq:lagrangian1}
 
 
 So, setting $\alpha=-1$
-\section{Metric: $dl^2\equiv d\chi^2+\sin^2 \chi\,d\Omega^2$}
+\section{Metric: $dl^2\equiv d\chi^2+\sin^2 \chi\,d\Omega^2$} \label{section:metric2}
+We will use the well known formula $\sinh(\chi)=-i \sin(i\chi)$, \cite{wiki:sinh}, to reduce the metrics of Sections \ref{section:metric2} and \ref{section:metric4} to a common form.
+\begin{align*}
+L=&\dot{\chi}^2 + \alpha \sin^2(\beta \chi)(\dot\theta^2 + \sin^2 \theta \dot \phi^2)\text{, where $\alpha=1,\beta=1$ or $\alpha=-1,\beta=i$} \numberthis \label{eq:lagrangian2}\\
+0=&\frac{d}{d \tau}\Big(\frac{\partial L}{\partial \dot{\chi}}\Big)-\frac{\partial L}{\partial \chi}\\
+=&\ddot{\chi}-2\alpha\beta \cos{\beta\chi}\sin{\beta\chi}(\dot\theta^2 + \sin^2 \theta \dot \phi^2)\text{, whence:}\\
+\Gamma^{\chi}_{\theta\theta}=&2\alpha\beta \cos{\beta\chi}\sin{\beta\chi}\\
+\Gamma^{\chi}_{\phi\phi}=&2\alpha\beta \cos{\beta\chi}\sin{\beta\chi}\sin^2 \theta\\
+\Gamma^{\chi}_{jk}=&0
+\end{align*}
+
+\begin{align*}
+0=&\frac{d}{d \tau}\Big(\frac{\partial L}{\partial \dot{\theta}}\Big)-\frac{\partial L}{\partial \theta}\\
+=&\frac{d}{d \tau}\big(2\alpha\sin^2{(\beta\chi)}\dot{\theta}\big)-2\alpha\sin^2{(\beta\chi)}\sin{(\theta)}\cos{(\theta)}\dot{\phi}^2\\
+=&2\alpha\big[\sin^2{(\beta\chi)}\ddot{\theta}+\beta\sin{(\beta\chi)}\cos{(\beta\chi)}\dot{\chi}\dot{\theta}-\sin^2{(\beta\chi)}\sin{(\theta)}\cos{(\theta)}\dot{\phi}^2\big]\\
+=&2\alpha\sin^2{(\beta\chi)}\big[\ddot{\theta}+\cot{(\beta\chi)}\dot{\chi}\dot{\theta}-\sin{(\theta)}\cos{(\theta)}\dot{\phi}^2\big]\text{, whence}\\
+\Gamma^{\theta}_{\chi\theta}=&\frac{1}{2}cot{(\beta\chi)}\\
+\Gamma^{\theta}_{\theta\chi}=&\frac{1}{2}cot{(\beta\chi)}\\
+\Gamma^{\theta}_{\phi\phi}=&-\sin{(\theta)}\cos{(\theta)}\\
+\Gamma^{\theta}_{ij}=&0\text{ otherwise}
+\end{align*}
+
+\begin{align*}
+0=&\frac{d}{d \tau}\Big(\frac{\partial L}{\partial \dot{\phi}}\Big)-\frac{\partial L}{\partial \phi}\\
+=&2\frac{d}{d \tau}\big(\alpha \sin^2(\beta \chi) \sin^2 \theta \dot \phi\big)\\
+=&2\big[\big(\alpha \sin^2(\beta \chi) \sin^2 \theta \ddot \phi\big) + \big(2 \alpha \beta \sin(\beta \chi) \cos(\beta \chi) \sin^2 \theta \dot{\chi}\dot \phi\big) + \big(2\alpha \sin^2(\beta \chi) \sin \theta \cos\theta \dot\theta \dot \phi\big)\big]\\
+=&2\alpha \sin^2(\beta \chi) \sin^2 \theta\big[\ddot{\phi}+2 \beta \cot{(\beta\chi)} \dot{\theta}\dot{\phi}+2\cot{\theta\dot\theta \dot \phi}\big]\text{, whence:}\\
+\Gamma^{\phi}_{\theta\chi}=&\beta\cot{(\beta\chi)}\\
+\Gamma^{\phi}_{\chi\theta}=&\beta\cot{(\beta\chi)}\\
+\Gamma^{\phi}_{\theta\phi}=&cot{(\theta)}\\
+\Gamma^{\phi}_{\theta\phi}=&cot{(\theta)}\\
+\Gamma^{\phi}_{ij}=&0\text{, otherwise}
+\end{align*}
+From \eqref{eq:lagrangian2}
+
+\begin{align*}
+|g|=\alpha^2sin^4{(\beta\chi)}sin^2{(\theta)}
+\end{align*}
+
+So setting $\alpha=1,\beta=1$ 
 \section{Metric: $dl^2\equiv\frac{dr^2}{1+r^2}+r^2\,d\Omega^2$}  \label{section:metric3}
 So, setting $\alpha=+1$
-\section{Metric: $dl^2\equiv d\chi^2+\sinh^2 \chi\,d\Omega^2$}
+\section{Metric: $dl^2\equiv d\chi^2+\sinh^2 \chi\,d\Omega^2$} \label{section:metric4}
 
+So, setting $\alpha=-1,\beta=i$
 \begin{thebibliography}{9}\label{section:biblio}
 	\raggedright
 	\bibitem{Akhmedov2017}
@@ -114,6 +154,11 @@ So, setting $\alpha=+1$
 	\emph{Introduction to General Relativity},
 	McGraw-Hill Book Company, New York,
 	1965.
+	\bibitem{wiki:sinh}
+	Wikipedia contributors
+	\emph{Hyperbolic function. Wikipedia, The Free Encyclopedia. September 25, 2017, 01:29 UTC.}
+	 Available at: 
+	 \url{https://en.wikipedia.org/w/index.php?title=Hyperbolic_function&oldid=802265878}. Accessed October 21, 2017
 \end{thebibliography}
 
 \end{document}
