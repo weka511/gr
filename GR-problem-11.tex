@@ -1,6 +1,8 @@
 \documentclass[]{article}
-\usepackage{amsmath,amsthm,esvect,amssymb}
+\usepackage{amsmath,amsthm,esvect,amssymb,url}
+\usepackage[nottoc,numbib]{tocbibind}
 \newtheorem{lemma}{Lemma}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 %opening
 \title{Introduction into General Relativity\\Assignment 11\\Friedman-Robertson-Walker cosmology}
 \author{Simon Crase}
@@ -10,7 +12,7 @@
 \maketitle
 
 \begin{abstract}
-Calculate the Ricci tensor for the following Euclidian metrics:
+Calculate the Ricci tensor for the following Euclidean metrics:
 \begin{align*}
 dl^2\equiv&\gamma_{ij}dx^idx^j=\frac{dr^2}{1-r^2}+r^2\,d\Omega^2\\
 dl^2\equiv&d\chi^2+\sin^2 \chi\,d\Omega^2\\
@@ -35,11 +37,11 @@ We will use the following well known result.
 \end{lemma}
 We can save some effort if we combine this metric with that of Section \ref{section:metric3} by writing:
 \begin{align*}
-L=&(1+\alpha r^2)^{-1}\dot{r}^2 + r^2(\dot\theta^2 + \sin^2 \theta \dot \phi^2)\text{, where $\alpha=\pm 1$}\\
+L=&(1+\alpha r^2)^{-1}\dot{r}^2 + r^2(\dot\theta^2 + \sin^2 \theta \dot \phi^2)\text{, where $\alpha=\pm 1$} \numberthis \label{eq:lagrangian1}\\
 \frac{\partial}{\partial \tau}\Big(\frac{\partial L}{\partial \dot{r}}\Big)=&\frac{\partial}{\partial \tau}\Big(2(1+\alpha r^2)^{-1}\dot r\Big)\\
 =& \Big(2(1+\alpha r^2)^{-1}\ddot r\Big)-4 \alpha r (1+\alpha r^2)^{-2}\dot{r}^2\\
 \frac{\partial L}{\partial r}=&2r\big(\dot{\theta}^2 + \sin^2 \theta \dot \phi ^2\big)\\
-0=&\frac{\partial}{\partial \tau}\Big(\frac{\partial L}{\partial \dot{z}^i}\Big)-\frac{\partial L}{\partial z^i}\\
+0=&\frac{\partial}{\partial \tau}\Big(\frac{\partial L}{\partial \dot{r}}\Big)-\frac{\partial L}{\partial r}\\
 \iff&\\
 0=&	\Big(2(1+\alpha r^2)^{-1}\ddot r\Big)-4 \alpha r (1+\alpha r^2)^{-2}\dot{r}^2-2r\big(\dot{\theta}^2 + \sin^2 \theta \dot \phi ^2\big)\\
 \iff&\\
@@ -50,10 +52,68 @@ We can use Lemma \ref{lemma:geodesic} to read off the $\Gamma^r_{ij}$
 \Gamma^r_{rr}=&-2 \alpha r (1+\alpha r^2)^{-1}\\
 \Gamma^r_{\theta\theta}=&r(1+\alpha r^2)\\
 \Gamma^r_{\phi\phi}=&r(1+\alpha r^2)\sin^2 \theta\\
-\Gamma^r_{ij}=& 0\text{, for all other $ij$}
+\Gamma^r_{ij}=& 0\text{, for $i\ne j$}
 \end{align*}
+Similarly
+\begin{align*}
+0=&\frac{\partial}{\partial \tau}\Big(\frac{\partial L}{\partial \dot{\theta}}\Big)-\frac{\partial L}{\partial \theta}\\
+\iff&\\
+0=&\frac{\partial}{\partial \tau}\Big(2r^2 \dot {\theta} \Big) -2 r^2 \sin \theta\cos \theta \dot{\phi}^2\\
+=&4 r \dot r  \dot{\theta}  + 2 r^2 \ddot \theta -2 r^2 \sin \theta\cos \theta \dot{\phi}^2\\
+=& 2r^2\Big(\ddot{\theta}+\frac{2}{r}\dot{\theta}\dot{r} -\sin \theta\cos \theta \dot{\phi}^2\Big)\text{, whence, from Lemma \ref{lemma:geodesic}}\\
+\Gamma^{\theta}_{r\theta}=&-\frac{1}{r}\\
+\Gamma^{\theta}_{\theta r}=&-\frac{1}{r}\\
+\Gamma^{\theta}_{\phi\phi}=&\sin \theta \cos \theta\\
+\Gamma^{\theta}_{ij}=&0 \text{ otherwise.}
+\end{align*}
+
+and
+\begin{align*}
+0=&\,\frac{\partial}{\partial \tau}\Big(\frac{\partial L}{\partial \dot{\phi}}\Big)-\frac{\partial L}{\partial \phi}\\
+\iff&\\
+0=&\frac{\partial}{\partial \tau}\Big( 2 r^2 sin^2\theta \dot{\phi}\Big) - 0\\
+=&4 r \sin^2 \theta \dot {r} \dot{\phi}+ 4 r^2 sin\theta cos\theta \dot{\theta} \dot{\phi}+2 r^2 sin^2\theta \ddot{\phi}\\
+=& 2 r^2 sin^2\theta \Big(\ddot{\phi} + \frac{2}{r}\dot{r}\dot{\phi} + 2 \cot\theta\dot{\theta}\dot{\phi}\Big)\text{, whence, from Lemma \ref{lemma:geodesic}}\\
+\Gamma^{\phi}_{r\phi}=&\frac{1}{r}\\
+\Gamma^{\phi}_{\phi r}=&\frac{1}{r}\\
+\Gamma^{\phi}_{\theta\phi}=&\cot\theta\\
+\Gamma^{\phi}_{\phi\theta}=&\cot\theta\\
+\Gamma^{\phi}_{ij}=&0 \text{, otherwise.}
+\end{align*}
+
+Now the Ricci Tensor is given in \cite[II, (58) and (56)]{Akhmedov2017} to be:
+\begin{align*}
+R_{jl}\equiv&\, R^i_{\,jil}\text{, where}\\
+R^i_{\,jkl}\equiv&\,\partial_k\Gamma^i_{jl}-\partial_l\Gamma^i_{jk}+\Gamma^i_{mk} \Gamma^m_{jl} - \Gamma^i_{ml} \Gamma^m_{jk}\text{, whence}\\
+R_{jl}=&\,\partial_i\Gamma^i_{jl}-\partial_l\Gamma^i_{ji}+\Gamma^k_{mk} \Gamma^m_{jl} - \Gamma^k_{ml} \Gamma^m_{jk}\\
+=&\,\partial_i\Gamma^i_{jl}-\frac{1}{2|g|}\big(\partial_l \, |g|\big)+\frac{1}{2|g|}\big(\partial_m \, |g|\big) \Gamma^m_{jl} - \Gamma^k_{ml} \Gamma^m_{jk}\text{since $\Gamma^{\alpha}_{\rho\alpha}=\frac{1}{2|g|}\big(\partial_\rho \, |g|\big)$ \cite{abs1965}.}
+\end{align*}
+From \eqref{eq:lagrangian1}
+\begin{align*}
+|g|=\frac{r^4\sin^2 \theta}{1+\alpha r^2}
+\end{align*}
+
+
+
+
+So, setting $\alpha=-1$
 \section{Metric: $dl^2\equiv d\chi^2+\sin^2 \chi\,d\Omega^2$}
 \section{Metric: $dl^2\equiv\frac{dr^2}{1+r^2}+r^2\,d\Omega^2$}  \label{section:metric3}
+So, setting $\alpha=+1$
 \section{Metric: $dl^2\equiv d\chi^2+\sinh^2 \chi\,d\Omega^2$}
+
+\begin{thebibliography}{9}\label{section:biblio}
+	\raggedright
+	\bibitem{Akhmedov2017}
+	Emil T. Akhmedov,
+	\emph{Lectures on General Theory of Relativity},
+	arXiv:1601.04996,
+	\url{https://arxiv.org/abs/1601.04996}
+	\bibitem{abs1965}
+	Ronald Adler, Maurice Bazin, \& Menahem Schiffer,
+	\emph{Introduction to General Relativity},
+	McGraw-Hill Book Company, New York,
+	1965.
+\end{thebibliography}
 
 \end{document}
