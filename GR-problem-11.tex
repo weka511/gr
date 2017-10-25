@@ -1,8 +1,9 @@
 \documentclass[]{article}
-\usepackage{amsmath,amsthm,esvect,amssymb,url,empheq}
+\usepackage{amsmath,amsthm,esvect,amssymb,url,empheq,tensor}
 \usepackage[nottoc,numbib]{tocbibind}
 \newtheorem{lemma}{Lemma}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+
 %opening
 \title{Introduction into General Relativity\\Assignment 11\\Friedman-Robertson-Walker cosmology}
 \author{Simon Crase}
@@ -105,39 +106,37 @@ and
 Now the Ricci Tensor is given in \cite[II, (58) and (56)]{Akhmedov2017} to be:
 \begin{align*}
 R_{jl}\equiv&\, R^i_{\,jil}\text{, where}\\
-R^i_{\,jkl}\equiv&\,\partial_k\Gamma^i_{jl}-\partial_l\Gamma^i_{jk}+\Gamma^i_{mk} \Gamma^m_{jl} - \Gamma^i_{ml} \Gamma^m_{jk}\text{, whence}\\
-R_{jl}=&\,\partial_i\Gamma^i_{jl}-\partial_l\Gamma^i_{ji}+\Gamma^k_{mk} \Gamma^m_{jl} - \Gamma^k_{ml} \Gamma^m_{jk}\\
-=&\,\partial_i\Gamma^i_{jl}-\frac{1}{2|g|}\big(\partial_l \, |g|\big)+\frac{1}{2|g|}\big(\partial_m \, |g|\big) \Gamma^m_{jl} - \Gamma^k_{ml} \Gamma^m_{jk}\text{since $\Gamma^{\alpha}_{\rho\alpha}=\frac{1}{2|g|}\big(\partial_\rho \, |g|\big)$ \cite{abs1965}.}
+R^i_{\,jkl}\equiv&\,\partial_k\Gamma^i_{jl}-\partial_l\Gamma^i_{jk}+\Gamma^i_{mk} \Gamma^m_{jl} - \Gamma^i_{ml} \Gamma^m_{jk}
 \end{align*}
 
-We suspend the summation convention.
+To avoid confusion with indices, we suspend the summation convention until the end of this section.
 \begin{align*}
 R_{rr}=&\underbrace{R^r_{\,rrr}}_\text{$=0$ from \eqref{eq:as1}}+R^{\theta}_{\,r\theta r}+R^{\,\phi}_{r\phi r}\\
 R^{\theta}_{\,r\theta r}=&\underbrace{\partial_{\theta}\Gamma^{\theta}_{rr}}_\text{$=0$ from \eqref{eq:1-gamma-theta}}-\overbrace{\partial_r\Gamma^{\theta}_{r\theta}}^\text{$\frac{-1}{r^2}$, from \eqref{eq:1-gamma-theta}}+\underbrace{\sum_m\Gamma^{\theta}_{m\theta}\Gamma^{m}_{rr}}_\text{$-2 \alpha (1+\alpha r^2)^{-1}$, from \eqref{eq:1-gamma-r} and \eqref{eq:1-gamma-theta}}-\overbrace{\sum_m\Gamma^{\theta}_{mr}\Gamma^m_{r\theta}}^\text{$\frac{1}{r^2}$}\\
 =&-2 \alpha (1+\alpha r^2)^{-1}\\
 R^{\,\phi}_{r\phi r}=&\underbrace{\partial_{\phi}\Gamma^{\phi}_{rr}}_\text{$=0$, from \eqref{eq:1-gamma-phi}}-\overbrace{\partial_r\Gamma^{\phi}_{r\phi}}^\text{$\frac{-1}{r^2}$, from \eqref{eq:1-gamma-phi}}+\underbrace{\sum_m\Gamma^{\phi}_{m\phi}\Gamma^{m}_{rr}}_\text{$-2 \alpha (1+\alpha r^2)^{-1}$, from \eqref{eq:1-gamma-r} and \eqref{eq:1-gamma-phi}}-\overbrace{\sum_m\Gamma^{\phi}_{mr}\Gamma^m_{r\phi}}^\text{$\frac{1}{r^2}$}\text{, whence:}\\
-R_{rr}=&-4 \alpha (1+\alpha r^2)^{-1}
+R_{rr}=&-4 \alpha (1+\alpha r^2)^{-1}\numberthis\label{eq:R-r-r}
 \end{align*}
 
-
-
-
-
-
-
-
-
-
-From \eqref{eq:lagrangian1}
 \begin{align*}
-|g|=\frac{r^4\sin^2 \theta}{1+\alpha r^2}
+R_{\theta\theta}=&R\indices{^r_{\theta r\theta}}+\underbrace{R\indices{^{\theta}_{\theta\theta\theta}}}_{=0}+R\indices{^{\phi}_{\theta\phi\theta}}\\
+R\indices{^r_{\theta r\theta}}=&\underbrace{\partial_r\Gamma^r_{\theta\theta}}_{=-(1+\alpha r^2)-2ar^2}-\overbrace{\partial_\theta\Gamma^r_{\theta r}}^{=0}+\underbrace{\Gamma^r_{mr}\Gamma^m_{\theta\theta}}_{=\frac{-2\alpha r}{1+2\alpha r^2}(-r)(1+ar^2)}-\overbrace{\Gamma^r_{m\theta}\Gamma^m_{\theta r}}^{=-r(1+\alpha r^2)\frac{1}{r}}\\
+=&-(1+\alpha r^2)-2\alpha r^2 + 2\alpha r^2-(1+\alpha r^2)\\
+=&0\\
+R\indices{^{\phi}_{\theta\phi\theta}}=&\underbrace{\partial_{\phi}\Gamma^{\phi}_{\theta\theta}}_{=0}-\overbrace{\partial_{\theta}\Gamma^{\phi}_{\theta\phi}}_{\partial_{\theta}\cot\theta}+\underbrace{\sum_m\Gamma^{\phi}_{m\phi}\Gamma^m_{\theta\theta}}_{-\frac{1}{r}r(1+\alpha r^2)}-\overbrace{\sum_m\Gamma^{\phi}_{m\theta}\Gamma^{m}_{\theta\phi}}^{=\cot^2\theta}\\
+=&1+\cot^2\theta-(1+\alpha r^2)-\cot^2\theta\\
+=&-ar^2\\
+R_{\theta\theta} = -\alpha r&^2\numberthis\label{eq:R-theta-theta}
 \end{align*}
-
-
 
 
 
 So, setting $\alpha=-1$
+\begin{empheq}[left=\empheqlbrace]{align*}
+R_{rr}=&-4  (1-r^2)^{-1}\\
+R_{\theta\theta} =& r&^2
+\end{empheq}
+
 \section{Metric: $dl^2\equiv d\chi^2+\sin^2 \chi\,d\Omega^2$} \label{section:metric2}
 We will use the well known formula $\sinh(\chi)=-i \sin(i\chi)$, \cite{wiki:sinh}, to reduce the metrics of Sections \ref{section:metric2} and \ref{section:metric4} to a common form.
 \begin{align*}
@@ -178,8 +177,15 @@ From \eqref{eq:lagrangian2}
 \end{align*}
 
 So setting $\alpha=1,\beta=1$ 
+
+
 \section{Metric: $dl^2\equiv\frac{dr^2}{1+r^2}+r^2\,d\Omega^2$}  \label{section:metric3}
-So, setting $\alpha=+1$
+So, setting $\alpha=+1$ in \eqref{eq:R-r-r}, \eqref{eq:R-theta-theta}
+\begin{empheq}[left=\empheqlbrace]{align*}
+R_{rr}=&4  (1+r^2)^{-1}\\
+R_{\theta\theta} =& - r^2
+\end{empheq}
+
 \section{Metric: $dl^2\equiv d\chi^2+\sinh^2 \chi\,d\Omega^2$} \label{section:metric4}
 
 So, setting $\alpha=-1,\beta=i$
