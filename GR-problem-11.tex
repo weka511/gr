@@ -1,5 +1,5 @@
 \documentclass[]{article}
-\usepackage{amsmath,amsthm,esvect,amssymb,url,empheq,tensor}
+\usepackage{amsmath,amsthm,esvect,amssymb,url,empheq,tensor,cancel}
 \usepackage[nottoc,numbib]{tocbibind}
 \newtheorem{lemma}{Lemma}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
@@ -132,7 +132,13 @@ R_{\theta\theta} = -\alpha r&^2\numberthis\label{eq:R-theta-theta}
 \end{align*}
 
 \begin{align*}
-R_{\phi\phi}
+R_{\phi\phi}=& R^r_{\phi r \phi} + R^{\theta}_{\phi\theta\phi}+\underbrace{R^{\phi}_{\phi\phi\phi}}_{=0}\\
+R^r_{\phi r \phi}=&\partial_r \Gamma^r_{\phi\phi}-\partial_{\phi}\Gamma^{\phi}_{\phi r} +\sum_m\Gamma^r_{mr}\Gamma^m_{\phi\phi}-\sum_m\Gamma^r_{m\phi}\Gamma^m_{\phi r}\\
+=&-(1+\alpha r^2)sin^2 \theta-2\alpha r^2 \sin^2 \theta-0+2\alpha r \cancel{(1+\alpha r^2)}^{-1}r\cancel{(1+\alpha r^2)} sin^2\theta + \cancel{r}(1+\alpha r^2) sin^2\theta\frac{1}{\cancel{r}}\\
+=&0\\
+R^{\theta}_{\phi\theta\phi}=&\underbrace{\partial_\theta\Gamma^{\theta}_{\phi\phi}}_{=0}-\underbrace{\partial_{\phi}\Gamma^{\theta}_{\phi\theta}}_{=0} + \underbrace{\sum_m\Gamma^{\theta}_{m\theta}\Gamma^m_{\phi\phi}}_{m=r}-\underbrace{\sum_m\Gamma^{\theta}_{m\phi}\Gamma^m_{\phi\theta}}_{m=\phi}\\
+=&-\frac{1}{\cancel{r}}\cancel{r}(1+\alpha r^2)\sin^2\theta-0\\
+R_{\phi\phi}=& -(1+\alpha r^2)\sin^2\theta \numberthis\label{eq:R-phi-phi}
 \end{align*}
 
 \begin{align*}
@@ -152,7 +158,7 @@ So, setting $\alpha=-1$
 \begin{empheq}[left=\empheqlbrace]{align*}
 R_{rr}=&-4  (1-r^2)^{-1}\numberthis\label{eq:ricci-1}\\
 R_{\theta\theta} =& r^2\\
-R_{\phi\phi} =&\\
+R_{\phi\phi} =& -(1- r^2)\sin^2\theta\\
 R_{\theta\phi}=&R_{\phi\theta}=0\\
 R_{\phi r}=&R_{r\phi}=0\\
 R_{r\theta}=&R_{\theta r}=0
