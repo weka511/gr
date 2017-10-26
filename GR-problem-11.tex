@@ -110,7 +110,7 @@ R_{jl}\equiv&\, R^i_{\,jil}\text{, where}\\
 R^i_{\,jkl}\equiv&\,\partial_k\Gamma^i_{jl}-\partial_l\Gamma^i_{jk}+\Gamma^i_{mk} \Gamma^m_{jl} - \Gamma^i_{ml} \Gamma^m_{jk}
 \end{align*}
 
-\subsection{Ricci Tensor}
+\subsection{Ricci Tensor}\label{section:ricci-1}
 To avoid confusion with indices, we suspend the summation convention until the end of this section.
 \begin{align*}
 R_{rr}=&\underbrace{R^r_{\,rrr}}_\text{$=0$ from \eqref{eq:as1}}+R^{\theta}_{\,r\theta r}+R^{\,\phi}_{r\phi r}\\
@@ -133,12 +133,12 @@ R_{\theta\theta} = -\alpha r&^2\numberthis\label{eq:R-theta-theta}
 
 \begin{align*}
 R_{\phi\phi}=& R^r_{\phi r \phi} + R^{\theta}_{\phi\theta\phi}+\underbrace{R^{\phi}_{\phi\phi\phi}}_{=0}\\
-R^r_{\phi r \phi}=&\partial_r \Gamma^r_{\phi\phi}-\partial_{\phi}\Gamma^{\phi}_{\phi r} +\sum_m\Gamma^r_{mr}\Gamma^m_{\phi\phi}-\sum_m\Gamma^r_{m\phi}\Gamma^m_{\phi r}\\
-=&-(1+\alpha r^2)sin^2 \theta-2\alpha r^2 \sin^2 \theta-0+2\alpha r \cancel{(1+\alpha r^2)}^{-1}r\cancel{(1+\alpha r^2)} sin^2\theta + \cancel{r}(1+\alpha r^2) sin^2\theta\frac{1}{\cancel{r}}\\
+R^r_{\phi r \phi}=&\underbrace{\partial_r \Gamma^r_{\phi\phi}}_{-(1+\alpha r^2)sin^2 \theta-2\alpha r^2 \sin^2 \theta}-\overbrace{\partial_{\phi}\Gamma^{r}_{\phi r}}^{0} +\underbrace{\sum_m\Gamma^r_{mr}\Gamma^m_{\phi\phi}}_{2ar\cancel{(1+\alpha r^2)}^{-1}r\cancel{(1+\alpha r^2)}\sin^2 \theta}-\overbrace{\sum_m\Gamma^r_{m\phi}\Gamma^m_{\phi r}}^{-\cancel{r}(1+\alpha r^2)\sin^2\theta\frac{1}{\cancel{r}}}\\
+=&-(1+\alpha r^2)sin^2 \theta-2\alpha r^2 \sin^2 \theta+2\alpha r^2 sin^2\theta + (1+\alpha r^2) sin^2\theta\\
 =&0\\
-R^{\theta}_{\phi\theta\phi}=&\underbrace{\partial_\theta\Gamma^{\theta}_{\phi\phi}}_{=0}-\underbrace{\partial_{\phi}\Gamma^{\theta}_{\phi\theta}}_{=0} + \underbrace{\sum_m\Gamma^{\theta}_{m\theta}\Gamma^m_{\phi\phi}}_{m=r}-\underbrace{\sum_m\Gamma^{\theta}_{m\phi}\Gamma^m_{\phi\theta}}_{m=\phi}\\
-=&-\frac{1}{\cancel{r}}\cancel{r}(1+\alpha r^2)\sin^2\theta-0\\
-R_{\phi\phi}=& -(1+\alpha r^2)\sin^2\theta \numberthis\label{eq:R-phi-phi}
+R^{\theta}_{\phi\theta\phi}=&\underbrace{\partial_\theta\Gamma^{\theta}_{\phi\phi}}_{=-\cos^2\theta+\sin^2\theta}-\underbrace{\partial_{\phi}\Gamma^{\theta}_{\phi\theta}}_{=0} + \underbrace{\sum_m\Gamma^{\theta}_{m\theta}\Gamma^m_{\phi\phi}}_{\{m=r\}: -\frac{1}{\cancel{r}}\cancel{r}(1+\alpha r^2)\sin^2\theta}-\underbrace{\sum_m\Gamma^{\theta}_{m\phi}\Gamma^m_{\phi\theta}}_{\{m=\phi\}:-\sin\theta\cos\theta\cot\theta}\\
+=&\cancel{-\cos^2\theta}+\cancel{\sin^2\theta}-(\cancel{1}+\alpha r^2)\sin^2\theta+\cancel{cos^2\theta}\\
+R_{\phi\phi}=& -\alpha r^2 \sin^2\theta \numberthis\label{eq:R-phi-phi}
 \end{align*}
 
 \begin{align*}
@@ -158,7 +158,7 @@ So, setting $\alpha=-1$
 \begin{empheq}[left=\empheqlbrace]{align*}
 R_{rr}=&-4  (1-r^2)^{-1}\numberthis\label{eq:ricci-1}\\
 R_{\theta\theta} =& r^2\\
-R_{\phi\phi} =& -(1- r^2)\sin^2\theta\\
+R_{\phi\phi} =&  r^2 \sin^2\theta\\
 R_{\theta\phi}=&R_{\phi\theta}=0\\
 R_{\phi r}=&R_{r\phi}=0\\
 R_{r\theta}=&R_{\theta r}=0
@@ -215,12 +215,33 @@ From \eqref{eq:lagrangian2}
 
 So setting $\alpha=1,\beta=1$ 
 
+\subsection{Ricci Tensor}
+
+Rather than repeating the laborious calculation of \ref{section:ricci-1}, we exploit the Ricci Tensors transformation properties. Writing $r=\sin \chi$,
+\begin{align*}
+\frac{dr^2}{1-r^2}+r^2\,d\Omega^2=&\frac{\cos^2 \chi (d \chi)^2}{1-\sin^2 \chi}+\sin^2 \chi\,\Omega^2\\
+=&\frac{\cos^2 \chi (d \chi)^2}{\cos^2 \chi}+\sin^2 \chi\,\Omega^2\\
+=&d\chi^2 + \sin^2 \chi d\Omega^2
+\end{align*}
+
+So the metric Section \ref{section:metric1} becomes that of Section \ref{section:metric3} under the transformation $r=\sin \chi$.
+
+\begin{align*}
+	R^\prime_{i^\prime j^\prime}=&\frac{\partial x^i}{\partial x^{i^\prime}}\frac{\partial x^j}{\partial x^{j^\prime}}R_{ij}\\
+	R^\prime_{\chi\chi} =& R_{rr}(1-r^2)\\
+	R^\prime_{i\chi} =& R_{ir} \sqrt{(1-r^2)}\text{, for $i=\theta,\phi$}\\
+	R^\prime_{ij} =& R{ij} \text{, for $i,j=\theta,\phi$}
+\end{align*} 
 
 \section{Metric: $dl^2\equiv\frac{dr^2}{1+r^2}+r^2\,d\Omega^2$}  \label{section:metric3}
-So, setting $\alpha=+1$ in \eqref{eq:R-r-r}, \eqref{eq:R-theta-theta}
+So, setting $\alpha=+1$ in \eqref{eq:R-r-r}, \eqref{eq:R-theta-theta}, and \eqref{eq:R-phi-phi}:
 \begin{empheq}[left=\empheqlbrace]{align*}
 R_{rr}=&4  (1+r^2)^{-1}\\
-R_{\theta\theta} =& - r^2
+R_{\theta\theta} =& - r^2\\
+R_{\phi\phi} =& - r^2 \sin^2 \theta\\
+R_{\theta\phi}=&R_{\phi\theta}=0\\
+R_{\phi r}=&R_{r\phi}=0\\
+R_{r\theta}=&R_{\theta r}=0
 \end{empheq}
 
 \section{Metric: $dl^2\equiv d\chi^2+\sinh^2 \chi\,d\Omega^2$} \label{section:metric4}
