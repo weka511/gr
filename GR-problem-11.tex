@@ -164,6 +164,20 @@ R_{\phi r}=&R_{r\phi}=0\\
 R_{r\theta}=&R_{\theta r}=0
 \end{empheq}
 
+The following lists the non-zero components of $\Gamma$: 
+\begin{align*}
+\Gamma^r_{rr}=&2  r (1- r^2)^{-1}\\
+\Gamma^r_{\theta\theta}=&-r(1- r^2)\\
+\Gamma^r_{\phi\phi}=&-r(1- r^2)\sin^2 \theta\\
+\Gamma^{\theta}_{r\theta}=&\frac{1}{r}\\
+\Gamma^{\theta}_{\theta r}=&\frac{1}{r}\\
+\Gamma^{\theta}_{\phi\phi}=&-\sin \theta \cos \theta\\
+\Gamma^{\phi}_{r\phi}=&\frac{1}{r}\\
+\Gamma^{\phi}_{\phi r}=&\frac{1}{r}\\
+\Gamma^{\phi}_{\theta\phi}=&\cot\theta\\
+\Gamma^{\phi}_{\phi\theta}=&\cot\theta\\
+\end{align*}
+
 \subsection{Einstein Equation}
 \begin{empheq}[left=\empheqlbrace]{align*}
 \gamma_{11}=&(1-r^2)^{-1}\\
@@ -171,10 +185,11 @@ R_{r\theta}=&R_{\theta r}=0
 \gamma_{33}=&r^2\sin^2\theta\\
 \gamma_{ij}=&0	
 \end{empheq}
-
+ A comparison with \eqref{eq:ricci-1} should give $R_{ij}=2 k \gamma_{ij}$, \emph{but this isn't the case!}
+ 
 \section{Metric: $dl^2\equiv d\chi^2+\sin^2 \chi\,d\Omega^2$} \label{section:metric2}
 We will use the well known formula $\sinh(\chi)=-i \sin(i\chi)$, \cite{wiki:sinh}, to reduce the metrics of Sections \ref{section:metric2} and \ref{section:metric4} to a common form.
-\subsection{Christoffel Symbols}
+\subsection{Christoffel Symbols} \label{section:christoffel2}
 
 \begin{align*}
 L=&\dot{\chi}^2 + \alpha \sin^2(\beta \chi)(\dot\theta^2 + \sin^2 \theta \dot \phi^2)\text{, where $\alpha=1,\beta=1$ or $\alpha=-1,\beta=i$} \numberthis \label{eq:lagrangian2}\\
@@ -185,17 +200,19 @@ L=&\dot{\chi}^2 + \alpha \sin^2(\beta \chi)(\dot\theta^2 + \sin^2 \theta \dot \p
 \Gamma^{\chi}_{jk}=&0
 \end{align*}
 
+From \eqref{eq:lagrangian2}:
 \begin{align*}
 0=&\frac{d}{d \tau}\Big(\frac{\partial L}{\partial \dot{\theta}}\Big)-\frac{\partial L}{\partial \theta}\\
 =&\frac{d}{d \tau}\big(2\alpha\sin^2{(\beta\chi)}\dot{\theta}\big)-2\alpha\sin^2{(\beta\chi)}\sin{(\theta)}\cos{(\theta)}\dot{\phi}^2\\
 =&2\alpha\big[\sin^2{(\beta\chi)}\ddot{\theta}+2\beta\sin{(\beta\chi)}\cos{(\beta\chi)}\dot{\chi}\dot{\theta}-\sin^2{(\beta\chi)}\sin{(\theta)}\cos{(\theta)}\dot{\phi}^2\big]\\
-=&2\alpha\sin^2{(\beta\chi)}\big[\ddot{\theta}+2\cot{(\beta\chi)}\dot{\chi}\dot{\theta}-\sin{(\theta)}\cos{(\theta)}\dot{\phi}^2\big]\text{, whence from Lemma \ref{lemma:geodesic}:}\\
-\Gamma^{\theta}_{\chi\theta}=&cot{(\beta\chi)}\\
-\Gamma^{\theta}_{\theta\chi}=&cot{(\beta\chi)}\\
+=&2\alpha\sin^2{(\beta\chi)}\big[\ddot{\theta}+2\beta \cot{(\beta\chi)}\dot{\chi}\dot{\theta}-\sin{(\theta)}\cos{(\theta)}\dot{\phi}^2\big]\text{, whence from Lemma \ref{lemma:geodesic}:}\\
+\Gamma^{\theta}_{\chi\theta}=&\beta\cot{(\beta\chi)}\\
+\Gamma^{\theta}_{\theta\chi}=&\beta cot{(\beta\chi)}\\
 \Gamma^{\theta}_{\phi\phi}=&-\sin{(\theta)}\cos{(\theta)}\\
 \Gamma^{\theta}_{ij}=&0\text{ otherwise}
 \end{align*}
 
+From \eqref{eq:lagrangian2}
 \begin{align*}
 0=&\frac{d}{d \tau}\Big(\frac{\partial L}{\partial \dot{\phi}}\Big)-\frac{\partial L}{\partial \phi}\\
 =&2\frac{d}{d \tau}\big(\alpha \sin^2(\beta \chi) \sin^2 \theta\, \dot \phi\big)\\
@@ -207,17 +224,27 @@ L=&\dot{\chi}^2 + \alpha \sin^2(\beta \chi)(\dot\theta^2 + \sin^2 \theta \dot \p
 \Gamma^{\phi}_{\theta\phi}=&cot{(\theta)}\\
 \Gamma^{\phi}_{ij}=&0\text{, otherwise}
 \end{align*}
-From \eqref{eq:lagrangian2}
+
+
+So setting $\alpha=1,\beta=1$, the non-zero Christoffel symbols are the following: 
 
 \begin{align*}
-|g|=\alpha^2sin^4{(\beta\chi)}sin^2{(\theta)}
+\Gamma^{\chi}_{\theta\theta}=&-2 \cos{(\chi)}\sin{(\chi)}\\
+\Gamma^{\chi}_{\phi\phi}=&-2 \cos{(\chi)}\sin{(\chi)}\sin^2 \theta\\
+\Gamma^{\theta}_{\chi\theta}=&\cot{(\chi)}\\
+\Gamma^{\theta}_{\theta\chi}=&\cot{(\chi)}\\
+\Gamma^{\theta}_{\phi\phi}=&-\sin{(\theta)}\cos{(\theta)}\\
+\Gamma^{\phi}_{\theta\chi}=&\cot{(\chi)}\\
+\Gamma^{\phi}_{\chi\theta}=&\cot{(\chi)}\\
+\Gamma^{\phi}_{\theta\phi}=&cot{(\theta)}\\
+\Gamma^{\phi}_{\theta\phi}=&cot{(\theta)}
 \end{align*}
 
-So setting $\alpha=1,\beta=1$ 
 
-\subsection{Ricci Tensor}
 
-Rather than repeating the laborious calculation of \ref{section:ricci-1}, we exploit the Ricci Tensors transformation properties. Writing $r=\sin \chi$,
+\subsection{Ricci Tensor}\label{Ricci-Tensor-3}
+
+Rather than repeating the laborious calculation of Section \ref{section:ricci-1}, we exploit the Ricci Tensor's transformation properties. Writing $r=\sin \chi$,
 \begin{align*}
 \frac{dr^2}{1-r^2}+r^2\,d\Omega^2=&\frac{\cos^2 \chi (d \chi)^2}{1-\sin^2 \chi}+\sin^2 \chi\,\Omega^2\\
 =&\frac{\cos^2 \chi (d \chi)^2}{\cos^2 \chi}+\sin^2 \chi\,\Omega^2\\
@@ -233,8 +260,29 @@ So the metric Section \ref{section:metric1} becomes that of Section \ref{section
 	R^\prime_{ij} =& R{ij} \text{, for $i,j=\theta,\phi$}
 \end{align*} 
 
+So, dropping the primes:
+\begin{align*}
+R_{\chi\chi}=&-4  \\
+R_{\theta\theta} =& \sin\chi^2\\
+R_{\phi\phi} =&  \sin\chi^2 \sin^2\theta\\
+R_{\theta\phi}=&R_{\phi\theta}=0\\
+R_{\phi r}=&R_{r\phi}=0\\
+R_{r\theta}=&R_{\theta r}=0
+\end{align*}
+
+\subsection{Einstein Equation}
+\begin{empheq}[left=\empheqlbrace]{align*}
+\gamma_{11}=&1\\
+\gamma_{22}=&\sin\chi^2\\
+\gamma_{33}=&\sin\chi^2\sin^2\theta\\
+\gamma_{ij}=&0	
+\end{empheq}
+A comparison with \eqref{eq:ricci-1} should give $R_{ij}=2 k \gamma_{ij}$, \emph{but this isn't the case!}
+
 \section{Metric: $dl^2\equiv\frac{dr^2}{1+r^2}+r^2\,d\Omega^2$}  \label{section:metric3}
-So, setting $\alpha=+1$ in \eqref{eq:R-r-r}, \eqref{eq:R-theta-theta}, and \eqref{eq:R-phi-phi}:
+
+\subsection{Ricci Tensor and Christoffel Symbols}
+Setting $\alpha=+1$ in \eqref{eq:R-r-r}, \eqref{eq:R-theta-theta}, and \eqref{eq:R-phi-phi}:
 \begin{empheq}[left=\empheqlbrace]{align*}
 R_{rr}=&4  (1+r^2)^{-1}\\
 R_{\theta\theta} =& - r^2\\
@@ -243,10 +291,90 @@ R_{\theta\phi}=&R_{\phi\theta}=0\\
 R_{\phi r}=&R_{r\phi}=0\\
 R_{r\theta}=&R_{\theta r}=0
 \end{empheq}
+The following lists the non-zero components of $\Gamma$: 
+\begin{align*}
+\Gamma^r_{rr}=&-2  r (1+ r^2)^{-1}\\
+\Gamma^r_{\theta\theta}=&-r(1+ r^2)\\
+\Gamma^r_{\phi\phi}=&-r(1+ r^2)\sin^2 \theta\\
+\Gamma^{\theta}_{r\theta}=&\frac{1}{r}\\
+\Gamma^{\theta}_{\theta r}=&\frac{1}{r}\\
+\Gamma^{\theta}_{\phi\phi}=&-\sin \theta \cos \theta\\
+\Gamma^{\phi}_{r\phi}=&\frac{1}{r}\\
+\Gamma^{\phi}_{\phi r}=&\frac{1}{r}\\
+\Gamma^{\phi}_{\theta\phi}=&\cot\theta\\
+\Gamma^{\phi}_{\phi\theta}=&\cot\theta\\
+\end{align*}
+
+
+
+\subsection{The Einstein Equation}
+
+\begin{empheq}[left=\empheqlbrace]{align*}
+\gamma_{11}=&(1+r^2)^{-1}\\
+\gamma_{22}=&r^2\\
+\gamma_{33}=&r^2\sin^2\theta\\
+\gamma_{ij}=&0	
+\end{empheq}
 
 \section{Metric: $dl^2\equiv d\chi^2+\sinh^2 \chi\,d\Omega^2$} \label{section:metric4}
 
-So, setting $\alpha=-1,\beta=i$
+\subsection{Christoffel Symbols}
+
+Setting $\alpha=-1,\beta=i$ in Section \ref{section:christoffel2}.
+
+\begin{align*}
+\Gamma^{\chi}_{\theta\theta}=&2\beta \cosh{(\chi)}\sin{(\beta\chi)}\\
+=&2i \cosh{(\chi)}i \sinh{(chi)}\\
+=&-2 \cosh{(\chi)} \sinh{(chi)}\\
+\Gamma^{\chi}_{\phi\phi}=&2\beta \cos{(\beta\chi)}\sin{(\beta\chi)}\sin^2 \theta\\
+=&2i \cosh{(\chi)} i \sinh{(\chi)}\sin^2 \theta\\
+&-2 \cosh{(\chi)}  \sinh{(\chi)}\sin^2 \theta\\
+\Gamma^{\theta}_{\chi\theta}=&\coth{(\chi)}\\
+\Gamma^{\theta}_{\theta\chi}=&\coth{(\chi)}\\
+\Gamma^{\theta}_{\phi\phi}=&-\sin{(\theta)}\cos{(\theta)}\\
+\Gamma^{\phi}_{\theta\chi}=&\coth{(\chi)}\\
+\Gamma^{\phi}_{\chi\theta}=&\coth{(\chi)}\\
+\Gamma^{\phi}_{\theta\phi}=&cot{(\theta)}\\
+\Gamma^{\phi}_{\theta\phi}=&cot{(\theta)}
+\end{align*}
+
+\subsection{The Ricci Tensor}
+
+We exploit the Ricci Tensor's transformation properties as in Section \ref{Ricci-Tensor-3}. Writing $r=\sinh \chi$,
+\begin{align*}
+\frac{dr^2}{1+r^2}+r^2\,d\Omega^2=&\frac{\cosh^2 \chi (d \chi)^2}{1-\sinh^2 \chi}+\sin^2 \chi\,\Omega^2\\
+=&\frac{\cosh^2 \chi (d \chi)^2}{\cosh^2 \chi}+\sin^2 \chi\,\Omega^2\\
+=&d\chi^2 + \sin^2 \chi d\Omega^2
+\end{align*}
+
+So the metric Section \ref{section:metric3} becomes that of Section \ref{section:metric4} under the transformation $r=\sinh \chi$.
+
+\begin{align*}
+R^\prime_{i^\prime j^\prime}=&\frac{\partial x^i}{\partial x^{i^\prime}}\frac{\partial x^j}{\partial x^{j^\prime}}R_{ij}\\
+R^\prime_{\chi\chi} =& R_{rr}(1-r^2)\\
+R^\prime_{i\chi} =& R_{ir} \sqrt{(1-r^2)}\text{, for $i=\theta,\phi$}\\
+R^\prime_{ij} =& R{ij} \text{, for $i,j=\theta,\phi$}
+\end{align*} 
+
+So, dropping the primes:
+\begin{align*}
+R_{\chi\chi}=&-4  \\
+R_{\theta\theta} =& \sin\chi^2\\
+R_{\phi\phi} =&  \sin\chi^2 \sin^2\theta\\
+R_{\theta\phi}=&R_{\phi\theta}=0\\
+R_{\phi r}=&R_{r\phi}=0\\
+R_{r\theta}=&R_{\theta r}=0
+\end{align*}
+
+\subsection{The Einstein Equation}
+
+\begin{empheq}[left=\empheqlbrace]{align*}
+\gamma_{11}=&1\\
+\gamma_{22}=&\sinh \chi ^2\\
+\gamma_{33}=&r^2\sin^2\theta\\
+\gamma_{ij}=&0	
+\end{empheq}
+
 \begin{thebibliography}{9}\label{section:biblio}
 	\raggedright
 	\bibitem{Akhmedov2017}
@@ -254,11 +382,6 @@ So, setting $\alpha=-1,\beta=i$
 	\emph{Lectures on General Theory of Relativity},
 	arXiv:1601.04996,
 	\url{https://arxiv.org/abs/1601.04996}
-	\bibitem{abs1965}
-	Ronald Adler, Maurice Bazin, \& Menahem Schiffer,
-	\emph{Introduction to General Relativity},
-	McGraw-Hill Book Company, New York,
-	1965.
 	\bibitem{wiki:sinh}
 	Wikipedia contributors
 	\emph{Hyperbolic function. Wikipedia, The Free Encyclopedia. September 25, 2017, 01:29 UTC.}
