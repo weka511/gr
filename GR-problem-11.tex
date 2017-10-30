@@ -154,9 +154,9 @@ R_{r\theta}=&\underbrace{R^r_{\,rr \theta}}_{=0} + \underbrace{R^{\theta}_{\,r\t
 =&0
 \end{align*}
 
-So, setting $\alpha=-1$
+So, setting $\alpha=-1$ in \eqref{eq:R-r-r}, \eqref{eq:R-theta-theta}, and \eqref{eq:R-phi-phi}:
 \begin{empheq}[left=\empheqlbrace]{align*}
-R_{rr}=&-2  (1-r^2)^{-1}\numberthis\label{eq:ricci-1}\\
+R_{rr}=& 2  (1-r^2)^{-1}\numberthis\label{eq:ricci-1}\\
 R_{\theta\theta} =&2 r^2\\
 R_{\phi\phi} =& 2 r^2 \sin^2\theta\\
 R_{\theta\phi}=&R_{\phi\theta}=0\\
@@ -185,7 +185,7 @@ The following lists the non-zero components of $\Gamma$:
 \gamma_{33}=&r^2\sin^2\theta\\
 \gamma_{ij}=&0	
 \end{empheq}
- A comparison with \eqref{eq:ricci-1} shows $R_{ij}=2 k \gamma_{ij}$, where $k=\pm 1$.
+ Comparison with \eqref{eq:ricci-1} shows $R_{ij}=2 k \gamma_{ij}$, where $k=1$.
  
 \section{Metric: $dl^2\equiv d\chi^2+\sin^2 \chi\,d\Omega^2$} \label{section:metric2}
 We will use the well known formula $\sinh(\chi)=-i \sin(i\chi)$, \cite{wiki:sinh}, to reduce the metrics of Sections \ref{section:metric2} and \ref{section:metric4} to a common form.
@@ -262,9 +262,9 @@ So the metric Section \ref{section:metric1} becomes that of Section \ref{section
 
 So, dropping the primes:
 \begin{empheq}[right=\empheqrbrace]{align*}
-R_{\chi\chi}=&-2  \numberthis\label{eq:ricci-2}\\
-R_{\theta\theta} =& 2 \sin\chi^2\\
-R_{\phi\phi} =&  2 \sin\chi^2 \sin^2\theta\\
+R_{\chi\chi}=&2 \text{, from \eqref{eq:R-r-r}}\\
+R_{\theta\theta} =& 2 \sin\chi^2 \text{, from \eqref{eq:R-theta-theta}}\\
+R_{\phi\phi} =&  2 \sin\chi^2 \sin^2\theta \text{, from \eqref{eq:R-phi-phi}}  \numberthis\label{eq:ricci-2}\\
 R_{\theta\phi}=&R_{\phi\theta}=0\\
 R_{\phi r}=&R_{r\phi}=0\\
 R_{r\theta}=&R_{\theta r}=0
@@ -277,7 +277,7 @@ R_{r\theta}=&R_{\theta r}=0
 \gamma_{33}=&\sin\chi^2\sin^2\theta\\
 \gamma_{ij}=&0	
 \end{empheq}
- A comparison with \eqref{eq:ricci-2} shows $R_{ij}=2 k \gamma_{ij}$, where $k=\pm 1$.
+ A comparison with \eqref{eq:ricci-2} shows $R_{ij}=2 k \gamma_{ij}$, where $k= 1$.
 
 
 \section{Metric: $dl^2\equiv\frac{dr^2}{1+r^2}+r^2\,d\Omega^2$}  \label{section:metric3}
@@ -285,16 +285,16 @@ R_{r\theta}=&R_{\theta r}=0
 \subsection{Ricci Tensor and Christoffel Symbols}
 Setting $\alpha=+1$ in \eqref{eq:R-r-r}, \eqref{eq:R-theta-theta}, and \eqref{eq:R-phi-phi}:
 \begin{empheq}[left=\empheqlbrace]{align*}
-R_{rr}=&2  (1+r^2)^{-1}\\
+R_{rr}=&- 2  (1+r^2)^{-1}\\
 R_{\theta\theta} =& - 2 r^2\\
 R_{\phi\phi} =& - 2 r^2 \sin^2 \theta\\
 R_{\theta\phi}=&R_{\phi\theta}=0\\
 R_{\phi r}=&R_{r\phi}=0\\
 R_{r\theta}=&R_{\theta r}=0
 \end{empheq}
-The following lists the non-zero components of $\Gamma$: 
+The following lists the non-zero components of $\Gamma$, from \eqref{eq:1-gamma-r}, \eqref{eq:1-gamma-theta}, and \ref{eq:1-gamma-phi}: 
 \begin{align*}
-\Gamma^r_{rr}=&-2  r (1+ r^2)^{-1}\\
+\Gamma^r_{rr}=&-  r (1+ r^2)^{-1}\\
 \Gamma^r_{\theta\theta}=&-r(1+ r^2)\\
 \Gamma^r_{\phi\phi}=&-r(1+ r^2)\sin^2 \theta\\
 \Gamma^{\theta}_{r\theta}=&\frac{1}{r}\\
@@ -317,7 +317,7 @@ The following lists the non-zero components of $\Gamma$:
 \gamma_{ij}=&0	
 \end{empheq}
 
-Once again, we find $R_{ij}=2 k \gamma_{ij}$.
+Once again, we find $R_{ij}=2 k \gamma_{ij}$, this time for $k=-1$.
 
 \section{Metric: $dl^2\equiv d\chi^2+\sinh^2 \chi\,d\Omega^2$} \label{section:metric4}
 
@@ -326,10 +326,10 @@ Once again, we find $R_{ij}=2 k \gamma_{ij}$.
 Setting $\alpha=-1,\beta=i$ in Section \ref{section:christoffel2}.
 
 \begin{align*}
-\Gamma^{\chi}_{\theta\theta}=&2\beta \cosh{(\chi)}\sin{(\beta\chi)}\\
-=&2i \cosh{(\chi)}i \sinh{(chi)}\\
-=&-2 \cosh{(\chi)} \sinh{(chi)}\\
-\Gamma^{\chi}_{\phi\phi}=&2\beta \cos{(\beta\chi)}\sin{(\beta\chi)}\sin^2 \theta\\
+\Gamma^{\chi}_{\theta\theta}=&\beta \cosh{(\chi)}\sin{(\beta\chi)}\\
+=&i \cosh{(\chi)}i \sinh{(chi)}\\
+=&- \cosh{(\chi)} \sinh{(chi)}\\
+\Gamma^{\chi}_{\phi\phi}=&\beta \cos{(\beta\chi)}\sin{(\beta\chi)}\sin^2 \theta\\
 =&2i \cosh{(\chi)} i \sinh{(\chi)}\sin^2 \theta\\
 &-2 \cosh{(\chi)}  \sinh{(\chi)}\sin^2 \theta\\
 \Gamma^{\theta}_{\chi\theta}=&\coth{(\chi)}\\
@@ -362,8 +362,8 @@ R^\prime_{ij} =& R{ij} \text{, for $i,j=\theta,\phi$}
 So, dropping the primes:
 \begin{align*}
 R_{\chi\chi}=&-2  \\
-R_{\theta\theta} =& 2\sin\chi^2\\
-R_{\phi\phi} =&  2\sin\chi^2 \sin^2\theta\\
+R_{\theta\theta} =& - 2\sin\chi^2\\
+R_{\phi\phi} =&  - 2\sin\chi^2 \sin^2\theta\\
 R_{\theta\phi}=&R_{\phi\theta}=0\\
 R_{\phi r}=&R_{r\phi}=0\\
 R_{r\theta}=&R_{\theta r}=0
@@ -378,7 +378,7 @@ R_{r\theta}=&R_{\theta r}=0
 \gamma_{ij}=&0	
 \end{empheq}
 
-Once again, we find $R_{ij}=2 k \gamma_{ij}$.
+Once again, we find $R_{ij}=2 k \gamma_{ij}$, for $k=-1$.
 
 \begin{thebibliography}{9}\label{section:biblio}
 	\raggedright
