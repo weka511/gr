@@ -27,7 +27,7 @@ Show that they solve 3d Einstein equations in Euclidean signature $R_{ij}(\gamma
 
 \section{Preliminaries}
 
-We will use the following well known result.
+We will use the following well known results.
 \begin{lemma}\label{lemma:geodesic}
 	The following two methods of defining a geodesic are equivalent.
 	\begin{align*}
@@ -59,16 +59,16 @@ We can save some effort if we combine this metric with that of Section \ref{sect
 L=&(1+\alpha r^2)^{-1}\dot{r}^2 + r^2(\dot\theta^2 + \sin^2 \theta \dot \phi^2)\text{, where $\alpha=\pm 1$} \numberthis \label{eq:lagrangian1}\\
 \frac{d}{d \tau}\Big(\frac{\partial L}{\partial \dot{r}}\Big)=&\frac{d}{d \tau}\Big(2(1+\alpha r^2)^{-1}\dot r\Big)\\
 =& \Big(2(1+\alpha r^2)^{-1}\ddot r\Big)-4 \alpha r (1+\alpha r^2)^{-2}\dot{r}^2\\
-\frac{\partial L}{\partial r}=&2r\big(\dot{\theta}^2 + \sin^2 \theta \dot \phi ^2\big)\\
+\frac{\partial L}{\partial r}=& -2\alpha r(1+\alpha r^2)^{-2}\dot{r}^2+2r\big(\dot{\theta}^2 + \sin^2 \theta \dot \phi ^2\big)\\
 0=&\frac{d}{d \tau}\Big(\frac{\partial L}{\partial \dot{r}}\Big)-\frac{\partial L}{\partial r}\\
 \iff&\\
-0=&	\Big(2(1+\alpha r^2)^{-1}\ddot r\Big)-4 \alpha r (1+\alpha r^2)^{-2}\dot{r}^2-2r\big(\dot{\theta}^2 + \sin^2 \theta \dot \phi ^2\big)\\
+0=&	\Big(2(1+\alpha r^2)^{-1}\ddot r\Big)-2 \alpha r (1+\alpha r^2)^{-2}\dot{r}^2-2r\big(\dot{\theta}^2 + \sin^2 \theta \dot \phi ^2\big)\\
 \iff&\\
-0=&\ddot r-2 \alpha r (1+\alpha r^2)^{-1}\dot{r}^2-r(1+\alpha r^2)\big(\dot{\theta}^2 + \sin^2 \theta \dot \phi ^2\big)
+0=&\ddot r- \alpha r (1+\alpha r^2)^{-1}\dot{r}^2-r(1+\alpha r^2)\big(\dot{\theta}^2 + \sin^2 \theta \dot \phi ^2\big)
 \end{align*}
 We can use Lemma \ref{lemma:geodesic} to read off the $\Gamma^r_{ij}$
 \begin{empheq}[left=\empheqlbrace]{align*}\numberthis\label{eq:1-gamma-r}
-\Gamma^r_{rr}=&-2 \alpha r (1+\alpha r^2)^{-1}\\
+\Gamma^r_{rr}=&- \alpha r (1+\alpha r^2)^{-1}\\
 \Gamma^r_{\theta\theta}=&-r(1+\alpha r^2)\\
 \Gamma^r_{\phi\phi}=&-r(1+\alpha r^2)\sin^2 \theta\\
 \Gamma^r_{ij}=& 0\text{, for $i\ne j$}
@@ -114,31 +114,31 @@ R^i_{\,jkl}\equiv&\,\partial_k\Gamma^i_{jl}-\partial_l\Gamma^i_{jk}+\Gamma^i_{mk
 To avoid confusion with indices, we suspend the summation convention until the end of this section.
 \begin{align*}
 R_{rr}=&\underbrace{R^r_{\,rrr}}_\text{$=0$ from \eqref{eq:as1}}+R^{\theta}_{\,r\theta r}+R^{\,\phi}_{r\phi r}\\
-R^{\theta}_{\,r\theta r}=&\underbrace{\partial_{\theta}\Gamma^{\theta}_{rr}}_\text{$=0$ from \eqref{eq:1-gamma-theta}}-\overbrace{\partial_r\Gamma^{\theta}_{r\theta}}^\text{$\frac{-1}{r^2}$, from \eqref{eq:1-gamma-theta}}+\underbrace{\sum_m\Gamma^{\theta}_{m\theta}\Gamma^{m}_{rr}}_\text{$-2 \alpha (1+\alpha r^2)^{-1}$, from \eqref{eq:1-gamma-r} and \eqref{eq:1-gamma-theta}}-\overbrace{\sum_m\Gamma^{\theta}_{mr}\Gamma^m_{r\theta}}^\text{$\frac{1}{r^2}$}\\
+R^{\theta}_{\,r\theta r}=&\underbrace{\partial_{\theta}\Gamma^{\theta}_{rr}}_\text{$=0$ from \eqref{eq:1-gamma-theta}}-\overbrace{\partial_r\Gamma^{\theta}_{r\theta}}^\text{$\frac{-1}{r^2}$, from \eqref{eq:1-gamma-theta}}+\underbrace{\sum_m\Gamma^{\theta}_{m\theta}\Gamma^{m}_{rr}}_\text{$- \alpha (1+\alpha r^2)^{-1}$, from \eqref{eq:1-gamma-r} and \eqref{eq:1-gamma-theta}}-\overbrace{\sum_m\Gamma^{\theta}_{mr}\Gamma^m_{r\theta}}^\text{$\frac{1}{r^2}$}\\
 =&-2 \alpha (1+\alpha r^2)^{-1}\\
-R^{\,\phi}_{r\phi r}=&\underbrace{\partial_{\phi}\Gamma^{\phi}_{rr}}_\text{$=0$, from \eqref{eq:1-gamma-phi}}-\overbrace{\partial_r\Gamma^{\phi}_{r\phi}}^\text{$\frac{-1}{r^2}$, from \eqref{eq:1-gamma-phi}}+\underbrace{\sum_m\Gamma^{\phi}_{m\phi}\Gamma^{m}_{rr}}_\text{$-2 \alpha (1+\alpha r^2)^{-1}$, from \eqref{eq:1-gamma-r} and \eqref{eq:1-gamma-phi}}-\overbrace{\sum_m\Gamma^{\phi}_{mr}\Gamma^m_{r\phi}}^\text{$\frac{1}{r^2}$}\text{, whence:}\\
-R_{rr}=&-4 \alpha (1+\alpha r^2)^{-1}\numberthis\label{eq:R-r-r}
+R^{\,\phi}_{r\phi r}=&\underbrace{\partial_{\phi}\Gamma^{\phi}_{rr}}_\text{$=0$, from \eqref{eq:1-gamma-phi}}-\overbrace{\partial_r\Gamma^{\phi}_{r\phi}}^\text{$\frac{-1}{r^2}$, from \eqref{eq:1-gamma-phi}}+\underbrace{\sum_m\Gamma^{\phi}_{m\phi}\Gamma^{m}_{rr}}_\text{$- \alpha (1+\alpha r^2)^{-1}$, from \eqref{eq:1-gamma-r} and \eqref{eq:1-gamma-phi}}-\overbrace{\sum_m\Gamma^{\phi}_{mr}\Gamma^m_{r\phi}}^\text{$\frac{1}{r^2}$}\text{, whence:}\\
+R_{rr}=&-2 \alpha (1+\alpha r^2)^{-1}\numberthis\label{eq:R-r-r}
 \end{align*}
 
 \begin{align*}
 R_{\theta\theta}=&R\indices{^r_{\theta r\theta}}+\underbrace{R\indices{^{\theta}_{\theta\theta\theta}}}_{=0}+R\indices{^{\phi}_{\theta\phi\theta}}\\
-R\indices{^r_{\theta r\theta}}=&\underbrace{\partial_r\Gamma^r_{\theta\theta}}_{=-(1+\alpha r^2)-2ar^2}-\overbrace{\partial_\theta\Gamma^r_{\theta r}}^{=0}+\underbrace{\Gamma^r_{mr}\Gamma^m_{\theta\theta}}_{=\frac{-2\alpha r}{1+2\alpha r^2}(-r)(1+ar^2)}-\overbrace{\Gamma^r_{m\theta}\Gamma^m_{\theta r}}^{=-r(1+\alpha r^2)\frac{1}{r}}\\
-=&-(1+\alpha r^2)-2\alpha r^2 + 2\alpha r^2-(1+\alpha r^2)\\
-=&0\\
+R\indices{^r_{\theta r \theta}}=&\underbrace{\partial_r\Gamma^r_{\theta\theta}}_{=-(1+\alpha r^2)-2ar^2}-\overbrace{\partial_\theta\Gamma^r_{\theta r}}^{=0}+\underbrace{\Gamma^r_{mr}\Gamma^m_{\theta\theta}}_{=\frac{-\alpha r}{1+2\alpha r^2}(-r)(1+ar^2)}-\overbrace{\Gamma^r_{m\theta}\Gamma^m_{\theta r}}^{=-r(1+\alpha r^2)\frac{1}{r}}\\
+=&-(1+\alpha r^2)-2\alpha r^2 + \alpha r^2+(1+\alpha r^2)\\
+=&-\alpha r^2\\
 R\indices{^{\phi}_{\theta\phi\theta}}=&\underbrace{\partial_{\phi}\Gamma^{\phi}_{\theta\theta}}_{=0}-\overbrace{\partial_{\theta}\Gamma^{\phi}_{\theta\phi}}_{\partial_{\theta}\cot\theta}+\underbrace{\sum_m\Gamma^{\phi}_{m\phi}\Gamma^m_{\theta\theta}}_{-\frac{1}{r}r(1+\alpha r^2)}-\overbrace{\sum_m\Gamma^{\phi}_{m\theta}\Gamma^{m}_{\theta\phi}}^{=\cot^2\theta}\\
 =&1+\cot^2\theta-(1+\alpha r^2)-\cot^2\theta\\
 =&-ar^2\\
-R_{\theta\theta} = -\alpha r&^2\numberthis\label{eq:R-theta-theta}
+R_{\theta\theta} = -2 \alpha r&^2\numberthis\label{eq:R-theta-theta}
 \end{align*}
 
 \begin{align*}
 R_{\phi\phi}=& R^r_{\phi r \phi} + R^{\theta}_{\phi\theta\phi}+\underbrace{R^{\phi}_{\phi\phi\phi}}_{=0}\\
-R^r_{\phi r \phi}=&\underbrace{\partial_r \Gamma^r_{\phi\phi}}_{-(1+\alpha r^2)sin^2 \theta-2\alpha r^2 \sin^2 \theta}-\overbrace{\partial_{\phi}\Gamma^{r}_{\phi r}}^{0} +\underbrace{\sum_m\Gamma^r_{mr}\Gamma^m_{\phi\phi}}_{2ar\cancel{(1+\alpha r^2)}^{-1}r\cancel{(1+\alpha r^2)}\sin^2 \theta}-\overbrace{\sum_m\Gamma^r_{m\phi}\Gamma^m_{\phi r}}^{-\cancel{r}(1+\alpha r^2)\sin^2\theta\frac{1}{\cancel{r}}}\\
-=&-(1+\alpha r^2)sin^2 \theta-2\alpha r^2 \sin^2 \theta+2\alpha r^2 sin^2\theta + (1+\alpha r^2) sin^2\theta\\
-=&0\\
+R^r_{\phi r \phi}=&\underbrace{\partial_r \Gamma^r_{\phi\phi}}_{-(1+\alpha r^2)sin^2 \theta-2\alpha r^2 \sin^2 \theta}-\overbrace{\partial_{\phi}\Gamma^{r}_{\phi r}}^{0} +\underbrace{\sum_m\Gamma^r_{mr}\Gamma^m_{\phi\phi}}_{ar\cancel{(1+\alpha r^2)}^{-1}r\cancel{(1+\alpha r^2)}\sin^2 \theta}-\overbrace{\sum_m\Gamma^r_{m\phi}\Gamma^m_{\phi r}}^{-\cancel{r}(1+\alpha r^2)\sin^2\theta\frac{1}{\cancel{r}}}\\
+=&-(1+\alpha r^2)sin^2 \theta-2\alpha r^2 \sin^2 \theta+\alpha r^2 sin^2\theta + (1+\alpha r^2) sin^2\theta\\
+=&-\alpha r^2 \sin^2 \theta\\
 R^{\theta}_{\phi\theta\phi}=&\underbrace{\partial_\theta\Gamma^{\theta}_{\phi\phi}}_{=-\cos^2\theta+\sin^2\theta}-\underbrace{\partial_{\phi}\Gamma^{\theta}_{\phi\theta}}_{=0} + \underbrace{\sum_m\Gamma^{\theta}_{m\theta}\Gamma^m_{\phi\phi}}_{\{m=r\}: -\frac{1}{\cancel{r}}\cancel{r}(1+\alpha r^2)\sin^2\theta}-\underbrace{\sum_m\Gamma^{\theta}_{m\phi}\Gamma^m_{\phi\theta}}_{\{m=\phi\}:-\sin\theta\cos\theta\cot\theta}\\
 =&\cancel{-\cos^2\theta}+\cancel{\sin^2\theta}-(\cancel{1}+\alpha r^2)\sin^2\theta+\cancel{cos^2\theta}\\
-R_{\phi\phi}=& -\alpha r^2 \sin^2\theta \numberthis\label{eq:R-phi-phi}
+R_{\phi\phi}=& -2 \alpha r^2 \sin^2\theta \numberthis\label{eq:R-phi-phi}
 \end{align*}
 
 \begin{align*}
@@ -156,9 +156,9 @@ R_{r\theta}=&\underbrace{R^r_{\,rr \theta}}_{=0} + \underbrace{R^{\theta}_{\,r\t
 
 So, setting $\alpha=-1$
 \begin{empheq}[left=\empheqlbrace]{align*}
-R_{rr}=&-4  (1-r^2)^{-1}\numberthis\label{eq:ricci-1}\\
-R_{\theta\theta} =& r^2\\
-R_{\phi\phi} =&  r^2 \sin^2\theta\\
+R_{rr}=&-2  (1-r^2)^{-1}\numberthis\label{eq:ricci-1}\\
+R_{\theta\theta} =&2 r^2\\
+R_{\phi\phi} =& 2 r^2 \sin^2\theta\\
 R_{\theta\phi}=&R_{\phi\theta}=0\\
 R_{\phi r}=&R_{r\phi}=0\\
 R_{r\theta}=&R_{\theta r}=0
@@ -166,7 +166,7 @@ R_{r\theta}=&R_{\theta r}=0
 
 The following lists the non-zero components of $\Gamma$: 
 \begin{align*}
-\Gamma^r_{rr}=&2  r (1- r^2)^{-1}\\
+\Gamma^r_{rr}=&  r (1- r^2)^{-1}\\
 \Gamma^r_{\theta\theta}=&-r(1- r^2)\\
 \Gamma^r_{\phi\phi}=&-r(1- r^2)\sin^2 \theta\\
 \Gamma^{\theta}_{r\theta}=&\frac{1}{r}\\
@@ -185,7 +185,7 @@ The following lists the non-zero components of $\Gamma$:
 \gamma_{33}=&r^2\sin^2\theta\\
 \gamma_{ij}=&0	
 \end{empheq}
- A comparison with \eqref{eq:ricci-1} should give $R_{ij}=2 k \gamma_{ij}$, \emph{but this isn't the case!} It looks as if there must be an error somewhere, but I cannot find it.
+ A comparison with \eqref{eq:ricci-1} shows $R_{ij}=2 k \gamma_{ij}$, where $k=\pm 1$.
  
 \section{Metric: $dl^2\equiv d\chi^2+\sin^2 \chi\,d\Omega^2$} \label{section:metric2}
 We will use the well known formula $\sinh(\chi)=-i \sin(i\chi)$, \cite{wiki:sinh}, to reduce the metrics of Sections \ref{section:metric2} and \ref{section:metric4} to a common form.
@@ -261,14 +261,14 @@ So the metric Section \ref{section:metric1} becomes that of Section \ref{section
 \end{align*} 
 
 So, dropping the primes:
-\begin{align*}
-R_{\chi\chi}=&-4  \\
-R_{\theta\theta} =& \sin\chi^2\\
-R_{\phi\phi} =&  \sin\chi^2 \sin^2\theta\\
+\begin{empheq}[right=\empheqrbrace]{align*}
+R_{\chi\chi}=&-2  \numberthis\label{eq:ricci-2}\\
+R_{\theta\theta} =& 2 \sin\chi^2\\
+R_{\phi\phi} =&  2 \sin\chi^2 \sin^2\theta\\
 R_{\theta\phi}=&R_{\phi\theta}=0\\
 R_{\phi r}=&R_{r\phi}=0\\
 R_{r\theta}=&R_{\theta r}=0
-\end{align*}
+\end{empheq}
 
 \subsection{Einstein Equation}
 \begin{empheq}[left=\empheqlbrace]{align*}
@@ -277,16 +277,17 @@ R_{r\theta}=&R_{\theta r}=0
 \gamma_{33}=&\sin\chi^2\sin^2\theta\\
 \gamma_{ij}=&0	
 \end{empheq}
-A comparison with \eqref{eq:ricci-1} should give $R_{ij}=2 k \gamma_{ij}$, \emph{but this isn't the case!}
+ A comparison with \eqref{eq:ricci-2} shows $R_{ij}=2 k \gamma_{ij}$, where $k=\pm 1$.
+
 
 \section{Metric: $dl^2\equiv\frac{dr^2}{1+r^2}+r^2\,d\Omega^2$}  \label{section:metric3}
 
 \subsection{Ricci Tensor and Christoffel Symbols}
 Setting $\alpha=+1$ in \eqref{eq:R-r-r}, \eqref{eq:R-theta-theta}, and \eqref{eq:R-phi-phi}:
 \begin{empheq}[left=\empheqlbrace]{align*}
-R_{rr}=&4  (1+r^2)^{-1}\\
-R_{\theta\theta} =& - r^2\\
-R_{\phi\phi} =& - r^2 \sin^2 \theta\\
+R_{rr}=&2  (1+r^2)^{-1}\\
+R_{\theta\theta} =& - 2 r^2\\
+R_{\phi\phi} =& - 2 r^2 \sin^2 \theta\\
 R_{\theta\phi}=&R_{\phi\theta}=0\\
 R_{\phi r}=&R_{r\phi}=0\\
 R_{r\theta}=&R_{\theta r}=0
@@ -316,7 +317,7 @@ The following lists the non-zero components of $\Gamma$:
 \gamma_{ij}=&0	
 \end{empheq}
 
-Once again, we expect $R_{ij}=2 k \gamma_{ij}$, \emph{but this isn't the case!} 
+Once again, we find $R_{ij}=2 k \gamma_{ij}$.
 
 \section{Metric: $dl^2\equiv d\chi^2+\sinh^2 \chi\,d\Omega^2$} \label{section:metric4}
 
@@ -360,9 +361,9 @@ R^\prime_{ij} =& R{ij} \text{, for $i,j=\theta,\phi$}
 
 So, dropping the primes:
 \begin{align*}
-R_{\chi\chi}=&-4  \\
-R_{\theta\theta} =& \sin\chi^2\\
-R_{\phi\phi} =&  \sin\chi^2 \sin^2\theta\\
+R_{\chi\chi}=&-2  \\
+R_{\theta\theta} =& 2\sin\chi^2\\
+R_{\phi\phi} =&  2\sin\chi^2 \sin^2\theta\\
 R_{\theta\phi}=&R_{\phi\theta}=0\\
 R_{\phi r}=&R_{r\phi}=0\\
 R_{r\theta}=&R_{\theta r}=0
@@ -377,7 +378,7 @@ R_{r\theta}=&R_{\theta r}=0
 \gamma_{ij}=&0	
 \end{empheq}
 
-Once again, we expect $R_{ij}=2 k \gamma_{ij}$, \emph{but this isn't the case!} 
+Once again, we find $R_{ij}=2 k \gamma_{ij}$.
 
 \begin{thebibliography}{9}\label{section:biblio}
 	\raggedright
