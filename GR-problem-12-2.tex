@@ -1,5 +1,7 @@
 \documentclass[]{article}
-\usepackage{esvect,amsmath,url}
+\usepackage{esvect,amsmath,url,amsthm}
+\newtheorem{theorem}{Theorem}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 %opening
 \title{Introduction into General Relativity\\Assignment 12.2\\Cosmological solutions with non-zero cosmological constant}
 \author{Simon Crase}
@@ -9,22 +11,32 @@
 \maketitle
 
 \begin{abstract}
-Derive 
-\begin{align*}
-ds^2_+=&d\tau^2_+ - e^{2H\tau_+}\vec{x}^2_+\text{ as the induced metric from}\\
-ds^2=&\eta_{AB}dx^Adx^B\text{, where}\\
-HX^0=&\sinh(H\tau_+)+\frac{(H\vec{x}_+)}{2}e^{H\tau_+}\\
-HX^i=&Hx^i_+e^{H\tau_+}, \vec{x}++\equiv x+^i_+, i=1,...,D-1\\
-HX^D=&-\cosh(H\tau_+)+\frac{(H\vec{x}_+)}{2}e^{H\tau_+}
-\end{align*}
-\begin{itemize}
-	\item     Correct calculation of the differentials of the coordinates are given
-	\item Correct expression for the induced metric is given
-\end{itemize}
+	Derive \cite[XII,(332)]{Akhmedov2017} from \cite[XII,(333)]{Akhmedov2017}
+	\begin{itemize}
+		\item     Correct calculation of the differentials of the coordinates are given
+		\item Correct expression for the induced metric is given
+	\end{itemize}
 \end{abstract}
 
-\section{}
-
+\begin{theorem}
+	\begin{align*}
+	HX^0=&\sinh(H\tau_+)+\frac{(H\vec{x}_+)^2}{2}e^{H\tau_+}\numberthis\label{eq:x0}\\
+	HX^i=&Hx^i_+e^{H\tau_+}, \vec{x}++\equiv x+^i_+, i=1,...,D-1\numberthis\label{eq:xi}\\
+	HX^D=&-\cosh(H\tau_+)+\frac{(H\vec{x}_+)^2}{2}e^{H\tau_+}\numberthis\label{eq:xD}\\
+	ds^2=&\eta_{AB}dx^Adx^B\numberthis\label{eq:ds}\\
+	\implies&\\
+	ds^2_+=&d\tau^2_+ - e^{2H\tau_+}\vec{x}^2_+	
+	\end{align*}
+\end{theorem}
+\begin{proof}
+	Since \eqref{eq:ds} shows that $ds^2$ depends on the $\{dX^{\mu}\}$, we differentiate the other three equations.
+	\begin{align*}
+	\text{\eqref{eq:x0}}\implies dX^0=&\cosh(H\tau_+)d\tau_+ +H\frac{d(\vec{x}_+)^2}{2}e^{H\tau_+}+H^2\frac{(\vec{x}_+)^2}{2}e^{H\tau_+}d\tau_+\\
+	=&\cosh(H\tau_+)d\tau_+ +H\vec{x}_+\bullet d(\vec{x}_+)e^{H\tau_+}+H^2\frac{(\vec{x}_+)^2}{2}e^{H\tau_+}d\tau_+\numberthis\label{eq:dx0}\\
+	\eqref{eq:xi}\implies	dX^i=&dx^i_+e^{H\tau_+} + H x^i_+e^{H\tau_+}d\tau_+\numberthis\label{eq:dxi}\\
+	\eqref{eq:xD}\implies dX^D=&-\sinh(H\tau_+)d\tau_+ +H\vec{x}_+\bullet d(\vec{x}_+)e^{H\tau_+} +\frac{(H\vec{x}_+)^2}{2}e^{H\tau_+}d\tau_+\ \numberthis\label{eq:dxD}
+	\end{align*}
+\end{proof}
 \begin{thebibliography}{9}\label{section:biblio}
 	\raggedright
 	\bibitem{Akhmedov2017}
