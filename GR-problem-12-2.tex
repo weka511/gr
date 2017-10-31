@@ -25,7 +25,7 @@
 	HX^D=&-\cosh(H\tau_+)+\frac{(H\vec{x}_+)^2}{2}e^{H\tau_+}\numberthis\label{eq:xD}\\
 	ds^2=&\eta_{AB}dx^Adx^B\numberthis\label{eq:ds}\\
 	\implies&\\
-	ds^2_+=&d\tau^2_+ - e^{2H\tau_+}\vec{x}^2_+	
+	ds^2_+=&d\tau^2_+ - e^{2H\tau_+}d\vec{x}^2_+	
 	\end{align*}
 \end{theorem}
 \begin{proof}
@@ -40,9 +40,23 @@
 	\begin{align*}
 	ds^2=&\eta_{AB}dx^Adx^B\\
 	=&(dX^0)^2- \sum_{i=1}^{D-1}(dX^i)^2-(dX^D)^2\\
-	=&\big[\cosh(H\tau_+)d\tau_+ +H\vec{x}_+\bullet d(\vec{x}_+)e^{H\tau_+}+H^2\frac{(\vec{x}_+)^2}{2}e^{H\tau_+}d\tau_+\big]^2\\
-	-& \sum_{i=1}^{D-1}\big[dx^i_+e^{H\tau_+} + H x^i_+e^{H\tau_+}d\tau_+\big]^2\\
-	-&\big[-\sinh(H\tau_+)d\tau_+ +H\vec{x}_+\bullet d(\vec{x}_+)e^{H\tau_+} +H^2\frac{(\vec{x}_+)^2}{2}e^{H\tau_+}d\tau_+\big]^2
+	=&\bigg[\cosh(H\tau_+)d\tau_+ +\big(H\vec{x}_+\bullet d(\vec{x}_+)e^{H\tau_+}+H^2\frac{(\vec{x}_+)^2}{2}e^{H\tau_+}d\tau_+\big)\bigg]^2\\
+	&- \sum_{i=1}^{D-1}\bigg[dx^i_+e^{H\tau_+} + H x^i_+e^{H\tau_+}d\tau_+\bigg]^2\\
+	&-\bigg[-\sinh(H\tau_+)d\tau_+ +\big(H\vec{x}_+\bullet d(\vec{x}_+)e^{H\tau_+} +H^2\frac{(H\vec{x}_+)^2}{2}e^{H\tau_+}d\tau_+\big)\bigg]^2\\
+	=& (\cosh(H\tau_+)d\tau_+)^2 \\
+	&+ 2 \cosh(H\tau_+)d\tau_+ \big(H\vec{x}_+\bullet d(\vec{x}_+)e^{H\tau_+}+H^2\frac{(\vec{x}_+)^2}{2}e^{H\tau_+}d\tau_+\big)\\ &+\big(H\vec{x}_+\bullet d(\vec{x}_+)e^{H\tau_+} +H^2\frac{(H\vec{x}_+)^2}{2}e^{H\tau_+}d\tau_+\big)^2\\
+	&- \sum_{i=1}^{D-1}(dx^i_+e^{H\tau_+})^2\\
+	&- \sum_{i=1}^{D-1}dx^i_+e^{H\tau_+} \bullet H x^i_+e^{H\tau_+}d\tau_+\\
+	&- \sum_{i=1}^{D-1}(H x^i_+e^{H\tau_+}d\tau_+)^2\\
+	&+ (-\sinh(H\tau_+)d\tau_+ )^2\\
+	&- 2 \sinh(H\tau_+)d\tau_+ \big(H\vec{x}_+\bullet d(\vec{x}_+)e^{H\tau_+} +H^2\frac{(H\vec{x}_+)^2}{2}e^{H\tau_+}d\tau_+\big) \\
+	&+ \big(H\vec{x}_+\bullet d(\vec{x}_+)e^{H\tau_+} +H^2\frac{(H\vec{x}_+)^2}{2}e^{H\tau_+}d\tau_+\big)^2
+	\end{align*}
+	...
+	\begin{align*}
+	=&\big[\big]^2 d\tau_+^2\\
+	+&\big[\big]^2H\vec{x}_+\bullet d(\vec{x}_+)d\tau_+\\
+	+&\big[\big]^2d\vec{x}^2_+
 	\end{align*}
 \end{proof}
 \begin{thebibliography}{9}\label{section:biblio}
