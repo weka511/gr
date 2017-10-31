@@ -55,26 +55,25 @@
 	&+2\sinh(H\tau_+)d\tau_+ H^2\frac{(H\vec{x}_+)^2}{2}e^{H\tau_+}d\tau_+\\
 	&+2\sinh(H\tau_+)d\tau_+ H\vec{x}_+\bullet d(\vec{x}_+)e^{H\tau_+} 	
 	\end{align*}
-	...
+	We group terms as shown.
 	\begin{align*}
-	=&\big[\big]^2 d\tau_+^2\\
-	+&\big[\big]^2H\vec{x}_+\bullet d(\vec{x}_+)d\tau_+\\
-	+&\big[\big]^2d\vec{x}^2_+
+	ds^2=\big[&\cosh^2(H\tau_+)\\
+	&+ 2\cosh(H\tau_+) H^2\frac{(\vec{x}_+)^2}{2}e^{H\tau_+}\\
+	&-\sinh^2(H\tau_+)\\
+	&- \sum_{i=1}^{D-1}\bigg[ H x^i_+e^{H\tau_+}\bigg]^2\\
+	&+2\sinh(H\tau_+) H^2\frac{(H\vec{x}_+)^2}{2}e^{H\tau_+}\\	
+	&\big] d\tau_+^2\\
+	+\big[&2\big(e^{H\tau_+} H^2\frac{(H\vec{x}_+)^2}{2}e^{H\tau_+}\\
+	&+2\cosh(H\tau_+) e^{H\tau_+}\\
+	&- 2e^{H\tau_+}  e^{H\tau_+}\text{, since $\sum_{i=1}^{D-1}dx^i_+ H x^i_+=H\vec{x}_+\bullet d(\vec{x}_+)$}\\
+	&-2\big(e^{H\tau_+} H^2\frac{(H\vec{x}_+)^2}{2}e^{H\tau_+}\big)\\
+	&+2\sinh(H\tau_+)e^{H\tau_+}\\
+	\big]&H\vec{x}_+\bullet d(\vec{x}_+)d\tau_+\\
+	+\big[&- \sum_{i=1}^{D-1}e^{2H\tau_+}\\
+	\big]&(dx^i_+)^2
 	\end{align*}
 	
-	\begin{align*}
-	\\
-	=& (\cosh(H\tau_+)d\tau_+)^2 \\
-	&+ 2 \cosh(H\tau_+)d\tau_+ \big(H\vec{x}_+\bullet d(\vec{x}_+)e^{H\tau_+}+H^2\frac{(\vec{x}_+)^2}{2}e^{H\tau_+}d\tau_+\big)\\ &+\big(H\vec{x}_+\bullet d(\vec{x}_+)e^{H\tau_+} +H^2\frac{(H\vec{x}_+)^2}{2}e^{H\tau_+}d\tau_+\big)^2\\
-	&- \sum_{i=1}^{D-1}(dx^i_+e^{H\tau_+})^2\\
-	&- \sum_{i=1}^{D-1}dx^i_+e^{H\tau_+} \bullet H x^i_+e^{H\tau_+}d\tau_+\\
-	&- \sum_{i=1}^{D-1}(H x^i_+e^{H\tau_+}d\tau_+)^2\\
-	&+ (-\sinh(H\tau_+)d\tau_+ )^2\\
-	&- 2 \sinh(H\tau_+)d\tau_+ \big(H\vec{x}_+\bullet d(\vec{x}_+)e^{H\tau_+} +H^2\frac{(H\vec{x}_+)^2}{2}e^{H\tau_+}d\tau_+\big) \\
-	&+ \big(H\vec{x}_+\bullet d(\vec{x}_+)e^{H\tau_+} +H^2\frac{(H\vec{x}_+)^2}{2}e^{H\tau_+}d\tau_+\big)^2\\
-	=& \cosh^2(H\tau_+)d\tau_+^2\\
-	&+2 \cosh(H\tau_+)d\tau_+ \big(H\vec{x}_+\bullet d(\vec{x}_+)e^{H\tau_+}
-	\end{align*}
+
 \end{proof}
 \begin{thebibliography}{9}\label{section:biblio}
 	\raggedright
