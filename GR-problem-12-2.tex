@@ -3,7 +3,7 @@
 \newtheorem{theorem}{Theorem}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 %opening
-\title{Introduction into General Relativity\\Assignment 12.2\\Cosmological solutions with non-zero cosmological constant}
+\title{Introduction into General Relativity\\Assignment 12.2\\Cosmological solutions with $\Lambda\ne 0$}
 \author{Simon Crase}
 
 \begin{document}
@@ -34,7 +34,15 @@
 	\text{\eqref{eq:x0}}\implies dX^0=&\cosh(H\tau_+)d\tau_+ +H\frac{d(\vec{x}_+)^2}{2}e^{H\tau_+}+H^2\frac{(\vec{x}_+)^2}{2}e^{H\tau_+}d\tau_+\\
 	=&\cosh(H\tau_+)d\tau_+ +H\vec{x}_+\bullet d(\vec{x}_+)e^{H\tau_+}+H^2\frac{(\vec{x}_+)^2}{2}e^{H\tau_+}d\tau_+\numberthis\label{eq:dx0}\\
 	\eqref{eq:xi}\implies	dX^i=&dx^i_+e^{H\tau_+} + H x^i_+e^{H\tau_+}d\tau_+\numberthis\label{eq:dxi}\\
-	\eqref{eq:xD}\implies dX^D=&-\sinh(H\tau_+)d\tau_+ +H\vec{x}_+\bullet d(\vec{x}_+)e^{H\tau_+} +\frac{(H\vec{x}_+)^2}{2}e^{H\tau_+}d\tau_+\ \numberthis\label{eq:dxD}
+	\eqref{eq:xD}\implies dX^D=&-\sinh(H\tau_+)d\tau_+ +H\vec{x}_+\bullet d(\vec{x}_+)e^{H\tau_+} +H^2 \frac{(\vec{x}_+)^2}{2}e^{H\tau_+}d\tau_+ \numberthis\label{eq:dxD}
+	\end{align*}
+	From \eqref{eq:ds}
+	\begin{align*}
+	ds^2=&\eta_{AB}dx^Adx^B\\
+	=&(dX^0)^2- \sum_{i=1}^{D-1}(dX^i)^2-(dX^D)^2\\
+	=&\big[\cosh(H\tau_+)d\tau_+ +H\vec{x}_+\bullet d(\vec{x}_+)e^{H\tau_+}+H^2\frac{(\vec{x}_+)^2}{2}e^{H\tau_+}d\tau_+\big]^2\\
+	-& \sum_{i=1}^{D-1}\big[dx^i_+e^{H\tau_+} + H x^i_+e^{H\tau_+}d\tau_+\big]^2\\
+	-&\big[-\sinh(H\tau_+)d\tau_+ +H\vec{x}_+\bullet d(\vec{x}_+)e^{H\tau_+} +H^2\frac{(\vec{x}_+)^2}{2}e^{H\tau_+}d\tau_+\big]^2
 	\end{align*}
 \end{proof}
 \begin{thebibliography}{9}\label{section:biblio}
