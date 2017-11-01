@@ -11,21 +11,17 @@
 \maketitle
 
 \begin{abstract}
-	Derive \cite[XII,(332)]{Akhmedov2017} from \cite[XII,(333)]{Akhmedov2017}
-	\begin{itemize}
-		\item     Correct calculation of the differentials of the coordinates are given
-		\item Correct expression for the induced metric is given
-	\end{itemize}
+	We derive the metric for the Poincar\'e Patch, \cite[XII,(332)]{Akhmedov2017}, from the transformation \cite[XII,(333)]{Akhmedov2017}.
 \end{abstract}
 
 \begin{theorem}
 	\begin{align*}
-	HX^0=&\sinh(H\tau_+)+\frac{(H\vec{x}_+)^2}{2}e^{H\tau_+}\numberthis\label{eq:x0}\\
+	HX^0=&\sinh(H\tau_+)+\frac{(H\vec{x}_+)^2}{2}e^{H\tau_+}\text{, \cite[XII,(333)]{Akhmedov2017}}\numberthis\label{eq:x0}\\
 	HX^i=&Hx^i_+e^{H\tau_+}, \vec{x}++\equiv x+^i_+, i=1,...,D-1\numberthis\label{eq:xi}\\
 	HX^D=&-\cosh(H\tau_+)+\frac{(H\vec{x}_+)^2}{2}e^{H\tau_+}\numberthis\label{eq:xD}\\
 	ds^2=&\eta_{AB}dx^Adx^B\numberthis\label{eq:ds}\\
 	\implies&\\
-	ds^2_+=&d\tau^2_+ - e^{2H\tau_+}d\vec{x}^2_+	
+	ds^2_+=&d\tau^2_+ - e^{2H\tau_+}d\vec{x}^2_+\text{, \cite[XII,(332)]{Akhmedov2017}}	\numberthis\label{eq:demonstandem}
 	\end{align*}
 \end{theorem}
 \begin{proof}
@@ -69,12 +65,29 @@
 	&-2\big(e^{H\tau_+} H^2\frac{(H\vec{x}_+)^2}{2}e^{H\tau_+}\big)\\
 	&+2\sinh(H\tau_+)e^{H\tau_+}\\
 	\big]&H\vec{x}_+\bullet d(\vec{x}_+)d\tau_+\\
-	+\big[&- \sum_{i=1}^{D-1}e^{2H\tau_+}\\
-	\big]&(dx^i_+)^2
+	-& e^{2H\tau_+}\underbrace{\sum_{i=1}^{D-1}(dx^i_+)^2}_\text{$=d\vec{x}^2_+$}\numberthis\label{eq:expanded}
+	\end{align*}
+	Rearranging the $d\tau_+^2$ term in \eqref{eq:expanded} gives:
+	\begin{align*}
+	&\cosh^2(H\tau_+)-\sinh^2(H\tau_+)\\
+	&+  H^2\, \cancel{2}\cosh(H\tau_+)\frac{(\vec{x}_+)^2}{\cancel{2}}e^{H\tau_+}+H^2\, \cancel{2}\sinh(H\tau_+) \frac{(\vec{x}_+)^2}{\cancel{2}}e^{H\tau_+}\\
+	&- \sum_{i=1}^{D-1}\bigg[ H x^i_+e^{H\tau_+}\bigg]^2\\
+	=& 1 +H^2\frac{e^{H\tau_+}+\cancel{e^{-H\tau_+}}+e^{H\tau_+}-\cancel{e^{-H\tau_+}}}{2}(\vec{x}_+)^2e^{H\tau_+} - H^2e^{2H\tau_+}\sum_{i=1}^{D-1}\bigg[  x^i_+ \bigg]^2\\
+	=& 1 + \cancel{H^2 (\vec{x}_+)^2 2e^{H\tau_+}} - \cancel{H^2 (\vec{x}_+)^2 2e^{H\tau_+}}\\
+	=&1 \numberthis\label{eq:d_tau_2}
 	\end{align*}
 	
-
+	Rearranging the $H\vec{x}_+\bullet d(\vec{x}_+)d\tau_+$ term in \eqref{eq:expanded} gives:
+	\begin{align*}
+&\cancel{2e^{H\tau_+} H^2\frac{(H\vec{x}_+)^2}{2}e^{H\tau_+}}+2\cosh(H\tau_+) - 2e^{H\tau_+}  e^{H\tau_+}\\
+&-\cancel{2e^{H\tau_+} H^2\frac{(H\vec{x}_+)^2}{2}e^{H\tau_+}}+2\sinh(H\tau_+)e^{H\tau_+}\\
+=&2\big[\underbrace{\cosh(H\tau_+)+\sinh(H\tau_+)}_\text{$=\frac{e^{H\tau_+}+\cancel{e^{-H\tau_+}}+e^{H\tau_+}-\cancel{e^{-H\tau_+}}}{2}$}-e^{H\tau_+}\big]e^{H\tau_+}\\
+=&2\big[e^{H\tau_+}-e^{H\tau_+}\big]e^{H\tau_+}\\
+=&0\numberthis\label{eq:d_mixed}
+	\end{align*}
+Substituting \eqref{eq:d_tau_2} and \eqref{eq:d_mixed} in \eqref{eq:expanded} yields $ds^2_+=d\tau^2_+ - e^{2H\tau_+}d\vec{x}^2_+$, which matches \eqref{eq:demonstandem}.
 \end{proof}
+
 \begin{thebibliography}{9}\label{section:biblio}
 	\raggedright
 	\bibitem{Akhmedov2017}
