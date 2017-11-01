@@ -18,11 +18,11 @@ What is the result of the Wick rotation of the Rindler metric?.
 \end{itemize}
 \end{abstract}
 
-
+\section{Na\"ive Approach}
 From the Lecture Notes, \cite[I, (9) \& (10)]{Akhmedov2017}, the Rindler metric is obtained from the Minkowski metric, by writing:
 \begin{align*}
-t=&\, \rho \sinh \tau \\
-x=&\, \rho \cosh \tau \text{, whence}\\
+t=&\, \rho \sinh \tau \numberthis\label{eq:t_tau}\\
+x=&\, \rho \cosh \tau \text{, whence} \numberthis\label{eq:r_rho}\\
 ds^2 =&\, dt^2-dx^2-dy^2-dz^2\text{ becomes}\\
 =&\, \rho^2 d\tau^2 - d\rho ^2 -dy^2-dz^2\numberthis\label{eq:rindler}
 \end{align*}
@@ -32,8 +32,13 @@ We apply Wick Rotation by introducing a new imaginary time, $\mathfrak{T}$:
 \mathfrak{T}=&i\tau\text{, whence \eqref{eq:rindler} becomes}\\
 ds^2 =& -\rho^2 d\mathfrak{T}^2 - d\rho^2-dy^2-dz^2\text{, a metric with signature (-1,-1,-1,-1)}
 \end{align*}
+The problem is that $ds^2<0$, leading to an imaginary $ds$!
 
-
+\section{Making $ds^2>0$}
+We follow \cite{Akhmedov2017} and reverse the sign of the metric, $ds^2=-\eta_{\mu\nu}x^{\mu}x^{\nu}$. Then, applying Wick rotation:
+\begin{equation*}
+ds^2 = \rho^2 d\mathfrak{T}^2 + d\rho^2+dy^2+dz^2\text{, a metric with signature (+1,+1,+1,+1)}.
+\end{equation*}
 \begin{thebibliography}{9}\label{section:biblio}
 	\raggedright
 	\bibitem{Akhmedov2017}
